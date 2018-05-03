@@ -26,7 +26,7 @@ HexDigit == 0 .. 15
 Hex == Seq(HexDigit)
 
 HexChar ==
-    <<"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F">>
+    {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"}
 
 (* if the address of a modbus device is less than 15 then the sequence will just be a single byte, but it needs to be 2 bytes per the spec
 so add a leading "0" *)
@@ -86,5 +86,5 @@ Next ==
 
 =============================================================================
 \* Modification History
-\* Last modified Wed May 02 16:54:36 EDT 2018 by SabraouM
+\* Last modified Thu May 03 09:40:20 EDT 2018 by SabraouM
 \* Created Wed May 02 15:28:50 EDT 2018 by SabraouM
