@@ -1,5 +1,6 @@
 ------------------ MODULE CommCell ---------------------
 (*https://elixir.bootlin.com/linux/v4.2/source/drivers/tty/serial/serial_core.c*)
+(*http://www.modbus.org/docs/Modbus_over_serial_line_V1.pdf*)
 
 (*
 --algorithm RxTx
@@ -109,10 +110,9 @@ Init == (* Global variables *)
 
 idle == /\ pc["Serial"] = "idle"
         /\ isIdle' = TRUE
-        /\ rxBuffCount' = 0
         /\ pc' = [pc EXCEPT !["Serial"] = "switchToTx"]
         /\ UNCHANGED << startMsg, end1, end2, tx, rx, txReg, rxReg, 
-                        txBuffCount, isValidCRC, isValidModbus >>
+                        rxBuffCount, txBuffCount, isValidCRC, isValidModbus >>
 
 switchToTx == /\ pc["Serial"] = "switchToTx"
               /\ IF tx = TRUE && txBuffCount \= 0 && isValidModbus

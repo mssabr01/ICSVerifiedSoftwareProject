@@ -28,7 +28,6 @@
         idle: while (TRUE)
         {
             isIdle := TRUE;
-            rxBuffCount := 0;
             \*if we have something to send and we are not receiving
             \*and if the buffer contains a valid Modbus frame (TODO)
             switchToTx: if(tx = TRUE && txBuffCount \= 0 && isValidModbus)
@@ -70,6 +69,8 @@
                 endFrame:   if(rxReg = startMsg) { goto reception; };
                             r4: if(rxReg = end2 && isValidModbus && isValidCRC)
                                 {
+                                \*if we get LF\CR and the CRC is good and the frame is valid modbus
+                                \*then signal to the application that the rx buffer is ready to process
                                     rx := TRUE;
                                 };
                             

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ModbusState</name>
+	<name>Modbus</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -21,9 +21,19 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>ModbusState.tla</name>
+			<name>Hex.tla</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/ModbusState.tla</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Hex.tla</locationURI>
+		</link>
+		<link>
+			<name>LRC.tla</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/LRC.tla</locationURI>
+		</link>
+		<link>
+			<name>Modbus.tla</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Modbus.tla</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
