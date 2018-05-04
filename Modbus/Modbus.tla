@@ -1,12 +1,12 @@
 --------------------------- MODULE Modbus ---------------------------
 
 \*The set of all Modbus messages for a given network
-EXTENDS 
-    Integers, 
-    Hex, 
-    Sequences,
-    LRC,
-    TLC
+LOCAL INSTANCE Integers 
+LOCAL INSTANCE Hex 
+    WITH natValue <- 0, hexValue <- <<0>> 
+LOCAL INSTANCE Sequences
+LOCAL INSTANCE LRC
+LOCAL INSTANCE TLC
     
 CONSTANT N \* number of hosts on the line 
 
@@ -95,5 +95,5 @@ ASSUME
   \*/\ Print(IsModbus(<<"e","j","g","p","9","4","3","2","j","3","9","j","g","w","i","r","w">>), TRUE)
 =============================================================================
 \* Modification History
-\* Last modified Thu May 03 11:12:31 EDT 2018 by SabraouM
+\* Last modified Fri May 04 12:35:27 EDT 2018 by SabraouM
 \* Created Thu Jan 18 14:33:25 EST 2018 by SabraouM

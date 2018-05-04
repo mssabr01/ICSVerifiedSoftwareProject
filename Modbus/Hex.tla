@@ -1,12 +1,11 @@
 -------------------------------- MODULE Hex --------------------------------
 \* https://github.com/ahelwer/tla-experiments/blob/master/Hex.tla
 
-EXTENDS
-    Naturals,
-    Sequences,
-    TLC
+LOCAL INSTANCE Naturals
+LOCAL INSTANCE Sequences
+LOCAL INSTANCE TLC
 
-VARIABLES
+VARIABLES 
     hexValue,
     natValue
 
@@ -86,5 +85,5 @@ Next ==
 
 =============================================================================
 \* Modification History
-\* Last modified Thu May 03 09:40:20 EDT 2018 by SabraouM
+\* Last modified Fri May 04 12:09:36 EDT 2018 by SabraouM
 \* Created Wed May 02 15:28:50 EDT 2018 by SabraouM
