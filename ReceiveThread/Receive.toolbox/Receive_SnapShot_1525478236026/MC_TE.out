@@ -1,0 +1,300 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.12 of 29 January 2018
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with 2 workers on 4 cores with 601MB heap and 1349MB offheap memory (Windows 10 10.0 amd64, Oracle Corporation 1.8.0_162 x86_64).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\ReceiveThread\Receive.toolbox\Receive\MC.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\ReceiveThread\Receive.toolbox\Receive\Receive.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\TLC.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Naturals.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\ReceiveThread\Receive.toolbox\Receive\Modbus.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\ReceiveThread\Receive.toolbox\Receive\Hex.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Integers.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\ReceiveThread\Receive.toolbox\Receive\LRC.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module Integers
+Semantic processing of module TLC
+Semantic processing of module Hex
+Semantic processing of module LRC
+Semantic processing of module Modbus
+Semantic processing of module Receive
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2018-05-04 19:57:13)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 1 branches.
+@!@!@ENDMSG 2212 @!@!@
+TRUE  TRUE
+TRUE  TRUE
+TRUE  TRUE
+TRUE  TRUE
+TRUE  TRUE
+TRUE  TRUE
+<<"1", "1">>  TRUE
+<<"0", "3">>  TRUE
+<<"0", "0", "6", "B", "0", "0", "0", "3", "7", "E">>  TRUE
+<<"7", "E">>  TRUE
+<<"C", "R", "L", "F">>  TRUE
+FALSE  TRUE
+TRUE  TRUE
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 2 distinct states generated.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2109:1 @!@!@
+Successor state is not completely specified by the next-state action.
+
+@!@!@ENDMSG 2109 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ txBufIndex = 17
+/\ txBuf = << ":",
+   "J",
+   "G",
+   "P",
+   "9",
+   "4",
+   "3",
+   "2",
+   "J",
+   "3",
+   "9",
+   "J",
+   "G",
+   "W",
+   "I",
+   "R",
+   "W" >>
+/\ pc = "idle"
+/\ tx = TRUE
+/\ txReg = ""
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <idle line 53, col 9 to line 57, col 55 of module Receive>
+/\ txBufIndex = 17
+/\ txBuf = << ":",
+   "J",
+   "G",
+   "P",
+   "9",
+   "4",
+   "3",
+   "2",
+   "J",
+   "3",
+   "9",
+   "J",
+   "G",
+   "W",
+   "I",
+   "R",
+   "W" >>
+/\ pc = "transmit"
+/\ tx = TRUE
+/\ txReg = ""
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <transmit line 59, col 13 to line 65, col 47 of module Receive>
+/\ txBufIndex = 17
+/\ txBuf = << ":",
+   "J",
+   "G",
+   "P",
+   "9",
+   "4",
+   "3",
+   "2",
+   "J",
+   "3",
+   "9",
+   "J",
+   "G",
+   "W",
+   "I",
+   "R",
+   "W" >>
+/\ pc = "t1"
+/\ tx = TRUE
+/\ txReg = ""
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <t1 line 85, col 7 to line 89, col 42 of module Receive>
+/\ txBufIndex = 17
+/\ txBuf = << ":",
+   "J",
+   "G",
+   "P",
+   "9",
+   "4",
+   "3",
+   "2",
+   "J",
+   "3",
+   "9",
+   "J",
+   "G",
+   "W",
+   "I",
+   "R",
+   "W" >>
+/\ pc = "Done"
+/\ tx = FALSE
+/\ txReg = null
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2018-05-04 19:57:14
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 55, col 23 to line 55, col 38 of module Receive: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 56, col 23 to line 56, col 34 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 57, col 25 to line 57, col 26 of module Receive: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 57, col 29 to line 57, col 33 of module Receive: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 57, col 36 to line 57, col 45 of module Receive: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 57, col 48 to line 57, col 52 of module Receive: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 61, col 27 to line 61, col 50 of module Receive: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 62, col 27 to line 62, col 38 of module Receive: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 63, col 27 to line 63, col 36 of module Receive: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 64, col 37 to line 64, col 46 of module Receive: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 65, col 29 to line 65, col 30 of module Receive: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 65, col 33 to line 65, col 37 of module Receive: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 65, col 40 to line 65, col 44 of module Receive: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 69, col 23 to line 69, col 31 of module Receive: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 70, col 23 to line 70, col 32 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 71, col 23 to line 71, col 33 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 72, col 25 to line 72, col 26 of module Receive: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 72, col 29 to line 72, col 33 of module Receive: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 72, col 36 to line 72, col 45 of module Receive: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 72, col 48 to line 72, col 52 of module Receive: 1
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 75, col 9 to line 75, col 34 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 76, col 9 to line 76, col 17 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 77, col 22 to line 77, col 23 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 77, col 26 to line 77, col 30 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 77, col 33 to line 77, col 42 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 81, col 9 to line 81, col 36 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 82, col 9 to line 82, col 20 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 83, col 22 to line 83, col 23 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 83, col 26 to line 83, col 30 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 83, col 33 to line 83, col 37 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 87, col 10 to line 87, col 20 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 88, col 10 to line 88, col 21 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 89, col 23 to line 89, col 27 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 89, col 30 to line 89, col 39 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 94, col 20 to line 94, col 31 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 96, col 33 to line 96, col 37 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 96, col 40 to line 96, col 44 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 96, col 47 to line 96, col 56 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 96, col 59 to line 96, col 60 of module Receive: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(4) at 2018-05-04 19:57:14: 8 states generated (475 s/min), 7 distinct states found (415 ds/min), 1 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+8 states generated, 7 distinct states found, 1 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 4.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 1 (minimum is 1, the maximum 1 and the 95th percentile is 1).
+@!@!@ENDMSG 2268 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 1635ms at (2018-05-04 19:57:14)
+@!@!@ENDMSG 2186 @!@!@
