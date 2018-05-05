@@ -19,12 +19,19 @@
 <stringAttribute key="modelBehaviorNext" value="Next"/>
 <stringAttribute key="modelBehaviorSpec" value="Spec"/>
 <intAttribute key="modelBehaviorSpecType" value="1"/>
-<stringAttribute key="modelBehaviorVars" value="txReg, txBuf, tx, txBufIndex, pc"/>
+<stringAttribute key="modelBehaviorVars" value="txBufIndex, txBuf, pc, tx, txReg"/>
 <stringAttribute key="modelComments" value=""/>
 <booleanAttribute key="modelCorrectnessCheckDeadlock" value="false"/>
-<listAttribute key="modelCorrectnessInvariants"/>
+<listAttribute key="modelCorrectnessInvariants">
+<listEntry value="1ONLYHEXSENT"/>
+<listEntry value="1BUFFOVERFLOW"/>
+<listEntry value="0ONLYMODBUS"/>
+</listAttribute>
 <listAttribute key="modelCorrectnessProperties">
 <listEntry value="1Termination"/>
+<listEntry value="1ALLSENT"/>
+<listEntry value="1NOTHANG"/>
+<listEntry value="1SENDSOMETHING"/>
 </listAttribute>
 <stringAttribute key="modelExpressionEval" value=""/>
 <stringAttribute key="modelParameterActionConstraint" value=""/>

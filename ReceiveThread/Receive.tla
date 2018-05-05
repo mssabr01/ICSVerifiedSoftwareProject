@@ -2,7 +2,8 @@
 
 EXTENDS Sequences,
         Naturals,
-        Modbus
+        Modbus,
+        TLC
         
 LOCAL INSTANCE Hex
     WITH natValue <- 0, hexValue <- <<0>> 
@@ -45,10 +46,10 @@ VARIABLES tx, txBuf, txBufIndex, pc, txReg
 vars == << tx, txBuf, txBufIndex, pc, txReg >>
 
 Init == (* Global variables *)
-        /\ tx = TRUE
+        /\ tx \in BOOLEAN
         /\ txBuf \in MessagesFromSerialPort
         /\ txReg = ""
-        /\ txBufIndex = 0
+        /\ txBufIndex = 1
         /\ pc = "idle"
 
 idle == /\ pc = "idle"
@@ -59,14 +60,12 @@ idle == /\ pc = "idle"
 
 transmit == /\ pc = "transmit"
             /\ IF IsModbus(txBuf)
-                  THEN /\ txBufIndex' = Len(txBuf)
-                       /\ pc' = "send"
+                  THEN /\ pc' = "send"
                   ELSE /\ pc' = "t1"
-                       /\ UNCHANGED txBufIndex
-            /\ UNCHANGED << tx, txBuf, txReg >>
+            /\ UNCHANGED << tx, txBuf, txReg, txBufIndex >>
 
 send == /\ pc = "send"
-        /\ IF txBufIndex  < Len(txBuf)
+        /\ IF txBufIndex <= Len(txBuf)
               THEN /\ pc' = "a"
               ELSE /\ pc' = "t1"
         /\ UNCHANGED << tx, txBuf, txBufIndex, txReg >>
@@ -83,35 +82,41 @@ b == /\ pc = "b"
      /\ UNCHANGED << tx, txBuf, txReg >>
 
 t1 == /\ pc = "t1"
-      /\ txReg = ""
+      /\ txReg' = ""
       /\ tx' = FALSE
       /\ pc' = "Done"
-      /\ UNCHANGED << txBuf, txBufIndex, txReg >>
+      /\ UNCHANGED << txBuf, txBufIndex >>
 
 Next == idle \/ transmit \/ send \/ a \/ b \/ t1
            \/ (* Disjunct to prevent deadlock on termination *)
-              ( pc = "Done"
-                /\ tx = FALSE 
-                /\ UNCHANGED << txBuf, txReg, txBufIndex, tx, pc >>)
+              ( pc = "Done" /\ UNCHANGED vars)
 
 Spec == Init /\ [][Next]_vars /\ WF_vars(Next)
 
 Termination == <>(pc = "Done")
 
 \* check that if valid modbus is in the buffer it gets sent
-ALLSENT == tx = TRUE ~> txBufIndex = 0
+ALLSENT == (tx = TRUE /\ IsModbus(txBuf)) ~> txBufIndex = Len(txBuf)+1
 
-NOTHANG == tx = TRUE ~> tx = FALSE
+\*Only valid modbus triggers the sending
+\*ONLYMODBUS == ((IsModbus(txBuf) = FALSE) /\ (txReg = "")) = TRUE 
 
-BUFFOVERFLOW == [](txBufIndex <= Len(txBuf))
+\*If there is something to send, the flag is eventually reset
+NOTHANG == (tx = TRUE) ~> (tx = FALSE)
 
-SENDSOMETHING == <>(txReg /= "")
+\* The counter never goes above the buffer length+1
+BUFFOVERFLOW == (txBufIndex <= Len(txBuf)+1)
 
-ONLYHEXSENT == [](txReg \in HexChar \/ txReg = ":")
+\*If there is something to send then it is alway sent
+SENDSOMETHING == (tx = TRUE /\ IsModbus(txBuf)) ~> (txReg /= "")
+
+\*Only valid modbus characters are sent
+ONLYHEXSENT == (txReg \in ModbusChar)
+ASSUME Print(Len(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","F">>),TRUE)
 
 \* END TRANSLATION
 
 =============================================================================
 \* Modification History
-\* Last modified Fri May 04 20:12:08 EDT 2018 by SabraouM
+\* Last modified Fri May 04 21:42:30 EDT 2018 by SabraouM
 \* Created Thu May 03 13:28:54 EDT 2018 by SabraouM

@@ -7,8 +7,6 @@ LOCAL INSTANCE Hex
 LOCAL INSTANCE Sequences
 LOCAL INSTANCE LRC
 LOCAL INSTANCE TLC
-    
-CONSTANT N \* number of hosts on the line 
 
 --------------------------------------------------------------------------
 
@@ -19,6 +17,7 @@ CONSTANT N \* number of hosts on the line
     LRC:        two hex char Longitudinal Redundancy Check (LRC)
     End:        "CRLF"
  *)
+
  
 \*Start ==================================================================
 IsStart(str) == str = ":"
@@ -79,10 +78,11 @@ IsModbus(message) ==
     /\ IsData(GetData(message))
     /\ IsLRC(GetLRC(message))
     /\ IsEnd(GetEnd(message))
+
+ModbusChar == {":", "C", "R", "L", "F", ""} \union HexChar
     
-    
-notmod == <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>
-ismod == <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","F">>
+LOCAL notmod == <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>
+LOCAL ismod == <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","F">>
 ASSUME
   \*
   /\ Print(GetAddr(ismod),TRUE)
@@ -95,5 +95,5 @@ ASSUME
   \*/\ Print(IsModbus(<<"e","j","g","p","9","4","3","2","j","3","9","j","g","w","i","r","w">>), TRUE)
 =============================================================================
 \* Modification History
-\* Last modified Fri May 04 12:35:27 EDT 2018 by SabraouM
+\* Last modified Fri May 04 21:01:29 EDT 2018 by SabraouM
 \* Created Thu Jan 18 14:33:25 EST 2018 by SabraouM

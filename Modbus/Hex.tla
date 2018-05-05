@@ -57,7 +57,7 @@ TypeInvariant ==
 SafetyInvariant ==
     /\ hexValue = NatToHex(natValue)
 
-Init ==
+LOCAL Init ==
     /\ hexValue = <<0>>
     /\ natValue = 0
 
@@ -80,10 +80,10 @@ Increment ==
     /\ hexValue' = IncrementedHexValue(hexValue)
     /\ natValue' = natValue + 1
 
-Next ==
+LOCAL Next ==
     \/ Increment
 
 =============================================================================
 \* Modification History
-\* Last modified Fri May 04 12:09:36 EDT 2018 by SabraouM
+\* Last modified Fri May 04 19:48:11 EDT 2018 by SabraouM
 \* Created Wed May 02 15:28:50 EDT 2018 by SabraouM
