@@ -5,9 +5,7 @@ LOCAL INSTANCE Integers
 LOCAL INSTANCE Hex 
     WITH natValue <- 0, hexValue <- <<0>> 
 LOCAL INSTANCE Sequences
-LOCAL INSTANCE LRC
 LOCAL INSTANCE TLC
-LOCAL INSTANCE Modbus
 
 --------------------------------------------------------------------------
 
@@ -17,8 +15,7 @@ LOCAL INSTANCE Modbus
  *)
 
 LOCAL PrintVal(id, exp)  ==  Print(<<id, exp>>, TRUE)
-MAXSSWSIZE == 580 \*1 start + 64 HMAC + 515 Modbus
-MINSSWSIZE == 74 \*1 start + 64 HMAC + 9 Modbus
+MINSSWSIZE == 74 \*1 start + 64 HMAC + 1 Message
 
 \*Start ==================================================================
 LOCAL IsStart(str) == str = "!" \*start with something that isn't hex so we can tell a new message from an HMAC
@@ -41,15 +38,14 @@ ASSUME PrintVal("Is this HMAC?", IsHMAC(<<"D","9","2","8","D","9","2","8",
                                           "E","B","B","A","E","B","B","A">>))
 
 \*Data ===================================================================
-GetModbus(str) == SubSeq(str,66,Len(str))
+GetMessage(str) == SubSeq(str,66,Len(str))
 
 \*The Whole Thing ========================================================
 
 IsSSW(message) == 
-    /\ Len(message) \in MINSSWSIZE..MAXSSWSIZE
+    /\ Len(message) >= MINSSWSIZE
     /\ IsStart(Head(message))
     /\ IsHMAC(GetHMAC(message))
-    /\ IsModbus(GetModbus(message))
     
 LOCAL notSSW == <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>
 LOCAL notSSW2 == <<>>
@@ -60,15 +56,12 @@ LOCAL isSSW == <<"!","0","A","0","B","0","D","0","9","0","2","0","8","0","7","0"
 TYPEOK ==
   \*
   /\ PrintVal("The HMAC: ", GetHMAC(isSSW))
-  /\ PrintVal("TheModbus ",GetModbus(isSSW))
   /\ PrintVal("Is this SSW? ",IsSSW(notSSW))
   /\ PrintVal("Is this SSW? ",IsSSW(notSSW2))
   /\ PrintVal("Is this SSW? ",IsSSW(isSSW))
-  /\ PrintVal("The modbus from the valid SSW packet: ", GetModbus(isSSW))
-  \*/\ Print(IsModbus(<<"e","j","g","p","9","4","3","2","j","3","9","j","g","w","i","r","w">>), TRUE)
 
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 12:13:26 EDT 2018 by SabraouM
+\* Last modified Sun May 06 13:32:00 EDT 2018 by SabraouM
 \* Created Sun May 06 09:06:45 EDT 2018 by SabraouM
