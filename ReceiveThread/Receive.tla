@@ -16,7 +16,7 @@ MessagesToSerialPort ==
 
   \*}
 
-buffSize == 513 \*max modbus packet size
+
 (*
 (*--fair algorithm Transmit
 variables   rx = FALSE,
@@ -85,7 +85,7 @@ idle == /\ pc = "idle"
         /\ UNCHANGED << rx, rxBuf, applicationBuffer >>
 
 start == /\ pc = "start"
-         /\ IF rxReg /= <<>> /\ Len(rxBuf) < buffSize
+         /\ IF rxReg /= <<>> /\ Len(rxBuf) < MAXMODBUSSIZE
                THEN /\ pc' = "receive"
                ELSE /\ pc' = "alldone"
          /\ UNCHANGED << rx, rxBuf, rxReg, incMessage, applicationBuffer >>
@@ -134,8 +134,8 @@ Termination == <>(pc = "Done")
 
 \* END TRANSLATION
 
-NoOverflow == Len(rxBuf) <= buffSize \*receive buffer never overflows
-NoAppOverflow == Len(applicationBuffer) <= buffSize \*application buffer never overflows
+NoOverflow == Len(rxBuf) <= MAXMODBUSSIZE \*receive buffer never overflows
+NoAppOverflow == Len(applicationBuffer) <= MAXMODBUSSIZE \*application buffer never overflows
 OnlyModbus == IsModbus(applicationBuffer) \/ applicationBuffer = <<>> \*only valid modbus makes it to the app buffer
 ModbusGetsThrough ==  IsModbus(incMessage) ~> IsModbus(applicationBuffer) \* if the message is modbus then it gets to the app buffer
 ModbusGetsFlagged == IsModbus(incMessage) ~> rx = TRUE \* if valid modbus comes through then it gets flagged for the application to consume
@@ -144,5 +144,5 @@ NoMBNoFlag == rx = TRUE <=> IsModbus(applicationBuffer) \*flag is raised if and 
 
 =============================================================================
 \* Modification History
-\* Last modified Sat May 05 20:22:13 EDT 2018 by SabraouM
+\* Last modified Sun May 06 09:52:37 EDT 2018 by SabraouM
 \* Created Sat May 05 11:36:54 EDT 2018 by SabraouM

@@ -16,7 +16,7 @@ MessagesToSerialPort ==
 
   \*}
 
-buffSize == 513 \*max modbus packet size
+
 (*
 (*--fair algorithm Transmit
 variables   rx = FALSE,
@@ -144,5 +144,5 @@ NoMBNoFlag == rx = TRUE <=> IsModbus(applicationBuffer) \*flag is raised if and 
 
 =============================================================================
 \* Modification History
-\* Last modified Sat May 05 20:22:13 EDT 2018 by SabraouM
+\* Last modified Sun May 06 09:50:26 EDT 2018 by SabraouM
 \* Created Sat May 05 11:36:54 EDT 2018 by SabraouM

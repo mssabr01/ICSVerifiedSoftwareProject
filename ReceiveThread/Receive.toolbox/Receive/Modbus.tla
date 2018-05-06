@@ -18,6 +18,7 @@ LOCAL INSTANCE TLC
     End:        "CRLF"
  *)
 
+buffSize == 515 \*max modbus packet size
  
 \*Start ==================================================================
 IsStart(str) == str = ":"
@@ -95,5 +96,5 @@ ASSUME
   \*/\ Print(IsModbus(<<"e","j","g","p","9","4","3","2","j","3","9","j","g","w","i","r","w">>), TRUE)
 =============================================================================
 \* Modification History
-\* Last modified Sat May 05 17:03:09 EDT 2018 by SabraouM
+\* Last modified Sun May 06 09:50:34 EDT 2018 by SabraouM
 \* Created Thu Jan 18 14:33:25 EST 2018 by SabraouM
