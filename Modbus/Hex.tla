@@ -74,6 +74,8 @@ IncrementedHexValue(hex) ==
         THEN Append(prefix, last + 1)
         ELSE Append(IncrementedHexValue(prefix), 0)
 
+IsHex(str) == str = SelectSeq(str, LAMBDA x: x \in HexChar)                                     \*this set is empty
+
 Increment ==
     /\ Print(HexToString(hexValue), TRUE)
     /\ Print(HexToString(NatToHex(natValue)), TRUE)
@@ -85,5 +87,5 @@ LOCAL Next ==
 
 =============================================================================
 \* Modification History
-\* Last modified Fri May 04 19:48:11 EDT 2018 by SabraouM
+\* Last modified Sun May 06 10:55:59 EDT 2018 by SabraouM
 \* Created Wed May 02 15:28:50 EDT 2018 by SabraouM

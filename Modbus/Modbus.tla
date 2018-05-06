@@ -19,15 +19,15 @@ LOCAL INSTANCE TLC
  *)
 
 MAXMODBUSSIZE == 515 \*max modbus packet size
- 
+MINMODBUSSIZE == 9
 \*Start ==================================================================
-IsStart(str) == str = ":"
+LOCAL IsStart(str) == str = ":"
 ASSUME Print(IsStart(":"),TRUE)
 
 \*Address fields =========================================================
-GetAddr(str) == SubSeq(str,2,3)
+LOCAL GetAddr(str) == SubSeq(str,2,3)
 
-IsAddr(str) == 
+LOCAL IsAddr(str) == 
     /\ Len(str) = 2
     /\ Head(str) \in HexChar
     /\ Head(Tail(str)) \in HexChar
@@ -35,9 +35,9 @@ IsAddr(str) ==
 ASSUME Print(IsAddr(<<"E","0">>),TRUE)
 
 \*Function fields ========================================================
-GetFunct(str) == SubSeq(str,4,5)
+LOCAL GetFunct(str) == SubSeq(str,4,5)
 
-IsFunctionCode(str) == 
+LOCAL IsFunctionCode(str) == 
     /\ Len(str) = 2
     /\ Head(str) \in HexChar
     /\ Head(Tail(str)) \in HexChar
@@ -45,26 +45,26 @@ IsFunctionCode(str) ==
 ASSUME Print(IsFunctionCode(<<"E","0">>),TRUE)
 
 \*Data ===================================================================
-GetData(str) == SubSeq(str,6,Len(str)-4)
+LOCAL GetData(str) == SubSeq(str,6,Len(str)-4)
 
-Range(T) == { T[x] : x \in DOMAIN T }
+LOCAL Range(T) == { T[x] : x \in DOMAIN T }
 
-IsData(str) == 
+LOCAL IsData(str) == 
     /\ Len(str) \in 0..504
     /\ str = SelectSeq(str, LAMBDA x: x \in HexChar)
 ASSUME Print(IsData(<<"1","1","0","3","0","0","6","B","0","0","0">>),TRUE)
 
 \*End ====================================================================
-GetEnd(str) == SubSeq(str,Len(str)-3,Len(str))
+LOCAL GetEnd(str) == SubSeq(str,Len(str)-3,Len(str))
 
-IsEnd(str) == str = <<"C","R","L","F">>
+LOCAL IsEnd(str) == str = <<"C","R","L","F">>
 
 ASSUME Print(IsEnd(<<"C","R","L","F">>),TRUE)
 
 \*LRC ====================================================================
-GetLRC(str) == SubSeq(str,Len(str)-5, Len(str)-4)
+LOCAL GetLRC(str) == SubSeq(str,Len(str)-5, Len(str)-4)
 
-IsLRC(str) == CheckLRC(str)
+LOCAL IsLRC(str) == CheckLRC(str)
 \*LRCInvariant == CheckLRC(start \o addr1 \o addr2 \o fc1 \o fc2 \o data \o end)
 
 ASSUME Print(IsLRC(<<"F","4">>),TRUE)
@@ -72,7 +72,7 @@ ASSUME Print(IsLRC(<<"F","4">>),TRUE)
 \*The Whole Thing ========================================================
 
 IsModbus(message) == 
-    /\ Len(message) \in 9..513
+    /\ Len(message) \in MINMODBUSSIZE..MAXMODBUSSIZE
     /\ IsStart(Head(message))
     /\ IsAddr(GetAddr(message))
     /\ IsFunctionCode(GetFunct(message))
@@ -96,5 +96,5 @@ ASSUME
   \*/\ Print(IsModbus(<<"e","j","g","p","9","4","3","2","j","3","9","j","g","w","i","r","w">>), TRUE)
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 09:52:18 EDT 2018 by SabraouM
+\* Last modified Sun May 06 11:52:43 EDT 2018 by SabraouM
 \* Created Thu Jan 18 14:33:25 EST 2018 by SabraouM
