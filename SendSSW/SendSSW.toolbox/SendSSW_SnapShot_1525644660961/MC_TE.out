@@ -1,0 +1,256 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.12 of 29 January 2018
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with 2 workers on 4 cores with 601MB heap and 1349MB offheap memory (Windows 10 10.0 amd64, Oracle Corporation 1.8.0_162 x86_64).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\SendSSW\SendSSW.toolbox\SendSSW\MC.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\SendSSW\SendSSW.toolbox\SendSSW\SendSSW.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\TLC.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Naturals.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\SendSSW\SendSSW.toolbox\SendSSW\SSWPacket.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\SendSSW\SendSSW.toolbox\SendSSW\Hex.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Integers.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module Integers
+Semantic processing of module TLC
+Semantic processing of module Hex
+Semantic processing of module SSWPacket
+Semantic processing of module SendSSW
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2018-05-06 18:10:58)
+@!@!@ENDMSG 2185 @!@!@
+<< "The HMAC: ",
+   << "0",
+      "A",
+      "0",
+      "B",
+      "0",
+      "D",
+      "0",
+      "9",
+      "0",
+      "2",
+      "0",
+      "8",
+      "0",
+      "7",
+      "0",
+      "5",
+      "0",
+      "3",
+      "0",
+      "0",
+      "0",
+      "9",
+      "0",
+      "8",
+      "0",
+      "5",
+      "0",
+      "C",
+      "0",
+      "E",
+      "0",
+      "B",
+      "0",
+      "B",
+      "0",
+      "A",
+      "0",
+      "F",
+      "0",
+      "C",
+      "0",
+      "0",
+      "0",
+      "B",
+      "0",
+      "C",
+      "0",
+      "B",
+      "0",
+      "0",
+      "0",
+      "B",
+      "0",
+      "D",
+      "0",
+      "B",
+      "0",
+      "E",
+      "0",
+      "7",
+      "0",
+      "6",
+      "0",
+      "A" >> >>  TRUE
+<<"Is this SSW? ", FALSE>>  TRUE
+<<"Is this SSW? ", FALSE>>  TRUE
+<<"Is this SSW? ", TRUE>>  TRUE
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 4 branches.
+@!@!@ENDMSG 2212 @!@!@
+<<"Is this a start?", TRUE>>  TRUE
+<<"Is this HMAC?", TRUE>>  TRUE
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2102:1 @!@!@
+Attempted to check set membership in a tuple value.
+While working on the initial state:
+/\ txReg = ""
+/\ txBuf = <<>>
+/\ tx = FALSE
+/\ txBufIndex = 1
+/\ pc = "idle"
+
+@!@!@ENDMSG 2102 @!@!@
+@!@!@STARTMSG 2147:1 @!@!@
+TLC was unable to fingerprint.
+
+Fingerprint Stack Trace:
+1) line 110, col 35 to line 110, col 41 of module SendSSW
+0) line 110, col 20 to line 110, col 41 of module SendSSW
+
+Reason:
+Attempted to check set membership in a tuple value.
+@!@!@ENDMSG 2147 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2018-05-06 18:10:59
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 44, col 12 to line 44, col 13 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 44, col 16 to line 44, col 20 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 44, col 23 to line 44, col 32 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 44, col 35 to line 44, col 36 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 44, col 39 to line 44, col 43 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 55, col 23 to line 55, col 38 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 56, col 23 to line 56, col 34 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 57, col 25 to line 57, col 26 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 57, col 29 to line 57, col 33 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 57, col 36 to line 57, col 45 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 57, col 48 to line 57, col 52 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 61, col 27 to line 61, col 38 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 62, col 27 to line 62, col 36 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 63, col 29 to line 63, col 30 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 63, col 33 to line 63, col 37 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 63, col 40 to line 63, col 44 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 63, col 47 to line 63, col 56 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 67, col 23 to line 67, col 31 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 68, col 23 to line 68, col 32 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 69, col 25 to line 69, col 26 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 69, col 29 to line 69, col 33 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 69, col 36 to line 69, col 45 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 69, col 48 to line 69, col 52 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 72, col 9 to line 72, col 34 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 73, col 9 to line 73, col 17 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 74, col 22 to line 74, col 23 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 74, col 26 to line 74, col 30 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 74, col 33 to line 74, col 42 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 78, col 9 to line 78, col 36 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 79, col 9 to line 79, col 20 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 80, col 22 to line 80, col 23 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 80, col 26 to line 80, col 30 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 80, col 33 to line 80, col 37 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 83, col 10 to line 83, col 20 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 10 to line 84, col 20 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 85, col 10 to line 85, col 21 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 86, col 23 to line 86, col 27 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 86, col 30 to line 86, col 39 of module SendSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(1) at 2018-05-06 18:10:59: 10 states generated (655 s/min), 2 distinct states found (131 ds/min), 2 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+10 states generated, 2 distinct states found, 2 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 1816ms at (2018-05-06 18:10:59)
+@!@!@ENDMSG 2186 @!@!@

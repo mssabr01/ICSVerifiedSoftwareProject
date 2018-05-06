@@ -7,7 +7,6 @@ LOCAL INSTANCE Hex
 LOCAL INSTANCE Sequences
 LOCAL INSTANCE TLC
 
-STARTCHAR == "!"
 --------------------------------------------------------------------------
 
 (*  Start:      "!"
@@ -23,7 +22,7 @@ LOCAL IsStart(str) == str = "!" \*start with something that isn't hex so we can 
 ASSUME PrintVal("Is this a start?", IsStart("!"))
 
 \*Address fields =========================================================
-GetHMAC(str) == SubSeq(str,2,65)
+LOCAL GetHMAC(str) == SubSeq(str,2,65)
 
 LOCAL IsHMAC(str) == 
     /\ Len(str) = 64 \*these bytes can be anything so we are just checking length?
@@ -48,9 +47,9 @@ IsSSW(message) ==
     /\ IsStart(Head(message))
     /\ IsHMAC(GetHMAC(message))
     
-notSSW == <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>
+LOCAL notSSW == <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>
 LOCAL notSSW2 == <<>>
-isSSW == <<"!","0","A","0","B","0","D","0","9","0","2","0","8","0","7","0","5","0","3","0","0","0","9","0","8","0",
+LOCAL isSSW == <<"!","0","A","0","B","0","D","0","9","0","2","0","8","0","7","0","5","0","3","0","0","0","9","0","8","0",
                  "5","0","C","0","E","0","B","0","B","0","A","0","F","0","C","0","0","0","B","0","C","0","B","0","0","0",
                  "B","0","D","0","B","0","E","0","7","0","6","0","A",":","1","1","0","3","0","0","6","B","0","0","0","3",
                  "7","E","C","R","L","F">>
@@ -64,5 +63,5 @@ TYPEOK ==
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 18:09:21 EDT 2018 by SabraouM
+\* Last modified Sun May 06 13:32:00 EDT 2018 by SabraouM
 \* Created Sun May 06 09:06:45 EDT 2018 by SabraouM

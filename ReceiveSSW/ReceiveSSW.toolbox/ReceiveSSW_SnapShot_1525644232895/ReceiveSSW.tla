@@ -1,14 +1,15 @@
------------------------------- MODULE ReceiveModbus ------------------------------
+------------------------------ MODULE ReceiveSSW ------------------------------
 
 EXTENDS Sequences,
         Naturals,
-        Modbus,
+        SSWPacket,
         TLC
         
 LOCAL INSTANCE Hex
     WITH natValue <- 0, hexValue <- <<0>> 
 MessagesToSerialPort == 
-    { <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>,
+    { isSSW,
+      <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>,
       <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","F">>,
       <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","G","L","F">>,
       <<":","1","1","0","3","0","0","6","B","0","0","0",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","F">>, \*this one starts a new modbus packet half way through the message
@@ -79,20 +80,20 @@ idle == /\ pc = "idle"
         /\ IF Len(incMessage) = 0 
               THEN /\ pc' = "start"
                    /\ rxReg' = <<>>
-                   /\ UNCHANGED << incMessage >>
+                   /\ UNCHANGED << rxReg, incMessage >>
               ELSE /\ rxReg' = <<Head(incMessage)>>
                    /\ incMessage' = Tail(incMessage)
                    /\ pc' = "start"
         /\ UNCHANGED << rx, rxBuf, applicationBuffer >>
 
 start == /\ pc = "start"
-         /\ IF rxReg /= <<>> /\ Len(rxBuf) < MAXMODBUSSIZE
+         /\ IF rxReg /= <<>>
                THEN /\ pc' = "receive"
                ELSE /\ pc' = "alldone"
          /\ UNCHANGED << rx, rxBuf, rxReg, incMessage, applicationBuffer >>
 
 receive == /\ pc = "receive"
-           /\ IF Head(rxReg) = ":"
+           /\ IF Head(rxReg) = STARTCHAR
                  THEN /\ rxBuf' = <<>>
                  ELSE /\ TRUE
                       /\ rxBuf' = rxBuf
@@ -110,7 +111,7 @@ r2 == /\ pc = "r2"
       /\ UNCHANGED << rx, rxBuf, incMessage, applicationBuffer >>
 
 check == /\ pc = "check"
-         /\ IF IsModbus(rxBuf)
+         /\ IF IsSSW(rxBuf)
                THEN /\ rx' = TRUE
                     /\ applicationBuffer' = rxBuf
                     /\ pc' = "alldone"
@@ -136,17 +137,15 @@ Termination == <>(pc = "Done")
 \* END TRANSLATION
 
 SAFETYCHECK ==
-    /\ Len(rxBuf) <= MAXMODBUSSIZE \*receive buffer never overflows
-    /\ Len(applicationBuffer) <= MAXMODBUSSIZE \*application buffer never overflows
-    /\ IsModbus(applicationBuffer) \/ applicationBuffer = <<>> \*only valid modbus makes it to the app buffer
-    /\ rx = TRUE <=> IsModbus(applicationBuffer) \*flag is raised if and only if there is valid modbus in app buffer
+    /\ IsSSW(applicationBuffer) \/ applicationBuffer = <<>> \*only valid modbus makes it to the app buffer
+    /\ rx = TRUE <=> IsSSW(applicationBuffer) \*flag is raised if and only if there is valid modbus in app buffer
 
 LIVELINESS ==
-    /\ IsModbus(incMessage) ~> IsModbus(applicationBuffer) \* if the message is modbus then it gets to the app buffer
-    /\ IsModbus(incMessage) ~> rx = TRUE \* if valid modbus comes through then it gets flagged for the application to consume
+    /\ IsSSW(incMessage) ~> IsSSW(applicationBuffer) \* if the message is modbus then it gets to the app buffer
+    /\ IsSSW(incMessage) ~> rx = TRUE \* if valid modbus comes through then it gets flagged for the application to consume
 
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 18:05:32 EDT 2018 by SabraouM
+\* Last modified Sun May 06 18:03:35 EDT 2018 by SabraouM
 \* Created Sat May 05 11:36:54 EDT 2018 by SabraouM

@@ -77,8 +77,9 @@ Init == (* Global variables *)
 
 idle == /\ pc = "idle"
         /\ IF Len(incMessage) = 0 
-              THEN /\ pc' = "alldone"
-                   /\ UNCHANGED << rxReg, incMessage >>
+              THEN /\ pc' = "start"
+                   /\ rxReg' = <<>>
+                   /\ UNCHANGED << incMessage >>
               ELSE /\ rxReg' = <<Head(incMessage)>>
                    /\ incMessage' = Tail(incMessage)
                    /\ pc' = "start"
@@ -147,5 +148,5 @@ LIVELINESS ==
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 17:38:50 EDT 2018 by SabraouM
+\* Last modified Sun May 06 18:05:32 EDT 2018 by SabraouM
 \* Created Sat May 05 11:36:54 EDT 2018 by SabraouM
