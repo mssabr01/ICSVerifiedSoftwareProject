@@ -1,0 +1,92 @@
+------------------------------ MODULE EnCrypto ------------------------------
+LOCAL INSTANCE Sequences
+LOCAL INSTANCE Naturals
+LOCAL INSTANCE SSWPacket
+
+LOCAL HMACSIZE == 64
+LOCAL MINMESSAGESIZE == 1
+LOCAL MINMACMESSAGESIZE == 65
+LOCAL PASSWORD == "lolpassword"
+LOCAL BareMessages == {isSSW,
+                        notSSW,
+                        <<"D","9","2","8","D","9","2","8",
+                           "7","5","3","0","7","5","3","0",
+                           "9","8","5","C","9","8","5","C",
+                           "E","B","B","A","E","B","B","A",
+                           "D","9","2","8","D","9","2","8",
+                           "7","5","3","0","7","5","3","0",
+                           "9","8","5","C","9","8","5","C",
+                           "E","B","B","A","E","B","B","A",
+                           "9","8","5","C","9","8","5","C",
+                           "E","B","B","A","E","B","B","A",
+                           "D","9","2","8","D","9","2","8",
+                           "7","5","3","0","7","5","3","0",
+                           "9","8","5","C","9","8","5","C">>}
+                       
+HMAC(str, pass) == <<"l","o","l","h","m","a","c">> \*not concerned with the inner workings of SHA2
+
+SendMessage(str) == TRUE \*sending message to another cell. Assuming this works
+
+(*--fair algorithm EnCrypto
+
+variables   macMessage = <<>>,
+            hmac = <<>>,
+            bareMessage \in BareMessages,
+            flag = FALSE,
+            generatedHMAC = <<>>,
+            result = FALSE
+
+begin
+
+msgCheck:   if Len(bareMessage) >= MINMESSAGESIZE
+                then hmac := HMAC(bareMessage, PASSWORD); \*hash it and the password
+                     h1: macMessage := <<"!">> \o hmac \o bareMessage;
+                     result := SendMessage(macMessage);
+            end if;
+
+end algorithm
+*)
+\* BEGIN TRANSLATION
+VARIABLES macMessage, hmac, bareMessage, flag, generatedHMAC, result, pc
+
+vars == << macMessage, hmac, bareMessage, flag, generatedHMAC, result, pc >>
+
+Init == (* Global variables *)
+        /\ macMessage = <<>>
+        /\ hmac = <<>>
+        /\ bareMessage \in BareMessages
+        /\ flag = FALSE
+        /\ generatedHMAC = <<>>
+        /\ result = FALSE
+        /\ pc = "msgCheck"
+
+msgCheck == /\ pc = "msgCheck"
+            /\ IF Len(bareMessage) >= MINMESSAGESIZE
+                  THEN /\ hmac' = HMAC(bareMessage, PASSWORD)
+                       /\ pc' = "h1"
+                  ELSE /\ pc' = "Done"
+                       /\ hmac' = hmac
+            /\ UNCHANGED << macMessage, bareMessage, flag, generatedHMAC, 
+                            result >>
+
+h1 == /\ pc = "h1"
+      /\ macMessage' = <<"!">> \o hmac \o baseMessage
+      /\ result' = SendMessage(macMessage')
+      /\ pc' = "Done"
+      /\ UNCHANGED << hmac, bareMessage, flag, generatedHMAC >>
+
+Next == msgCheck \/ h1
+           \/ (* Disjunct to prevent deadlock on termination *)
+              (pc = "Done" /\ UNCHANGED vars)
+
+Spec == /\ Init /\ [][Next]_vars
+        /\ WF_vars(Next)
+
+Termination == <>(pc = "Done")
+
+\* END TRANSLATION
+
+=============================================================================
+\* Modification History
+\* Last modified Sun May 06 16:23:04 EDT 2018 by SabraouM
+\* Created Sun May 06 15:34:11 EDT 2018 by SabraouM
