@@ -7,7 +7,7 @@ EXTENDS Sequences,
         
 LOCAL INSTANCE Hex
     WITH natValue <- 0, hexValue <- <<0>> 
-MessagesFromSerialPort == 
+MessagesFromCryptoCell == 
     {<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>,
      <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","F">>,
      <<":","J","G","P","9","4","3","2","J","3","9","J","G","W",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","F">>,
@@ -38,51 +38,55 @@ transmit:   if IsModbus(txBuf)
 end algorithm
 *)*)
 \* BEGIN TRANSLATION
-VARIABLES tx, txBuf, txBufIndex, pc, txReg
+VARIABLES tx, txBuf, txBufIndex, pc, txReg, message
 
-vars == << tx, txBuf, txBufIndex, pc, txReg >>
+vars == << tx, txBuf, txBufIndex, pc, txReg, message >>
 
 Init == (* Global variables *)
         /\ tx \in BOOLEAN
-        /\ txBuf \in MessagesFromSerialPort
+        /\ message \in MessagesFromCryptoCell
+        /\ txBuf = <<>>
         /\ txReg = ""
         /\ txBufIndex = 1
         /\ pc = "idle"
 
 idle == /\ pc = "idle"
+        /\ txBuf' = message
         /\ IF tx = TRUE
               THEN /\ pc' = "transmit"
               ELSE /\ pc' = "Done"
-        /\ UNCHANGED << tx, txBuf, txBufIndex, txReg >>
+        /\ UNCHANGED << tx, txBufIndex, txReg, message >>
 
 transmit == /\ pc = "transmit"
             /\ IF IsModbus(txBuf)
                   THEN /\ pc' = "send"
                   ELSE /\ pc' = "t1"
-            /\ UNCHANGED << tx, txBuf, txReg, txBufIndex >>
+            /\ UNCHANGED << tx, txBuf, txReg, txBufIndex, message >>
 
 send == /\ pc = "send"
-        /\ IF txBufIndex <= Len(txBuf)
+        /\ IF Len(txBuf) > 1
               THEN /\ pc' = "a"
+                   /\ txReg' = txReg
               ELSE /\ pc' = "t1"
-        /\ UNCHANGED << tx, txBuf, txBufIndex, txReg >>
+                   /\ txReg' = Head(txBuf)
+        /\ UNCHANGED << tx, txBuf, txBufIndex, message >>
 
 a == /\ pc = "a"
-     /\ txReg' = txBuf[txBufIndex]
+     /\ txReg' = Head(txBuf)
+     /\ txBuf' = Tail(txBuf)
      /\ pc' = "b"
-     /\ UNCHANGED << tx, txBuf, txBufIndex >>
+     /\ UNCHANGED << tx, txBufIndex, message >>
 
 b == /\ pc = "b"
-     /\ txReg = txBuf[txBufIndex]
      /\ txBufIndex' = txBufIndex + 1
      /\ pc' = "send"
-     /\ UNCHANGED << tx, txBuf, txReg >>
+     /\ UNCHANGED << tx, txBuf, txReg, message >>
 
 t1 == /\ pc = "t1"
       /\ txReg' = ""
       /\ tx' = FALSE
       /\ pc' = "Done"
-      /\ UNCHANGED << txBuf, txBufIndex >>
+      /\ UNCHANGED << txBuf, txBufIndex, message >>
 
 Next == idle \/ transmit \/ send \/ a \/ b \/ t1
            \/ (* Disjunct to prevent deadlock on termination *)
@@ -101,10 +105,8 @@ LIVELINESS ==
     /\(tx = TRUE) ~> (tx = FALSE)
 
 SAFETYCHECK ==
-\* The counter never goes above the buffer length+1
-    /\(txBufIndex <= Len(txBuf)+1)
 \*Only valid modbus triggers the sending
-    /\ txReg /= "" => IsModbus(txBuf)
+    /\ txReg /= "" => IsModbus(message)
 \*Only valid modbus characters are sent
     /\ (txReg \in ModbusChar)
 
@@ -112,5 +114,5 @@ SAFETYCHECK ==
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 17:33:01 EDT 2018 by SabraouM
+\* Last modified Sun May 06 21:59:31 EDT 2018 by SabraouM
 \* Created Fri May 04 22:08:30 EDT 2018 by SabraouM

@@ -1,9 +1,0 @@
-@!@!@STARTMSG 2262:0 @!@!@
-TLC2 Version 2.12 of 29 January 2018
-@!@!@ENDMSG 2262 @!@!@
-@!@!@STARTMSG 2187:0 @!@!@
-Running breadth-first search Model-Checking with 2 workers on 4 cores with 1200MB heap and 2698MB offheap memory (Windows 10 10.0 amd64, Oracle Corporation 1.8.0_162 x86_64).
-@!@!@ENDMSG 2187 @!@!@
-@!@!@STARTMSG 2220:0 @!@!@
-Starting SANY...
-@!@!@ENDMSG 2220 @!@!@
