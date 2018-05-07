@@ -98,7 +98,7 @@ Termination == <>(pc = "Done")
 
 LIVELINESS ==
 \* check that if valid modbus is in the buffer it gets sent
-    /\ (tx = TRUE /\ IsModbus(txBuf)) ~> txBufIndex = Len(txBuf)+1
+    /\ (tx = TRUE /\ IsModbus(txBuf)) ~> Len(txBuf) = 1
 \*If there is something to send then it is alway sent
     /\ (tx = TRUE /\ IsModbus(txBuf)) ~> (txReg /= "")
 \*If there is something to send, the flag is eventually reset
@@ -114,5 +114,5 @@ SAFETYCHECK ==
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 21:59:31 EDT 2018 by SabraouM
+\* Last modified Sun May 06 22:05:46 EDT 2018 by SabraouM
 \* Created Fri May 04 22:08:30 EDT 2018 by SabraouM

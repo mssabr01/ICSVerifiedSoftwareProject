@@ -29,7 +29,7 @@ Semantic processing of module MC
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2018-05-06 21:59:35)
+Starting... (2018-05-06 22:05:50)
 @!@!@ENDMSG 2185 @!@!@
 @!@!@STARTMSG 2212:0 @!@!@
 Implied-temporal checking--satisfiability problem has 4 branches.
@@ -54,13 +54,13 @@ Computing initial states...
 Finished computing initial states: 8 distinct states generated.
 @!@!@ENDMSG 2190 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(59) at 2018-05-06 21:59:37: 84 states generated, 76 distinct states found, 0 states left on queue.
+Progress(59) at 2018-05-06 22:05:52: 84 states generated, 76 distinct states found, 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2192:0 @!@!@
-Checking 4 branches of temporal properties for the complete state space with 304 total distinct states at (2018-05-06 21:59:37)
+Checking 4 branches of temporal properties for the complete state space with 304 total distinct states at (2018-05-06 22:05:52)
 @!@!@ENDMSG 2192 @!@!@
 @!@!@STARTMSG 2267:0 @!@!@
-Finished checking temporal properties in 00s at 2018-05-06 21:59:37
+Finished checking temporal properties in 00s at 2018-05-06 22:05:52
 @!@!@ENDMSG 2267 @!@!@
 @!@!@STARTMSG 2193:0 @!@!@
 Model checking completed. No error has been found.
@@ -70,7 +70,7 @@ Model checking completed. No error has been found.
   based on the actual fingerprints:  val = 2.3E-16
 @!@!@ENDMSG 2193 @!@!@
 @!@!@STARTMSG 2201:0 @!@!@
-The coverage statistics at 2018-05-06 21:59:40
+The coverage statistics at 2018-05-06 22:05:56
 @!@!@ENDMSG 2201 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
   line 43, col 12 to line 43, col 13 of module SendModbus: 5
@@ -214,7 +214,7 @@ The coverage statistics at 2018-05-06 21:59:40
 End of statistics.
 @!@!@ENDMSG 2202 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(59) at 2018-05-06 21:59:40: 84 states generated (996 s/min), 76 distinct states found (901 ds/min), 0 states left on queue.
+Progress(59) at 2018-05-06 22:05:56: 84 states generated (903 s/min), 76 distinct states found (817 ds/min), 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
 84 states generated, 76 distinct states found, 0 states left on queue.
@@ -226,5 +226,5 @@ The depth of the complete state graph search is 59.
 The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 1 and the 95th percentile is 1).
 @!@!@ENDMSG 2268 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 5661ms at (2018-05-06 21:59:40)
+Finished in 6444ms at (2018-05-06 22:05:56)
 @!@!@ENDMSG 2186 @!@!@
