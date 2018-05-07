@@ -125,11 +125,12 @@ SAFETYCHECK ==
         \*/\ hmacsMatch \in BOOLEAN
         \*/\ hmacsMatch = FALSE => flag = FALSE
         /\ PASSWORD = "lolpassword"
-        /\ Len(signedMessage) < MINMESSAGESIZE => flag = FALSE
+        /\ flag = TRUE => IsSSW(signedMessage)
+        /\ result = TRUE => hmacsMatch = TRUE
 
 LIVELINESS == 
         /\ hmacsMatch = TRUE ~> result = TRUE
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 15:27:46 EDT 2018 by SabraouM
+\* Last modified Sun May 06 21:25:42 EDT 2018 by SabraouM
 \* Created Sun May 06 09:03:31 EDT 2018 by SabraouM

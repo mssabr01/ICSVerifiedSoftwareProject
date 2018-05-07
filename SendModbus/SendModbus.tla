@@ -7,7 +7,7 @@ EXTENDS Sequences,
         
 LOCAL INSTANCE Hex
     WITH natValue <- 0, hexValue <- <<0>> 
-MessagesFromSerialPort == 
+MessagesFromCryptoCell == 
     {<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>,
      <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","F">>,
      <<":","J","G","P","9","4","3","2","J","3","9","J","G","W",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","F">>,
@@ -44,7 +44,7 @@ vars == << tx, txBuf, txBufIndex, pc, txReg >>
 
 Init == (* Global variables *)
         /\ tx \in BOOLEAN
-        /\ txBuf \in MessagesFromSerialPort
+        /\ txBuf \in MessagesFromCryptoCell
         /\ txReg = ""
         /\ txBufIndex = 1
         /\ pc = "idle"
@@ -112,5 +112,5 @@ SAFETYCHECK ==
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 17:33:01 EDT 2018 by SabraouM
+\* Last modified Sun May 06 21:39:25 EDT 2018 by SabraouM
 \* Created Fri May 04 22:08:30 EDT 2018 by SabraouM

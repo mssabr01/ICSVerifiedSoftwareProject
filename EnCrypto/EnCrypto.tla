@@ -92,6 +92,7 @@ SAFETYCHECK ==
     /\ IsSSW(macMessage) <=> result = TRUE
     /\ Len(macMessage) >= MINMACMESSAGESIZE
     /\ bareMessage /= macMessage
+    /\ PASSWORD = "lolpassword"
     
 LIVELINESS ==
     /\ Len(bareMessage) >= MINMESSAGESIZE ~> result = TRUE
@@ -100,5 +101,5 @@ LIVELINESS ==
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 16:56:21 EDT 2018 by SabraouM
+\* Last modified Sun May 06 21:22:21 EDT 2018 by SabraouM
 \* Created Sun May 06 15:34:11 EDT 2018 by SabraouM
