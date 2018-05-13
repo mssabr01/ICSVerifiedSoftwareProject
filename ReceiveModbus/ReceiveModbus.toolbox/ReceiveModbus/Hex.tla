@@ -27,8 +27,25 @@ Hex == Seq(HexDigit)
 HexChar ==
     {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"}
 
-(* if the address of a modbus device is less than 15 then the sequence will just be a single byte, but it needs to be 2 bytes per the spec
-so add a leading "0" *)
+StringToHex(x) ==
+    CASE x = "0" -> 0
+      [] x = "1" -> 1
+      [] x = "2" -> 2
+      [] x = "3" -> 3
+      [] x = "4" -> 4
+      [] x = "5" -> 5
+      [] x = "6" -> 6
+      [] x = "7" -> 7
+      [] x = "8" -> 8
+      [] x = "9" -> 9
+      [] x = "A" -> 10
+      [] x = "B" -> 11
+      [] x = "C" -> 12
+      [] x = "D" -> 13
+      [] x = "E" -> 14
+      [] x = "F" -> 15
+
+
 FormatByteString(hex) ==
     IF Len(hex) = 1
     THEN "0" \o hex
@@ -87,5 +104,5 @@ LOCAL Next ==
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 10:55:59 EDT 2018 by SabraouM
+\* Last modified Mon May 07 19:32:58 EDT 2018 by SabraouM
 \* Created Wed May 02 15:28:50 EDT 2018 by SabraouM

@@ -88,18 +88,27 @@ Termination == <>(pc = "Done")
 \* END TRANSLATION
 
 SAFETYCHECK ==
+    \*The buffer that gets forwarded to the next cell 
+    \*can only contain valid SSW or be empty
     /\ IsSSW(macMessage) \/ macMessage = <<>>
+    \* The message gets sent if and only if its valid SSW
     /\ IsSSW(macMessage) <=> result = TRUE
-    /\ Len(macMessage) >= MINMACMESSAGESIZE
+    \*the message in the buffer is at least the minimum SSW size
+    /\ Len(macMessage) >= MINMACMESSAGESIZE \/ Len(macMessage) = 0
+    \* the plaintext can never be sent without being processed
     /\ bareMessage /= macMessage
+    \* the password is never changed
     /\ PASSWORD = "lolpassword"
     
 LIVELINESS ==
+    \* if we get a message
+    \* then something is eventually sent sent
     /\ Len(bareMessage) >= MINMESSAGESIZE ~> result = TRUE
+    \* if we get a message it is eventually processed
     /\ Len(bareMessage) >= MINMESSAGESIZE ~> IsSSW(macMessage)
 
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 21:22:21 EDT 2018 by SabraouM
+\* Last modified Tue May 08 03:38:23 EDT 2018 by SabraouM
 \* Created Sun May 06 15:34:11 EDT 2018 by SabraouM

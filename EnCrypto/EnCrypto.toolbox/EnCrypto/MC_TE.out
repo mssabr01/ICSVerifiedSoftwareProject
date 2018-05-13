@@ -31,7 +31,7 @@ Semantic processing of module MC
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2018-05-06 21:22:27)
+Starting... (2018-05-08 03:38:31)
 @!@!@ENDMSG 2185 @!@!@
 << "The HMAC: ",
    << "0",
@@ -100,7 +100,7 @@ Starting... (2018-05-06 21:22:27)
       "A" >> >>  TRUE
 <<"Is this SSW? ", FALSE>>  TRUE
 <<"Is this SSW? ", FALSE>>  TRUE
-<<"Is this SSW? ", TRUE>>  TRUE
+<<"Is this SSW? ", FALSE>>  TRUE
 << "The HMAC: ",
    << "0",
       "A",
@@ -168,7 +168,7 @@ Starting... (2018-05-06 21:22:27)
       "A" >> >>  TRUE
 <<"Is this SSW? ", FALSE>>  TRUE
 <<"Is this SSW? ", FALSE>>  TRUE
-<<"Is this SSW? ", TRUE>>  TRUE
+<<"Is this SSW? ", FALSE>>  TRUE
 @!@!@STARTMSG 2212:0 @!@!@
 Implied-temporal checking--satisfiability problem has 1 branches.
 @!@!@ENDMSG 2212 @!@!@
@@ -179,13 +179,13 @@ Computing initial states...
 Finished computing initial states: 3 distinct states generated.
 @!@!@ENDMSG 2190 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(3) at 2018-05-06 21:22:28: 11 states generated, 8 distinct states found, 0 states left on queue.
+Progress(3) at 2018-05-08 03:38:32: 11 states generated, 8 distinct states found, 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2192:0 @!@!@
-Checking temporal properties for the complete state space with 8 total distinct states at (2018-05-06 21:22:28)
+Checking temporal properties for the complete state space with 8 total distinct states at (2018-05-08 03:38:32)
 @!@!@ENDMSG 2192 @!@!@
 @!@!@STARTMSG 2267:0 @!@!@
-Finished checking temporal properties in 00s at 2018-05-06 21:22:28
+Finished checking temporal properties in 00s at 2018-05-08 03:38:32
 @!@!@ENDMSG 2267 @!@!@
 @!@!@STARTMSG 2193:0 @!@!@
 Model checking completed. No error has been found.
@@ -195,7 +195,7 @@ Model checking completed. No error has been found.
   based on the actual fingerprints:  val = 4.6E-18
 @!@!@ENDMSG 2193 @!@!@
 @!@!@STARTMSG 2201:0 @!@!@
-The coverage statistics at 2018-05-06 21:22:32
+The coverage statistics at 2018-05-08 03:38:35
 @!@!@ENDMSG 2201 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
   line 53, col 12 to line 53, col 21 of module EnCrypto: 3
@@ -270,7 +270,7 @@ The coverage statistics at 2018-05-06 21:22:32
 End of statistics.
 @!@!@ENDMSG 2202 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(3) at 2018-05-06 21:22:32: 11 states generated (137 s/min), 8 distinct states found (99 ds/min), 0 states left on queue.
+Progress(3) at 2018-05-08 03:38:35: 11 states generated (172 s/min), 8 distinct states found (125 ds/min), 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
 11 states generated, 8 distinct states found, 0 states left on queue.
@@ -282,5 +282,5 @@ The depth of the complete state graph search is 3.
 The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 1 and the 95th percentile is 1).
 @!@!@ENDMSG 2268 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 6073ms at (2018-05-06 21:22:32)
+Finished in 4783ms at (2018-05-08 03:38:35)
 @!@!@ENDMSG 2186 @!@!@

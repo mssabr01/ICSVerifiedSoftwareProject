@@ -16,19 +16,28 @@ STARTCHAR == "!"
  *)
 
 LOCAL PrintVal(id, exp)  ==  Print(<<id, exp>>, TRUE)
-MINSSWSIZE == 74 \*1 start + 64 HMAC + 1 Message
+MINSSWSIZE == 70 \*1 start + 64 HMAC + 4 length + 1 Message
 
 \*Start ==================================================================
 LOCAL IsStart(str) == str = "!" \*start with something that isn't hex so we can tell a new message from an HMAC
 ASSUME PrintVal("Is this a start?", IsStart("!"))
 
-\*Address fields =========================================================
+\*HMAC fields =========================================================
 GetHMAC(str) == SubSeq(str,2,65)
 
 LOCAL IsHMAC(str) == 
     /\ Len(str) = 64 \*these bytes can be anything so we are just checking length?
     /\ IsHex(str)    \*no - bytes are only hex: 00-0F
     
+LOCAL GetLength(str) == SubSeq(str, 2, 5)
+
+LOCAL IsLength(str) ==
+    /\ Len(str) = 4
+    
+LOCAL IsLengthCorrect(str, length) ==
+    /\ Len(str) = StringToHex(length[1]) + StringToHex(length[2]) + StringToHex(length[3]) + StringToHex(length[4])
+
+
 ASSUME PrintVal("Is this HMAC?", IsHMAC(<<"D","9","2","8","D","9","2","8",
                                           "7","5","3","0","7","5","3","0",
                                           "9","8","5","C","9","8","5","C",
@@ -39,13 +48,14 @@ ASSUME PrintVal("Is this HMAC?", IsHMAC(<<"D","9","2","8","D","9","2","8",
                                           "E","B","B","A","E","B","B","A">>))
 
 \*Data ===================================================================
-GetMessage(str) == SubSeq(str,66,Len(str))
+GetMessage(str) == SubSeq(str,MINSSWSIZE-1,Len(str))
 
 \*The Whole Thing ========================================================
 
 IsSSW(message) == 
     /\ Len(message) >= MINSSWSIZE
     /\ IsStart(Head(message))
+    /\ IsLengthCorrect(GetMessage(message), GetLength(message))
     /\ IsHMAC(GetHMAC(message))
     
 notSSW == <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>
@@ -64,5 +74,5 @@ TYPEOK ==
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 18:09:21 EDT 2018 by SabraouM
+\* Last modified Mon May 07 19:38:09 EDT 2018 by SabraouM
 \* Created Sun May 06 09:06:45 EDT 2018 by SabraouM

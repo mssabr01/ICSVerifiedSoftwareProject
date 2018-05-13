@@ -122,15 +122,17 @@ Termination == <>(pc = "Done")
 \* END TRANSLATION
 
 SAFETYCHECK ==
-        \*/\ hmacsMatch \in BOOLEAN
-        \*/\ hmacsMatch = FALSE => flag = FALSE
+        \* The password is never changed
         /\ PASSWORD = "lolpassword"
+        \* if we send something then it was valid SSW
         /\ flag = TRUE => IsSSW(signedMessage)
+        \* we forward a packet if and only if the HMACs match
         /\ result = TRUE => hmacsMatch = TRUE
 
 LIVELINESS == 
+        \* if the HMACs match then we eventually send something
         /\ hmacsMatch = TRUE ~> result = TRUE
 =============================================================================
 \* Modification History
-\* Last modified Sun May 06 21:25:42 EDT 2018 by SabraouM
+\* Last modified Tue May 08 03:43:33 EDT 2018 by SabraouM
 \* Created Sun May 06 09:03:31 EDT 2018 by SabraouM
