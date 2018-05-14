@@ -11,7 +11,7 @@ LOCAL PrintVal(id, exp)  ==  Print(<<id, exp>>, TRUE)
 LOCAL ismod == <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>
 
 \*LOCAL usableASCII == " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^__abcdefghijklmnopqrstuvwxyz{|}~"
-LOCAL usableASCII == <<" ","!","\"","#","$","%","&","'","(",")",
+usableASCII == <<" ","!","\"","#","$","%","&","'","(",")",
                      "*","+",",","-",".","/","0","1","2","3",
                      "4","5","6","7","8","9",":",";","<","=",
                      ">","?","@","A","B","C","D","E","F","G",
@@ -41,11 +41,7 @@ NumToChar(num) == IF num \in 32..126
                         []   OTHER -> ""
 
 
-RECURSIVE NumTupleToStrTuple(_)
-NumTupleToStrTuple(numTuple) ==
-    IF numTuple = <<>>
-    THEN <<>>
-    ELSE <<NumToChar(Head(numTuple))>> \o NumTupleToStrTuple(Tail(numTuple))
+NumTupleToStrTuple(numTuple) == [x \in DOMAIN numTuple |-> NumToChar(numTuple[x])]
     
 RECURSIVE SeqToString(_)
 SeqToString(ascii) ==
@@ -53,11 +49,8 @@ SeqToString(ascii) ==
     THEN ""
     ELSE Head(ascii) \o SeqToString(Tail(ascii))
 
-RECURSIVE StrTupleToNumTuple(_)
-StrTupleToNumTuple(str) ==
-    IF str = <<>>
-    THEN <<>>
-    ELSE <<CharToNum(Head(str))>> \o StrTupleToNumTuple(Tail(str))
+\*RECURSIVE StrTupleToNumTuple(_)
+StrTupleToNumTuple(str) == [x \in DOMAIN str |-> CharToNum(str[x])]
 
 IsUsableASCII(str) == str = SelectSeq(str, LAMBDA x: x \in usableASCII)
 
@@ -75,5 +68,5 @@ ASSUME PrintVal("Sanity Check", SanityCheck)
 
 =============================================================================
 \* Modification History
-\* Last modified Sun May 13 17:09:28 EDT 2018 by SabraouM
+\* Last modified Mon May 14 12:27:57 EDT 2018 by SabraouM
 \* Created Thu May 10 13:34:02 EDT 2018 by SabraouM

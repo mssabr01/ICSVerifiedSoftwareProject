@@ -41,11 +41,7 @@ NumToChar(num) == IF num \in 32..126
                         []   OTHER -> ""
 
 
-RECURSIVE NumTupleToStrTuple(_)
-NumTupleToStrTuple(numTuple) ==
-    IF numTuple = <<>>
-    THEN <<>>
-    ELSE <<NumToChar(Head(numTuple))>> \o NumTupleToStrTuple(Tail(numTuple))
+NumTupleToStrTuple(numTuple) == [x \in DOMAIN numTuple |-> NumToChar(numTuple[x])]
     
 RECURSIVE SeqToString(_)
 SeqToString(ascii) ==
@@ -53,18 +49,15 @@ SeqToString(ascii) ==
     THEN ""
     ELSE Head(ascii) \o SeqToString(Tail(ascii))
 
-RECURSIVE StrTupleToNumTuple(_)
-StrTupleToNumTuple(str) ==
-    IF str = <<>>
-    THEN <<>>
-    ELSE <<CharToNum(Head(str))>> \o StrTupleToNumTuple(Tail(str))
+\*RECURSIVE StrTupleToNumTuple(_)
+StrTupleToNumTuple(str) == [x \in DOMAIN str |-> CharToNum(str[x])]
 
 IsUsableASCII(str) == str = SelectSeq(str, LAMBDA x: x \in usableASCII)
 
 SanityCheck == usableASCII = NumTupleToStrTuple(StrTupleToNumTuple(usableASCII))
 
 \*Tests
-(*
+
 ASSUME PrintVal("ASCIIToString", SeqToString(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>) 
                                          = ":1103006B00037E\r\n")
 ASSUME PrintVal("Range", Range(usableASCII))
@@ -72,8 +65,8 @@ ASSUME PrintVal("StrArrayToNumArray", StrTupleToNumTuple(ismod) = <<58, 49, 49, 
 
 ASSUME PrintVal("Sanity Check", SanityCheck)
 
-*)
+
 =============================================================================
 \* Modification History
-\* Last modified Mon May 14 11:27:16 EDT 2018 by SabraouM
+\* Last modified Mon May 14 12:27:57 EDT 2018 by SabraouM
 \* Created Thu May 10 13:34:02 EDT 2018 by SabraouM
