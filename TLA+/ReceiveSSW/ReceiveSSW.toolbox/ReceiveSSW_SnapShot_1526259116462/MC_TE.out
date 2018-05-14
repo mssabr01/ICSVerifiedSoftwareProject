@@ -1,0 +1,392 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.12 of 29 January 2018
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with 2 workers on 4 cores with 601MB heap and 1349MB offheap memory (Windows 10 10.0 amd64, Oracle Corporation 1.8.0_162 x86_64).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\ReceiveSSW\ReceiveSSW.toolbox\ReceiveSSW\MC.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\ReceiveSSW\ReceiveSSW.toolbox\ReceiveSSW\ReceiveSSW.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\TLC.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Naturals.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\ReceiveSSW\ReceiveSSW.toolbox\ReceiveSSW\SSWPacket.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\ReceiveSSW\ReceiveSSW.toolbox\ReceiveSSW\ASCII.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\ReceiveSSW\ReceiveSSW.toolbox\ReceiveSSW\Hex.tla
+Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Integers.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module Integers
+Semantic processing of module TLC
+Semantic processing of module Hex
+Semantic processing of module SSWPacket
+Semantic processing of module ASCII
+Semantic processing of module ReceiveSSW
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2018-05-13 20:51:52)
+@!@!@ENDMSG 2185 @!@!@
+<< "The HMAC: ",
+   << "0",
+      "A",
+      "0",
+      "B",
+      "0",
+      "D",
+      "0",
+      "9",
+      "0",
+      "2",
+      "0",
+      "8",
+      "0",
+      "7",
+      "0",
+      "5",
+      "0",
+      "3",
+      "0",
+      "0",
+      "0",
+      "9",
+      "0",
+      "8",
+      "0",
+      "5",
+      "0",
+      "C",
+      "0",
+      "E",
+      "0",
+      "B",
+      "0",
+      "B",
+      "0",
+      "A",
+      "0",
+      "F",
+      "0",
+      "C",
+      "0",
+      "0",
+      "0",
+      "B",
+      "0",
+      "C",
+      "0",
+      "B",
+      "0",
+      "0",
+      "0",
+      "B",
+      "0",
+      "D",
+      "0",
+      "B",
+      "0",
+      "E",
+      "0",
+      "7",
+      "0",
+      "6",
+      "0",
+      "A" >> >>  TRUE
+<<"Is this SSW? ", FALSE>>  TRUE
+<<"Is this SSW? ", FALSE>>  TRUE
+<<"Is this SSW? ", TRUE>>  TRUE
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 3 branches.
+@!@!@ENDMSG 2212 @!@!@
+<<"Is this a start?", TRUE>>  TRUE
+<<"Is this HMAC?", TRUE>>  TRUE
+<<"ASCIIToString", TRUE>>  TRUE
+<<"Range", {"[", ".", "'", "^", "/", "*", "-", "+", "=", "~", "#", "<", ">", "\\", "|", "&", "$", "%", "@", ",", "0", "{", "(", ")", "1", "2", "3", "4", "5", "6", "7", "8", "9", "}", "v", ":", "n", "i", "d", "e", "x", "]", "f", "g", "S", "w", "s", "_", "p", "j", "a", "b", "t", "m", "F", "T", "A", "B", "C", "D", "E", "!", "J", "G", "P", "W", "I", "R", "L", " ", "\"", ";", "?", "H", "K", "M", "N", "O", "Q", "U", "V", "X", "Y", "Z", "c", "h", "k", "l", "o", "q", "r", "u", "y", "z"}>>  TRUE
+<<"StrArrayToNumArray", TRUE>>  TRUE
+<<"Sanity Check", TRUE>>  TRUE
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2102:1 @!@!@
+Attempted to check equality of integer 33 with non-integer:
+"!"
+While working on the initial state:
+/\ incMessage = << 33,
+   48,
+   65,
+   48,
+   66,
+   48,
+   68,
+   48,
+   57,
+   48,
+   50,
+   48,
+   56,
+   48,
+   55,
+   48,
+   53,
+   48,
+   51,
+   48,
+   48,
+   48,
+   57,
+   48,
+   56,
+   48,
+   53,
+   48,
+   67,
+   48,
+   69,
+   48,
+   66,
+   48,
+   66,
+   48,
+   65,
+   48,
+   70,
+   48,
+   67,
+   48,
+   48,
+   48,
+   66,
+   48,
+   67,
+   48,
+   66,
+   48,
+   48,
+   48,
+   66,
+   48,
+   68,
+   48,
+   66,
+   48,
+   69,
+   48,
+   55,
+   48,
+   54,
+   48,
+   65,
+   58,
+   49,
+   49,
+   48,
+   51,
+   48,
+   48,
+   54,
+   66,
+   48,
+   48,
+   48,
+   51,
+   55,
+   69,
+   67,
+   82,
+   76,
+   70 >>
+/\ pc = "idle"
+/\ rxReg = <<>>
+/\ applicationBuffer = <<>>
+/\ rxBuf = <<>>
+/\ rx = FALSE
+/\ incByte = <<>>
+
+@!@!@ENDMSG 2102 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2018-05-13 20:51:54
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 100, col 23 to line 100, col 52 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 101, col 12 to line 101, col 22 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 102, col 25 to line 102, col 29 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 102, col 32 to line 102, col 33 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 102, col 36 to line 102, col 40 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 102, col 43 to line 102, col 59 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 106, col 22 to line 106, col 36 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 107, col 22 to line 107, col 35 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 108, col 22 to line 108, col 37 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 109, col 22 to line 109, col 36 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 110, col 24 to line 110, col 28 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 110, col 31 to line 110, col 32 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 110, col 35 to line 110, col 44 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 110, col 47 to line 110, col 53 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 110, col 56 to line 110, col 72 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 113, col 15 to line 113, col 37 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 114, col 15 to line 114, col 24 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 115, col 28 to line 115, col 29 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 115, col 32 to line 115, col 36 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 115, col 39 to line 115, col 48 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 115, col 51 to line 115, col 57 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 115, col 60 to line 115, col 76 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 118, col 10 to line 118, col 22 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 119, col 10 to line 119, col 22 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 120, col 23 to line 120, col 27 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 120, col 30 to line 120, col 31 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 120, col 34 to line 120, col 43 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 120, col 46 to line 120, col 52 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 120, col 55 to line 120, col 71 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 124, col 24 to line 124, col 33 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 125, col 24 to line 125, col 49 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 126, col 24 to line 126, col 38 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 127, col 24 to line 127, col 35 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 128, col 37 to line 128, col 38 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 128, col 41 to line 128, col 57 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 129, col 26 to line 129, col 30 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 129, col 33 to line 129, col 37 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 129, col 40 to line 129, col 49 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 129, col 52 to line 129, col 58 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 132, col 15 to line 132, col 27 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 133, col 15 to line 133, col 27 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 134, col 15 to line 134, col 29 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 135, col 15 to line 135, col 32 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 136, col 15 to line 136, col 26 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 137, col 28 to line 137, col 29 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 137, col 32 to line 137, col 48 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 12 to line 84, col 16 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 19 to line 84, col 20 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 23 to line 84, col 27 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 30 to line 84, col 39 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 42 to line 84, col 48 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 51 to line 84, col 67 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 84, col 70 to line 84, col 71 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 97, col 23 to line 97, col 37 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 98, col 33 to line 98, col 42 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 99, col 23 to line 99, col 53 of module ReceiveSSW: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(1) at 2018-05-13 20:51:54: 260 states generated (8,666 s/min), 260 distinct states found (8,666 ds/min), 260 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+260 states generated, 260 distinct states found, 260 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 3759ms at (2018-05-13 20:51:54)
+@!@!@ENDMSG 2186 @!@!@

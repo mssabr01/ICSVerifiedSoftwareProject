@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>SendSSW</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>toolbox.builder.TLAParserBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>toolbox.builder.PCalAlgorithmSearchingBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>toolbox.natures.TLANature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>ASCII.tla</name>
+			<type>1</type>
+			<location>C:/Users/SabraouM/Google Drive/CECS/Proposal/TLA+/ASCII/ASCII.tla</location>
+		</link>
+		<link>
+			<name>Hex.tla</name>
+			<type>1</type>
+			<location>C:/Users/SabraouM/Google Drive/CECS/Proposal/TLA+/Modbus/Hex.tla</location>
+		</link>
+		<link>
+			<name>SSWPacket.tla</name>
+			<type>1</type>
+			<location>C:/Users/SabraouM/Google Drive/CECS/Proposal/TLA+/SSWPacket/SSWPacket.tla</location>
+		</link>
+		<link>
+			<name>SendSSW.tla</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/SendSSW.tla</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

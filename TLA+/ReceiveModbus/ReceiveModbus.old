@@ -1,0 +1,177 @@
+------------------------------ MODULE ReceiveModbus ------------------------------
+
+EXTENDS Sequences,
+        Naturals,
+        Modbus,
+        TLC,
+        ASCII
+        
+LOCAL INSTANCE Hex
+    WITH natValue <- 0, hexValue <- <<0>> 
+
+MessagesToSerialPort == \*these are in ASCII but they are converted to decimal before being used below. See StrTupleToNumTuple in ASCII.tla
+    { StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>),
+      StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
+      \*StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","G","L","F">>),
+      StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>), \*this one starts a new modbus packet half way through the message
+      <<>>
+      }
+
+(*--fair algorithm ReceiveModbus
+variables   rxBuf = <<>>,
+            rx = FALSE,
+            rxReg = <<>>,
+            incMessage \in MessagesToSerialPort,
+            incByte = <<>>,
+            applicationBuffer = <<>> \*this is what is passed to the application. Only valid modbus here plz
+begin
+
+\* wait for something to appear in the buffer
+idle:   if incMessage = <<>>
+            then incByte := <<>>;
+            else
+                incByte :=  <<Head(incMessage)>>;
+                incMessage := Tail(incMessage);
+        end if;
+
+inc:    if incByte = <<>>
+        then goto alldone;
+        else
+                rxReg := incByte;    
+        end if;
+
+start:  if Len(rxBuf) < MAXMODBUSSIZE
+        then goto receive;
+        else goto alldone;
+        end if;
+    
+receive:    \* a ":" character indicates the start of a new message
+            if rxReg = StrTupleToNumTuple(<<":">>)
+                then rxBuf := <<>>;
+            end if;
+            r1: rxBuf := rxBuf \o rxReg; \* put the contents of the register into the buffer
+            \*empty the register
+            r2: rxReg := <<>>;
+
+check:     \*if we have a full modbus packet then signal
+            if IsModbus(NumTupleToStrTuple(rxBuf)) \*convert back to ASCII before checking for modbus
+            then 
+                rx := TRUE; 
+                applicationBuffer := rxBuf;
+                goto alldone;
+            else goto idle;
+            end if;
+            
+alldone:    rxBuf := <<>>;
+            rxReg := <<>>;
+            incByte := <<>>;
+            incMessage := <<>>;
+
+end algorithm
+*)
+
+\* BEGIN TRANSLATION
+VARIABLES rxBuf, rx, rxReg, incMessage, incByte, applicationBuffer, pc
+
+vars == << rxBuf, rx, rxReg, incMessage, incByte, applicationBuffer, pc >>
+
+Init == (* Global variables *)
+        /\ rxBuf = <<>>
+        /\ rx = FALSE
+        /\ rxReg = <<>>
+        /\ incMessage \in MessagesToSerialPort
+        /\ incByte = <<>>
+        /\ applicationBuffer = <<>>
+        /\ pc = "idle"
+
+idle == /\ pc = "idle"
+        /\ IF incMessage = <<>>
+              THEN /\ incByte' = <<>>
+                   /\ UNCHANGED incMessage
+              ELSE /\ incByte' = <<Head(incMessage)>>
+                   /\ incMessage' = Tail(incMessage)
+        /\ pc' = "inc"
+        /\ UNCHANGED << rxBuf, rx, rxReg, applicationBuffer >>
+
+inc == /\ pc = "inc"
+       /\ IF incByte = <<>>
+             THEN /\ pc' = "alldone"
+                  /\ rxReg' = rxReg
+             ELSE /\ rxReg' = incByte
+                  /\ pc' = "start"
+       /\ UNCHANGED << rxBuf, rx, incMessage, incByte, applicationBuffer >>
+
+start == /\ pc = "start"
+         /\ IF Len(rxBuf) < MAXMODBUSSIZE
+               THEN /\ pc' = "receive"
+               ELSE /\ pc' = "alldone"
+         /\ UNCHANGED << rxBuf, rx, rxReg, incMessage, incByte, 
+                         applicationBuffer >>
+
+receive == /\ pc = "receive"
+           /\ IF rxReg = StrTupleToNumTuple(<<":">>)
+                 THEN /\ rxBuf' = <<>>
+                 ELSE /\ TRUE
+                      /\ rxBuf' = rxBuf
+           /\ pc' = "r1"
+           /\ UNCHANGED << rx, rxReg, incMessage, incByte, applicationBuffer >>
+
+r1 == /\ pc = "r1"
+      /\ rxBuf' = rxBuf \o rxReg
+      /\ pc' = "r2"
+      /\ UNCHANGED << rx, rxReg, incMessage, incByte, applicationBuffer >>
+
+r2 == /\ pc = "r2"
+      /\ rxReg' = <<>>
+      /\ pc' = "check"
+      /\ UNCHANGED << rxBuf, rx, incMessage, incByte, applicationBuffer >>
+
+check == /\ pc = "check"
+         /\ IF IsModbus(NumTupleToStrTuple(rxBuf))
+               THEN /\ rx' = TRUE
+                    /\ applicationBuffer' = rxBuf
+                    /\ pc' = "alldone"
+               ELSE /\ pc' = "alldone"
+                    /\ UNCHANGED << rx, applicationBuffer >>
+         /\ UNCHANGED << rxBuf, rxReg, incMessage, incByte >>
+
+alldone == /\ pc = "alldone"
+           /\ rxBuf' = <<>>
+           /\ rxReg' = <<>>
+           /\ incByte' = <<>>
+           /\ incMessage' = <<>>
+           /\ pc' = "Done"
+           /\ UNCHANGED << rx, applicationBuffer >>
+
+Next == idle \/ inc \/ start \/ receive \/ r1 \/ r2 \/ check \/ alldone
+           \/ (* Disjunct to prevent deadlock on termination *)
+              (pc = "Done" /\ UNCHANGED vars)
+
+Spec == /\ Init /\ [][Next]_vars
+        /\ WF_vars(Next)
+
+Termination == <>(pc = "Done")
+
+\* END TRANSLATION
+
+SAFETYCHECK ==
+    \*receive buffer never overflows
+    /\ Len(rxBuf) <= MAXMODBUSSIZE 
+    \*application buffer never overflows
+    /\ Len(applicationBuffer) <= MAXMODBUSSIZE 
+    \*only valid modbus makes it to the app buffer
+    /\ IsModbus(applicationBuffer) \/ applicationBuffer = <<>> 
+    \*flag is raised if and only if there is valid modbus in app buffer
+    /\ rx = TRUE <=> IsModbus(NumTupleToStrTuple(applicationBuffer))
+
+LIVELINESS ==
+    \* if the message is modbus then it gets to the app buffer
+    /\ IsModbus(NumTupleToStrTuple(incMessage)) ~> IsModbus(NumTupleToStrTuple(applicationBuffer)) 
+    \* if valid modbus comes through then it gets flagged for the application to consume
+    \*/\ IsModbus(NumTupleToStrTuple(incMessage)) ~> rx = TRUE 
+
+
+=============================================================================
+\* Modification History
+\* Last modified Sun May 13 17:15:50 EDT 2018 by SabraouM
+\* Created Sat May 05 11:36:54 EDT 2018 by SabraouM

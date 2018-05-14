@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.lamport.tla.toolbox.tool.tlc.modelCheck">
+<stringAttribute key="configurationName" value="Model_2_SnapShot_1520969464056"/>
+<stringAttribute key="specName" value="deployment"/>
+</launchConfiguration>
