@@ -11,7 +11,7 @@ LOCAL PrintVal(id, exp)  ==  Print(<<id, exp>>, TRUE)
 LOCAL ismod == <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>
 
 \*LOCAL usableASCII == " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^__abcdefghijklmnopqrstuvwxyz{|}~"
-LOCAL usableASCII == <<" ","!","\"","#","$","%","&","'","(",")",
+usableASCII == <<" ","!","\"","#","$","%","&","'","(",")",
                      "*","+",",","-",".","/","0","1","2","3",
                      "4","5","6","7","8","9",":",";","<","=",
                      ">","?","@","A","B","C","D","E","F","G",
@@ -64,7 +64,7 @@ IsUsableASCII(str) == str = SelectSeq(str, LAMBDA x: x \in usableASCII)
 SanityCheck == usableASCII = NumTupleToStrTuple(StrTupleToNumTuple(usableASCII))
 
 \*Tests
-
+(*
 ASSUME PrintVal("ASCIIToString", SeqToString(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>) 
                                          = ":1103006B00037E\r\n")
 ASSUME PrintVal("Range", Range(usableASCII))
@@ -72,8 +72,8 @@ ASSUME PrintVal("StrArrayToNumArray", StrTupleToNumTuple(ismod) = <<58, 49, 49, 
 
 ASSUME PrintVal("Sanity Check", SanityCheck)
 
-
+*)
 =============================================================================
 \* Modification History
-\* Last modified Sun May 13 17:09:28 EDT 2018 by SabraouM
+\* Last modified Mon May 14 11:27:16 EDT 2018 by SabraouM
 \* Created Thu May 10 13:34:02 EDT 2018 by SabraouM
