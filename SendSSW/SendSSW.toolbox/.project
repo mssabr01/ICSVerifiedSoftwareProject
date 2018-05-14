@@ -21,6 +21,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>ASCII.tla</name>
+			<type>1</type>
+			<location>C:/Users/SabraouM/Google Drive/CECS/Proposal/TLA+/ASCII/ASCII.tla</location>
+		</link>
+		<link>
 			<name>Hex.tla</name>
 			<type>1</type>
 			<location>C:/Users/SabraouM/Google Drive/CECS/Proposal/TLA+/Modbus/Hex.tla</location>

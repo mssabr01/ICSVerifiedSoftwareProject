@@ -13,6 +13,7 @@ Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\too
 Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Sequences.tla
 Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Naturals.tla
 Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\SendSSW\SendSSW.toolbox\SendSSW\SSWPacket.tla
+Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\SendSSW\SendSSW.toolbox\SendSSW\ASCII.tla
 Parsing file C:\Users\SabraouM\Google Drive\CECS\Proposal\TLA+\SendSSW\SendSSW.toolbox\SendSSW\Hex.tla
 Parsing file C:\Users\SabraouM\Documents\TLAToolbox-1.5.5-win32.win32.x86_64\toolbox\plugins\org.lamport.tlatools_1.0.0.201801291236\tla2sany\StandardModules\Integers.tla
 Semantic processing of module Naturals
@@ -21,241 +22,188 @@ Semantic processing of module Integers
 Semantic processing of module TLC
 Semantic processing of module Hex
 Semantic processing of module SSWPacket
+Semantic processing of module ASCII
 Semantic processing of module SendSSW
 Semantic processing of module MC
 @!@!@STARTMSG 2219:0 @!@!@
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2018-05-06 18:18:08)
+Starting... (2018-05-14 12:54:52)
 @!@!@ENDMSG 2185 @!@!@
-<< "The HMAC: ",
-   << "0",
-      "A",
-      "0",
-      "B",
-      "0",
-      "D",
-      "0",
-      "9",
-      "0",
-      "2",
-      "0",
-      "8",
-      "0",
-      "7",
-      "0",
-      "5",
-      "0",
-      "3",
-      "0",
-      "0",
-      "0",
-      "9",
-      "0",
-      "8",
-      "0",
-      "5",
-      "0",
-      "C",
-      "0",
-      "E",
-      "0",
-      "B",
-      "0",
-      "B",
-      "0",
-      "A",
-      "0",
-      "F",
-      "0",
-      "C",
-      "0",
-      "0",
-      "0",
-      "B",
-      "0",
-      "C",
-      "0",
-      "B",
-      "0",
-      "0",
-      "0",
-      "B",
-      "0",
-      "D",
-      "0",
-      "B",
-      "0",
-      "E",
-      "0",
-      "7",
-      "0",
-      "6",
-      "0",
-      "A" >> >>  TRUE
-<<"Is this SSW? ", FALSE>>  TRUE
-<<"Is this SSW? ", FALSE>>  TRUE
-<<"Is this SSW? ", TRUE>>  TRUE
 @!@!@STARTMSG 2212:0 @!@!@
 Implied-temporal checking--satisfiability problem has 4 branches.
 @!@!@ENDMSG 2212 @!@!@
-<<"Is this a start?", TRUE>>  TRUE
-<<"Is this HMAC?", TRUE>>  TRUE
+<<"ASCIIToString", TRUE>>  TRUE
+<<"Range", {"[", ".", "'", "^", "/", "*", "-", "+", "=", "~", "#", "<", ">", "\\", "|", "&", "$", "%", "@", ",", "0", "{", "(", ")", "1", "2", "3", "4", "5", "6", "7", "8", "9", "}", "T", "x", "]", ":", "a", "b", "v", "n", "i", "d", "e", "f", "g", "S", "w", "s", "_", "p", "j", "t", "m", "F", "A", "B", "C", "D", "E", "!", "J", "G", "P", "W", "I", "R", " ", "\"", ";", "?", "H", "K", "L", "M", "N", "O", "Q", "U", "V", "X", "Y", "Z", "c", "h", "k", "l", "o", "q", "r", "u", "y", "z"}>>  TRUE
+<<"StrArrayToNumArray", TRUE>>  TRUE
+<<"Sanity Check", TRUE>>  TRUE
 @!@!@STARTMSG 2189:0 @!@!@
 Computing initial states...
 @!@!@ENDMSG 2189 @!@!@
 @!@!@STARTMSG 2190:0 @!@!@
-Finished computing initial states: 10 distinct states generated.
+Finished computing initial states: 260 distinct states generated.
 @!@!@ENDMSG 2190 @!@!@
-@!@!@STARTMSG 2200:0 @!@!@
-Progress(257) at 2018-05-06 18:18:10: 289 states generated, 279 distinct states found, 0 states left on queue.
-@!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2192:0 @!@!@
-Checking 4 branches of temporal properties for the complete state space with 1116 total distinct states at (2018-05-06 18:18:10)
+Checking 4 branches of temporal properties for the current state space with 3084 total distinct states at (2018-05-14 12:55:02)
 @!@!@ENDMSG 2192 @!@!@
 @!@!@STARTMSG 2267:0 @!@!@
-Finished checking temporal properties in 00s at 2018-05-06 18:18:11
+Finished checking temporal properties in 00s at 2018-05-14 12:55:02
+@!@!@ENDMSG 2267 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(3) at 2018-05-14 12:55:02: 771 states generated (771 s/min), 771 distinct states found (771 ds/min), 260 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(248) at 2018-05-14 12:55:04: 1544 states generated, 1284 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2192:0 @!@!@
+Checking 4 branches of temporal properties for the complete state space with 5136 total distinct states at (2018-05-14 12:55:04)
+@!@!@ENDMSG 2192 @!@!@
+@!@!@STARTMSG 2267:0 @!@!@
+Finished checking temporal properties in 00s at 2018-05-14 12:55:05
 @!@!@ENDMSG 2267 @!@!@
 @!@!@STARTMSG 2193:0 @!@!@
 Model checking completed. No error has been found.
   Estimates of the probability that TLC did not check all reachable states
   because two distinct states had the same fingerprint:
-  calculated (optimistic):  val = 1.5E-16
-  based on the actual fingerprints:  val = 2.5E-15
+  calculated (optimistic):  val = 1.8E-14
+  based on the actual fingerprints:  val = 5.5E-14
 @!@!@ENDMSG 2193 @!@!@
 @!@!@STARTMSG 2201:0 @!@!@
-The coverage statistics at 2018-05-06 18:18:14
+The coverage statistics at 2018-05-14 12:55:17
 @!@!@ENDMSG 2201 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 44, col 12 to line 44, col 13 of module SendSSW: 6
+  line 102, col 9 to line 102, col 32 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 44, col 16 to line 44, col 20 of module SendSSW: 6
+  line 103, col 9 to line 103, col 17 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 44, col 23 to line 44, col 32 of module SendSSW: 6
+  line 104, col 22 to line 104, col 23 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 44, col 35 to line 44, col 36 of module SendSSW: 6
+  line 104, col 26 to line 104, col 38 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 44, col 39 to line 44, col 43 of module SendSSW: 6
+  line 104, col 41 to line 104, col 45 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 55, col 23 to line 55, col 38 of module SendSSW: 5
+  line 107, col 9 to line 107, col 28 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 56, col 23 to line 56, col 34 of module SendSSW: 5
+  line 108, col 9 to line 108, col 24 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 57, col 25 to line 57, col 26 of module SendSSW: 10
+  line 109, col 22 to line 109, col 23 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 57, col 29 to line 57, col 33 of module SendSSW: 10
+  line 109, col 26 to line 109, col 38 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 57, col 36 to line 57, col 45 of module SendSSW: 10
+  line 109, col 41 to line 109, col 45 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 57, col 48 to line 57, col 52 of module SendSSW: 10
+  line 112, col 16 to line 112, col 26 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 61, col 27 to line 61, col 38 of module SendSSW: 1
+  line 113, col 16 to line 113, col 28 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 62, col 27 to line 62, col 36 of module SendSSW: 4
+  line 114, col 16 to line 114, col 28 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 63, col 29 to line 63, col 30 of module SendSSW: 5
+  line 115, col 16 to line 115, col 27 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 63, col 33 to line 63, col 37 of module SendSSW: 5
+  line 116, col 26 to line 116, col 38 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 63, col 40 to line 63, col 44 of module SendSSW: 5
+  line 69, col 12 to line 69, col 13 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 63, col 47 to line 63, col 56 of module SendSSW: 5
+  line 69, col 16 to line 69, col 28 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 67, col 23 to line 67, col 31 of module SendSSW: 84
+  line 69, col 31 to line 69, col 35 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 68, col 23 to line 68, col 32 of module SendSSW: 1
+  line 69, col 38 to line 69, col 42 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 69, col 25 to line 69, col 26 of module SendSSW: 85
+  line 69, col 45 to line 69, col 46 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 69, col 29 to line 69, col 33 of module SendSSW: 85
+  line 79, col 16 to line 79, col 37 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 69, col 36 to line 69, col 45 of module SendSSW: 85
+  line 81, col 27 to line 81, col 36 of module SendSSW: 1
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 69, col 48 to line 69, col 52 of module SendSSW: 85
+  line 83, col 27 to line 83, col 34 of module SendSSW: 259
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 72, col 9 to line 72, col 34 of module SendSSW: 84
+  line 84, col 16 to line 84, col 27 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 73, col 9 to line 73, col 17 of module SendSSW: 84
+  line 85, col 29 to line 85, col 41 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 74, col 22 to line 74, col 23 of module SendSSW: 84
+  line 85, col 44 to line 85, col 48 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 74, col 26 to line 74, col 30 of module SendSSW: 84
+  line 89, col 23 to line 89, col 38 of module SendSSW: 1
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 74, col 33 to line 74, col 42 of module SendSSW: 84
+  line 90, col 23 to line 90, col 38 of module SendSSW: 259
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 78, col 9 to line 78, col 36 of module SendSSW: 84
+  line 91, col 25 to line 91, col 26 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 79, col 9 to line 79, col 20 of module SendSSW: 84
+  line 91, col 29 to line 91, col 41 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 80, col 22 to line 80, col 23 of module SendSSW: 84
+  line 91, col 44 to line 91, col 48 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 80, col 26 to line 80, col 30 of module SendSSW: 84
+  line 91, col 51 to line 91, col 55 of module SendSSW: 260
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 80, col 33 to line 80, col 37 of module SendSSW: 84
+  line 95, col 27 to line 95, col 35 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 83, col 10 to line 83, col 20 of module SendSSW: 5
+  line 96, col 27 to line 96, col 40 of module SendSSW: 81
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 84, col 10 to line 84, col 20 of module SendSSW: 5
+  line 97, col 27 to line 97, col 47 of module SendSSW: 1
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 85, col 10 to line 85, col 21 of module SendSSW: 5
+  line 98, col 27 to line 98, col 42 of module SendSSW: 1
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 86, col 23 to line 86, col 27 of module SendSSW: 5
+  line 99, col 29 to line 99, col 30 of module SendSSW: 82
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 86, col 30 to line 86, col 39 of module SendSSW: 5
+  line 99, col 33 to line 99, col 45 of module SendSSW: 82
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 99, col 48 to line 99, col 52 of module SendSSW: 82
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2202:0 @!@!@
 End of statistics.
 @!@!@ENDMSG 2202 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(257) at 2018-05-06 18:18:14: 289 states generated (3,269 s/min), 279 distinct states found (3,156 ds/min), 0 states left on queue.
+Progress(248) at 2018-05-14 12:55:18: 1544 states generated (3,909 s/min), 1284 distinct states found (3,251 ds/min), 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
-289 states generated, 279 distinct states found, 0 states left on queue.
+1544 states generated, 1284 distinct states found, 0 states left on queue.
 @!@!@ENDMSG 2199 @!@!@
 @!@!@STARTMSG 2194:0 @!@!@
-The depth of the complete state graph search is 257.
+The depth of the complete state graph search is 248.
 @!@!@ENDMSG 2194 @!@!@
 @!@!@STARTMSG 2268:0 @!@!@
 The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 1 and the 95th percentile is 1).
 @!@!@ENDMSG 2268 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 6199ms at (2018-05-06 18:18:14)
+Finished in 28432ms at (2018-05-14 12:55:18)
 @!@!@ENDMSG 2186 @!@!@

@@ -31,7 +31,7 @@ Semantic processing of module MC
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2018-05-13 17:38:44)
+Starting... (2018-05-14 12:52:27)
 @!@!@ENDMSG 2185 @!@!@
 @!@!@STARTMSG 2212:0 @!@!@
 Implied-temporal checking--satisfiability problem has 2 branches.
@@ -44,35 +44,35 @@ Implied-temporal checking--satisfiability problem has 2 branches.
 Computing initial states...
 @!@!@ENDMSG 2189 @!@!@
 @!@!@STARTMSG 2190:0 @!@!@
-Finished computing initial states: 259 distinct states generated.
+Finished computing initial states: 260 distinct states generated.
 @!@!@ENDMSG 2190 @!@!@
 @!@!@STARTMSG 2192:0 @!@!@
-Checking 2 branches of temporal properties for the current state space with 5210 total distinct states at (2018-05-13 17:38:53)
+Checking 2 branches of temporal properties for the current state space with 2356 total distinct states at (2018-05-14 12:52:40)
 @!@!@ENDMSG 2192 @!@!@
 @!@!@STARTMSG 2267:0 @!@!@
-Finished checking temporal properties in 00s at 2018-05-13 17:38:54
+Finished checking temporal properties in 00s at 2018-05-14 12:52:41
 @!@!@ENDMSG 2267 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(18) at 2018-05-13 17:38:54: 2863 states generated (2,863 s/min), 2607 distinct states found (2,607 ds/min), 2 states left on queue.
+Progress(5) at 2018-05-14 12:52:41: 1179 states generated (1,179 s/min), 1178 distinct states found (1,178 ds/min), 259 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(121) at 2018-05-13 17:38:54: 3144 states generated, 2885 distinct states found, 0 states left on queue.
+Progress(3609) at 2018-05-14 12:53:08: 6754 states generated, 6494 distinct states found, 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2192:0 @!@!@
-Checking 2 branches of temporal properties for the complete state space with 5770 total distinct states at (2018-05-13 17:38:54)
+Checking 2 branches of temporal properties for the complete state space with 12988 total distinct states at (2018-05-14 12:53:08)
 @!@!@ENDMSG 2192 @!@!@
 @!@!@STARTMSG 2267:0 @!@!@
-Finished checking temporal properties in 00s at 2018-05-13 17:38:54
+Finished checking temporal properties in 00s at 2018-05-14 12:53:09
 @!@!@ENDMSG 2267 @!@!@
 @!@!@STARTMSG 2193:0 @!@!@
 Model checking completed. No error has been found.
   Estimates of the probability that TLC did not check all reachable states
   because two distinct states had the same fingerprint:
-  calculated (optimistic):  val = 4.1E-14
+  calculated (optimistic):  val = 9.2E-14
   based on the actual fingerprints:  val = 1.0E-11
 @!@!@ENDMSG 2193 @!@!@
 @!@!@STARTMSG 2201:0 @!@!@
-The coverage statistics at 2018-05-13 17:39:18
+The coverage statistics at 2018-05-14 12:53:36
 @!@!@ENDMSG 2201 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
   line 107, col 23 to line 107, col 37 of module ReceiveModbus: 257
@@ -81,25 +81,25 @@ The coverage statistics at 2018-05-13 17:39:18
   line 108, col 33 to line 108, col 42 of module ReceiveModbus: 257
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 109, col 23 to line 109, col 53 of module ReceiveModbus: 302
+  line 109, col 23 to line 109, col 53 of module ReceiveModbus: 818
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 110, col 23 to line 110, col 52 of module ReceiveModbus: 302
+  line 110, col 23 to line 110, col 52 of module ReceiveModbus: 818
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 111, col 12 to line 111, col 22 of module ReceiveModbus: 559
+  line 111, col 12 to line 111, col 22 of module ReceiveModbus: 1075
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 112, col 25 to line 112, col 29 of module ReceiveModbus: 559
+  line 112, col 25 to line 112, col 29 of module ReceiveModbus: 1075
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 112, col 32 to line 112, col 33 of module ReceiveModbus: 559
+  line 112, col 32 to line 112, col 33 of module ReceiveModbus: 1075
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 112, col 36 to line 112, col 40 of module ReceiveModbus: 559
+  line 112, col 36 to line 112, col 40 of module ReceiveModbus: 1075
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 112, col 43 to line 112, col 59 of module ReceiveModbus: 559
+  line 112, col 43 to line 112, col 59 of module ReceiveModbus: 1075
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
   line 116, col 22 to line 116, col 36 of module ReceiveModbus: 257
@@ -108,115 +108,115 @@ The coverage statistics at 2018-05-13 17:39:18
   line 117, col 22 to line 117, col 35 of module ReceiveModbus: 257
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 118, col 22 to line 118, col 37 of module ReceiveModbus: 302
+  line 118, col 22 to line 118, col 37 of module ReceiveModbus: 818
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 119, col 22 to line 119, col 34 of module ReceiveModbus: 302
+  line 119, col 22 to line 119, col 34 of module ReceiveModbus: 818
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 120, col 24 to line 120, col 28 of module ReceiveModbus: 559
+  line 120, col 24 to line 120, col 28 of module ReceiveModbus: 1075
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 120, col 31 to line 120, col 32 of module ReceiveModbus: 559
+  line 120, col 31 to line 120, col 32 of module ReceiveModbus: 1075
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 120, col 35 to line 120, col 44 of module ReceiveModbus: 559
+  line 120, col 35 to line 120, col 44 of module ReceiveModbus: 1075
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 120, col 47 to line 120, col 53 of module ReceiveModbus: 559
+  line 120, col 47 to line 120, col 53 of module ReceiveModbus: 1075
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 120, col 56 to line 120, col 72 of module ReceiveModbus: 559
+  line 120, col 56 to line 120, col 72 of module ReceiveModbus: 1075
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 124, col 24 to line 124, col 38 of module ReceiveModbus: 302
+  line 124, col 24 to line 124, col 38 of module ReceiveModbus: 817
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 125, col 24 to line 125, col 38 of module ReceiveModbus: 0
+  line 125, col 24 to line 125, col 38 of module ReceiveModbus: 1
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 126, col 26 to line 126, col 30 of module ReceiveModbus: 302
+  line 126, col 26 to line 126, col 30 of module ReceiveModbus: 818
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 126, col 33 to line 126, col 34 of module ReceiveModbus: 302
+  line 126, col 33 to line 126, col 34 of module ReceiveModbus: 818
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 126, col 37 to line 126, col 41 of module ReceiveModbus: 302
+  line 126, col 37 to line 126, col 41 of module ReceiveModbus: 818
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 126, col 44 to line 126, col 53 of module ReceiveModbus: 302
+  line 126, col 44 to line 126, col 53 of module ReceiveModbus: 818
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 126, col 56 to line 126, col 62 of module ReceiveModbus: 302
+  line 126, col 56 to line 126, col 62 of module ReceiveModbus: 818
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 127, col 26 to line 127, col 42 of module ReceiveModbus: 302
+  line 127, col 26 to line 127, col 42 of module ReceiveModbus: 818
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 131, col 26 to line 131, col 38 of module ReceiveModbus: 5
+  line 131, col 26 to line 131, col 38 of module ReceiveModbus: 6
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 133, col 26 to line 133, col 39 of module ReceiveModbus: 297
+  line 133, col 26 to line 133, col 39 of module ReceiveModbus: 811
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 134, col 15 to line 134, col 24 of module ReceiveModbus: 302
+  line 134, col 15 to line 134, col 24 of module ReceiveModbus: 817
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 135, col 28 to line 135, col 29 of module ReceiveModbus: 302
+  line 135, col 28 to line 135, col 29 of module ReceiveModbus: 817
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 135, col 32 to line 135, col 36 of module ReceiveModbus: 302
+  line 135, col 32 to line 135, col 36 of module ReceiveModbus: 817
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 135, col 39 to line 135, col 48 of module ReceiveModbus: 302
+  line 135, col 39 to line 135, col 48 of module ReceiveModbus: 817
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 135, col 51 to line 135, col 57 of module ReceiveModbus: 302
+  line 135, col 51 to line 135, col 57 of module ReceiveModbus: 817
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 135, col 60 to line 135, col 76 of module ReceiveModbus: 302
+  line 135, col 60 to line 135, col 76 of module ReceiveModbus: 817
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 138, col 10 to line 138, col 32 of module ReceiveModbus: 301
+  line 138, col 10 to line 138, col 32 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 139, col 10 to line 139, col 19 of module ReceiveModbus: 301
+  line 139, col 10 to line 139, col 19 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 140, col 23 to line 140, col 24 of module ReceiveModbus: 301
+  line 140, col 23 to line 140, col 24 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 140, col 27 to line 140, col 31 of module ReceiveModbus: 301
+  line 140, col 27 to line 140, col 31 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 140, col 34 to line 140, col 43 of module ReceiveModbus: 301
+  line 140, col 34 to line 140, col 43 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 140, col 46 to line 140, col 52 of module ReceiveModbus: 301
+  line 140, col 46 to line 140, col 52 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 140, col 55 to line 140, col 71 of module ReceiveModbus: 301
+  line 140, col 55 to line 140, col 71 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 143, col 10 to line 143, col 22 of module ReceiveModbus: 301
+  line 143, col 10 to line 143, col 22 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 144, col 10 to line 144, col 22 of module ReceiveModbus: 301
+  line 144, col 10 to line 144, col 22 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 145, col 23 to line 145, col 27 of module ReceiveModbus: 301
+  line 145, col 23 to line 145, col 27 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 145, col 30 to line 145, col 31 of module ReceiveModbus: 301
+  line 145, col 30 to line 145, col 31 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 145, col 34 to line 145, col 43 of module ReceiveModbus: 301
+  line 145, col 34 to line 145, col 43 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 145, col 46 to line 145, col 52 of module ReceiveModbus: 301
+  line 145, col 46 to line 145, col 52 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 145, col 55 to line 145, col 71 of module ReceiveModbus: 301
+  line 145, col 55 to line 145, col 71 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
   line 149, col 24 to line 149, col 33 of module ReceiveModbus: 1
@@ -228,46 +228,46 @@ The coverage statistics at 2018-05-13 17:39:18
   line 151, col 24 to line 151, col 38 of module ReceiveModbus: 1
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 152, col 24 to line 152, col 35 of module ReceiveModbus: 300
+  line 152, col 24 to line 152, col 35 of module ReceiveModbus: 815
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 153, col 37 to line 153, col 38 of module ReceiveModbus: 300
+  line 153, col 37 to line 153, col 38 of module ReceiveModbus: 815
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 153, col 41 to line 153, col 57 of module ReceiveModbus: 300
+  line 153, col 41 to line 153, col 57 of module ReceiveModbus: 815
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 154, col 26 to line 154, col 30 of module ReceiveModbus: 301
+  line 154, col 26 to line 154, col 30 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 154, col 33 to line 154, col 37 of module ReceiveModbus: 301
+  line 154, col 33 to line 154, col 37 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 154, col 40 to line 154, col 49 of module ReceiveModbus: 301
+  line 154, col 40 to line 154, col 49 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 154, col 52 to line 154, col 58 of module ReceiveModbus: 301
+  line 154, col 52 to line 154, col 58 of module ReceiveModbus: 816
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 157, col 15 to line 157, col 27 of module ReceiveModbus: 258
+  line 157, col 15 to line 157, col 27 of module ReceiveModbus: 259
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 158, col 15 to line 158, col 27 of module ReceiveModbus: 258
+  line 158, col 15 to line 158, col 27 of module ReceiveModbus: 259
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 159, col 15 to line 159, col 29 of module ReceiveModbus: 258
+  line 159, col 15 to line 159, col 29 of module ReceiveModbus: 259
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 160, col 15 to line 160, col 32 of module ReceiveModbus: 258
+  line 160, col 15 to line 160, col 32 of module ReceiveModbus: 259
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 161, col 15 to line 161, col 26 of module ReceiveModbus: 258
+  line 161, col 15 to line 161, col 26 of module ReceiveModbus: 259
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 162, col 28 to line 162, col 29 of module ReceiveModbus: 258
+  line 162, col 28 to line 162, col 29 of module ReceiveModbus: 259
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
-  line 162, col 32 to line 162, col 48 of module ReceiveModbus: 258
+  line 162, col 32 to line 162, col 48 of module ReceiveModbus: 259
 @!@!@ENDMSG 2221 @!@!@
 @!@!@STARTMSG 2221:0 @!@!@
   line 94, col 12 to line 94, col 16 of module ReceiveModbus: 2
@@ -294,17 +294,17 @@ The coverage statistics at 2018-05-13 17:39:18
 End of statistics.
 @!@!@ENDMSG 2202 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(121) at 2018-05-13 17:39:18: 3144 states generated (5,738 s/min), 2885 distinct states found (5,265 ds/min), 0 states left on queue.
+Progress(3609) at 2018-05-14 12:53:37: 6754 states generated (6,006 s/min), 6494 distinct states found (5,775 ds/min), 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
-3144 states generated, 2885 distinct states found, 0 states left on queue.
+6754 states generated, 6494 distinct states found, 0 states left on queue.
 @!@!@ENDMSG 2199 @!@!@
 @!@!@STARTMSG 2194:0 @!@!@
-The depth of the complete state graph search is 121.
+The depth of the complete state graph search is 3609.
 @!@!@ENDMSG 2194 @!@!@
 @!@!@STARTMSG 2268:0 @!@!@
 The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 1 and the 95th percentile is 1).
 @!@!@ENDMSG 2268 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 35585ms at (2018-05-13 17:39:18)
+Finished in 72418ms at (2018-05-14 12:53:37)
 @!@!@ENDMSG 2186 @!@!@
