@@ -22,7 +22,11 @@ usableASCII == <<" ","!","\"","#","$","%","&","'","(",")",
                      "p","q","r","s","t","u","v","w","x","y",
                      "z","{","|","}","~">>
 
+LOCAL specialChars == {"\t","\r","\n","\f"}
+
 LOCAL Range(T) == { T[x] : x \in DOMAIN T }
+
+SetOfASCII == Range(usableASCII) \union specialChars
 
 CharToNum(char) == IF char \in Range(usableASCII)
                    THEN 31 + CHOOSE i \in 1 .. 95 : usableASCII[i] = char
@@ -52,7 +56,7 @@ SeqToString(ascii) ==
 \*RECURSIVE StrTupleToNumTuple(_)
 StrTupleToNumTuple(str) == [x \in DOMAIN str |-> CharToNum(str[x])]
 
-IsUsableASCII(str) == str = SelectSeq(str, LAMBDA x: x \in usableASCII)
+IsUsableASCII(str) == str = SelectSeq(str, LAMBDA x: x \in SetOfASCII)
 
 SanityCheck == usableASCII = NumTupleToStrTuple(StrTupleToNumTuple(usableASCII))
 
@@ -68,5 +72,5 @@ ASSUME PrintVal("Sanity Check", SanityCheck)
 
 =============================================================================
 \* Modification History
-\* Last modified Mon May 14 12:27:57 EDT 2018 by SabraouM
+\* Last modified Mon May 14 12:45:14 EDT 2018 by SabraouM
 \* Created Thu May 10 13:34:02 EDT 2018 by SabraouM

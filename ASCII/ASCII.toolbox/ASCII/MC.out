@@ -21,10 +21,10 @@ Semantic processing of module MC
 SANY finished.
 @!@!@ENDMSG 2219 @!@!@
 @!@!@STARTMSG 2185:0 @!@!@
-Starting... (2018-05-14 12:28:04)
+Starting... (2018-05-14 12:55:49)
 @!@!@ENDMSG 2185 @!@!@
 <<"ASCIIToString", TRUE>>  TRUE
-<<"Range", {"[", ".", "'", "^", "/", "*", "-", "+", "=", "~", "#", "<", ">", "\\", "|", "&", "$", "%", "@", ",", "(", ")", "T", "{", "x", "]", ":", "}", "i", "1", "9", "0", "_", "v", "n", "d", "e", "f", "g", "S", "w", "s", "p", "j", "a", "b", "t", "m", "F", "3", "6", "B", "7", "E", " ", "!", "\"", "2", "4", "5", "8", ";", "?", "A", "C", "D", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "U", "V", "W", "X", "Y", "Z", "c", "h", "k", "l", "o", "q", "r", "u", "y", "z"}>>  TRUE
+<<"Range", {"[", ".", "'", "^", "/", "*", "-", "+", "=", "~", "#", "<", ">", "\\", "|", "&", "$", "%", "@", ",", "(", ")", "{", "}", "T", "x", "]", ":", "i", "1", "9", "0", "_", "v", "n", "d", "e", "f", "g", "S", "w", "s", "p", "j", "a", "b", "t", "m", "F", "3", "6", "B", "7", "E", " ", "!", "\"", "2", "4", "5", "8", ";", "?", "A", "C", "D", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "U", "V", "W", "X", "Y", "Z", "c", "h", "k", "l", "o", "q", "r", "u", "y", "z"}>>  TRUE
 <<"StrArrayToNumArray", TRUE>>  TRUE
 <<"Sanity Check", TRUE>>  TRUE
 @!@!@STARTMSG 2189:0 @!@!@
@@ -41,7 +41,7 @@ Model checking completed. No error has been found.
   based on the actual fingerprints:  val = 1.8E308
 @!@!@ENDMSG 2193 @!@!@
 @!@!@STARTMSG 2200:0 @!@!@
-Progress(0) at 2018-05-14 12:28:06: 0 states generated (0 s/min), 0 distinct states found (0 ds/min), 0 states left on queue.
+Progress(0) at 2018-05-14 12:55:54: 0 states generated (0 s/min), 0 distinct states found (0 ds/min), 0 states left on queue.
 @!@!@ENDMSG 2200 @!@!@
 @!@!@STARTMSG 2199:0 @!@!@
 0 states generated, 0 distinct states found, 0 states left on queue.
@@ -50,5 +50,5 @@ Progress(0) at 2018-05-14 12:28:06: 0 states generated (0 s/min), 0 distinct sta
 The depth of the complete state graph search is 0.
 @!@!@ENDMSG 2194 @!@!@
 @!@!@STARTMSG 2186:0 @!@!@
-Finished in 2393ms at (2018-05-14 12:28:06)
+Finished in 6527ms at (2018-05-14 12:55:54)
 @!@!@ENDMSG 2186 @!@!@
