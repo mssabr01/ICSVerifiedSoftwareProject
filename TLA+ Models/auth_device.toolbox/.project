@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>auth_device</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>toolbox.builder.TLAParserBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>toolbox.natures.TLANature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Hex.tla</name>
+			<type>1</type>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/Hex.tla</location>
+		</link>
+		<link>
+			<name>LRC.tla</name>
+			<type>1</type>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/LRC.tla</location>
+		</link>
+		<link>
+			<name>Modbus.tla</name>
+			<type>1</type>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/Modbus.tla</location>
+		</link>
+		<link>
+			<name>auth_device.tla</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/auth_device.tla</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>
