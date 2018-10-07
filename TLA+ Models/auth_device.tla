@@ -120,9 +120,9 @@ verify1:   while TRUE do
                 verify2: generatedHMAC := HMAC(msg.text, PASSWORD);
                 verify3: hmacsMatch := CompareHMAC;
                 if hmacsMatch then
-                    verify4: send(trustnet_out, [id|->msg.id, hmacValid|->TRUE]);
+                    verify4: send(trustnet_out, [id|->msg.id, isValid|->TRUE]);
                 else
-                    verify5: send(trustnet_out, [id|->msg.id, hmacValid|->FALSE]);
+                    verify5: send(trustnet_out, [id|->msg.id, isValid|->FALSE]);
                 end if;
             end while;
 
@@ -243,10 +243,25 @@ process trustnet_out = "trustnet_out"
 
 variables   msg = <<>>,
             txBuf = <<>>,
-            txReg = <<>>
+            txReg = <<>>,
+            adder = 0,
+            msgBuf = [x \in {} |-> 0]
+            
 begin
     while TRUE do
         receive(msg);
+        if msg.isValid then
+            adder := 1;
+        else adder := -1;
+        end if;
+        msgBuf := [x \in DOMAIN msgBuf |-> IF x == msg.id THEN msgBuf[x]+adder ELSE msgBuf[x]]
+        \*If a message is waiting for its couterpart (ie the modbus was verified but we are still waiting for the crypto) then it will be at 1
+        \*If both are verified then the value will be 2
+        \*If one is verified and the other is not, it will be 0
+
+        
+        \*go through buffers looking for matching messages
+        for
         txBuf := msg;
 transmit:   if Len(txBuf) > 1
             then
@@ -266,6 +281,6 @@ end algorithm;*)
 
 =============================================================================
 \* Modification History
+\* Last modified Sun Oct 07 12:51:57 EDT 2018 by mssabr01
 \* Last modified Sat Oct 06 22:30:31 EDT 2018 by userMehdi
-\* Last modified Sat Oct 06 09:38:25 EDT 2018 by mssabr01
 \* Created Tue Oct 02 17:14:28 EDT 2018 by mssabr01
