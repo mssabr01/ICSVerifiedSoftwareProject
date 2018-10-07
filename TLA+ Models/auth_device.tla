@@ -45,7 +45,9 @@ variables
     messagecheck,
     untrustnet_in = <<>>,
     untrustnet_out = <<>>,
-    chan = <<trustnet_in, trustnet_out, sign, verify, messagecheck, untrustnet_in, untrustnet_out>>;
+    finished_trustnet = <<>>, \*all the messages that get sent out the trustnet
+    finished_untrustnet = <<>>, \*all the messages that get sent out the untrustnet
+    chan = <<trustnet_in, trustnet_out, sign, verify, messagecheck, untrustnet_in, untrustnet_out,finished_untrustnet,finished_trustnet>>;
 
 \* IPC calls
 macro send(dest, msg) 
@@ -131,7 +133,9 @@ end process
 process trustnet_in = "trustnet_in"
 
 variables   rxBuf = <<>>,
+            guid = 0,
             msg = <<>>,
+            msgid = <<>>,
             rx = FALSE,
             rxReg = <<>>,
             last2 = <<3,3>>, \*dummy numbers
@@ -142,43 +146,126 @@ begin
 \* wait for something to appear in the buffer
 trustnet_in1:   while TRUE do
                 receive(msg);
-                incByte :=  <<Head(msg)>>;
-                incMessage := Tail(msg);
-inc:    if incByte = <<>>
-        then goto alldone;
-        else
-                rxReg := incByte;    
-        end if;
-start:  if Len(rxBuf) < MAXMODBUSSIZE
-        then goto receive;
-        else goto alldone;
-        end if;
+                start:  while Len(msg) > 0 do
+                        if Len(rxBuf) = MAXMODBUSSIZE then
+                            rxBuf := <<>>;
+                            rxReg := <<>>;
+                            incByte := <<>>;
+                            incMessage := <<>>;
+                            goto start;
+                        end if;
+                inc:    incByte :=  <<Head(msg)>>;
+                        incMessage := Tail(msg);
+                        if incByte = <<>> then 
+                        else
+                            rxReg := incByte;    
+                        end if;
+
     
-receive:    \* a ":" character indicates the start of a new message
-            if rxReg = StrTupleToNumTuple(<<":">>)
-                then rxBuf := <<>>;
+                receive:    \* a ":" character indicates the start of a new message
+                            if rxReg = StrTupleToNumTuple(<<":">>)
+                                then rxBuf := <<>>;
+                            end if;
+                            r0: last2 := Tail(last2 \o rxReg);
+                            r1: rxBuf := rxBuf \o rxReg; \* put the contents of the register into the buffer
+                            \*empty the register
+                            r2: rxReg := <<>>;
+                check:     \*if we get the end of the modbus "/r/n" then ship it
+                            if NumTupleToStrTuple(last2) == <<"\r","\n">> then \*convert back to ASCII before checking for end of packet
+                                check0: msgid := guid \o "trustnet_in";
+                                check1: guid := guid + 1;
+                                check2: send(messagecheck, [id|->msgid, text|->rxBuf, source|->self]);
+                                check3: send(sign, [id|->msgid, text|->rxBuf]);
+                                check4: rxBuf := <<>>;
+                                rxReg := <<>>;
+                                incByte := <<>>;
+                                incMessage := <<>>;
             end if;
-            r1: rxBuf := rxBuf \o rxReg; \* put the contents of the register into the buffer
-            \*empty the register
-            r2: rxReg := <<>>;
-check:     \*if we get the end of the modbus "/r/n" then ship it
-            if NumTupleToStrTuple(last2) == <<"\r","\n">> then \*convert back to ASCII before checking for end of packet
-                send();
-                rxBuf := <<>>;
-                rxReg := <<>>;
-                incByte := <<>>;
-                incMessage := <<>>;
+        end while;
+    end while;
+            
+end process;
+\*=========================================
+
+\*Receive signed messages from untrusted serial port
+process untrustnet_in = "untrustnet_in"
+
+variables   rxBuf = <<>>,
+            guid = 0,
+            msg = <<>>,
+            msgid = <<>>,
+            rx = FALSE,
+            rxReg = <<>>,
+            last2 = <<3,3>>, \*dummy numbers
+            incMessage \in MessagesToSerialPort,
+            incByte = <<>>,
+
+begin
+\* wait for something to appear in the buffer
+untrustnet_in1:   while TRUE do
+                receive(msg);
+                start:  while Len(msg) > 0 do
+                inc:    incByte :=  <<Head(msg)>>;
+                        incMessage := Tail(msg);
+                        if incByte = <<>> then 
+                        else
+                            rxReg := incByte;    
+                        end if;
+
+    
+                receive:    \* a "!" character indicates the start of a new message
+                            if rxReg = StrTupleToNumTuple(<<"!">>)
+                                then rxBuf := <<>>;
+                            end if;
+                            r0: last2 := Tail(last2 \o rxReg);
+                            r1: rxBuf := rxBuf \o rxReg; \* put the contents of the register into the buffer
+                            \*empty the register
+                            r2: rxReg := <<>>;
+                check:     \*if we get the end of the modbus "/r/n" then ship it
+                            if NumTupleToStrTuple(last2) == <<"\r","\n">> then \*convert back to ASCII before checking for end of packet
+                                check0: msgid := guid \o "untrustnet_in";
+                                check1: guid := guid + 1;
+                                check2: send(messagecheck, [id|->msgid, text|->rxBuf, source|->self]);
+                                check3: send(verify, [id|->msgid, text|->rxBuf]);
+                                check4: rxBuf := <<>>;
+                                rxReg := <<>>;
+                                incByte := <<>>;
+                                incMessage := <<>>;
+            end if;
+        end while;
+    end while;
+            
+end process;
+\*=========================================
+
+\*process to send modbus out the trusted serial port
+process trustnet_out = "trustnet_out"
+
+variables   msg = <<>>,
+            txBuf = <<>>,
+            txReg = <<>>
+begin
+    while TRUE do
+        receive(msg);
+        txBuf := msg;
+transmit:   if Len(txBuf) > 1
+            then
+                \*empty the buffer into the register
+                a: txReg := <<Head(txBuf)>>;
+                b: txBuf := Tail(txBuf);
+                goto transmit;
+            else
+                txReg := <<txBuf[1]>>;
             end if;
             
-            
-            
-end process
+finished: txReg:= <<>>;
+          txBuf := <<>>;
 
 end algorithm;*)
 
 
-
 =============================================================================
 \* Modification History
+\* Last modified Sat Oct 06 22:30:31 EDT 2018 by userMehdi
 \* Last modified Sat Oct 06 09:38:25 EDT 2018 by mssabr01
 \* Created Tue Oct 02 17:14:28 EDT 2018 by mssabr01

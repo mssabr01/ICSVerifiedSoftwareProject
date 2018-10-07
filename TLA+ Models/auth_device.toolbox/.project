@@ -18,22 +18,22 @@
 		<link>
 			<name>ASCII.tla</name>
 			<type>1</type>
-			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ASCII.tla</location>
+			<locationURI>PARENT-1-PROJECT_LOC/ASCII.tla</locationURI>
 		</link>
 		<link>
 			<name>Hex.tla</name>
 			<type>1</type>
-			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/Hex.tla</location>
+			<locationURI>PARENT-1-PROJECT_LOC/Hex.tla</locationURI>
 		</link>
 		<link>
 			<name>LRC.tla</name>
 			<type>1</type>
-			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/LRC.tla</location>
+			<locationURI>PARENT-1-PROJECT_LOC/LRC.tla</locationURI>
 		</link>
 		<link>
 			<name>Modbus.tla</name>
 			<type>1</type>
-			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/Modbus.tla</location>
+			<locationURI>PARENT-1-PROJECT_LOC/Modbus.tla</locationURI>
 		</link>
 		<link>
 			<name>auth_device.tla</name>
