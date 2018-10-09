@@ -55,11 +55,11 @@ macro send(dest, msg)
         chan[dest] := Append(chan[dest], msg);
     end macro;
 
-macro receive(msg) 
+macro receive(channel, msg) 
     begin
-        await Len(chan[self]) > 0;
-        msg := Head(chan[self]);
-        chan[self] := Tail(chan[self]);
+        await Len(chan[channel]) > 0;
+        msg := Head(chan[channel]);
+        chan[channel] := Tail(chan[channel]);
     end macro;
 
 \* Signing process.
@@ -70,7 +70,7 @@ variables   msg = <<>>,
 begin
 sign1:   while TRUE do
          
-             receive(msg);
+             receive(sign, msg);
              sign2: generated_hmac := HMAC(msg.text, PASSWORD); \*hash it and the password
              sign3: send(untrustnet_out, [id|->msg.id, hmac|->generated_hmac, isValid|->TRUE]);
          end while;
@@ -84,7 +84,7 @@ variables   msg = <<>>
             
 begin
 modbus1:    while TRUE do
-                receive(msg);
+                receive("messagecheck", msg);
                 if IsModbus(msg.text) then
                     if msg.source = "trustnet_in" then 
                         mod1: send(untrustnet_out, [id|->msg.id, isValid|->TRUE, text|->msg.text]);
@@ -116,7 +116,7 @@ variables   msg = <<>>,
             hmacsMatch = FALSE
 begin
 verify1:   while TRUE do
-                receive(msg);
+                receive("verify", msg);
                 verify2: retreivedHMAC := GetHMAC(msg.text);
                 verify3: generatedHMAC := HMAC(msg.text, PASSWORD);
                 verify4: hmacsMatch := CompareHMAC;
@@ -146,7 +146,7 @@ variables   rxBuf = <<>>,
 begin
 \* wait for something to appear in the buffer
 trustnet_in1:   while TRUE do
-                receive(msg);
+                receive("trustnet_in", msg);
                 start:  while Len(msg) > 0 do
                         if Len(rxBuf) = MAXMODBUSSIZE then
                             rxBuf := <<>>;
@@ -175,7 +175,7 @@ trustnet_in1:   while TRUE do
                             if NumTupleToStrTuple(last2) = <<"\r","\n">> then \*convert back to ASCII before checking for end of packet
                                 check0: msgid := guid \o "trustnet_in";
                                 check1: guid := guid + 1;
-                                check2: send(messagecheck, [id|->msgid, text|->rxBuf, source|->self]);
+                                check2: send(messagecheck, [id|->msgid, text|->rxBuf, source|->trustnet_in]);
                                 check3: send(sign, [id|->msgid, text|->rxBuf]);
                                 check4: rxBuf := <<>>;
                                 rxReg := <<>>;
@@ -204,7 +204,7 @@ variables   rxBuf = <<>>,
 begin
 \* wait for something to appear in the buffer
 untrustnet_in1:   while TRUE do
-                receive(msg);
+                receive("untrustnet_in", msg);
                 start:  while Len(msg) > 0 do
                 inc:    incByte :=  <<Head(msg)>>;
                         incMessage := Tail(msg);
@@ -226,7 +226,7 @@ untrustnet_in1:   while TRUE do
                             if NumTupleToStrTuple(last2) = <<"\r","\n">> then \*convert back to ASCII before checking for end of packet
                                 check0: msgid := guid \o "untrustnet_in";
                                 check1: guid := guid + 1;
-                                check2: send(messagecheck, [id|->msgid, text|->rxBuf, source|->self]);
+                                check2: send(messagecheck, [id|->msgid, text|->rxBuf, source|->untrustnet_in]);
                                 check3: send(verify, [id|->msgid, text|->rxBuf]);
                                 check4: rxBuf := <<>>;
                                 rxReg := <<>>;
@@ -250,7 +250,7 @@ variables   msg = <<>>,
             
 begin
     to1: while TRUE do
-        receive(msg);
+        receive("trustnet_out", msg);
         if msg.isValid then \*if the message is valid then look for another message in the validMessages set with the same id.
             if \E x \in validMessages : x.id = msg.id then \*if one exists then both portions of the message were verified and the message can be sent
                 txBuf := msg.text;
@@ -287,7 +287,7 @@ variables   msg = <<>>,
             
 begin
     uto1: while TRUE do
-        receive(msg);
+        receive("untrustnet_out", msg);
         if msg.isValid then \*if the message is valid then look for another message in the validMessages set with the same id.
             if \E x \in validMessages : x.id = msg.id then \*if one exists then both portions of the message were verified and the message can be sent
                 txBuf := StrTupleToNumTuple(<<"!">>) \o msg.msg.text;
@@ -445,9 +445,9 @@ Init == (* Global variables *)
                                         [] self = "untrustnet_out" -> "uto1"]
 
 sign1 == /\ pc["sign"] = "sign1"
-         /\ Len(chan[self]) > 0
-         /\ msg_' = Head(chan[self])
-         /\ chan' = [chan EXCEPT ![self] = Tail(chan[self])]
+         /\ Len(chan[sign]) > 0
+         /\ msg_' = Head(chan[sign])
+         /\ chan' = [chan EXCEPT ![sign] = Tail(chan[sign])]
          /\ pc' = [pc EXCEPT !["sign"] = "sign2"]
          /\ UNCHANGED << trustnet_in, trustnet_out, sign, verify, messagecheck, 
                          untrustnet_in, untrustnet_out, finished_trustnet, 
@@ -491,9 +491,9 @@ sign3 == /\ pc["sign"] = "sign3"
 sign_ == sign1 \/ sign2 \/ sign3
 
 modbus1 == /\ pc["messagecheck"] = "modbus1"
-           /\ Len(chan[self]) > 0
-           /\ msg_m' = Head(chan[self])
-           /\ chan' = [chan EXCEPT ![self] = Tail(chan[self])]
+           /\ Len(chan["messagecheck"]) > 0
+           /\ msg_m' = Head(chan["messagecheck"])
+           /\ chan' = [chan EXCEPT !["messagecheck"] = Tail(chan["messagecheck"])]
            /\ IF IsModbus(msg_m'.text)
                  THEN /\ IF msg_m'.source = "trustnet_in"
                             THEN /\ pc' = [pc EXCEPT !["messagecheck"] = "mod1"]
@@ -575,9 +575,9 @@ mod4 == /\ pc["messagecheck"] = "mod4"
 messagecheck_ == modbus1 \/ mod1 \/ mod2 \/ mod3 \/ mod4
 
 verify1 == /\ pc["verify"] = "verify1"
-           /\ Len(chan[self]) > 0
-           /\ msg_v' = Head(chan[self])
-           /\ chan' = [chan EXCEPT ![self] = Tail(chan[self])]
+           /\ Len(chan["verify"]) > 0
+           /\ msg_v' = Head(chan["verify"])
+           /\ chan' = [chan EXCEPT !["verify"] = Tail(chan["verify"])]
            /\ pc' = [pc EXCEPT !["verify"] = "verify2"]
            /\ UNCHANGED << trustnet_in, trustnet_out, sign, verify, 
                            messagecheck, untrustnet_in, untrustnet_out, 
@@ -665,9 +665,9 @@ verify6 == /\ pc["verify"] = "verify6"
 verify_ == verify1 \/ verify2 \/ verify3 \/ verify4 \/ verify5 \/ verify6
 
 trustnet_in1 == /\ pc["trustnet_in"] = "trustnet_in1"
-                /\ Len(chan[self]) > 0
-                /\ msg_t' = Head(chan[self])
-                /\ chan' = [chan EXCEPT ![self] = Tail(chan[self])]
+                /\ Len(chan["trustnet_in"]) > 0
+                /\ msg_t' = Head(chan["trustnet_in"])
+                /\ chan' = [chan EXCEPT !["trustnet_in"] = Tail(chan["trustnet_in"])]
                 /\ pc' = [pc EXCEPT !["trustnet_in"] = "start_"]
                 /\ UNCHANGED << trustnet_in, trustnet_out, sign, verify, 
                                 messagecheck, untrustnet_in, untrustnet_out, 
@@ -822,7 +822,7 @@ check1_ == /\ pc["trustnet_in"] = "check1_"
                            txBuf, txReg, adder, validMessages >>
 
 check2_ == /\ pc["trustnet_in"] = "check2_"
-           /\ chan' = [chan EXCEPT ![messagecheck] = Append(chan[messagecheck], ([id|->msgid_, text|->rxBuf_, source|->self]))]
+           /\ chan' = [chan EXCEPT ![messagecheck] = Append(chan[messagecheck], ([id|->msgid_, text|->rxBuf_, source|->trustnet_in]))]
            /\ pc' = [pc EXCEPT !["trustnet_in"] = "check3_"]
            /\ UNCHANGED << trustnet_in, trustnet_out, sign, verify, 
                            messagecheck, untrustnet_in, untrustnet_out, 
@@ -871,9 +871,9 @@ trustnet_in_ == trustnet_in1 \/ start_ \/ inc_ \/ receive_ \/ r0_ \/ r1_
                    \/ check3_ \/ check4_
 
 untrustnet_in1 == /\ pc["untrustnet_in"] = "untrustnet_in1"
-                  /\ Len(chan[self]) > 0
-                  /\ msg_u' = Head(chan[self])
-                  /\ chan' = [chan EXCEPT ![self] = Tail(chan[self])]
+                  /\ Len(chan["untrustnet_in"]) > 0
+                  /\ msg_u' = Head(chan["untrustnet_in"])
+                  /\ chan' = [chan EXCEPT !["untrustnet_in"] = Tail(chan["untrustnet_in"])]
                   /\ pc' = [pc EXCEPT !["untrustnet_in"] = "start"]
                   /\ UNCHANGED << trustnet_in, trustnet_out, sign, verify, 
                                   messagecheck, untrustnet_in, untrustnet_out, 
@@ -1020,7 +1020,7 @@ check1 == /\ pc["untrustnet_in"] = "check1"
                           txReg, adder, validMessages >>
 
 check2 == /\ pc["untrustnet_in"] = "check2"
-          /\ chan' = [chan EXCEPT ![messagecheck] = Append(chan[messagecheck], ([id|->msgid, text|->rxBuf, source|->self]))]
+          /\ chan' = [chan EXCEPT ![messagecheck] = Append(chan[messagecheck], ([id|->msgid, text|->rxBuf, source|->untrustnet_in]))]
           /\ pc' = [pc EXCEPT !["untrustnet_in"] = "check3"]
           /\ UNCHANGED << trustnet_in, trustnet_out, sign, verify, 
                           messagecheck, untrustnet_in, untrustnet_out, 
@@ -1069,9 +1069,9 @@ untrustnet_in_ == untrustnet_in1 \/ start \/ inc \/ receive \/ r0 \/ r1
                      \/ check4
 
 to1 == /\ pc["trustnet_out"] = "to1"
-       /\ Len(chan[self]) > 0
-       /\ msg_tr' = Head(chan[self])
-       /\ chan' = [chan EXCEPT ![self] = Tail(chan[self])]
+       /\ Len(chan["trustnet_out"]) > 0
+       /\ msg_tr' = Head(chan["trustnet_out"])
+       /\ chan' = [chan EXCEPT !["trustnet_out"] = Tail(chan["trustnet_out"])]
        /\ IF msg_tr'.isValid
              THEN /\ IF \E x \in validMessages_ : x.id = msg_tr'.id
                         THEN /\ txBuf_' = msg_tr'.text
@@ -1179,9 +1179,9 @@ to2 == /\ pc["trustnet_out"] = "to2"
 trustnet_out_ == to1 \/ finished_ \/ transmit_ \/ a_ \/ b_ \/ c_ \/ to2
 
 uto1 == /\ pc["untrustnet_out"] = "uto1"
-        /\ Len(chan[self]) > 0
-        /\ msg' = Head(chan[self])
-        /\ chan' = [chan EXCEPT ![self] = Tail(chan[self])]
+        /\ Len(chan["untrustnet_out"]) > 0
+        /\ msg' = Head(chan["untrustnet_out"])
+        /\ chan' = [chan EXCEPT !["untrustnet_out"] = Tail(chan["untrustnet_out"])]
         /\ IF msg'.isValid
               THEN /\ IF \E x \in validMessages : x.id = msg'.id
                          THEN /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o msg'.msg.text
@@ -1297,9 +1297,8 @@ Spec == Init /\ [][Next]_vars
 \* END TRANSLATION
 
 
-
 =============================================================================
 \* Modification History
-\* Last modified Mon Oct 08 20:17:07 EDT 2018 by mssabr01
+\* Last modified Tue Oct 09 19:08:59 EDT 2018 by mssabr01
 \* Last modified Sat Oct 06 22:30:31 EDT 2018 by userMehdi
 \* Created Tue Oct 02 17:14:28 EDT 2018 by mssabr01
