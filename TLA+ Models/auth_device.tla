@@ -11,8 +11,9 @@ LOCAL Range(T) == { T[x] : x \in DOMAIN T }
 MessagesToSerialPort == \*these are in ASCII but they are converted to decimal before being used below. See StrTupleToNumTuple in ASCII.tla
     << StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>),
       StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
-      StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","G","L","F">>),
+      StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
       StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>), \*this one starts a new modbus packet half way through the message
+      StrTupleToNumTuple(<<"!","m","Q","I","N","B","F","u","O","v","x","M","B","E","A","D","g","D","B","Q","v","c","R","P","z","T","e","G","w","v","V","2","J","C","r","t","m","x","U","j","v","Y","S","Z","7","P","j","W","p","H","l","5","2","4","g","I","g","J","h","b","t","d","I","T","U",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
       <<>>,<<1>>,<<2>>,<<3>>,<<4>>,<<5>>,<<6>>,<<7>>,<<8>>,<<9>>,<<10>>,<<11>>,<<12>>,<<13>>, \* all possible values
       <<14>>,<<15>>,<<16>>,<<17>>,<<18>>,<<19>>,<<20>>,<<21>>,<<22>>,<<23>>,<<24>>,<<25>>,   \*that could come across the serial line
       <<26>>,<<27>>,<<28>>,<<29>>,<<30>>,<<31>>,<<32>>,<<33>>,<<34>>,<<35>>,<<36>>,<<37>>,<<38>>,<<39>>,<<40>>,<<41>>,
@@ -32,14 +33,14 @@ MessagesToSerialPort == \*these are in ASCII but they are converted to decimal b
       <<250>>,<<251>>,<<252>>,<<253>>,<<254>>,<<255>>
      >>
                        
-HMAC(str, pass) == <<"l","o","l","h","m","a","c">> \*not concerned with the inner workings of SHA2
+HMAC(str, pass) == "IKoWL9vGUhS1qtZf45hr9W41ZiBGPjdow6SY2A0+qEda+siiBHGC4r/S5gJWP/sT" \*not concerned with the inner workings of SHA2
 GetHMAC(str) == SubSeq(str,2,65)
 
 (* --algorithm auth_device
 
 variables 
     
-    chan = [trustnet_in |-> MessagesToSerialPort, trustnet_out |-> <<>>, sign |-> <<>>, verify |-> <<>>, messagecheck |-> <<>>, 
+    chan = [trustnet_out |-> <<>>, sign |-> <<>>, verify |-> <<>>, messagecheck |-> <<>>, 
             untrustnet_in |-> <<>>, untrustnet_out |-> <<>>, finished_untrustnet |-> <<>>, finished_trustnet |-> <<>>],
     
     
@@ -66,7 +67,7 @@ sign1:   while TRUE do
          
              receive("sign", msg);
              sign2: generated_hmac := HMAC(msg.text, PASSWORD); \*hash it and the password
-             sign3: send("untrustnet_out", [id|->msg.id, hmac|->generated_hmac, isValid|->TRUE]);
+             sign3: send("untrustnet_out", [id|->msg.id, hmac|->generated_hmac, isValid|->TRUE, text|->msg.text]);
          end while;
 end process
 \*=========================================
@@ -79,7 +80,7 @@ variables   msg = <<>>
 begin
 modbus1:    while TRUE do
                 receive("messagecheck", msg);
-                if IsModbus(msg.text) then
+                if IsModbus(NumTupleToStrTuple(msg.text)) then
                     if msg.source = "trustnet_in" then 
                         mod1: send("untrustnet_out", [id|->msg.id, isValid|->TRUE, text|->msg.text]);
                     elsif (msg.source = "untrust_in") then 
@@ -115,9 +116,9 @@ verify1:   while TRUE do
                 verify3: generatedHMAC := HMAC(msg.text, PASSWORD);
                 verify4: hmacsMatch := CompareHMAC;
                 if hmacsMatch then
-                    verify5: send("trustnet_out", [id|->msg.id, isValid|->TRUE]);
+                    verify5: send("trustnet_out", [id|->msg.id, isValid|->TRUE, text|->msg.text]);
                 else
-                    verify6: send("trustnet_out", [id|->msg.id, isValid|->FALSE]);
+                    verify6: send("trustnet_out", [id|->msg.id, isValid|->FALSE, text|->msg.text]);
                 end if;
             end while;
 
@@ -128,7 +129,8 @@ end process
 process trustnet_in = "trustnet_in"
 
 variables   rxBuf = <<>>,
-            guid = 0,
+            incomingMessages = MessagesToSerialPort,
+            guid = <<0>>,
             msg = <<>>,
             msgid = <<>>,
             rx = FALSE,
@@ -139,7 +141,9 @@ variables   rxBuf = <<>>,
 begin
 \* wait for something to appear in the buffer
 trustnet_in1:   while TRUE do
-                receive("trustnet_in", msg);
+                ti1: msg := Head(incomingMessages);
+                ti2: incomingMessages := Tail(incomingMessages);
+                \*print "tni" \o msg;
                 start:  while Len(msg) > 0 do
                         if Len(rxBuf) = MAXMODBUSSIZE then
                             rxBuf := <<>>;
@@ -149,7 +153,7 @@ trustnet_in1:   while TRUE do
                             goto start;
                         end if;
                 inc:    incByte :=  <<Head(msg)>>;
-                        incMessage := Tail(msg);
+                        msg := Tail(msg);
                         if incByte = <<>> then 
                         else
                             rxReg := incByte;    
@@ -166,8 +170,8 @@ trustnet_in1:   while TRUE do
                             r2: rxReg := <<>>;
                 check:     \*if we get the end of the modbus "/r/n" then ship it
                             if NumTupleToStrTuple(last2) = <<"\r","\n">> then \*convert back to ASCII before checking for end of packet
-                                check0: msgid := guid \o "trustnet_in";
-                                check1: guid := guid + 1;
+                                check0: msgid := <<guid[1]>> \o <<"t","n","i">>;
+                                check1: guid[1] := guid[1] + 1;
                                 check2: send("messagecheck", [id|->msgid, text|->rxBuf, source|->"trustnet_in"]);
                                 check3: send("sign", [id|->msgid, text|->rxBuf]);
                                 check4: rxBuf := <<>>;
@@ -186,6 +190,7 @@ process untrustnet_in = "untrustnet_in"
 
 variables   rxBuf = <<>>,
             guid = 0,
+            incomingMessages = MessagesToSerialPort,
             msg = <<>>,
             msgid = <<>>,
             rx = FALSE,
@@ -197,7 +202,8 @@ variables   rxBuf = <<>>,
 begin
 \* wait for something to appear in the buffer
 untrustnet_in1:   while TRUE do
-                receive("untrustnet_in", msg);
+                    uti1: msg := Head(incomingMessages);
+                    uti2: incomingMessages := Tail(incomingMessages);
                 start:  while Len(msg) > 0 do
                 inc:    incByte :=  <<Head(msg)>>;
                         incMessage := Tail(msg);
@@ -283,7 +289,7 @@ begin
         receive("untrustnet_out", msg);
         if msg.isValid then \*if the message is valid then look for another message in the validMessages set with the same id.
             if \E x \in validMessages : x.id = msg.id then \*if one exists then both portions of the message were verified and the message can be sent
-                txBuf := StrTupleToNumTuple(<<"!">>) \o msg.msg.text;
+                txBuf := StrTupleToNumTuple(<<"!">>) \o msg.text;
                 transmit: if Len(txBuf) > 1 then
                     \*empty the buffer into the register
                     a: txReg := <<Head(txBuf)>>;
@@ -310,58 +316,59 @@ end process;
 
 end algorithm;*)
 \* BEGIN TRANSLATION
-\* Label start of process trustnet_in at line 143 col 25 changed to start_
-\* Label inc of process trustnet_in at line 151 col 25 changed to inc_
-\* Label receive of process trustnet_in at line 160 col 29 changed to receive_
-\* Label r0 of process trustnet_in at line 163 col 33 changed to r0_
-\* Label r1 of process trustnet_in at line 164 col 33 changed to r1_
-\* Label r2 of process trustnet_in at line 166 col 33 changed to r2_
-\* Label check of process trustnet_in at line 168 col 29 changed to check_
-\* Label check0 of process trustnet_in at line 169 col 41 changed to check0_
-\* Label check1 of process trustnet_in at line 170 col 41 changed to check1_
-\* Label check2 of process trustnet_in at line 49 col 9 changed to check2_
-\* Label check3 of process trustnet_in at line 49 col 9 changed to check3_
-\* Label check4 of process trustnet_in at line 173 col 41 changed to check4_
-\* Label transmit of process trustnet_out at line 250 col 27 changed to transmit_
-\* Label a of process trustnet_out at line 252 col 24 changed to a_
-\* Label b of process trustnet_out at line 49 col 9 changed to b_
-\* Label c of process trustnet_out at line 254 col 24 changed to c_
-\* Label finished of process trustnet_out at line 265 col 19 changed to finished_
-\* Process variable msg of process sign at line 62 col 13 changed to msg_
-\* Process variable msg of process messagecheck at line 77 col 13 changed to msg_m
-\* Process variable msg of process verify at line 104 col 13 changed to msg_v
-\* Process variable rxBuf of process trustnet_in at line 130 col 13 changed to rxBuf_
-\* Process variable guid of process trustnet_in at line 131 col 13 changed to guid_
-\* Process variable msg of process trustnet_in at line 132 col 13 changed to msg_t
-\* Process variable msgid of process trustnet_in at line 133 col 13 changed to msgid_
-\* Process variable rx of process trustnet_in at line 134 col 13 changed to rx_
-\* Process variable rxReg of process trustnet_in at line 135 col 13 changed to rxReg_
-\* Process variable last2 of process trustnet_in at line 136 col 13 changed to last2_
-\* Process variable incByte of process trustnet_in at line 137 col 13 changed to incByte_
-\* Process variable msg of process untrustnet_in at line 189 col 13 changed to msg_u
-\* Process variable msg of process trustnet_out at line 238 col 13 changed to msg_tr
-\* Process variable txBuf of process trustnet_out at line 239 col 13 changed to txBuf_
-\* Process variable txReg of process trustnet_out at line 240 col 13 changed to txReg_
-\* Process variable adder of process trustnet_out at line 241 col 13 changed to adder_
-\* Process variable validMessages of process trustnet_out at line 242 col 13 changed to validMessages_
+\* Label start of process trustnet_in at line 147 col 25 changed to start_
+\* Label inc of process trustnet_in at line 155 col 25 changed to inc_
+\* Label receive of process trustnet_in at line 164 col 29 changed to receive_
+\* Label r0 of process trustnet_in at line 167 col 33 changed to r0_
+\* Label r1 of process trustnet_in at line 168 col 33 changed to r1_
+\* Label r2 of process trustnet_in at line 170 col 33 changed to r2_
+\* Label check of process trustnet_in at line 172 col 29 changed to check_
+\* Label check0 of process trustnet_in at line 173 col 41 changed to check0_
+\* Label check1 of process trustnet_in at line 174 col 41 changed to check1_
+\* Label check2 of process trustnet_in at line 50 col 9 changed to check2_
+\* Label check3 of process trustnet_in at line 50 col 9 changed to check3_
+\* Label check4 of process trustnet_in at line 177 col 41 changed to check4_
+\* Label transmit of process trustnet_out at line 256 col 27 changed to transmit_
+\* Label a of process trustnet_out at line 258 col 24 changed to a_
+\* Label b of process trustnet_out at line 50 col 9 changed to b_
+\* Label c of process trustnet_out at line 260 col 24 changed to c_
+\* Label finished of process trustnet_out at line 271 col 19 changed to finished_
+\* Process variable msg of process sign at line 63 col 13 changed to msg_
+\* Process variable msg of process messagecheck at line 78 col 13 changed to msg_m
+\* Process variable msg of process verify at line 105 col 13 changed to msg_v
+\* Process variable rxBuf of process trustnet_in at line 131 col 13 changed to rxBuf_
+\* Process variable incomingMessages of process trustnet_in at line 132 col 13 changed to incomingMessages_
+\* Process variable guid of process trustnet_in at line 133 col 13 changed to guid_
+\* Process variable msg of process trustnet_in at line 134 col 13 changed to msg_t
+\* Process variable msgid of process trustnet_in at line 135 col 13 changed to msgid_
+\* Process variable rx of process trustnet_in at line 136 col 13 changed to rx_
+\* Process variable rxReg of process trustnet_in at line 137 col 13 changed to rxReg_
+\* Process variable last2 of process trustnet_in at line 138 col 13 changed to last2_
+\* Process variable incByte of process trustnet_in at line 139 col 13 changed to incByte_
+\* Process variable msg of process untrustnet_in at line 194 col 13 changed to msg_u
+\* Process variable msg of process trustnet_out at line 244 col 13 changed to msg_tr
+\* Process variable txBuf of process trustnet_out at line 245 col 13 changed to txBuf_
+\* Process variable txReg of process trustnet_out at line 246 col 13 changed to txReg_
+\* Process variable adder of process trustnet_out at line 247 col 13 changed to adder_
+\* Process variable validMessages of process trustnet_out at line 248 col 13 changed to validMessages_
 VARIABLES chan, pc, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
           retreivedHMAC, generatedHMAC, result, CompareHMAC, hmacsMatch, 
-          rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, 
-          guid, msg_u, msgid, rx, rxReg, last2, incMessage, incByte, msg_tr, 
-          txBuf_, txReg_, adder_, validMessages_, msg, txBuf, txReg, adder, 
-          validMessages
+          rxBuf_, incomingMessages_, guid_, msg_t, msgid_, rx_, rxReg_, 
+          last2_, incByte_, rxBuf, guid, incomingMessages, msg_u, msgid, rx, 
+          rxReg, last2, incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+          validMessages_, msg, txBuf, txReg, adder, validMessages
 
 vars == << chan, pc, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
            retreivedHMAC, generatedHMAC, result, CompareHMAC, hmacsMatch, 
-           rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, 
-           guid, msg_u, msgid, rx, rxReg, last2, incMessage, incByte, msg_tr, 
-           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, txReg, adder, 
-           validMessages >>
+           rxBuf_, incomingMessages_, guid_, msg_t, msgid_, rx_, rxReg_, 
+           last2_, incByte_, rxBuf, guid, incomingMessages, msg_u, msgid, rx, 
+           rxReg, last2, incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+           validMessages_, msg, txBuf, txReg, adder, validMessages >>
 
 ProcSet == {"sign"} \cup {"messagecheck"} \cup {"verify"} \cup {"trustnet_in"} \cup {"untrustnet_in"} \cup {"trustnet_out"} \cup {"untrustnet_out"}
 
 Init == (* Global variables *)
-        /\ chan = [trustnet_in |-> MessagesToSerialPort, trustnet_out |-> <<>>, sign |-> <<>>, verify |-> <<>>, messagecheck |-> <<>>,
+        /\ chan = [trustnet_out |-> <<>>, sign |-> <<>>, verify |-> <<>>, messagecheck |-> <<>>,
                    untrustnet_in |-> <<>>, untrustnet_out |-> <<>>, finished_untrustnet |-> <<>>, finished_trustnet |-> <<>>]
         (* Process sign *)
         /\ msg_ = <<>>
@@ -378,7 +385,8 @@ Init == (* Global variables *)
         /\ hmacsMatch = FALSE
         (* Process trustnet_in *)
         /\ rxBuf_ = <<>>
-        /\ guid_ = 0
+        /\ incomingMessages_ = MessagesToSerialPort
+        /\ guid_ = <<0>>
         /\ msg_t = <<>>
         /\ msgid_ = <<>>
         /\ rx_ = FALSE
@@ -388,6 +396,7 @@ Init == (* Global variables *)
         (* Process untrustnet_in *)
         /\ rxBuf = <<>>
         /\ guid = 0
+        /\ incomingMessages = MessagesToSerialPort
         /\ msg_u = <<>>
         /\ msgid = <<>>
         /\ rx = FALSE
@@ -422,33 +431,36 @@ sign1 == /\ pc["sign"] = "sign1"
          /\ pc' = [pc EXCEPT !["sign"] = "sign2"]
          /\ UNCHANGED << generated_hmac, msg_m, msg_v, bareMessage, 
                          retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                         hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                         last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, 
-                         rxReg, last2, incMessage, incByte, msg_tr, txBuf_, 
-                         txReg_, adder_, validMessages_, msg, txBuf, txReg, 
-                         adder, validMessages >>
+                         hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                         msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                         incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                         incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                         validMessages_, msg, txBuf, txReg, adder, 
+                         validMessages >>
 
 sign2 == /\ pc["sign"] = "sign2"
          /\ generated_hmac' = HMAC(msg_.text, PASSWORD)
          /\ pc' = [pc EXCEPT !["sign"] = "sign3"]
          /\ UNCHANGED << chan, msg_, msg_m, msg_v, bareMessage, retreivedHMAC, 
                          generatedHMAC, result, CompareHMAC, hmacsMatch, 
-                         rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, last2_, 
-                         incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, last2, 
+                         rxBuf_, incomingMessages_, guid_, msg_t, msgid_, rx_, 
+                         rxReg_, last2_, incByte_, rxBuf, guid, 
+                         incomingMessages, msg_u, msgid, rx, rxReg, last2, 
                          incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
                          validMessages_, msg, txBuf, txReg, adder, 
                          validMessages >>
 
 sign3 == /\ pc["sign"] = "sign3"
-         /\ chan' = [chan EXCEPT !["untrustnet_out"] = Append(chan["untrustnet_out"], ([id|->msg_.id, hmac|->generated_hmac, isValid|->TRUE]))]
+         /\ chan' = [chan EXCEPT !["untrustnet_out"] = Append(chan["untrustnet_out"], ([id|->msg_.id, hmac|->generated_hmac, isValid|->TRUE, text|->msg_.text]))]
          /\ pc' = [pc EXCEPT !["sign"] = "sign1"]
          /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                          retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                         hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                         last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, 
-                         rxReg, last2, incMessage, incByte, msg_tr, txBuf_, 
-                         txReg_, adder_, validMessages_, msg, txBuf, txReg, 
-                         adder, validMessages >>
+                         hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                         msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                         incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                         incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                         validMessages_, msg, txBuf, txReg, adder, 
+                         validMessages >>
 
 sign == sign1 \/ sign2 \/ sign3
 
@@ -456,7 +468,7 @@ modbus1 == /\ pc["messagecheck"] = "modbus1"
            /\ Len(chan["messagecheck"]) > 0
            /\ msg_m' = Head(chan["messagecheck"])
            /\ chan' = [chan EXCEPT !["messagecheck"] = Tail(chan["messagecheck"])]
-           /\ IF IsModbus(msg_m'.text)
+           /\ IF IsModbus(NumTupleToStrTuple(msg_m'.text))
                  THEN /\ IF msg_m'.source = "trustnet_in"
                             THEN /\ pc' = [pc EXCEPT !["messagecheck"] = "mod1"]
                             ELSE /\ IF (msg_m'.source = "untrust_in")
@@ -469,21 +481,23 @@ modbus1 == /\ pc["messagecheck"] = "modbus1"
                                        ELSE /\ pc' = [pc EXCEPT !["messagecheck"] = "modbus1"]
            /\ UNCHANGED << msg_, generated_hmac, msg_v, bareMessage, 
                            retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                           hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                           msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                           incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                           incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                           validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 mod1 == /\ pc["messagecheck"] = "mod1"
         /\ chan' = [chan EXCEPT !["untrustnet_out"] = Append(chan["untrustnet_out"], ([id|->msg_m.id, isValid|->TRUE, text|->msg_m.text]))]
         /\ pc' = [pc EXCEPT !["messagecheck"] = "modbus1"]
         /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                        hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                        last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                        last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                        adder_, validMessages_, msg, txBuf, txReg, adder, 
+                        hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                        msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                        incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                        incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                        validMessages_, msg, txBuf, txReg, adder, 
                         validMessages >>
 
 mod2 == /\ pc["messagecheck"] = "mod2"
@@ -491,10 +505,11 @@ mod2 == /\ pc["messagecheck"] = "mod2"
         /\ pc' = [pc EXCEPT !["messagecheck"] = "modbus1"]
         /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                        hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                        last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                        last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                        adder_, validMessages_, msg, txBuf, txReg, adder, 
+                        hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                        msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                        incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                        incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                        validMessages_, msg, txBuf, txReg, adder, 
                         validMessages >>
 
 mod3 == /\ pc["messagecheck"] = "mod3"
@@ -502,10 +517,11 @@ mod3 == /\ pc["messagecheck"] = "mod3"
         /\ pc' = [pc EXCEPT !["messagecheck"] = "modbus1"]
         /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                        hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                        last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                        last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                        adder_, validMessages_, msg, txBuf, txReg, adder, 
+                        hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                        msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                        incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                        incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                        validMessages_, msg, txBuf, txReg, adder, 
                         validMessages >>
 
 mod4 == /\ pc["messagecheck"] = "mod4"
@@ -513,10 +529,11 @@ mod4 == /\ pc["messagecheck"] = "mod4"
         /\ pc' = [pc EXCEPT !["messagecheck"] = "modbus1"]
         /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                        hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                        last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                        last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                        adder_, validMessages_, msg, txBuf, txReg, adder, 
+                        hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                        msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                        incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                        incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                        validMessages_, msg, txBuf, txReg, adder, 
                         validMessages >>
 
 messagecheck == modbus1 \/ mod1 \/ mod2 \/ mod3 \/ mod4
@@ -528,33 +545,36 @@ verify1 == /\ pc["verify"] = "verify1"
            /\ pc' = [pc EXCEPT !["verify"] = "verify2"]
            /\ UNCHANGED << msg_, generated_hmac, msg_m, bareMessage, 
                            retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                           hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                           msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                           incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                           incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                           validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 verify2 == /\ pc["verify"] = "verify2"
            /\ retreivedHMAC' = GetHMAC(msg_v.text)
            /\ pc' = [pc EXCEPT !["verify"] = "verify3"]
            /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                            bareMessage, generatedHMAC, result, CompareHMAC, 
-                           hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                           msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                           incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                           incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                           validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 verify3 == /\ pc["verify"] = "verify3"
            /\ generatedHMAC' = HMAC(msg_v.text, PASSWORD)
            /\ pc' = [pc EXCEPT !["verify"] = "verify4"]
            /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                            bareMessage, retreivedHMAC, result, CompareHMAC, 
-                           hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                           msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                           incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                           incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                           validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 verify4 == /\ pc["verify"] = "verify4"
            /\ hmacsMatch' = CompareHMAC
@@ -563,49 +583,72 @@ verify4 == /\ pc["verify"] = "verify4"
                  ELSE /\ pc' = [pc EXCEPT !["verify"] = "verify6"]
            /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                            bareMessage, retreivedHMAC, generatedHMAC, result, 
-                           CompareHMAC, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           CompareHMAC, rxBuf_, incomingMessages_, guid_, 
+                           msg_t, msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, 
+                           guid, incomingMessages, msg_u, msgid, rx, rxReg, 
+                           last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
+                           adder_, validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 verify5 == /\ pc["verify"] = "verify5"
-           /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_v.id, isValid|->TRUE]))]
+           /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_v.id, isValid|->TRUE, text|->msg_v.text]))]
            /\ pc' = [pc EXCEPT !["verify"] = "verify1"]
            /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                            retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                           hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                           msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                           incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                           incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                           validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 verify6 == /\ pc["verify"] = "verify6"
-           /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_v.id, isValid|->FALSE]))]
+           /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_v.id, isValid|->FALSE, text|->msg_v.text]))]
            /\ pc' = [pc EXCEPT !["verify"] = "verify1"]
            /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                            retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                           hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                           msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                           incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                           incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                           validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 verify == verify1 \/ verify2 \/ verify3 \/ verify4 \/ verify5 \/ verify6
 
 trustnet_in1 == /\ pc["trustnet_in"] = "trustnet_in1"
-                /\ Len(chan["trustnet_in"]) > 0
-                /\ msg_t' = Head(chan["trustnet_in"])
-                /\ chan' = [chan EXCEPT !["trustnet_in"] = Tail(chan["trustnet_in"])]
-                /\ pc' = [pc EXCEPT !["trustnet_in"] = "start_"]
-                /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, 
+                /\ pc' = [pc EXCEPT !["trustnet_in"] = "ti1"]
+                /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                                 bareMessage, retreivedHMAC, generatedHMAC, 
-                                result, CompareHMAC, hmacsMatch, rxBuf_, guid_, 
-                                msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, 
-                                guid, msg_u, msgid, rx, rxReg, last2, 
-                                incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                                adder_, validMessages_, msg, txBuf, txReg, 
-                                adder, validMessages >>
+                                result, CompareHMAC, hmacsMatch, rxBuf_, 
+                                incomingMessages_, guid_, msg_t, msgid_, rx_, 
+                                rxReg_, last2_, incByte_, rxBuf, guid, 
+                                incomingMessages, msg_u, msgid, rx, rxReg, 
+                                last2, incMessage, incByte, msg_tr, txBuf_, 
+                                txReg_, adder_, validMessages_, msg, txBuf, 
+                                txReg, adder, validMessages >>
+
+ti1 == /\ pc["trustnet_in"] = "ti1"
+       /\ msg_t' = Head(incomingMessages_)
+       /\ pc' = [pc EXCEPT !["trustnet_in"] = "ti2"]
+       /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
+                       retreivedHMAC, generatedHMAC, result, CompareHMAC, 
+                       hmacsMatch, rxBuf_, incomingMessages_, guid_, msgid_, 
+                       rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                       incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                       incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                       validMessages_, msg, txBuf, txReg, adder, validMessages >>
+
+ti2 == /\ pc["trustnet_in"] = "ti2"
+       /\ incomingMessages_' = Tail(incomingMessages_)
+       /\ pc' = [pc EXCEPT !["trustnet_in"] = "start_"]
+       /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
+                       retreivedHMAC, generatedHMAC, result, CompareHMAC, 
+                       hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
+                       last2_, incByte_, rxBuf, guid, incomingMessages, msg_u, 
+                       msgid, rx, rxReg, last2, incMessage, incByte, msg_tr, 
+                       txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
+                       txReg, adder, validMessages >>
 
 start_ == /\ pc["trustnet_in"] = "start_"
           /\ IF Len(msg_t) > 0
@@ -622,25 +665,27 @@ start_ == /\ pc["trustnet_in"] = "start_"
                      /\ UNCHANGED << rxBuf_, rxReg_, incByte_, incMessage >>
           /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                           bareMessage, retreivedHMAC, generatedHMAC, result, 
-                          CompareHMAC, hmacsMatch, guid_, msg_t, msgid_, rx_, 
-                          last2_, rxBuf, guid, msg_u, msgid, rx, rxReg, last2, 
+                          CompareHMAC, hmacsMatch, incomingMessages_, guid_, 
+                          msg_t, msgid_, rx_, last2_, rxBuf, guid, 
+                          incomingMessages, msg_u, msgid, rx, rxReg, last2, 
                           incByte, msg_tr, txBuf_, txReg_, adder_, 
                           validMessages_, msg, txBuf, txReg, adder, 
                           validMessages >>
 
 inc_ == /\ pc["trustnet_in"] = "inc_"
         /\ incByte_' = <<Head(msg_t)>>
-        /\ incMessage' = Tail(msg_t)
+        /\ msg_t' = Tail(msg_t)
         /\ IF incByte_' = <<>>
               THEN /\ UNCHANGED rxReg_
               ELSE /\ rxReg_' = incByte_'
         /\ pc' = [pc EXCEPT !["trustnet_in"] = "receive_"]
         /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                        hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, last2_, 
-                        rxBuf, guid, msg_u, msgid, rx, rxReg, last2, incByte, 
-                        msg_tr, txBuf_, txReg_, adder_, validMessages_, msg, 
-                        txBuf, txReg, adder, validMessages >>
+                        hmacsMatch, rxBuf_, incomingMessages_, guid_, msgid_, 
+                        rx_, last2_, rxBuf, guid, incomingMessages, msg_u, 
+                        msgid, rx, rxReg, last2, incMessage, incByte, msg_tr, 
+                        txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
+                        txReg, adder, validMessages >>
 
 receive_ == /\ pc["trustnet_in"] = "receive_"
             /\ IF rxReg_ = StrTupleToNumTuple(<<":">>)
@@ -650,19 +695,21 @@ receive_ == /\ pc["trustnet_in"] = "receive_"
             /\ pc' = [pc EXCEPT !["trustnet_in"] = "r0_"]
             /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                             bareMessage, retreivedHMAC, generatedHMAC, result, 
-                            CompareHMAC, hmacsMatch, guid_, msg_t, msgid_, rx_, 
-                            rxReg_, last2_, incByte_, rxBuf, guid, msg_u, 
-                            msgid, rx, rxReg, last2, incMessage, incByte, 
-                            msg_tr, txBuf_, txReg_, adder_, validMessages_, 
-                            msg, txBuf, txReg, adder, validMessages >>
+                            CompareHMAC, hmacsMatch, incomingMessages_, guid_, 
+                            msg_t, msgid_, rx_, rxReg_, last2_, incByte_, 
+                            rxBuf, guid, incomingMessages, msg_u, msgid, rx, 
+                            rxReg, last2, incMessage, incByte, msg_tr, txBuf_, 
+                            txReg_, adder_, validMessages_, msg, txBuf, txReg, 
+                            adder, validMessages >>
 
 r0_ == /\ pc["trustnet_in"] = "r0_"
        /\ last2_' = Tail(last2_ \o rxReg_)
        /\ pc' = [pc EXCEPT !["trustnet_in"] = "r1_"]
        /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                        retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                       hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                       incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, last2, 
+                       hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                       msgid_, rx_, rxReg_, incByte_, rxBuf, guid, 
+                       incomingMessages, msg_u, msgid, rx, rxReg, last2, 
                        incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
                        validMessages_, msg, txBuf, txReg, adder, validMessages >>
 
@@ -671,8 +718,9 @@ r1_ == /\ pc["trustnet_in"] = "r1_"
        /\ pc' = [pc EXCEPT !["trustnet_in"] = "r2_"]
        /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                        retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                       hmacsMatch, guid_, msg_t, msgid_, rx_, rxReg_, last2_, 
-                       incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, last2, 
+                       hmacsMatch, incomingMessages_, guid_, msg_t, msgid_, 
+                       rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                       incomingMessages, msg_u, msgid, rx, rxReg, last2, 
                        incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
                        validMessages_, msg, txBuf, txReg, adder, validMessages >>
 
@@ -681,8 +729,9 @@ r2_ == /\ pc["trustnet_in"] = "r2_"
        /\ pc' = [pc EXCEPT !["trustnet_in"] = "check_"]
        /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                        retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                       hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, last2_, 
-                       incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, last2, 
+                       hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                       msgid_, rx_, last2_, incByte_, rxBuf, guid, 
+                       incomingMessages, msg_u, msgid, rx, rxReg, last2, 
                        incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
                        validMessages_, msg, txBuf, txReg, adder, validMessages >>
 
@@ -692,55 +741,60 @@ check_ == /\ pc["trustnet_in"] = "check_"
                 ELSE /\ pc' = [pc EXCEPT !["trustnet_in"] = "start_"]
           /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                           bareMessage, retreivedHMAC, generatedHMAC, result, 
-                          CompareHMAC, hmacsMatch, rxBuf_, guid_, msg_t, 
-                          msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
-                          msg_u, msgid, rx, rxReg, last2, incMessage, incByte, 
-                          msg_tr, txBuf_, txReg_, adder_, validMessages_, msg, 
-                          txBuf, txReg, adder, validMessages >>
+                          CompareHMAC, hmacsMatch, rxBuf_, incomingMessages_, 
+                          guid_, msg_t, msgid_, rx_, rxReg_, last2_, incByte_, 
+                          rxBuf, guid, incomingMessages, msg_u, msgid, rx, 
+                          rxReg, last2, incMessage, incByte, msg_tr, txBuf_, 
+                          txReg_, adder_, validMessages_, msg, txBuf, txReg, 
+                          adder, validMessages >>
 
 check0_ == /\ pc["trustnet_in"] = "check0_"
-           /\ msgid_' = guid_ \o "trustnet_in"
+           /\ msgid_' = <<guid_[1]>> \o <<"t","n","i">>
            /\ pc' = [pc EXCEPT !["trustnet_in"] = "check1_"]
            /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                            bareMessage, retreivedHMAC, generatedHMAC, result, 
-                           CompareHMAC, hmacsMatch, rxBuf_, guid_, msg_t, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           CompareHMAC, hmacsMatch, rxBuf_, incomingMessages_, 
+                           guid_, msg_t, rx_, rxReg_, last2_, incByte_, rxBuf, 
+                           guid, incomingMessages, msg_u, msgid, rx, rxReg, 
+                           last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
+                           adder_, validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 check1_ == /\ pc["trustnet_in"] = "check1_"
-           /\ guid_' = guid_ + 1
+           /\ guid_' = [guid_ EXCEPT ![1] = guid_[1] + 1]
            /\ pc' = [pc EXCEPT !["trustnet_in"] = "check2_"]
            /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                            bareMessage, retreivedHMAC, generatedHMAC, result, 
-                           CompareHMAC, hmacsMatch, rxBuf_, msg_t, msgid_, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           CompareHMAC, hmacsMatch, rxBuf_, incomingMessages_, 
+                           msg_t, msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, 
+                           guid, incomingMessages, msg_u, msgid, rx, rxReg, 
+                           last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
+                           adder_, validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 check2_ == /\ pc["trustnet_in"] = "check2_"
            /\ chan' = [chan EXCEPT !["messagecheck"] = Append(chan["messagecheck"], ([id|->msgid_, text|->rxBuf_, source|->"trustnet_in"]))]
            /\ pc' = [pc EXCEPT !["trustnet_in"] = "check3_"]
            /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                            retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                           hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                           msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                           incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                           incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                           validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 check3_ == /\ pc["trustnet_in"] = "check3_"
            /\ chan' = [chan EXCEPT !["sign"] = Append(chan["sign"], ([id|->msgid_, text|->rxBuf_]))]
            /\ pc' = [pc EXCEPT !["trustnet_in"] = "check4_"]
            /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                            retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                           hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                           rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                           rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                           txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                           txReg, adder, validMessages >>
+                           hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                           msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                           incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                           incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                           validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 check4_ == /\ pc["trustnet_in"] = "check4_"
            /\ rxBuf_' = <<>>
@@ -750,29 +804,51 @@ check4_ == /\ pc["trustnet_in"] = "check4_"
            /\ pc' = [pc EXCEPT !["trustnet_in"] = "start_"]
            /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                            bareMessage, retreivedHMAC, generatedHMAC, result, 
-                           CompareHMAC, hmacsMatch, guid_, msg_t, msgid_, rx_, 
-                           last2_, rxBuf, guid, msg_u, msgid, rx, rxReg, last2, 
+                           CompareHMAC, hmacsMatch, incomingMessages_, guid_, 
+                           msg_t, msgid_, rx_, last2_, rxBuf, guid, 
+                           incomingMessages, msg_u, msgid, rx, rxReg, last2, 
                            incByte, msg_tr, txBuf_, txReg_, adder_, 
                            validMessages_, msg, txBuf, txReg, adder, 
                            validMessages >>
 
-trustnet_in == trustnet_in1 \/ start_ \/ inc_ \/ receive_ \/ r0_ \/ r1_
-                  \/ r2_ \/ check_ \/ check0_ \/ check1_ \/ check2_
-                  \/ check3_ \/ check4_
+trustnet_in == trustnet_in1 \/ ti1 \/ ti2 \/ start_ \/ inc_ \/ receive_
+                  \/ r0_ \/ r1_ \/ r2_ \/ check_ \/ check0_ \/ check1_
+                  \/ check2_ \/ check3_ \/ check4_
 
 untrustnet_in1 == /\ pc["untrustnet_in"] = "untrustnet_in1"
-                  /\ Len(chan["untrustnet_in"]) > 0
-                  /\ msg_u' = Head(chan["untrustnet_in"])
-                  /\ chan' = [chan EXCEPT !["untrustnet_in"] = Tail(chan["untrustnet_in"])]
-                  /\ pc' = [pc EXCEPT !["untrustnet_in"] = "start"]
-                  /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, 
+                  /\ pc' = [pc EXCEPT !["untrustnet_in"] = "uti1"]
+                  /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                                   bareMessage, retreivedHMAC, generatedHMAC, 
                                   result, CompareHMAC, hmacsMatch, rxBuf_, 
-                                  guid_, msg_t, msgid_, rx_, rxReg_, last2_, 
-                                  incByte_, rxBuf, guid, msgid, rx, rxReg, 
+                                  incomingMessages_, guid_, msg_t, msgid_, rx_, 
+                                  rxReg_, last2_, incByte_, rxBuf, guid, 
+                                  incomingMessages, msg_u, msgid, rx, rxReg, 
                                   last2, incMessage, incByte, msg_tr, txBuf_, 
                                   txReg_, adder_, validMessages_, msg, txBuf, 
                                   txReg, adder, validMessages >>
+
+uti1 == /\ pc["untrustnet_in"] = "uti1"
+        /\ msg_u' = Head(incomingMessages)
+        /\ pc' = [pc EXCEPT !["untrustnet_in"] = "uti2"]
+        /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
+                        retreivedHMAC, generatedHMAC, result, CompareHMAC, 
+                        hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                        msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                        incomingMessages, msgid, rx, rxReg, last2, incMessage, 
+                        incByte, msg_tr, txBuf_, txReg_, adder_, 
+                        validMessages_, msg, txBuf, txReg, adder, 
+                        validMessages >>
+
+uti2 == /\ pc["untrustnet_in"] = "uti2"
+        /\ incomingMessages' = Tail(incomingMessages)
+        /\ pc' = [pc EXCEPT !["untrustnet_in"] = "start"]
+        /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
+                        retreivedHMAC, generatedHMAC, result, CompareHMAC, 
+                        hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                        msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                        msg_u, msgid, rx, rxReg, last2, incMessage, incByte, 
+                        msg_tr, txBuf_, txReg_, adder_, validMessages_, msg, 
+                        txBuf, txReg, adder, validMessages >>
 
 start == /\ pc["untrustnet_in"] = "start"
          /\ IF Len(msg_u) > 0
@@ -780,11 +856,12 @@ start == /\ pc["untrustnet_in"] = "start"
                ELSE /\ pc' = [pc EXCEPT !["untrustnet_in"] = "untrustnet_in1"]
          /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                          retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                         hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                         last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, 
-                         rxReg, last2, incMessage, incByte, msg_tr, txBuf_, 
-                         txReg_, adder_, validMessages_, msg, txBuf, txReg, 
-                         adder, validMessages >>
+                         hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                         msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                         incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                         incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                         validMessages_, msg, txBuf, txReg, adder, 
+                         validMessages >>
 
 inc == /\ pc["untrustnet_in"] = "inc"
        /\ incByte' = <<Head(msg_u)>>
@@ -795,10 +872,11 @@ inc == /\ pc["untrustnet_in"] = "inc"
        /\ pc' = [pc EXCEPT !["untrustnet_in"] = "receive"]
        /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                        retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                       hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                       last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, last2, 
-                       msg_tr, txBuf_, txReg_, adder_, validMessages_, msg, 
-                       txBuf, txReg, adder, validMessages >>
+                       hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                       msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                       incomingMessages, msg_u, msgid, rx, last2, msg_tr, 
+                       txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
+                       txReg, adder, validMessages >>
 
 receive == /\ pc["untrustnet_in"] = "receive"
            /\ IF rxReg = StrTupleToNumTuple(<<"!">>)
@@ -808,29 +886,32 @@ receive == /\ pc["untrustnet_in"] = "receive"
            /\ pc' = [pc EXCEPT !["untrustnet_in"] = "r0"]
            /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                            bareMessage, retreivedHMAC, generatedHMAC, result, 
-                           CompareHMAC, hmacsMatch, rxBuf_, guid_, msg_t, 
-                           msgid_, rx_, rxReg_, last2_, incByte_, guid, msg_u, 
-                           msgid, rx, rxReg, last2, incMessage, incByte, 
-                           msg_tr, txBuf_, txReg_, adder_, validMessages_, msg, 
-                           txBuf, txReg, adder, validMessages >>
+                           CompareHMAC, hmacsMatch, rxBuf_, incomingMessages_, 
+                           guid_, msg_t, msgid_, rx_, rxReg_, last2_, incByte_, 
+                           guid, incomingMessages, msg_u, msgid, rx, rxReg, 
+                           last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
+                           adder_, validMessages_, msg, txBuf, txReg, adder, 
+                           validMessages >>
 
 r0 == /\ pc["untrustnet_in"] = "r0"
       /\ last2' = Tail(last2 \o rxReg)
       /\ pc' = [pc EXCEPT !["untrustnet_in"] = "r1"]
       /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                       retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                      hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                      last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                      incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
-                      validMessages_, msg, txBuf, txReg, adder, validMessages >>
+                      hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                      msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                      incomingMessages, msg_u, msgid, rx, rxReg, incMessage, 
+                      incByte, msg_tr, txBuf_, txReg_, adder_, validMessages_, 
+                      msg, txBuf, txReg, adder, validMessages >>
 
 r1 == /\ pc["untrustnet_in"] = "r1"
       /\ rxBuf' = rxBuf \o rxReg
       /\ pc' = [pc EXCEPT !["untrustnet_in"] = "r2"]
       /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                       retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                      hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                      last2_, incByte_, guid, msg_u, msgid, rx, rxReg, last2, 
+                      hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                      msgid_, rx_, rxReg_, last2_, incByte_, guid, 
+                      incomingMessages, msg_u, msgid, rx, rxReg, last2, 
                       incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
                       validMessages_, msg, txBuf, txReg, adder, validMessages >>
 
@@ -839,10 +920,11 @@ r2 == /\ pc["untrustnet_in"] = "r2"
       /\ pc' = [pc EXCEPT !["untrustnet_in"] = "check"]
       /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                       retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                      hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                      last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, last2, 
-                      incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
-                      validMessages_, msg, txBuf, txReg, adder, validMessages >>
+                      hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                      msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                      incomingMessages, msg_u, msgid, rx, last2, incMessage, 
+                      incByte, msg_tr, txBuf_, txReg_, adder_, validMessages_, 
+                      msg, txBuf, txReg, adder, validMessages >>
 
 check == /\ pc["untrustnet_in"] = "check"
          /\ IF NumTupleToStrTuple(last2) = <<"\r","\n">>
@@ -850,55 +932,60 @@ check == /\ pc["untrustnet_in"] = "check"
                ELSE /\ pc' = [pc EXCEPT !["untrustnet_in"] = "start"]
          /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                          retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                         hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                         last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, 
-                         rxReg, last2, incMessage, incByte, msg_tr, txBuf_, 
-                         txReg_, adder_, validMessages_, msg, txBuf, txReg, 
-                         adder, validMessages >>
+                         hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                         msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                         incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                         incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                         validMessages_, msg, txBuf, txReg, adder, 
+                         validMessages >>
 
 check0 == /\ pc["untrustnet_in"] = "check0"
           /\ msgid' = guid \o "untrustnet_in"
           /\ pc' = [pc EXCEPT !["untrustnet_in"] = "check1"]
           /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                           bareMessage, retreivedHMAC, generatedHMAC, result, 
-                          CompareHMAC, hmacsMatch, rxBuf_, guid_, msg_t, 
-                          msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
-                          msg_u, rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                          txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                          txReg, adder, validMessages >>
+                          CompareHMAC, hmacsMatch, rxBuf_, incomingMessages_, 
+                          guid_, msg_t, msgid_, rx_, rxReg_, last2_, incByte_, 
+                          rxBuf, guid, incomingMessages, msg_u, rx, rxReg, 
+                          last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
+                          adder_, validMessages_, msg, txBuf, txReg, adder, 
+                          validMessages >>
 
 check1 == /\ pc["untrustnet_in"] = "check1"
           /\ guid' = guid + 1
           /\ pc' = [pc EXCEPT !["untrustnet_in"] = "check2"]
           /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                           bareMessage, retreivedHMAC, generatedHMAC, result, 
-                          CompareHMAC, hmacsMatch, rxBuf_, guid_, msg_t, 
-                          msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, msg_u, 
-                          msgid, rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                          txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                          txReg, adder, validMessages >>
+                          CompareHMAC, hmacsMatch, rxBuf_, incomingMessages_, 
+                          guid_, msg_t, msgid_, rx_, rxReg_, last2_, incByte_, 
+                          rxBuf, incomingMessages, msg_u, msgid, rx, rxReg, 
+                          last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
+                          adder_, validMessages_, msg, txBuf, txReg, adder, 
+                          validMessages >>
 
 check2 == /\ pc["untrustnet_in"] = "check2"
           /\ chan' = [chan EXCEPT !["messagecheck"] = Append(chan["messagecheck"], ([id|->msgid, text|->rxBuf, source|->"untrustnet_in"]))]
           /\ pc' = [pc EXCEPT !["untrustnet_in"] = "check3"]
           /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                           retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                          hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                          rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                          rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                          txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                          txReg, adder, validMessages >>
+                          hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                          msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                          incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                          incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                          validMessages_, msg, txBuf, txReg, adder, 
+                          validMessages >>
 
 check3 == /\ pc["untrustnet_in"] = "check3"
           /\ chan' = [chan EXCEPT !["verify"] = Append(chan["verify"], ([id|->msgid, text|->rxBuf]))]
           /\ pc' = [pc EXCEPT !["untrustnet_in"] = "check4"]
           /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                           retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                          hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                          rxReg_, last2_, incByte_, rxBuf, guid, msg_u, msgid, 
-                          rx, rxReg, last2, incMessage, incByte, msg_tr, 
-                          txBuf_, txReg_, adder_, validMessages_, msg, txBuf, 
-                          txReg, adder, validMessages >>
+                          hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                          msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                          incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                          incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                          validMessages_, msg, txBuf, txReg, adder, 
+                          validMessages >>
 
 check4 == /\ pc["untrustnet_in"] = "check4"
           /\ rxBuf' = <<>>
@@ -908,15 +995,15 @@ check4 == /\ pc["untrustnet_in"] = "check4"
           /\ pc' = [pc EXCEPT !["untrustnet_in"] = "start"]
           /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                           bareMessage, retreivedHMAC, generatedHMAC, result, 
-                          CompareHMAC, hmacsMatch, rxBuf_, guid_, msg_t, 
-                          msgid_, rx_, rxReg_, last2_, incByte_, guid, msg_u, 
-                          msgid, rx, last2, msg_tr, txBuf_, txReg_, adder_, 
-                          validMessages_, msg, txBuf, txReg, adder, 
-                          validMessages >>
+                          CompareHMAC, hmacsMatch, rxBuf_, incomingMessages_, 
+                          guid_, msg_t, msgid_, rx_, rxReg_, last2_, incByte_, 
+                          guid, incomingMessages, msg_u, msgid, rx, last2, 
+                          msg_tr, txBuf_, txReg_, adder_, validMessages_, msg, 
+                          txBuf, txReg, adder, validMessages >>
 
-untrustnet_in == untrustnet_in1 \/ start \/ inc \/ receive \/ r0 \/ r1
-                    \/ r2 \/ check \/ check0 \/ check1 \/ check2 \/ check3
-                    \/ check4
+untrustnet_in == untrustnet_in1 \/ uti1 \/ uti2 \/ start \/ inc \/ receive
+                    \/ r0 \/ r1 \/ r2 \/ check \/ check0 \/ check1
+                    \/ check2 \/ check3 \/ check4
 
 to1 == /\ pc["trustnet_out"] = "to1"
        /\ Len(chan["trustnet_out"]) > 0
@@ -934,10 +1021,11 @@ to1 == /\ pc["trustnet_out"] = "to1"
                   /\ UNCHANGED << txBuf_, validMessages_ >>
        /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                        retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                       hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                       last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                       last2, incMessage, incByte, txReg_, adder_, msg, txBuf, 
-                       txReg, adder, validMessages >>
+                       hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                       msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                       incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                       incMessage, incByte, txReg_, adder_, msg, txBuf, txReg, 
+                       adder, validMessages >>
 
 finished_ == /\ pc["trustnet_out"] = "finished_"
              /\ txReg_' = <<>>
@@ -945,11 +1033,13 @@ finished_ == /\ pc["trustnet_out"] = "finished_"
              /\ pc' = [pc EXCEPT !["trustnet_out"] = "to1"]
              /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                              bareMessage, retreivedHMAC, generatedHMAC, result, 
-                             CompareHMAC, hmacsMatch, rxBuf_, guid_, msg_t, 
-                             msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, 
-                             guid, msg_u, msgid, rx, rxReg, last2, incMessage, 
-                             incByte, msg_tr, adder_, validMessages_, msg, 
-                             txBuf, txReg, adder, validMessages >>
+                             CompareHMAC, hmacsMatch, rxBuf_, 
+                             incomingMessages_, guid_, msg_t, msgid_, rx_, 
+                             rxReg_, last2_, incByte_, rxBuf, guid, 
+                             incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                             incMessage, incByte, msg_tr, adder_, 
+                             validMessages_, msg, txBuf, txReg, adder, 
+                             validMessages >>
 
 transmit_ == /\ pc["trustnet_out"] = "transmit_"
              /\ IF Len(txBuf_) > 1
@@ -960,20 +1050,22 @@ transmit_ == /\ pc["trustnet_out"] = "transmit_"
                         /\ pc' = [pc EXCEPT !["trustnet_out"] = "to2"]
              /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                              retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                             hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                             rxReg_, last2_, incByte_, rxBuf, guid, msg_u, 
-                             msgid, rx, rxReg, last2, incMessage, incByte, 
-                             msg_tr, txBuf_, adder_, validMessages_, msg, 
-                             txBuf, txReg, adder, validMessages >>
+                             hmacsMatch, rxBuf_, incomingMessages_, guid_, 
+                             msg_t, msgid_, rx_, rxReg_, last2_, incByte_, 
+                             rxBuf, guid, incomingMessages, msg_u, msgid, rx, 
+                             rxReg, last2, incMessage, incByte, msg_tr, txBuf_, 
+                             adder_, validMessages_, msg, txBuf, txReg, adder, 
+                             validMessages >>
 
 a_ == /\ pc["trustnet_out"] = "a_"
       /\ txReg_' = <<Head(txBuf_)>>
       /\ pc' = [pc EXCEPT !["trustnet_out"] = "b_"]
       /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                       retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                      hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                      last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                      last2, incMessage, incByte, msg_tr, txBuf_, adder_, 
+                      hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                      msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                      incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                      incMessage, incByte, msg_tr, txBuf_, adder_, 
                       validMessages_, msg, txBuf, txReg, adder, validMessages >>
 
 b_ == /\ pc["trustnet_out"] = "b_"
@@ -981,20 +1073,21 @@ b_ == /\ pc["trustnet_out"] = "b_"
       /\ pc' = [pc EXCEPT !["trustnet_out"] = "c_"]
       /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                       retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                      hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                      last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                      last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                      adder_, validMessages_, msg, txBuf, txReg, adder, 
-                      validMessages >>
+                      hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                      msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                      incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                      incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                      validMessages_, msg, txBuf, txReg, adder, validMessages >>
 
 c_ == /\ pc["trustnet_out"] = "c_"
       /\ txBuf_' = Tail(txBuf_)
       /\ pc' = [pc EXCEPT !["trustnet_out"] = "transmit_"]
       /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                       retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                      hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                      last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                      last2, incMessage, incByte, msg_tr, txReg_, adder_, 
+                      hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                      msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                      incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                      incMessage, incByte, msg_tr, txReg_, adder_, 
                       validMessages_, msg, txBuf, txReg, adder, validMessages >>
 
 to2 == /\ pc["trustnet_out"] = "to2"
@@ -1002,10 +1095,11 @@ to2 == /\ pc["trustnet_out"] = "to2"
        /\ pc' = [pc EXCEPT !["trustnet_out"] = "finished_"]
        /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                        retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                       hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                       last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                       last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                       adder_, msg, txBuf, txReg, adder, validMessages >>
+                       hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                       msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                       incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                       incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                       msg, txBuf, txReg, adder, validMessages >>
 
 trustnet_out == to1 \/ finished_ \/ transmit_ \/ a_ \/ b_ \/ c_ \/ to2
 
@@ -1015,7 +1109,7 @@ uto1 == /\ pc["untrustnet_out"] = "uto1"
         /\ chan' = [chan EXCEPT !["untrustnet_out"] = Tail(chan["untrustnet_out"])]
         /\ IF msg'.isValid
               THEN /\ IF \E x \in validMessages : x.id = msg'.id
-                         THEN /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o msg'.msg.text
+                         THEN /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o msg'.text
                               /\ pc' = [pc EXCEPT !["untrustnet_out"] = "transmit"]
                               /\ UNCHANGED validMessages
                          ELSE /\ validMessages' = (validMessages \union {msg'})
@@ -1025,10 +1119,11 @@ uto1 == /\ pc["untrustnet_out"] = "uto1"
                    /\ UNCHANGED << txBuf, validMessages >>
         /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                        hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                        last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                        last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                        adder_, validMessages_, txReg, adder >>
+                        hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                        msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                        incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                        incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                        validMessages_, txReg, adder >>
 
 finished == /\ pc["untrustnet_out"] = "finished"
             /\ txReg' = <<>>
@@ -1036,11 +1131,12 @@ finished == /\ pc["untrustnet_out"] = "finished"
             /\ pc' = [pc EXCEPT !["untrustnet_out"] = "uto1"]
             /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, 
                             bareMessage, retreivedHMAC, generatedHMAC, result, 
-                            CompareHMAC, hmacsMatch, rxBuf_, guid_, msg_t, 
-                            msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
-                            msg_u, msgid, rx, rxReg, last2, incMessage, 
-                            incByte, msg_tr, txBuf_, txReg_, adder_, 
-                            validMessages_, msg, adder, validMessages >>
+                            CompareHMAC, hmacsMatch, rxBuf_, incomingMessages_, 
+                            guid_, msg_t, msgid_, rx_, rxReg_, last2_, 
+                            incByte_, rxBuf, guid, incomingMessages, msg_u, 
+                            msgid, rx, rxReg, last2, incMessage, incByte, 
+                            msg_tr, txBuf_, txReg_, adder_, validMessages_, 
+                            msg, adder, validMessages >>
 
 transmit == /\ pc["untrustnet_out"] = "transmit"
             /\ IF Len(txBuf) > 1
@@ -1051,52 +1147,56 @@ transmit == /\ pc["untrustnet_out"] = "transmit"
                        /\ pc' = [pc EXCEPT !["untrustnet_out"] = "uto2"]
             /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                             retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                            hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, 
-                            rxReg_, last2_, incByte_, rxBuf, guid, msg_u, 
-                            msgid, rx, rxReg, last2, incMessage, incByte, 
-                            msg_tr, txBuf_, txReg_, adder_, validMessages_, 
-                            msg, txBuf, adder, validMessages >>
+                            hmacsMatch, rxBuf_, incomingMessages_, guid_, 
+                            msg_t, msgid_, rx_, rxReg_, last2_, incByte_, 
+                            rxBuf, guid, incomingMessages, msg_u, msgid, rx, 
+                            rxReg, last2, incMessage, incByte, msg_tr, txBuf_, 
+                            txReg_, adder_, validMessages_, msg, txBuf, adder, 
+                            validMessages >>
 
 a == /\ pc["untrustnet_out"] = "a"
      /\ txReg' = <<Head(txBuf)>>
      /\ pc' = [pc EXCEPT !["untrustnet_out"] = "b"]
      /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                      retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                     hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                     last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                     last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                     adder_, validMessages_, msg, txBuf, adder, validMessages >>
+                     hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                     msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                     incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                     incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                     validMessages_, msg, txBuf, adder, validMessages >>
 
 b == /\ pc["untrustnet_out"] = "b"
      /\ chan' = [chan EXCEPT !["finished_trustnet"] = Append(chan["finished_trustnet"], txReg)]
      /\ pc' = [pc EXCEPT !["untrustnet_out"] = "c"]
      /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                      retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                     hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                     last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                     last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                     adder_, validMessages_, msg, txBuf, txReg, adder, 
-                     validMessages >>
+                     hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                     msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                     incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                     incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                     validMessages_, msg, txBuf, txReg, adder, validMessages >>
 
 c == /\ pc["untrustnet_out"] = "c"
      /\ txBuf' = Tail(txBuf)
      /\ pc' = [pc EXCEPT !["untrustnet_out"] = "transmit"]
      /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                      retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                     hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                     last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                     last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                     adder_, validMessages_, msg, txReg, adder, validMessages >>
+                     hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                     msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                     incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                     incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                     validMessages_, msg, txReg, adder, validMessages >>
 
 uto2 == /\ pc["untrustnet_out"] = "uto2"
         /\ validMessages' = validMessages \ {x \in validMessages: x.id = msg.id}
         /\ pc' = [pc EXCEPT !["untrustnet_out"] = "finished"]
         /\ UNCHANGED << chan, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
-                        hmacsMatch, rxBuf_, guid_, msg_t, msgid_, rx_, rxReg_, 
-                        last2_, incByte_, rxBuf, guid, msg_u, msgid, rx, rxReg, 
-                        last2, incMessage, incByte, msg_tr, txBuf_, txReg_, 
-                        adder_, validMessages_, msg, txBuf, txReg, adder >>
+                        hmacsMatch, rxBuf_, incomingMessages_, guid_, msg_t, 
+                        msgid_, rx_, rxReg_, last2_, incByte_, rxBuf, guid, 
+                        incomingMessages, msg_u, msgid, rx, rxReg, last2, 
+                        incMessage, incByte, msg_tr, txBuf_, txReg_, adder_, 
+                        validMessages_, msg, txBuf, txReg, adder >>
 
 untrustnet_out == uto1 \/ finished \/ transmit \/ a \/ b \/ c \/ uto2
 
@@ -1110,6 +1210,6 @@ Spec == Init /\ [][Next]_vars
 
 =============================================================================
 \* Modification History
+\* Last modified Wed Oct 17 11:32:47 EDT 2018 by userMehdi
 \* Last modified Thu Oct 11 17:21:20 EDT 2018 by mssabr01
-\* Last modified Sat Oct 06 22:30:31 EDT 2018 by userMehdi
 \* Created Tue Oct 02 17:14:28 EDT 2018 by mssabr01
