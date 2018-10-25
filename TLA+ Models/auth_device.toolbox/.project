@@ -36,6 +36,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Modbus.tla</locationURI>
 		</link>
 		<link>
+			<name>SSWPacket.tla</name>
+			<type>1</type>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/SSWPacket.tla</location>
+		</link>
+		<link>
 			<name>auth_device.tla</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/auth_device.tla</locationURI>
