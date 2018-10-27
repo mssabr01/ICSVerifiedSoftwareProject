@@ -1,5 +1,5 @@
 ---------------------------- MODULE auth_device ----------------------------
-EXTENDS Sequences, FiniteSets, Naturals, TLC, Modbus, ASCII
+EXTENDS Sequences, FiniteSets, Naturals, TLC, Modbus, ASCII, SSWPacket
 
 LOCAL HMACSIZE == 64
 LOCAL MINMESSAGESIZE == 1
@@ -33,8 +33,8 @@ MessagesToSerialPort == \*these are in ASCII but they are converted to decimal b
       <<250>>,<<251>>,<<252>>,<<253>>,<<254>>,<<255>>*)
      >>
                        
-HMAC(str, pass) == "IKoWL9vGUhS1qtZf45hr9W41ZiBGPjdow6SY2A0+qEda+siiBHGC4r/S5gJWP/sT" \*not concerned with the inner workings of SHA2
-GetHMAC(str) == SubSeq(str,2,65)
+HMAC(str, pass) == <<"I","K","o","W","L","9","v","G","U","h","S","1","q","t","Z","f","4","5","h","r","9","W","4","1","Z","i","B","G","P","j","d","o","w","6","S","Y","2","A","0","+","q","E","d","a","+","s","i","i","B","H","G","C","4","r","/","S","5","g","J","W","P","/","s","T">> \*not concerned with the inner workings of SHA2
+
 
 (* --algorithm auth_device
 
@@ -69,7 +69,7 @@ sign1:   while TRUE do
          
              receive("sign", msg);
              sign2: generated_hmac := HMAC(msg.text, PASSWORD); \*hash it and the password
-             sign3: send("untrustnet_out", [id|->msg.id, hmac|->generated_hmac, isValid|->TRUE, text|->msg.text]);
+             sign3: send("untrustnet_out", [id|->msg.id, hmac|->generated_hmac, source|->"sign", isValid|->TRUE, text|->msg.text]);
          end while;
 end process
 \*=========================================
@@ -84,16 +84,16 @@ modbus1:    while TRUE do
                 receive("messagecheck", msg);
                 if IsModbus(NumTupleToStrTuple(msg.text)) then
                     if msg.source = "trustnet_in" then 
-                        mod1: send("untrustnet_out", [id|->msg.id, isValid|->TRUE, text|->msg.text]);
+                        mod1: send("untrustnet_out", [id|->msg.id, isValid|->TRUE,source|->"msgchk", text|->msg.text]);
                     elsif (msg.source = "untrust_in") then 
-                        mod2: send("trustnet_out", [id|->msg.id, isValid|->TRUE, text|->msg.text]);
+                        mod2: send("trustnet_out", [id|->msg.id, isValid|->TRUE, source|->"msgchk", text|->msg.text]);
                     end if;
                 
                 else
                     if msg.source = "trustnet_in" then
-                        mod3: send("untrustnet_out", [id|->msg.id, isValid|->FALSE, text|->msg.text]);
+                        mod3: send("untrustnet_out", [id|->msg.id, isValid|->FALSE, source|->"msgchk", text|->msg.text]);
                     elsif msg.source = "untrust_in" then
-                        mod4: send("trustnet_out", [id|->msg.id, isValid|->FALSE, text|->msg.text]);
+                        mod4: send("trustnet_out", [id|->msg.id, isValid|->FALSE, source|->"msgchk", text|->msg.text]);
                     end if;
                 end if;
             end while;
@@ -118,9 +118,9 @@ verify1:   while TRUE do
                 verify3: generatedHMAC := HMAC(msg.text, PASSWORD);
                 verify4: hmacsMatch := CompareHMAC;
                 if hmacsMatch then
-                    verify5: send("trustnet_out", [id|->msg.id, isValid|->TRUE, text|->msg.text]);
+                    verify5: send("trustnet_out", [id|->msg.id, isValid|->TRUE, source|->"verify", text|->msg.text]);
                 else
-                    verify6: send("trustnet_out", [id|->msg.id, isValid|->FALSE, text|->msg.text]);
+                    verify6: send("trustnet_out", [id|->msg.id, isValid|->FALSE, source|->"verify", text|->msg.text]);
                 end if;
             end while;
 
@@ -292,7 +292,11 @@ begin
         receive("untrustnet_out", msg);
         if msg.isValid then \*if the message is valid then look for another message in the validMessages set with the same id.
             if \E x \in validMessages : x.id = msg.id then \*if one exists then both portions of the message were verified and the message can be sent
-                txBuf := StrTupleToNumTuple(<<"!">>) \o msg.text;
+                if msg.source = "sign" then
+                    txBuf := StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple(msg.hmac) \o msg.text;
+                else
+                    txBuf := StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple({x \in validMessages : x.id = msg.id}.hmac) \o msg.text;
+                end if;
                 transmit: send("finished_untrustnet", txBuf);
                 uto2: validMessages := validMessages \ {x \in validMessages: x.id = msg.id}; \*remove sent message from set
             else
@@ -446,7 +450,7 @@ sign2 == /\ pc["sign"] = "sign2"
                          validMessages >>
 
 sign3 == /\ pc["sign"] = "sign3"
-         /\ chan' = [chan EXCEPT !["untrustnet_out"] = Append(chan["untrustnet_out"], ([id|->msg_.id, hmac|->generated_hmac, isValid|->TRUE, text|->msg_.text]))]
+         /\ chan' = [chan EXCEPT !["untrustnet_out"] = Append(chan["untrustnet_out"], ([id|->msg_.id, hmac|->generated_hmac, source|->"sign", isValid|->TRUE, text|->msg_.text]))]
          /\ pc' = [pc EXCEPT !["sign"] = "sign1"]
          /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                          retreivedHMAC, generatedHMAC, result, CompareHMAC, 
@@ -484,7 +488,7 @@ modbus1 == /\ pc["msgchk"] = "modbus1"
                            validMessages >>
 
 mod1 == /\ pc["msgchk"] = "mod1"
-        /\ chan' = [chan EXCEPT !["untrustnet_out"] = Append(chan["untrustnet_out"], ([id|->msg_m.id, isValid|->TRUE, text|->msg_m.text]))]
+        /\ chan' = [chan EXCEPT !["untrustnet_out"] = Append(chan["untrustnet_out"], ([id|->msg_m.id, isValid|->TRUE,source|->"msgchk", text|->msg_m.text]))]
         /\ pc' = [pc EXCEPT !["msgchk"] = "modbus1"]
         /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
@@ -496,7 +500,7 @@ mod1 == /\ pc["msgchk"] = "mod1"
                         validMessages >>
 
 mod2 == /\ pc["msgchk"] = "mod2"
-        /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_m.id, isValid|->TRUE, text|->msg_m.text]))]
+        /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_m.id, isValid|->TRUE, source|->"msgchk", text|->msg_m.text]))]
         /\ pc' = [pc EXCEPT !["msgchk"] = "modbus1"]
         /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
@@ -508,7 +512,7 @@ mod2 == /\ pc["msgchk"] = "mod2"
                         validMessages >>
 
 mod3 == /\ pc["msgchk"] = "mod3"
-        /\ chan' = [chan EXCEPT !["untrustnet_out"] = Append(chan["untrustnet_out"], ([id|->msg_m.id, isValid|->FALSE, text|->msg_m.text]))]
+        /\ chan' = [chan EXCEPT !["untrustnet_out"] = Append(chan["untrustnet_out"], ([id|->msg_m.id, isValid|->FALSE, source|->"msgchk", text|->msg_m.text]))]
         /\ pc' = [pc EXCEPT !["msgchk"] = "modbus1"]
         /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
@@ -520,7 +524,7 @@ mod3 == /\ pc["msgchk"] = "mod3"
                         validMessages >>
 
 mod4 == /\ pc["msgchk"] = "mod4"
-        /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_m.id, isValid|->FALSE, text|->msg_m.text]))]
+        /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_m.id, isValid|->FALSE, source|->"msgchk", text|->msg_m.text]))]
         /\ pc' = [pc EXCEPT !["msgchk"] = "modbus1"]
         /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                         retreivedHMAC, generatedHMAC, result, CompareHMAC, 
@@ -586,7 +590,7 @@ verify4 == /\ pc["verify"] = "verify4"
                            validMessages >>
 
 verify5 == /\ pc["verify"] = "verify5"
-           /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_v.id, isValid|->TRUE, text|->msg_v.text]))]
+           /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_v.id, isValid|->TRUE, source|->"verify", text|->msg_v.text]))]
            /\ pc' = [pc EXCEPT !["verify"] = "verify1"]
            /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                            retreivedHMAC, generatedHMAC, result, CompareHMAC, 
@@ -598,7 +602,7 @@ verify5 == /\ pc["verify"] = "verify5"
                            validMessages >>
 
 verify6 == /\ pc["verify"] = "verify6"
-           /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_v.id, isValid|->FALSE, text|->msg_v.text]))]
+           /\ chan' = [chan EXCEPT !["trustnet_out"] = Append(chan["trustnet_out"], ([id|->msg_v.id, isValid|->FALSE, source|->"verify", text|->msg_v.text]))]
            /\ pc' = [pc EXCEPT !["verify"] = "verify1"]
            /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                            retreivedHMAC, generatedHMAC, result, CompareHMAC, 
@@ -1122,7 +1126,9 @@ uto1 == /\ pc["untrustnet_out"] = "uto1"
         /\ chan' = [chan EXCEPT !["untrustnet_out"] = Tail(chan["untrustnet_out"])]
         /\ IF msg'.isValid
               THEN /\ IF \E x \in validMessages : x.id = msg'.id
-                         THEN /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o msg'.text
+                         THEN /\ IF msg'.source = "sign"
+                                    THEN /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple(msg'.hmac) \o msg'.text
+                                    ELSE /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple({x \in validMessages : x.id = msg'.id}.hmac) \o msg'.text
                               /\ pc' = [pc EXCEPT !["untrustnet_out"] = "transmit"]
                               /\ UNCHANGED validMessages
                          ELSE /\ validMessages' = (validMessages \union {msg'})
@@ -1188,10 +1194,10 @@ SAFETYCHECK ==
     /\ \A m \in validMessages_ : m.isValid = TRUE \*message parts waiting for their counterpart are valid
     /\ \A m \in Range(chan["messagecheck"]) : Len(m.text) <= MAXMODBUSSIZE \*only messages with a valid length make it to the checking module
     /\ \A m \in Range(chan["finished_trustnet"]) : IsModbus(NumTupleToStrTuple(m)) \*only properly formed modbus is sent to trustnet
-    /\ \A m \in Range(chan["finished_untrustnet"]) : GetHMAC(m) = HMAC(m,m) \*only properly signed messages are sent to untrustnet
-    /\ \A m \in Range(chan["finished_untrustnet"]) : IsModbus(SubSeq(m,66,Len(m))) \*only properly formed modbus is sent with signature to untrustnet
+    /\ \A m \in Range(chan["finished_untrustnet"]) : GetHMAC(NumTupleToStrTuple(m)) = HMAC(m,m) \*only properly signed messages are sent to untrustnet
+    /\ \A m \in Range(chan["finished_untrustnet"]) : IsModbus(GetMessage(m)) \*only properly formed modbus is sent with signature to untrustnet
 =============================================================================
 \* Modification History
-\* Last modified Thu Oct 25 20:36:16 EDT 2018 by mssabr01
+\* Last modified Sat Oct 27 18:52:51 EDT 2018 by mssabr01
 \* Last modified Wed Oct 17 11:32:47 EDT 2018 by userMehdi
 \* Created Tue Oct 02 17:14:28 EDT 2018 by mssabr01
