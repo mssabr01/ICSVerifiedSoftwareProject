@@ -10,7 +10,7 @@ LOCAL INSTANCE Hex
 LOCAL Range(T) == { T[x] : x \in DOMAIN T }
 MessagesToSerialPort == \*these are in ASCII but they are converted to decimal before being used below. See StrTupleToNumTuple in ASCII.tla
     << \*StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>),
-      StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>)(*,
+      StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>)(*
       StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
       StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>), \*this one starts a new modbus packet half way through the message
       StrTupleToNumTuple(<<"!","m","Q","I","N","B","F","u","O","v","x","M","B","E","A","D","g","D","B","Q","v","c","R","P","z","T","e","G","w","v","V","2","J","C","r","t","m","x","U","j","v","Y","S","Z","7","P","j","W","p","H","l","5","2","4","g","I","g","J","h","b","t","d","I","T","U",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
@@ -34,7 +34,7 @@ MessagesToSerialPort == \*these are in ASCII but they are converted to decimal b
      >>
                        
 HMAC(str, pass) == <<"I","K","o","W","L","9","v","G","U","h","S","1","q","t","Z","f","4","5","h","r","9","W","4","1","Z","i","B","G","P","j","d","o","w","6","S","Y","2","A","0","+","q","E","d","a","+","s","i","i","B","H","G","C","4","r","/","S","5","g","J","W","P","/","s","T">> \*not concerned with the inner workings of SHA2
-
+FindPartnerMessage(msg, messages) == CHOOSE x \in messages : x.id = msg.id
 
 (* --algorithm auth_device
 
@@ -265,7 +265,7 @@ begin
         if msg.isValid then \*if the message is valid then look for another message in the validMessages set with the same id.
             if \E x \in validMessages : x.id = msg.id then \*if one exists then both portions of the message were verified and the message can be sent
                 txBuf := msg.text;
-                transmit: send("finished_trustnet", txBuf);
+                transmit: send("finished_trustnet", NumTupleToStrTuple(txBuf)); \*converting back to characters for easier troubleshooting
                 to2: validMessages := validMessages \ {x \in validMessages: x.id = msg.id}; \*remove sent message from set
             else
                 validMessages := validMessages \union {msg}; \*if a message with the same id is not found then add this message to that set
@@ -295,9 +295,9 @@ begin
                 if msg.source = "sign" then
                     txBuf := StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple(msg.hmac) \o msg.text;
                 else
-                    txBuf := StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple({x \in validMessages : x.id = msg.id}.hmac) \o msg.text;
+                    txBuf := StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple(FindPartnerMessage(msg,validMessages).hmac) \o msg.text;
                 end if;
-                transmit: send("finished_untrustnet", txBuf);
+                transmit: send("finished_untrustnet", NumTupleToStrTuple(txBuf));
                 uto2: validMessages := validMessages \ {x \in validMessages: x.id = msg.id}; \*remove sent message from set
             else
                 validMessages := validMessages \union {msg}; \*if a message with the same id is not found then add this message to that set
@@ -1096,7 +1096,7 @@ finished_ == /\ pc["trustnet_out"] = "finished_"
                              validMessages >>
 
 transmit_ == /\ pc["trustnet_out"] = "transmit_"
-             /\ chan' = [chan EXCEPT !["finished_trustnet"] = Append(chan["finished_trustnet"], txBuf_)]
+             /\ chan' = [chan EXCEPT !["finished_trustnet"] = Append(chan["finished_trustnet"], (NumTupleToStrTuple(txBuf_)))]
              /\ pc' = [pc EXCEPT !["trustnet_out"] = "to2"]
              /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                              retreivedHMAC, generatedHMAC, result, CompareHMAC, 
@@ -1128,7 +1128,7 @@ uto1 == /\ pc["untrustnet_out"] = "uto1"
               THEN /\ IF \E x \in validMessages : x.id = msg'.id
                          THEN /\ IF msg'.source = "sign"
                                     THEN /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple(msg'.hmac) \o msg'.text
-                                    ELSE /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple({x \in validMessages : x.id = msg'.id}.hmac) \o msg'.text
+                                    ELSE /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple(FindPartnerMessage(msg',validMessages).hmac) \o msg'.text
                               /\ pc' = [pc EXCEPT !["untrustnet_out"] = "transmit"]
                               /\ UNCHANGED validMessages
                          ELSE /\ validMessages' = (validMessages \union {msg'})
@@ -1158,7 +1158,7 @@ finished == /\ pc["untrustnet_out"] = "finished"
                             msg, adder, validMessages >>
 
 transmit == /\ pc["untrustnet_out"] = "transmit"
-            /\ chan' = [chan EXCEPT !["finished_untrustnet"] = Append(chan["finished_untrustnet"], txBuf)]
+            /\ chan' = [chan EXCEPT !["finished_untrustnet"] = Append(chan["finished_untrustnet"], (NumTupleToStrTuple(txBuf)))]
             /\ pc' = [pc EXCEPT !["untrustnet_out"] = "uto2"]
             /\ UNCHANGED << msg_, generated_hmac, msg_m, msg_v, bareMessage, 
                             retreivedHMAC, generatedHMAC, result, CompareHMAC, 
@@ -1190,14 +1190,24 @@ Spec == Init /\ [][Next]_vars
 \* END TRANSLATION
 
 SAFETYCHECK == 
-    /\ \A m \in validMessages : m.isValid = TRUE \*message parts waiting for their counterpart are valid
-    /\ \A m \in validMessages_ : m.isValid = TRUE \*message parts waiting for their counterpart are valid
+    \*modbus check module:
     /\ \A m \in Range(chan["messagecheck"]) : Len(m.text) <= MAXMODBUSSIZE \*only messages with a valid length make it to the checking module
-    /\ \A m \in Range(chan["finished_trustnet"]) : IsModbus(NumTupleToStrTuple(m)) \*only properly formed modbus is sent to trustnet
-    /\ \A m \in Range(chan["finished_untrustnet"]) : GetHMAC(NumTupleToStrTuple(m)) = HMAC(m,m) \*only properly signed messages are sent to untrustnet
+    \*messages going to untrusted network
+    /\ \A m \in validMessages : m.isValid = TRUE \*message parts waiting for their counterpart are valid
+    /\ \A m \in Range(chan["finished_untrustnet"]) : GetHMAC(m) = HMAC(m,m) \*only properly signed messages are sent to untrustnet
     /\ \A m \in Range(chan["finished_untrustnet"]) : IsModbus(GetMessage(m)) \*only properly formed modbus is sent with signature to untrustnet
+    \*messages going to trusted network:
+    /\ \A m \in validMessages_ : m.isValid = TRUE \*message parts waiting for their counterpart are valid
+    /\ \A m \in Range(chan["finished_trustnet"]) : IsModbus(m) \*only properly formed modbus is sent to trustnet
+    
+LIVELINESS ==
+   \* counterpart will eventually come
+   /\ \A p \in validMessages_ : <>(msg_tr.id = p.id /\ msg_tr.source /= p.source ) 
+   \*modbus check module:
+   \*/\ \A p \in Range(chan["messagecheck"]), \E q \in Range(chan["untrustnet_out"]) : p.source = "trustnet_in" ~> : p.id = q.id
+
 =============================================================================
 \* Modification History
-\* Last modified Sat Oct 27 18:52:51 EDT 2018 by mssabr01
+\* Last modified Sun Oct 28 23:16:32 EDT 2018 by mssabr01
 \* Last modified Wed Oct 17 11:32:47 EDT 2018 by userMehdi
 \* Created Tue Oct 02 17:14:28 EDT 2018 by mssabr01
