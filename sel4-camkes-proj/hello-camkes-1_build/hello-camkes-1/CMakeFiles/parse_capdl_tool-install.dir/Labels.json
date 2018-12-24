@@ -1,0 +1,40 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/CMakeFiles/parse_capdl_tool-install"
+		},
+		{
+			"file" : "/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/CMakeFiles/parse_capdl_tool-install.rule"
+		},
+		{
+			"file" : "/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-install.rule"
+		},
+		{
+			"file" : "/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-build.rule"
+		},
+		{
+			"file" : "/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-configure.rule"
+		},
+		{
+			"file" : "/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-update.rule"
+		},
+		{
+			"file" : "/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-patch.rule"
+		},
+		{
+			"file" : "/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-download.rule"
+		},
+		{
+			"file" : "/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-mkdir.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"parse_capdl_tool"
+		],
+		"name" : "parse_capdl_tool-install"
+	}
+}

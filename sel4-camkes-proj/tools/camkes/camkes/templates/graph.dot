@@ -1,0 +1,49 @@
+/*#
+ *# Copyright 2017, Data61
+ *# Commonwealth Scientific and Industrial Research Organisation (CSIRO)
+ *# ABN 41 687 119 230.
+ *#
+ *# This software may be distributed and modified according to the terms of
+ *# the BSD 2-Clause license. Note that NO WARRANTY is provided.
+ *# See "LICENSE_BSD2.txt" for details.
+ *#
+ *# @TAG(DATA61_BSD)
+ #*/
+
+digraph {
+/*- for i in composition.instances -*/
+    /*? i.name ?*/ [label="/*? i.name ?*/::/*? i.type.name ?*/", shape=box,style=rounded];
+/*- endfor -*/
+
+/*- for c in composition.connections -*/
+    /*- if c.type.name in ('seL4RPC', 'seL4RPCCall') -*/
+        /*? c.name ?*/ [shape=circle];
+        /*- for f in c.from_ends -*/
+            /*? f.instance.name ?*/ -> /*? c.name ?*/;
+        /*- endfor -*/
+        /*- for t in c.to_ends -*/
+            /*? c.name ?*/ -> /*? t.instance.name ?*/;
+        /*- endfor -*/
+    /*- elif c.type.name == 'seL4Notification' -*/
+        /*? c.name ?*/ [shape=diamond];
+        /*- for f in c.from_ends -*/
+            /*? f.instance.name ?*/ -> /*? c.name ?*/;
+        /*- endfor -*/
+        /*- for t in c.to_ends -*/
+            /*? c.name ?*/ -> /*? t.instance.name ?*/;
+        /*- endfor -*/
+    /*- elif c.type.name == 'seL4SharedData' -*/
+        /*- for f in c.from_ends -*/
+            /*- for t in c.to_ends -*/
+                /*? f.instance.name ?*/ -> /*? t.instance.name ?*/ [label="/*? c.name ?*/",dir=both,arrowhead=obox,arrowtail=obox];
+            /*- endfor -*/
+        /*- endfor -*/
+    /*- else -*/
+        /*- for f in c.from_ends -*/
+            /*- for t in c.to_ends -*/
+                /*? f.instance.name ?*/ -> /*? t.instance.name ?*/ [label="/*? c.name ?*/"];
+            /*- endfor -*/
+        /*- endfor -*/
+    /*- endif -*/
+/*- endfor -*/
+}

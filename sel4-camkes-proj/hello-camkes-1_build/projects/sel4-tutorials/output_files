@@ -1,0 +1,7 @@
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/sel4-tutorials/hello-camkes-1/gen/hello-camkes-1.md
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/sel4-tutorials/hello-camkes-1/gen/.tasks
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/sel4-tutorials/hello-camkes-1/gen/interfaces/HelloSimple.idl4
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/sel4-tutorials/hello-camkes-1/gen/components/Echo/src/echo.c
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/sel4-tutorials/hello-camkes-1/gen/components/Client/src/client.c
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/sel4-tutorials/hello-camkes-1/gen/hello-1.camkes
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/sel4-tutorials/hello-camkes-1/gen/CMakeLists.txt

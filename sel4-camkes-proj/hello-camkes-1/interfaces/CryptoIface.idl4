@@ -1,0 +1,6 @@
+/* Simple RPC interface */
+
+procedure CryptoIface {
+    void sign(in string text, in int id);
+    void verify(in string text, in int id, in string hmac);
+};

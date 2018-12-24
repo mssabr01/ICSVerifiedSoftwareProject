@@ -1,0 +1,185 @@
+
+==================== FINAL INTERFACE ====================
+2018-12-23 21:11:36.962809 UTC
+
+interface main@main:CapDL.PrintXml 8002
+  interface hash: 85efe36927e3c6b96651f58c33403cda
+  ABI hash: 23e466fcbbb76b3e81380ee3af5b1788
+  export-list hash: 591843e06b5e0a7a7a77bac1b7d5441c
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: a285d281843002008f986e4fe011c128
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  CapDL.PrintXml.printXml
+module dependencies: CapDL.Model CapDL.PrintUtils
+package dependencies: MissingH-1.4.0.1@MissingH-1.4.0.1-4I5T4TbNA9RIo1FM0FgAP
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.1.0*
+                      base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      transformers-0.5.2.0@transformers-0.5.2.0
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.Maybe d876c4ffe4b3c43755a781e8ad860d88
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22:Prelude.Compat 26d0dbb9ddc9475bb1179736f86de98b
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map 20d4ffbee41965d03d6a989425473dc4
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base d432f6875983131473086af8cb290590
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set 3ed2324fd1e757464a8ac2b636a64e5a
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base 192db525847d66243089501d3ee84714
+import  -/  CapDL.Model 8e26b32fabef412aa2e46767667c26cb
+  exports: 194cc77771ecdac5cfada74519b29912
+  ARMIODevice 8d08fd1166b8de2048c52e2b9ba46fc9
+  ARMIOSpaceCap 244266543b9bb53794fb556e30a4fa22
+  ASIDControlCap a3104e7f04f2308bce70b72a9539f64c
+  ASIDPool ba5104d1532a081bc49c891060909aeb
+  ASIDPoolCap 220dabb0361563f94fe2205d48394fdd
+  CDT 55973b7d1a84f9de6a8a38ae41e41412
+  CNode 693211dc12ef4126b116f6e95fe7e75f
+  CNodeCap 590fd2c6f6ecf22b2eeebcb996881e19
+  Cap 2a21d35a68336a201f9362f96f90a464
+  CapMap 2b3c9fb77110f866f8b91e1409ce1aa7
+  CapRef 577051ad5ff1ec257c722ca2a90ffb32
+  CapRights fee87d5c49f4692c15b6de86f85fa1c8
+  CoverMap 478d8c578699fc12ee5d1852b54284c2
+  DomainCap 206cd7d1fdbf05217e0afd4b921ec586
+  Endpoint c7cea90dd68aeb74658e3b6beaf32a8c
+  EndpointCap de93c9c099a382fb6d594d38dffc515f
+  Frame a1a72eb2098660223f462524f6d64cf1
+  FrameCap 358500e6ad48a24c1af7b4eeb9abeeaa
+  Grant fefd5406f57976eeb0a13a1bdf3ef3f6
+  IOAPICIrq 9f24f8ed20ffbab428657aae84561aad
+  IODevice f669911d54b94953bc180cecc4b80eea
+  IOPT 1988dd5bdc0c2470efd93a0d63e68922
+  IOPTCap eeb4d7ba3197f880fcb4c3b77fe2bc10
+  IOPorts 49268bae7609d49418f5b50e0677c646
+  IOPortsCap 377691fc07b5c1d255b3fc9dda6ec5ae
+  IOSpaceCap 6673a14c764d87aa3a2ba80ca2d617d4
+  IOSpaceMasterCap df07f42b3a4dffbb476c3f95a4616c55
+  IRQControlCap babd09b93c0c2ddc43877f1de09ef9b3
+  IRQHandlerCap 3f111314ce395ab293e006573af72663
+  IRQIOAPICHandlerCap 7de4cff137d170defd36aaf06926d5ae
+  IRQMSIHandlerCap 26b9b7fb929e0c2f4ebda5b275885208
+  KernelObject 74facc4ab534e001bd4ca07a143628e7
+  MSIIrq 7807e4bd04f2b57c12200eeed8d32cd1
+  MasterReplyCap 8d2e215096b21052f109b41a538449e6
+  Model df1f00d4fc6384f8455b17f2f30da3ed
+  Model 589b7c47d95fa3c92cab05c02d9ec104
+  Notification 7bfb9587626e7f2e148fb306f316d71e
+  NotificationCap 063382f0af99af375a364faf442ece26
+  NullCap 8c7613d0a705ef268c687dd8eecdf246
+  ObjID 79624deef3a276329daf8841ec6c4e4b
+  ObjMap 4211baa280b570e4c761bd30aa346582
+  ObjSet 111c787764dac1efc754aa81b5769320
+  PD a3f7eeb64b66c2523cdbb5294fc559f8
+  PDCap a94a62f40927fc7b39a00d764e98d22d
+  PDPT c05bab1de4197b6570ed51849b26fbe2
+  PDPTCap da168249856e97a7ec7799fc57050a3d
+  PGD c636cf4902f9f85b500efdb960d51164
+  PGDCap 13b6ea7c08f70d272ef7dde0819f0eb7
+  PML4 9fb7f4f98ca95bc9722aa291c7cf87e8
+  PML4Cap 3c7b81cf4fe38138c153a3ebec74925a
+  PT 47267c52f19b6b6c3dc0112098310e54
+  PTCap 1264048166584f595250e46b1190742c
+  PUD 6b9a2fb014f7e9737d85cbf5fa5b2a67
+  PUDCap f060a900c8c1100c942bd75887e983cb
+  RTReply d0ea798641d6a73ce7571d1e08711c4c
+  RTReplyCap 0c5f43140b19aae3ce24409078489145
+  Read 9e5698983f64cbb8475dca62178a0405
+  ReplyCap a5ef6bb715de4ce692cfb4d00d75748a
+  SC 281c858ee2e9992504088a82b2e1efe8
+  SCCap 491f26c4528f4790d9f8d78bc359d796
+  SchedControlCap 800551c2b0416e5048788d34d608fac4
+  TCB 226edd638c439891141a4bdf9d407698
+  TCBCap 381122f5a4889633fde5616ee62a3ac6
+  Untyped 1ea9c340003fffbd6472826ee10b2a82
+  UntypedCap c2e82114d9b1d6f0e2c295de577bf108
+  VCPU a3f204f39160fa01138f5aaea2a49d4b
+  VCPUCap a5d4385f5f4a97cb20ff1809b8ec787c
+  Write 5791f86fbf42abf825faad5c69fae627
+  capRights 64e6a41c777718fb450d946ae4678e9b
+  hasObjID b301b2bfb3dd29b6a532e0aa3191fc04
+  hasRights 1f0e1c3ff796c14f610b2de9e305e438
+  hasSlots 727f06887ba2c03ce0cad4cdb044263e
+  objID abfcdc1e2c618062b0ee7459a1d8218c
+  slots 0503d6fc6bb18b62d855ae9d996073f2
+import  -/  CapDL.PrintUtils 5a6f8b80bd7ef15efea2dfbb9b67f401
+  exports: 5a3661c05b5b5710ddc0b38cce9f5849
+  logBase2 2959c904df8af4c6f965d10b2b36edd6
+  showID d4d528c6373c52d162807308ce746e92
+import  -/  pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint abe8aeb00d775221281f89090d9fbe2a
+import  -/  pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ 5fd6ee2fcb3f4a1e810ed36714963e44
+4e25d8d80c9bb14fcf9748a370e1dbce
+  $smember_$sgo1 ::
+    Data.Set.Base.Set CapDL.Model.Rights -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+02eb469f5f496916c39508f947479c37
+  $smember_$sgo2 ::
+    Data.Set.Base.Set CapDL.Model.Rights -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+6087d2e92d18cac0122c55d135fb52f6
+  $smember_$sgo5 ::
+    Data.Set.Base.Set CapDL.Model.Rights -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+045de822d4f8006def6997964994290d
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   CapDL.PrintXml.$trModule2
+                   CapDL.PrintXml.$trModule1) -}
+ca20c13d149ba47892bdfeb9847de8cc
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "CapDL.PrintXml"#) -}
+91b66f529eae40c2b3d1745c4e3d769f
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+7fc5f0bbe54d3905bebb9b128a0ea174
+  $wprintXml ::
+    CapDL.Model.Arch
+    -> CapDL.Model.ObjMap GHC.Types.Word
+    -> CapDL.Model.CDT
+    -> CapDL.Model.CoverMap
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 4, Strictness: <L,1*U><S,1*U><S,1*U><S,1*U>,
+     Inline: [0] -}
+4a5d76061d3c52a7b28462123c02640f
+  printXml ::
+    GHC.Base.String
+    -> CapDL.Model.Model GHC.Types.Word
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <L,A><S(LSLSS),1*U(1*U,1*U,A,1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GHC.Base.String)
+                   (w1 :: CapDL.Model.Model GHC.Types.Word) ->
+                 case w1 of ww { CapDL.Model.Model ww1 ww2 ww3 ww4 ww5 ->
+                 CapDL.PrintXml.$wprintXml ww1 ww2 ww4 ww5 }) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

@@ -1,0 +1,416 @@
+%
+% Copyright 2014, General Dynamics C4 Systems
+%
+% This software may be distributed and modified according to the terms of
+% the GNU General Public License version 2. Note that NO WARRANTY is provided.
+% See "LICENSE_GPLv2.txt" for details.
+%
+% @TAG(GD_GPL)
+%
+
+\chapter{\label{ch:threads}Threads and Execution}
+
+\section{Threads}
+\label{sec:threads}
+
+seL4 provides threads to represent an execution context and manage
+processor time. A thread is represented in seL4 by its thread control block
+object (\obj{TCB}). Each \obj{TCB} has an associated CSpace (see
+\autoref{ch:cspace}) and VSpace (see \autoref{ch:vspace}) which
+may be shared with other threads. A \obj{TCB} may also have an IPC buffer
+(see  \autoref{ch:ipc}), which is used to pass extra arguments during IPC
+or kernel object invocation that do not fit in the architecture-defined message
+registers. While it is not compulsory that a thread has an IPC buffer,
+it will not be able to perform most kernel invocations, as they require
+cap transfer.
+Each thread belongs to exactly one security domain (see
+\autoref{sec:domains}).
+%FIXME: there is much more information held in the TCB!
+
+\subsection{Thread Creation}
+\label{sec:thread_creation}
+
+Like other objects, \obj{TCB}s are created with the
+\apifunc{seL4\_Untyped\_Retype}{untyped_retype} method (see
+\autoref{sec:kernmemalloc}). A newly created thread is initially inactive. It
+is configured by setting its CSpace and VSpace with the
+\apifunc{seL4\_TCB\_SetSpace}{tcb_setspace}
+or \apifunc{seL4\_TCB\_Configure}{tcb_configure} methods and then calling
+\apifunc{seL4\_TCB\_WriteRegisters}{tcb_writeregisters} with an initial stack pointer and instruction
+pointer. The thread can then be activated either by setting the
+\texttt{resume\_target} parameter in the \apifunc{seL4\_TCB\_WriteRegisters}{tcb_writeregisters} invocation to true
+or by seperately calling the \apifunc{seL4\_TCB\_Resume}{tcb_resume} method. In multicore machines, the thread
+would be running on the same CPU which originally created the \obj{TCB}. However, it could be migrated to other CPUs
+by calling \apifunc{seL4\_TCB\_SetAffinity}{tcb_setaffinity}.
+
+\subsection{Thread Deactivation}
+\label{sec:thread_deactivation}
+
+The \apifunc{seL4\_TCB\_Suspend}{tcb_suspend} method deactivates a thread.
+Suspended threads can later be resumed.
+Their suspended state can be retrieved with the
+\apifunc{seL4\_TCB\_ReadRegisters}{tcb_readregisters} and
+\apifunc{seL4\_TCB\_CopyRegisters}{tcb_copyregisters} methods.
+They can also be reconfigured and
+reused or left suspended indefinitely if not needed. Threads will be
+automatically suspended when the last capability to their \obj{TCB} is
+deleted.
+% an example of which is demonstrated in \nameref{ex:second_thread}.
+
+\subsection{Scheduling}
+\label{sec:sched}
+
+seL4 uses a preemptive round-robin scheduler with 256 priority levels.
+All threads have a maximum controlled priority (MCP) and a priority, the latter being the effective
+priority of the thread.
+When a thread modifies a another threads priority (including itself) it must provide a
+thread capability from which to use the MCP from. Threads can only set priorities and MCPs
+to be less than or equal to the provided thread's MCP.
+The initial task starts with an MCP and priority as the highest priority in the system (\texttt{seL4\_MaxPrio}).
+Thread priority and MCP can be set with \apifunc{seL4\_TCB\_SetPriority}{tcb_setpriority}
+and \apifunc{seL4\_TCB\_SetMCPriority}{tcb_setmcpriority} methods.
+
+\subsection{Exceptions}
+
+Each thread has an associated exception-handler endpoint. If the thread
+causes an exception, the kernel creates an IPC message with the relevant
+details and sends this to the endpoint. This
+thread can then take the appropriate action. Fault IPC messages are
+described in \autoref{sec:faults}.
+
+In order to enable exception handlers, a capability to the exception-handler
+endpoint must exist in the CSpace of the thread that generates the exception.
+The exception-handler
+endpoint can be set with the \apifunc{seL4\_TCB\_SetSpace}{tcb_setspace} or
+\apifunc{seL4\_TCB\_Configure}{tcb_configure} method.
+With these methods, a capability address for the exception handler can be associated with a thread.
+This address is then used to lookup the handler endpoint when an exception is generated.
+Note, however, that these methods make no attempt to check whether an endpoint capability exists at the specified
+address in the CSpace of the thread. The capability is only looked up
+when an exception actually happens and if the lookup fails then no
+exception message is delivered and the thread is suspended indefinitely.
+
+The exception endpoint must have send and grant rights. Replying to the
+exception message restarts the thread. For certain exception types, the contents of
+the reply message may be used to set the values in the registers of the
+thread being restarted.
+See \autoref{sec:faults} for details.
+
+
+
+\subsection{Message Layout of the Read-/Write-Registers Methods}
+\label{sec:read_write_registers}
+
+The registers of a thread can be read and written with the
+\apifunc{seL4\_TCB\_ReadRegisters}{tcb_readregisters} and \apifunc{seL4\_TCB\_WriteRegisters}{tcb_writeregisters} methods.
+For some registers, the kernel will silently mask certain bits or ranges of bits off, and force them to contain certain
+values to ensure that they cannot be maliciously set to values that would compromise the running system, or to respect
+values that the architecture specifications have mandated to be certain values.
+The register contents are transferred via the IPC buffer.
+
+\section{Faults}
+\label{sec:faults}
+
+A thread's actions may result in a fault. Faults are delivered to the
+thread's exception handler so that it can take the appropriate action.
+The fault type is specified in the message label and is one of:
+seL4\_Fault\_CapFault, seL4\_Fault\_VMFault, seL4\_Fault\_UnknownSyscall, seL4\_Fault\_UserException, seL4\_Fault\_DebugException,
+or seL4\_Fault\_NullFault (indicating no fault occurred and this is a normal IPC message).
+
+Fault are delivered in such a way as to imitate a Call from the faulting
+thread. This means that to send a fault message the fault endpoint
+must have both write and grant permissions.
+
+\subsection{Capability Faults}
+
+Capability faults may occur in two places. Firstly, a capability fault
+can occur when lookup of a capability referenced by a
+\apifunc{seL4\_Call}{sel4_call} or \apifunc{seL4\_Send}{sel4_send} system call
+failed (\apifunc{seL4\_NBSend}{sel4_nbsend} calls on
+invalid capabilities silently fail). In this case, the capability
+on which the fault occurred may be the capability being invoked or an
+extra capability passed in the \texttt{caps} field in the IPC buffer.
+
+Secondly, a capability fault can occur when \apifunc{seL4\_Recv}{sel4_recv} or \apifunc{seL4\_NBRecv}{sel4_nbrecv}
+is called on a capability that does not exist, is not an endpoint or notification capability or does not have
+receive permissions.
+
+Replying to the fault IPC will restart the faulting thread. The contents of the
+IPC message are given in \autoref{tbl:ipc_contents}.\\
+
+\begin{table}[htb]
+\noindent\begin{tabularx}{\textwidth}{XX}
+\toprule
+    \textbf{Meaning} & \textbf{ IPC buffer location} \\
+\midrule
+    Address at which to restart execution & \ipcbloc{seL4\_CapFault\_IP} \\
+    Capability address & \ipcbloc{seL4\_CapFault\_Addr} \\
+In receive phase (1 if the fault happened during a receive system call, 0
+    otherwise) & \ipcbloc{seL4\_CapFault\_InRecvPhase} \\
+Lookup failure description. As described in \autoref{sec:lookup_fail_desc} &
+    \ipcbloc{seL4\_CapFault\_LookupFailureType} \\
+\bottomrule
+\end{tabularx}
+\caption{\label{tbl:ipc_contents}Contents of an IPC message.}
+\end{table}
+
+\subsection{Unknown Syscall}
+\label{sec:unknown-syscall}
+
+This fault occurs when a thread executes a system call with a syscall
+number that is unknown to seL4.
+The register set
+of the faulting thread is passed to the thread's exception handler so that it
+may, for example, emulate the system call if a thread is being
+virtualised.
+
+Replying to the fault IPC allows the thread to be restarted
+and/or the thread's register set to be modified. If the reply has
+a label of zero, the thread will be restarted. Additionally, if the
+message length is non-zero, the faulting thread's register set will be
+updated. In this case, the number of
+registers updated is controlled with the length field of the message
+tag.
+
+\subsection{User Exception}
+
+User exceptions are used to deliver architecture-defined exceptions. For
+example, such an exception could occur if a user thread attempted to
+divide a number by zero.
+
+Replying to the fault IPC allows the thread to be restarted
+and/or the thread's register set to be modified. If the reply has
+a label of zero, the thread will be restarted. Additionally, if the
+message length is non-zero, the faulting thread's register set will be
+updated. In this case, the number of
+registers updated is controlled with the length field of the message
+tag.
+
+\subsection{Debug Exception: Breakpoints and Watchpoints}
+\label{sec:debug_exceptions}
+
+Debug exceptions are used to deliver trace and debug related events to threads.
+Breakpoints, watchpoints, trace-events and instruction-performance sampling
+events are examples. These events are supported for userspace threads when the kernel
+is configured to include them (when CONFIG\_HARDWARE\_DEBUG\_API is set). The hardware
+debugging extensions API is supported on the following subset of the platforms that the
+kernel has been ported to:
+
+\begin{itemize}
+\item PC99: IA-32 and x86\_64
+\item Sabrelite (i.MX6)
+\item Jetson TegraK1
+\item HiSilicon Hikey
+\item Raspberry Pi 3
+\item Odroid-X (Exynos4)
+\item Xilinx zynq7000
+\end{itemize}
+
+Information on the available hardware debugging resources is presented in the form of the following constants:
+
+\begin{description}
+\item[seL4\_NumHWBreakpoints]: Defines the total number of hardware break
+registers available, of all types available on the hardware platform. On the ARM
+Cortex A7 for example, there are 6 exclusive instruction breakpoint registers,
+and 4 exclusive data watchpoint registers, for a total of 10 monitor registers.
+On this platform therefore, \texttt{seL4\_NumHWBreakpoints} is defined as 10.
+The instruction breakpoint registers will always be assigned the lower API-IDs,
+and the data watchpoints will always be assigned following them.
+
+Additionally, \texttt{seL4\_NumExclusiveBreakpoints}, \texttt{seL4\_NumExclusiveWatchpoints}
+and \texttt{seL4\_NumDualFunctionMonitors}
+are defined for each target platform to reflect the number of available
+hardware breakpoints/watchpoints of a certain type.
+
+\item[seL4\_NumExclusiveBreakpoints]: Defines the number of hardware registers
+capable of generating a fault \textbf{only} on instruction execution. Currently this will be
+set only on ARM platforms. The API-ID of the first exclusive breakpoint is given
+in \texttt{seL4\_FirstBreakpoint}. If there are no instruction-break exclusive
+registers, \texttt{seL4\_NumExclusiveBreakpoints} will be set to \texttt{0} and
+\texttt{seL4\_FirstBreakpoint} will be set to -1.
+
+\item[seL4\_NumExclusiveWatchpoints]: Defines the number of hardware registers
+capable of generating a fault \textbf{only} on data access. Currently this will be set only
+on ARM platforms. The API-ID of the first exclusive watchpoint is given
+in \texttt{seL4\_FirstWatchpoint}. If there are no data-break exclusive
+registers, \texttt{seL4\_NumExclusiveWatchpoints} will be set to \texttt{0} and
+\texttt{seL4\_FirstWatchpoint} will be set to -1.
+
+\item[seL4\_NumDualFunctionMonitors]: Defines the number of hardware registers
+capable of generating a fault on either type of access -- i.e, the register
+supports both instruction and data breaks. Currently this will be set only on
+x86 platforms. The API-ID of the first dual-function monitor is given
+in \texttt{seL4\_FirstDualFunctionMonitor}. If there are no dual-function break
+registers, \texttt{seL4\_NumDualFunctionMonitors} will be set to \texttt{0} and
+\texttt{seL4\_FirstDualFunctionMonitor} will be set to -1.
+
+\end{description}
+
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+\textbf{Value sent} & \textbf{IPC buffer location} \\
+\midrule
+\reg{Breakpoint instruction address} & \ipcbloc{IPCBuffer[0]} \\
+\reg{Exception reason} & \ipcbloc{IPCBuffer[1]} \\
+\reg{Watchpoint data access address} & \ipcbloc{IPCBuffer[2]} \\
+\reg{Register API-ID} & \ipcbloc{IPCBuffer[3]} \\
+\bottomrule
+\end{tabularx}
+\caption{\label{tbl:debug_exception_result}Debug fault message layout. The
+register API-ID is not returned in the fault message from the kernel on
+single-step faults.}
+\end{table}
+
+\subsection{Debug Exception: Single-stepping}
+\label{sec:single_stepping_debug_exception}
+
+The kernel provides support for the use of hardware single-stepping of userspace
+threads when configured to do so (when CONFIG\_HARDWARE\_DEBUG\_API is set). To
+this end it exposes the invocation, \texttt{seL4\_TCB\_ConfigureSingleStepping}.
+
+The caller is expected to select an API-ID that corresponds to
+an instruction breakpoint, to use when setting up the single-stepping
+functionality (i.e, API-ID from 0 to \texttt{seL4\_NumExclusiveBreakpoints} - 1).
+However, not all hardware platforms require an actual hardware breakpoint
+register to provide single-stepping functionality. If the caller's hardware platform requires the
+use of a hardware breakpoint register, it will use the breakpoint register given to it in \texttt{bp\_num},
+and return \texttt{true} in \texttt{bp\_was\_consumed}. If the underlying platform does not need a hardware
+breakpoint to provide single-stepping, seL4 will return \texttt{false} in \texttt{bp\_was\_consumed} and
+leave \texttt{bp\_num} unchanged.
+
+If \texttt{bp\_was\_consumed} is \texttt{true}, the caller should not
+attempt to re-configure \texttt{bp\_num} for Breakpoint or Watchpoint usage until
+the caller has disabled single-stepping and released that register, via a subsequent
+call to \texttt{seL4\_TCB\_ConfigureSingleStepping}, or a fault-reply with
+\texttt{n\_instr} being 0. Setting \texttt{num\_instructions} to \texttt{0}
+\textbf{disables single stepping}.
+
+On architectures that require an actual hardware registers to be configured for
+single-stepping functionality, seL4 will restrict the number of registers that
+can be configured as single-steppers, to one at any given time. The register that
+is currently configured (if any) for single-stepping will be the implicit
+\texttt{bp\_num} argument in a single-step debug fault reply.
+
+The kernel's single-stepping, also supports skipping a certain number of
+instructions before delivering the single-step fault message. \texttt{Num\_instructions}
+should be set to \texttt{1} when single-stepping, or any non-zero integer value to skip that many
+instructions before resuming single-stepping. This skip-count can also be set in
+the fault-reply to a single-step debug fault.
+
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+\textbf{Value sent} & \textbf{Register set by reply} & \textbf{IPC buffer location} \\
+\midrule
+\reg{Breakpoint instruction address} & \texttt{num\_instructions} to skip & \ipcbloc{IPCBuffer[0]} \\
+\reg{Exception reason} & --- & \ipcbloc{IPCBuffer[1]} \\
+\bottomrule
+\end{tabularx}
+\caption{\label{tbl:single_step_exception_result}Single-step fault message layout.}
+\end{table}
+
+\subsection{VM Fault}
+\label{sec:vm-fault}
+
+The thread caused a page fault. Replying to the fault IPC will restart
+the thread. The contents of the IPC message are given below.\\
+
+\begin{table}[htb]
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+\textbf{Meaning} & \textbf{IPC buffer location} \\
+\midrule
+    Program counter to restart execution at. & \ipcbloc{seL4\_VMFault\_IP} \\
+Address that caused the fault. & \ipcbloc{seL4\_VMFault\_SP} \\
+    Instruction fault (1 if the fault was caused by an instruction fetch). & \ipcbloc{seL4\_VMFault\_PrefetchFault}  \\
+Fault status register (FSR). Contains information about the cause of the fault. Architecture dependent. & \ipcbloc{seL4\_VMFault\_FSR} \\
+\bottomrule
+\end{tabularx}
+\caption{\label{tbl:vm_fault_result_arm} VM Fault outcome on all architectures.}
+\end{table}
+
+\section{Domains}
+\label{sec:domains}
+
+Domains are used to isolate independent subsystems, so as to limit
+information flow between them.
+The kernel switches between domains according to a fixed, time-triggered
+schedule.
+The fixed schedule is compiled into the kernel via the constant
+\texttt{CONFIG\_NUM\_DOMAINS} and the global variable \texttt{ksDomSchedule}.
+
+A thread belongs to exactly one domain, and will only run when that domain
+is active.
+The \apifunc{seL4\_DomainSet\_Set}{domainset_set} method changes the domain
+of a thread.
+The caller must possess a \obj{Domain} cap and the thread's \obj{TCB} cap.
+The initial thread starts with a \obj{Domain} cap (see
+\autoref{sec:messageinfo}).
+
+\section{Virtualisation}
+\label{sec:virt}
+
+Hardware execution virtualisation is supported on specific arm and x86 platforms. The interface is exposed through a series
+of kernel objects, invocations and syscalls that allow the user to take advantage of hardware
+virtualisation features.
+
+Hardware virtualisation allows for a thread to perform instructions and operations as if it were
+running at a higher privilege level. As higher privilege levels typically have access to
+additional machine registers and other pieces of state a \obj{VCPU} object is introduced to act
+as storage for this state. For simplicity we refer to this virtualised higher privileged level as
+'guest mode'. \obj{VCPU}s are bound in a one-to-one relationship with a \obj{TCB} in order
+to provide a thread with this ability to run in higher privilege mode. See the section on
+ARM or x86 for more precise details.
+
+\obj{VCPU} objects also have additional, architecture specific, invocations for manipulating
+the additional state or other virtualisation controls provided by the hardware. Binding of
+a \obj{VCPU} to a \obj{TCB} is done by an invocation on the \obj{VCPU} only, and not the \obj{TCB}.
+
+The provided objects and invocations are, generally speaking, the thinnest possible shim over
+the underlying hardware primitives and operations. As a result an in depth familiarity with
+the underlying architecture specific harwdare mechanisms is required to use these objects, and
+such familiarity is therefore assumed in description.
+
+\subsection{ARM}
+
+When a \obj{TCB} has a bound \obj{VCPU} it is allowed to have the mode portion of the
+\texttt{cpsr} register set to values other than \texttt{user}. Specifically it may have any value other than
+\texttt{hypervisor}.
+
+TODO: this section needs more detail
+
+\subsection{x86}
+
+A \obj{TCB} with a bound \obj{VCPU} has two execution modes; one is the original thread just as
+if there was no bound \obj{VCPU}, and the other is the guest mode execution using the
+\obj{VCPU}. Switching from regular execution mode into the guest execution mode is
+done by using the \apifunc{seL4\_VMEnter}{sel4_vmenter} syscall. Executing this syscall causes the thread, whenever
+it is scheduled thereafter, to execute using the higher privlidged mode controlled by the \obj{VCPU}.
+Should the guest execution mode generate any kind of fault, or if a message arrives
+on the \obj{TCB}s bound notification, the \obj{TCB} will be switched back to regular mode
+and the \apifunc{seL4\_VMEnter}{sel4_vmenter} syscall will return with a message indicating the reason for return.
+
+\obj{VCPU} state and execution is controlled through the \apifunc{seL4\_VCPU\_ReadVMCS}{x86_vcpu_readvmcs}
+and \apifunc{seL4\_VCPU\_WriteVMCS}{x86_vcpu_writevmcs} invocations.
+These are very thin wrappers around the hardware \texttt{vmread} and \texttt{vmwrite} instructions and the kernel
+merely does enough validation on the parameters to ensure the \obj{VCPU} is not configured
+to run in such a way as to violate any kernel properties. For example, it is not possible to
+disable the use of External Interrupt Exiting, as this would prevent the kernel from receiving
+timer interrupts and allow the thread to monopolise CPU time.
+
+Memory access of the guest execution mode is controlled by requiring the use of Extended
+Page Tables (EPT). A series of EPT related paging structure objects (\obj{EPTPML4}, \obj{EPTPDPT}, \obj{EPTPD}, \obj{EPTPT})
+exist and are manipulated in exactly the same manner as the objects for the regular virtual
+address space. Once constructed a \obj{TCB} can be given an \obj{EPTPML4} as an EPT root with \apifunc{seL4\_TCB\_SetEPTRoot}{x86_set_eptroot},
+which serves as the vspace root when executing in guest mode, with the vspace root set
+with \apifunc{seL4\_TCB\_SetSPace}{tcb_setspace} or \apifunc{seL4\_TCB\_Configure}{tcb_configure}
+continuing to provide translation when the TCB is executing in its normal mode.
+
+Direct access to I/O ports can be given to the privlidged execution mode through the
+\apifunc{seL4\_X86\_VCPU\_EnableIOPort}{x86_vcpu_enableioport} invocation and allows the provided I/O port capability to be
+linked to the VCPU, and a subset of its I/O port range to be made accessible to the \obj{VCPU}.
+Linking means that an I/O port capability can only be used in a single \apifunc{seL4\_X86\_VCPU\_EnableIOPort}{x86_vcpu_enableioport}
+invocation and a second invocation will undo the previous one. The link also means that
+if the I/O port capability is deleted for any reason the access will be correspondingly removed
+from the \obj{VCPU}.

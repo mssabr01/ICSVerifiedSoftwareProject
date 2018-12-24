@@ -1,0 +1,3217 @@
+
+==================== FINAL INTERFACE ====================
+2018-12-23 21:12:01.060597 UTC
+
+interface main@main:CapDL.DumpParser 8002
+  interface hash: a5a87b054f8f0824aa3589b6892bd99c
+  ABI hash: 88fb456ba82994a67464ec6955ebcb0b
+  export-list hash: 1a06782cf27209b63d37fceddeb6b397
+  orphan hash: 2a475ff3168d2f516c38914292ac77c8
+  flag hash: a285d281843002008f986e4fe011c128
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  CapDL.DumpParser.all_decls
+  CapDL.DumpParser.capDLDumpModule
+  CapDL.DumpParser.cap_decl
+  CapDL.DumpParser.cap_decls
+  CapDL.DumpParser.cap_mapping
+  CapDL.DumpParser.consecutive
+  CapDL.DumpParser.considerUntypeds
+  CapDL.DumpParser.cov_decl
+  CapDL.DumpParser.cov_decls
+  CapDL.DumpParser.getAddr
+  CapDL.DumpParser.getCovs
+  CapDL.DumpParser.getObjTyp
+  CapDL.DumpParser.getUntypSize
+  CapDL.DumpParser.id_to_ref
+  CapDL.DumpParser.included
+  CapDL.DumpParser.insertAddrs
+  CapDL.DumpParser.insertCov
+  CapDL.DumpParser.insertRef
+  CapDL.DumpParser.lookupAddr
+  CapDL.DumpParser.lookupRef
+  CapDL.DumpParser.make_irq_decl
+  CapDL.DumpParser.make_irq_mapping
+  CapDL.DumpParser.make_obj
+  CapDL.DumpParser.maybeInsertIRQ
+  CapDL.DumpParser.maybe_obj_decl
+  CapDL.DumpParser.maybe_object
+  CapDL.DumpParser.obj_decl
+  CapDL.DumpParser.obj_decls
+  CapDL.DumpParser.object
+  CapDL.DumpParser.refToNameRef
+  CapDL.DumpParser.sizeOf
+module dependencies: CapDL.AST CapDL.Model CapDL.ParserUtils
+package dependencies: array-0.5.1.1@array-0.5.1.1 base-4.9.1.0*
+                      base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22
+                      binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      parsec-3.1.11@parsec-3.1.11-1aqiimsgq2dCv7eoaC8WuX
+                      split-0.2.3.2@split-0.2.3.2-CJl40zTyCIV16Pr60nb7CT
+                      text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00
+                      transformers-0.5.2.0@transformers-0.5.2.0
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Lazy
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Show
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text
+                         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Lazy
+import  -/  base-4.9.1.0:Data.Either 20b09ef8d0a5b74fdec011c40c1587f5
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.Maybe d876c4ffe4b3c43755a781e8ad860d88
+import  -/  base-4.9.1.0:Data.Ord 7fde5c9d64d4c27431689be19182758a
+import  -/  base-4.9.1.0:Data.Traversable 556020d7cf3c4a34a774600512918a37
+import  -/  base-4.9.1.0:Data.Tuple 7dc4bbb45d2e69c991ffac438beeca11
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.List ab8c4e523e6c479c549d3bcd5fc4a439
+import  -/  base-4.9.1.0:GHC.Num 00bfaa7b2f9d6084913c0697a8a49ec8
+import  -/  base-4.9.1.0:GHC.Real 82e4e59051a13dba1da63e1e970a69e6
+import  -/  base-4.9.1.0:Numeric bdcfa841811670500691657d058d32ea
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:Text.Read 75c59863e882ebaec4532e9465e2ee9b
+import  -/  base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22:Data.List.Compat 418dd9bb7e30a0545524709bdb407f11
+import  -/  base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22:Prelude.Compat 26d0dbb9ddc9475bb1179736f86de98b
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map 20d4ffbee41965d03d6a989425473dc4
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base d432f6875983131473086af8cb290590
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set 3ed2324fd1e757464a8ac2b636a64e5a
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base 192db525847d66243089501d3ee84714
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  CapDL.AST f4e424cb2594d82c83adfc3fa04a31a3
+  exports: a5bc172604bc9e0b84a19cb1123d06cf
+  BitSize 1f1a94d03a373e2f3da0995b9bfe90e7
+  CapDecl ea81bdf4e19b0e0214d6d7741dabd110
+  CapMapping db48763d0d9a9f24ba2ff6aa68d94787
+  CapMapping 6f333562637ba8a5d02ee9b310f593a5
+  Decl 8f7df8173f53c7ba9e17b58715798d32
+  IRQDecl 8592477763454e4d03b2eb89b22ab14e
+  IRQMapping 27d99bfc3184ed88adb49dc24c9eae8c
+  KO 519e5ee713264da3f66ce82e6106a9de
+  KODecl a77b29e6ef85f645bae140ad15b5e98e
+  KODecl 519e5ee713264da3f66ce82e6106a9de
+  Module c0c8edf7fa2a6725c3bedd81df851bde
+  Module 73de65ddd075a145d2849201c98ab8bf
+  Name a2810da6ca6e8f0c509e387b6c1140d9
+  NameRef adfb5fef568a67640f1355469089264d
+  Obj 1ce085730dbe5de4337a59e25fc61521
+  ObjDecl 46902648a63be12f5207f705ddf0095c
+  Only 83722f2110d7166982e12b17a265789a
+  VMSize e8b39f2f6e1328c5230a0339c4ddd005
+import  -/  CapDL.Model 8e26b32fabef412aa2e46767667c26cb
+  exports: 194cc77771ecdac5cfada74519b29912
+  ARM11 8f179bddb716d335769c19533d0eaf6b
+  ARMIODevice_T 599f9fcaf92961056c4cc646fbff4f97
+  ASIDPool_T b671a907c79754d0df1e018dc6b8950d
+  Arch 26cd7f1c4f2288b82107a65f43631900
+  CNode_T 468124b4eb5837ca3ee0b172e04091e4
+  Endpoint_T 0103099ef460e7ce58411a9d0616b799
+  Frame_T 713a80bd39eafdccf4bd9a6d79beb900
+  IA32 4a47723a0b2e7b28dfcc254a49b5bf41
+  IODevice_T ab0566da36d763cc5c5a1a7313820aed
+  IOPT_T bfbcbf62586a2b16bef1ea108e5922b7
+  IrqSlot_T 549042eea807814af40b64d1c373d35d
+  Notification_T 6e218f8732a4a2298542d80c713aa521
+  ObjID 79624deef3a276329daf8841ec6c4e4b
+  PD_T e601f2030044f920e821cf948c7c4890
+  PT_T 1119ee50cfdd3c370e13d27f5e21dc9a
+  TCB_T d63337a7c5175657c7e46b348ff4469d
+  Untyped_T 7f14fc8ec45b426989dad4ee2feb0c9b
+import  -/  CapDL.ParserUtils ffddf678c51573e99c4081356c4310fe
+  exports: 530b25279c19bde58e7917d0990af65e
+  MapParser 2171a2770ba866c3db4e7ca0b7efe365
+  addrMap 6c6433a8778a05539cffafe0d1700030
+  braces 26c0a14240f589264251c3c4885f7dfb
+  cap_params 2ff69ec25090d9e88bc83529ac8c6bca
+  cdt_decls d02a2e8dd56d0691dc7cfa3492d84e1d
+  covMap 2b627769c64bcfecc3489de005f699a0
+  irqMap 8bdb4448ea0327f21437148595ec299a
+  maybe_parent a443d5beaf055bf040884d245ba6e669
+  maybe_slot 4885560f27c757f8f0011925bc316cd2
+  name bbf0332a61a5ff61acbd4ffd6cf29feb
+  object_params 31f79d23a3dff1784dbc64249fefe58b
+  object_type c1c659570c5f6b0453118ad7e201c8b7
+  opt_semi 770095cf0f3b2e396e4a1f6be7dadcbc
+  parse_arch f784415f8d522ee376b9ef724895205f
+  refMap efb025eaea88d941ed8d9f539312233f
+  reserved d7be45f9bb94c730ad09577bc0806cc7
+  symbol 1733347c3981c4dc8f3bf70401c67a36
+  whiteSpace 9790ded29da9b9560ec79a1088bc8128
+import  -/  parsec-3.1.11@parsec-3.1.11-1aqiimsgq2dCv7eoaC8WuX:Text.Parsec.Combinator a4a2178172727b6e7d5b4d1e727a4a55
+import  -/  parsec-3.1.11@parsec-3.1.11-1aqiimsgq2dCv7eoaC8WuX:Text.Parsec.Prim 0d878ba04cd6efa06cce29fd3cc148ae
+import  -/  parsec-3.1.11@parsec-3.1.11-1aqiimsgq2dCv7eoaC8WuX:Text.ParserCombinators.Parsec 210b9d7605a419b0319331228e92273a
+import  -/  parsec-3.1.11@parsec-3.1.11-1aqiimsgq2dCv7eoaC8WuX:Text.ParserCombinators.Parsec.Prim 39eecc848547513736737db3594f587b
+import  -/  split-0.2.3.2@split-0.2.3.2-CJl40zTyCIV16Pr60nb7CT:Data.List.Split 272c5cfa667e04d85d90f02a3d135474
+import  -/  split-0.2.3.2@split-0.2.3.2-CJl40zTyCIV16Pr60nb7CT:Data.List.Split.Internals be3228c161b442fb4a76d9ed8518c1ed
+3870de70269919ffad1577814c564c8f
+  $s$fStream[]mtok ::
+    Text.Parsec.Prim.Stream [tok] Data.Functor.Identity.Identity tok
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ tok.
+                  @ [tok]
+                  @ Data.Functor.Identity.Identity
+                  @ tok
+                  (CapDL.DumpParser.$s$fStream[]mtok_$s$fStream[]mtok_$cp1Stream
+                     @ tok)
+                  (CapDL.DumpParser.$s$fStream[]mtok_$s$fStream[]mtok_$cuncons
+                     @ tok) -}
+8a8070341a02365aeb16eaef8d91b5c7
+  $s$fStream[]mtok_$s$fStream[]mtok_$cp1Stream ::
+    GHC.Base.Monad Data.Functor.Identity.Identity
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                (\ @ tok -> Data.Functor.Identity.$fMonadIdentity) -}
+801389697042a3a7629eb58a266c18a7
+  $s$fStream[]mtok_$s$fStream[]mtok_$cuncons ::
+    [tok]
+    -> Data.Functor.Identity.Identity (GHC.Base.Maybe (tok, [tok]))
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Inline: INLINE (sat-args=1),
+     Unfolding: InlineRule (1, False, False)
+                (\ @ tok (ds :: [tok]) ->
+                 case ds of wild {
+                   []
+                   -> GHC.Base.$
+                        @ 'GHC.Types.PtrRepLifted
+                        @ (GHC.Base.Maybe (tok, [tok]))
+                        @ (Data.Functor.Identity.Identity (GHC.Base.Maybe (tok, [tok])))
+                        (Data.Functor.Identity.$fApplicativeIdentity_$cpure
+                           @ (GHC.Base.Maybe (tok, [tok])))
+                        (GHC.Base.Nothing @ (tok, [tok]))
+                   : t ts
+                   -> GHC.Base.$
+                        @ 'GHC.Types.PtrRepLifted
+                        @ (GHC.Base.Maybe (tok, [tok]))
+                        @ (Data.Functor.Identity.Identity (GHC.Base.Maybe (tok, [tok])))
+                        (Data.Functor.Identity.$fApplicativeIdentity_$cpure
+                           @ (GHC.Base.Maybe (tok, [tok])))
+                        (GHC.Base.Just @ (tok, [tok]) (t, ts)) }) -}
+8610b30cfeed8a20d90aad1345972029
+  $s^1 :: GHC.Types.Word
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.W# 1##) -}
+169aa37de75f8449a2c5898edd94ced7
+  $s^3 :: GHC.Types.Word
+  {- Strictness: x -}
+595a40c57528b8f3d757d5fd1b323a9f
+  $s^4 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (0) -}
+0542a313d2baafed0bf9ab30b831a3e3
+  $seven1 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (2) -}
+08f3652012694f975cf093a1f70a6926
+  $sinsert_$s$w$sgo1 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a1
+    -> a1
+    -> GHC.Types.Word
+    -> [GHC.Types.Char]
+    -> Data.Map.Base.Map CapDL.Model.ObjID a1
+  {- Arity: 4, Strictness: <S,1*U><L,U><L,U><L,U> -}
+3f4771e9fc23fcf0f1e27bb67e222139
+  $sinsert_$s$w$sgo10 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a1
+    -> a1
+    -> GHC.Prim.Word#
+    -> [GHC.Types.Char]
+    -> Data.Map.Base.Map CapDL.Model.ObjID a1
+  {- Arity: 4, Strictness: <S,1*U><L,U><L,U><L,U> -}
+d1863cc2c50d9f7d15d06be71d70513d
+  $sinsert_$s$w$sgo2 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a1
+    -> a1 -> [GHC.Types.Char] -> Data.Map.Base.Map CapDL.Model.ObjID a1
+  {- Arity: 3, Strictness: <S,1*U><L,U><L,U> -}
+13913c09f1f8145a76d79dfda7e2f76f
+  $sinsert_$sgo1 ::
+    GHC.Types.Word
+    -> a1
+    -> Data.Map.Base.Map GHC.Types.Word a1
+    -> Data.Map.Base.Map GHC.Types.Word a1
+  {- Arity: 3, Strictness: <S,1*U(U)><L,U><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a1
+                   (w :: GHC.Types.Word)
+                   (w1 :: a1)
+                   (w2 :: Data.Map.Base.Map GHC.Types.Word a1) ->
+                 case w of ww { GHC.Types.W# ww1 ->
+                 CapDL.DumpParser.$w$sgo1 @ a1 ww1 w1 w2 }) -}
+d111e3f10253289311f2a977f55562e9
+  $sinsert_$sgo10 ::
+    CapDL.Model.ObjID
+    -> a1
+    -> Data.Map.Base.Map CapDL.Model.ObjID a1
+    -> Data.Map.Base.Map CapDL.Model.ObjID a1
+  {- Arity: 3, Strictness: <S,1*U(U,U)><L,U><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a1
+                   (w :: CapDL.Model.ObjID)
+                   (w1 :: a1)
+                   (w2 :: Data.Map.Base.Map CapDL.Model.ObjID a1) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 CapDL.DumpParser.$w$sgo10 @ a1 ww1 ww2 w1 w2 }) -}
+c66f8a356413371942f64374e9776b99
+  $sinsert_$sgo2 ::
+    CapDL.AST.Name
+    -> a1
+    -> Data.Map.Base.Map CapDL.AST.Name a1
+    -> Data.Map.Base.Map CapDL.AST.Name a1
+  {- Arity: 3, Strictness: <S,1*U><L,U><S,1*U> -}
+43c425d0a2e2efe72ff432fb781133f8
+  $slookup3 ::
+    CapDL.AST.Name
+    -> Data.Map.Base.Map CapDL.AST.Name a -> GHC.Base.Maybe a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U> -}
+cd3a4aa2029f594feb865006940a96b5
+  $slookup_$s$wpoly_go1 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> GHC.Types.Word -> [GHC.Types.Char] -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><L,U><L,U> -}
+319866283e30c72a43238b3b8cb0639c
+  $slookup_$s$wpoly_go10 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> GHC.Prim.Word# -> [GHC.Types.Char] -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><L,U><L,U> -}
+2135573aeaaa940697048d16f0e79368
+  $slookup_$s$wpoly_go2 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> [GHC.Types.Char] -> GHC.Base.Maybe a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+1e00278fb6346ef69379a3e8917521e7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   CapDL.DumpParser.$trModule2
+                   CapDL.DumpParser.$trModule1) -}
+84344b9221fde077111db11acd6b2492
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "CapDL.DumpParser"#) -}
+6cc65c242dd1bee10c95475104c87ba3
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+276f2f02a8096d9f3d9a120db5eb0ec5
+  $w$s^ ::
+    GHC.Types.Word -> GHC.Integer.Type.Integer -> GHC.Prim.Word#
+  {- Arity: 2, Strictness: <L,U(U)><S,U>, Inline: [0],
+     Unfolding: (\ (w :: GHC.Types.Word)
+                   (w1 :: GHC.Integer.Type.Integer) ->
+                 case GHC.Integer.Type.ltInteger#
+                        w1
+                        CapDL.DumpParser.$s^4 of wild { DEFAULT ->
+                 case GHC.Prim.tagToEnum# @ GHC.Types.Bool wild of wild1 {
+                   GHC.Types.False
+                   -> case GHC.Integer.Type.eqInteger#
+                             w1
+                             CapDL.DumpParser.$s^4 of wild2 { DEFAULT ->
+                      case GHC.Prim.tagToEnum# @ GHC.Types.Bool wild2 of wild3 {
+                        GHC.Types.False
+                        -> case w of ww { GHC.Types.W# ww1 ->
+                           CapDL.DumpParser.$wf1 ww1 w1 }
+                        GHC.Types.True -> 1## } }
+                   GHC.Types.True
+                   -> case CapDL.DumpParser.$s^3 ret_ty GHC.Prim.Word# of {} } }) -}
+b96126f1b41c1297bddaa9749edafbcc
+  $w$sgo1 ::
+    GHC.Prim.Word#
+    -> a1
+    -> Data.Map.Base.Map GHC.Types.Word a1
+    -> Data.Map.Base.Map GHC.Types.Word a1
+  {- Arity: 3, Strictness: <L,U><L,U><S,1*U>, Inline: [0] -}
+2f370f4532eabd615494506148290930
+  $w$sgo10 ::
+    GHC.Base.String
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> a1
+    -> Data.Map.Base.Map CapDL.Model.ObjID a1
+    -> Data.Map.Base.Map CapDL.Model.ObjID a1
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><S,1*U>, Inline: [0] -}
+768a1857988440bdfbb1a7bea31634d9
+  $w$sgo5 ::
+    GHC.Base.String
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> Data.Set.Base.Set CapDL.Model.ObjID
+    -> Data.Set.Base.Set CapDL.Model.ObjID
+  {- Arity: 3, Strictness: <L,U><L,U><S,1*U>, Inline: [0] -}
+ea4e7d74a0555e78e43bc9381f7ac1d9
+  $wconsiderUntypeds ::
+    CapDL.Model.Arch
+    -> CapDL.Model.ObjID
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> CapDL.AST.KO
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 6,
+     Strictness: <L,1*U><L,U(U,U)><S,1*U><L,1*U(U,1*U,A)><L,U(U,U(U,U,U),U(U,U,U,U))><C(C(C(S))),1*C1(C1(C1(U)))>,
+     Inline: [0] -}
+f4f8922a9d9b7f077363b532b31bd98f
+  $wcov_decls ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 2,
+     Strictness: <L,U(U,U(U,U,U),U(U,U,U,U))><C(C(C(S))),1*C1(C1(C1(U)))>,
+     Inline: [0],
+     Unfolding: (\ @ b1
+                   (w :: Text.Parsec.Prim.State
+                           [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w1 :: [CapDL.AST.Decl]
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1) ->
+                 CapDL.DumpParser.$wgetCovs
+                   @ b1
+                   w
+                   (\ (x :: [(CapDL.Model.ObjID,
+                              Data.Set.Base.Set CapDL.Model.ObjID)])[OneShot]
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                      (err :: Text.Parsec.Error.ParseError)[OneShot] ->
+                    w1
+                      (GHC.Base.map
+                         @ (CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)
+                         @ CapDL.AST.Decl
+                         CapDL.DumpParser.cov_decls2
+                         x)
+                      s2
+                      (case s2 of wild { Text.Parsec.Prim.State ds3 ds4 ds5 ->
+                       case ds4 of ww10 { Text.Parsec.Pos.SourcePos ww11 ww12 ww13 ->
+                       case err of ww { Text.Parsec.Error.ParseError ww1 ww2 ->
+                       case ww1 of ww3 { Text.Parsec.Pos.SourcePos ww4 ww5 ww6 ->
+                       case Text.Parsec.Error.$wmergeError
+                              ww4
+                              ww5
+                              ww6
+                              ww2
+                              ww11
+                              ww12
+                              ww13
+                              (GHC.Types.[]
+                                 @ Text.Parsec.Error.Message) of ww14 { (#,#) ww15 ww16 ->
+                       Text.Parsec.Error.ParseError ww15 ww16 } } } } }))) -}
+22ac2d34b6c04aacd2b0cfe1a382c942
+  $wf :: GHC.Prim.Word# -> GHC.Prim.Word# -> GHC.Prim.Word#
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>, Inline: [0] -}
+e2ce23814ce6eb53abd82540546b9184
+  $wf1 ::
+    GHC.Prim.Word# -> GHC.Integer.Type.Integer -> GHC.Prim.Word#
+  {- Arity: 2, Strictness: <L,U><S,U>, Inline: [0] -}
+3abf93bb22135dd6ea81aeed4cd7daba
+  $wgetCovs ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> ([(CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 2,
+     Strictness: <L,U(U,U(U,U,U),U(U,U,U,U))><C(C(C(S))),1*C1(C1(C1(U)))>,
+     Inline: [0],
+     Unfolding: (\ @ b1
+                   (w :: Text.Parsec.Prim.State
+                           [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w1 :: [(CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)]
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1) ->
+                 w1
+                   (case w of wild { Text.Parsec.Prim.State ds ds1 ds2 ->
+                    case ds2 of wild1 { CapDL.ParserUtils.Maps ds4 ds5 ds3 ds6 ->
+                    Data.Map.Base.toAscList
+                      @ (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)
+                      @ (Data.Set.Base.Set CapDL.Model.ObjID)
+                      ds3 } })
+                   w
+                   (case w of wild { Text.Parsec.Prim.State ds3 ds4 ds5 ->
+                    case ds4 of ww3 { Text.Parsec.Pos.SourcePos ww4 ww5 ww6 ->
+                    case GHC.Classes.$fOrd[]_$s$ccompare1 ww4 ww4 of wild2 {
+                      DEFAULT
+                      -> Text.Parsec.Error.ParseError
+                           ww3
+                           (GHC.Types.[] @ Text.Parsec.Error.Message)
+                      GHC.Types.EQ
+                      -> case Text.Parsec.Error.$wmergeError
+                                ww4
+                                ww5
+                                ww6
+                                Text.Parsec.Error.mergeError1
+                                ww4
+                                ww5
+                                ww6
+                                (GHC.Types.[]
+                                   @ Text.Parsec.Error.Message) of ww14 { (#,#) ww15 ww16 ->
+                         Text.Parsec.Error.ParseError ww15 ww16 } } } })) -}
+41193f653def53b456012daa6687e1c7
+  $winsertAddrs ::
+    (GHC.Types.Word, GHC.Types.Word)
+    -> CapDL.Model.ObjID
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 4,
+     Strictness: <L,U><L,1*U(U,U)><L,U(U,U(U,U,U),U(U,1*U,U,U))><C(C(C(S))),1*C1(C1(C1(U)))>,
+     Inline: [0],
+     Unfolding: (\ (w :: (GHC.Types.Word, GHC.Types.Word))
+                   (w1 :: CapDL.Model.ObjID)
+                   @ b
+                   (w2 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w3 :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 let {
+                   s' :: Text.Parsec.Prim.State
+                           [GHC.Types.Char] CapDL.ParserUtils.Maps
+                   = case w2 of wild { Text.Parsec.Prim.State ds ds1 ds2 ->
+                     case ds2 of wild1 { CapDL.ParserUtils.Maps ds4 ds5 ds6 ds7 ->
+                     Text.Parsec.Prim.State
+                       @ [GHC.Types.Char]
+                       @ CapDL.ParserUtils.Maps
+                       ds
+                       ds1
+                       (CapDL.ParserUtils.Maps
+                          ds4
+                          (CapDL.DumpParser.$sinsert_$sgo10
+                             @ (GHC.Types.Word, GHC.Types.Word)
+                             w1
+                             w
+                             ds5)
+                          ds6
+                          ds7) } }
+                 } in
+                 w3
+                   GHC.Tuple.()
+                   s'
+                   (case w2 of wild { Text.Parsec.Prim.State ds ds1 ds2 ->
+                    case ds1 of ww3 { Text.Parsec.Pos.SourcePos ww4 ww5 ww6 ->
+                    let {
+                      $w$j :: Text.Parsec.Pos.SourceName
+                              -> GHC.Prim.Int#
+                              -> GHC.Prim.Int#
+                              -> [Text.Parsec.Error.Message]
+                              -> (# Text.Parsec.Pos.SourcePos, [Text.Parsec.Error.Message] #)
+                        {- Arity: 4, Strictness: <L,U><S,U><S,U><S,U>, Inline: [0] -}
+                      = \ (ww :: Text.Parsec.Pos.SourceName)[OneShot]
+                          (ww1 :: GHC.Prim.Int#)[OneShot]
+                          (ww2 :: GHC.Prim.Int#)[OneShot]
+                          (w4 :: [Text.Parsec.Error.Message])[OneShot] ->
+                        case s' of wild1 { Text.Parsec.Prim.State ds4 ds5 ds6 ->
+                        case ds5 of ww9 { Text.Parsec.Pos.SourcePos ww10 ww11 ww12 ->
+                        case GHC.Classes.$fOrd[]_$s$ccompare1 ww10 ww10 of wild2 {
+                          DEFAULT
+                          -> Text.Parsec.Error.$wmergeError
+                               ww
+                               ww1
+                               ww2
+                               w4
+                               ww10
+                               ww11
+                               ww12
+                               (GHC.Types.[] @ Text.Parsec.Error.Message)
+                          GHC.Types.EQ
+                          -> Text.Parsec.Error.$wmergeError
+                               ww
+                               ww1
+                               ww2
+                               w4
+                               ww10
+                               ww11
+                               ww12
+                               Text.Parsec.Error.mergeError1 } } }
+                    } in
+                    case GHC.Classes.$fOrd[]_$s$ccompare1 ww4 ww4 of wild2 {
+                      DEFAULT
+                      -> case $w$j
+                                ww4
+                                ww5
+                                ww6
+                                (GHC.Types.[] @ Text.Parsec.Error.Message) of ww { (#,#) ww1 ww2 ->
+                         Text.Parsec.Error.ParseError ww1 ww2 }
+                      GHC.Types.EQ
+                      -> case $w$j
+                                ww4
+                                ww5
+                                ww6
+                                Text.Parsec.Error.mergeError1 of ww { (#,#) ww1 ww2 ->
+                         Text.Parsec.Error.ParseError ww1 ww2 } } } })) -}
+6f7b322f6e40c2358673e9e62cbe3d56
+  $winsertCov ::
+    CapDL.Model.ObjID
+    -> CapDL.Model.ObjID
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 4,
+     Strictness: <L,1*U(U,U)><L,U(U,U)><L,U(U,U(U,U,U),U(U,U,U,U))><C(C(C(S))),1*C1(C1(C1(U)))>,
+     Inline: [0] -}
+b3cf20e6146191c318e3e6ef416cc3f3
+  $winsertRef ::
+    CapDL.AST.Name
+    -> CapDL.Model.ObjID
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 4,
+     Strictness: <L,1*U><L,U><L,U(U,U(U,U,U),U(1*U,U,U,U))><C(C(C(S))),1*C1(C1(C1(U)))>,
+     Inline: [0],
+     Unfolding: (\ (w :: CapDL.AST.Name)
+                   (w1 :: CapDL.Model.ObjID)
+                   @ b
+                   (w2 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w3 :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 let {
+                   s' :: Text.Parsec.Prim.State
+                           [GHC.Types.Char] CapDL.ParserUtils.Maps
+                   = case w2 of wild { Text.Parsec.Prim.State ds ds1 ds2 ->
+                     case ds2 of wild1 { CapDL.ParserUtils.Maps ds4 ds5 ds6 ds7 ->
+                     Text.Parsec.Prim.State
+                       @ [GHC.Types.Char]
+                       @ CapDL.ParserUtils.Maps
+                       ds
+                       ds1
+                       (CapDL.ParserUtils.Maps
+                          (CapDL.DumpParser.$sinsert_$sgo2
+                             @ (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)
+                             w
+                             w1
+                             ds4)
+                          ds5
+                          ds6
+                          ds7) } }
+                 } in
+                 w3
+                   GHC.Tuple.()
+                   s'
+                   (case w2 of wild { Text.Parsec.Prim.State ds ds1 ds2 ->
+                    case ds1 of ww3 { Text.Parsec.Pos.SourcePos ww4 ww5 ww6 ->
+                    let {
+                      $w$j :: Text.Parsec.Pos.SourceName
+                              -> GHC.Prim.Int#
+                              -> GHC.Prim.Int#
+                              -> [Text.Parsec.Error.Message]
+                              -> (# Text.Parsec.Pos.SourcePos, [Text.Parsec.Error.Message] #)
+                        {- Arity: 4, Strictness: <L,U><S,U><S,U><S,U>, Inline: [0] -}
+                      = \ (ww :: Text.Parsec.Pos.SourceName)[OneShot]
+                          (ww1 :: GHC.Prim.Int#)[OneShot]
+                          (ww2 :: GHC.Prim.Int#)[OneShot]
+                          (w4 :: [Text.Parsec.Error.Message])[OneShot] ->
+                        case s' of wild1 { Text.Parsec.Prim.State ds4 ds5 ds6 ->
+                        case ds5 of ww9 { Text.Parsec.Pos.SourcePos ww10 ww11 ww12 ->
+                        case GHC.Classes.$fOrd[]_$s$ccompare1 ww10 ww10 of wild2 {
+                          DEFAULT
+                          -> Text.Parsec.Error.$wmergeError
+                               ww
+                               ww1
+                               ww2
+                               w4
+                               ww10
+                               ww11
+                               ww12
+                               (GHC.Types.[] @ Text.Parsec.Error.Message)
+                          GHC.Types.EQ
+                          -> Text.Parsec.Error.$wmergeError
+                               ww
+                               ww1
+                               ww2
+                               w4
+                               ww10
+                               ww11
+                               ww12
+                               Text.Parsec.Error.mergeError1 } } }
+                    } in
+                    case GHC.Classes.$fOrd[]_$s$ccompare1 ww4 ww4 of wild2 {
+                      DEFAULT
+                      -> case $w$j
+                                ww4
+                                ww5
+                                ww6
+                                (GHC.Types.[] @ Text.Parsec.Error.Message) of ww { (#,#) ww1 ww2 ->
+                         Text.Parsec.Error.ParseError ww1 ww2 }
+                      GHC.Types.EQ
+                      -> case $w$j
+                                ww4
+                                ww5
+                                ww6
+                                Text.Parsec.Error.mergeError1 of ww { (#,#) ww1 ww2 ->
+                         Text.Parsec.Error.ParseError ww1 ww2 } } } })) -}
+7954f3882aa60144f2f2ad7dd2493537
+  $wlookupAddr ::
+    GHC.Types.Word
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (GHC.Base.Maybe CapDL.Model.ObjID
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 3,
+     Strictness: <L,U(U)><L,U(U,U(U,U,U),U(U,U,U,U))><C(C(C(S))),1*C1(C1(C1(U)))>,
+     Inline: [0] -}
+4669c5fe754a18702cede7a349b45447
+  $wlookupRef ::
+    CapDL.AST.Name
+    -> forall b.
+       [GHC.Types.Char]
+       -> Text.Parsec.Pos.SourcePos
+       -> Data.Map.Base.Map CapDL.AST.Name CapDL.Model.ObjID
+       -> Data.Map.Base.Map
+            CapDL.Model.ObjID (GHC.Types.Word, GHC.Types.Word)
+       -> Data.Map.Base.Map
+            CapDL.Model.ObjID (Data.Set.Base.Set CapDL.Model.ObjID)
+       -> Data.Map.Base.Map GHC.Types.Word CapDL.AST.Name
+       -> (CapDL.Model.ObjID
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 8,
+     Strictness: <S,U><L,U><L,U(U,U,U)><S,U><L,U><L,U><L,U><C(C(C(S))),1*C1(C1(C1(U)))>,
+     Inline: [0],
+     Unfolding: (\ (w :: CapDL.AST.Name)
+                   @ b
+                   (ww :: [GHC.Types.Char])
+                   (ww1 :: Text.Parsec.Pos.SourcePos)
+                   (ww2 :: Data.Map.Base.Map CapDL.AST.Name CapDL.Model.ObjID)
+                   (ww3 :: Data.Map.Base.Map
+                             CapDL.Model.ObjID (GHC.Types.Word, GHC.Types.Word))
+                   (ww4 :: Data.Map.Base.Map
+                             CapDL.Model.ObjID (Data.Set.Base.Set CapDL.Model.ObjID))
+                   (ww5 :: Data.Map.Base.Map GHC.Types.Word CapDL.AST.Name)
+                   (w1 :: CapDL.Model.ObjID
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 let {
+                   err :: Text.Parsec.Error.ParseError
+                   = case ww1 of ww6 { Text.Parsec.Pos.SourcePos ww7 ww8 ww9 ->
+                     case GHC.Classes.$fOrd[]_$s$ccompare1 ww7 ww7 of wild2 {
+                       DEFAULT
+                       -> Text.Parsec.Error.ParseError
+                            ww6
+                            (GHC.Types.[] @ Text.Parsec.Error.Message)
+                       GHC.Types.EQ
+                       -> Text.Parsec.Error.ParseError
+                            ww6
+                            Text.Parsec.Error.mergeError1 } }
+                 } in
+                 case CapDL.DumpParser.$slookup3
+                        @ (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)
+                        w
+                        ww2 of wild {
+                   GHC.Base.Nothing
+                   -> w1
+                        (w, GHC.Base.Nothing @ GHC.Types.Word)
+                        (Text.Parsec.Prim.State
+                           @ [GHC.Types.Char]
+                           @ CapDL.ParserUtils.Maps
+                           ww
+                           ww1
+                           (CapDL.ParserUtils.Maps ww2 ww3 ww4 ww5))
+                        (case err of ww6 { Text.Parsec.Error.ParseError ww7 ww8 ->
+                         case ww7 of ww9 { Text.Parsec.Pos.SourcePos ww10 ww11 ww12 ->
+                         case ww1 of ww13 { Text.Parsec.Pos.SourcePos ww14 ww15 ww16 ->
+                         case Text.Parsec.Error.$wmergeError
+                                ww10
+                                ww11
+                                ww12
+                                ww8
+                                ww14
+                                ww15
+                                ww16
+                                (GHC.Types.[]
+                                   @ Text.Parsec.Error.Message) of ww17 { (#,#) ww18 ww19 ->
+                         Text.Parsec.Error.ParseError ww18 ww19 } } } })
+                   GHC.Base.Just id
+                   -> w1
+                        id
+                        (Text.Parsec.Prim.State
+                           @ [GHC.Types.Char]
+                           @ CapDL.ParserUtils.Maps
+                           ww
+                           ww1
+                           (CapDL.ParserUtils.Maps ww2 ww3 ww4 ww5))
+                        (case err of ww6 { Text.Parsec.Error.ParseError ww7 ww8 ->
+                         case ww7 of ww9 { Text.Parsec.Pos.SourcePos ww10 ww11 ww12 ->
+                         case ww1 of ww13 { Text.Parsec.Pos.SourcePos ww14 ww15 ww16 ->
+                         case Text.Parsec.Error.$wmergeError
+                                ww10
+                                ww11
+                                ww12
+                                ww8
+                                ww14
+                                ww15
+                                ww16
+                                (GHC.Types.[]
+                                   @ Text.Parsec.Error.Message) of ww17 { (#,#) ww18 ww19 ->
+                         Text.Parsec.Error.ParseError ww18 ww19 } } } }) }) -}
+0a8ac939f02b48a21917d397f79eac92
+  $wmake_irq_decl ::
+    [GHC.Types.Char]
+    -> Text.Parsec.Pos.SourceName
+    -> GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> Data.Map.Base.Map CapDL.AST.Name CapDL.Model.ObjID
+    -> Data.Map.Base.Map
+         CapDL.Model.ObjID (GHC.Types.Word, GHC.Types.Word)
+    -> Data.Map.Base.Map
+         CapDL.Model.ObjID (Data.Set.Base.Set CapDL.Model.ObjID)
+    -> Data.Map.Base.Map GHC.Types.Word CapDL.AST.Name
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 12,
+     Strictness: <L,U><L,U><L,U><L,U><L,U><L,U><L,U><S,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,C(U)>,
+     Inline: [0] -}
+1d41892f7b8cfa64b31c2bbf76bb4fff
+  $wmake_irq_mapping ::
+    GHC.Types.Word
+    -> CapDL.AST.Name
+    -> forall b.
+       [GHC.Types.Char]
+       -> Text.Parsec.Pos.SourcePos
+       -> Data.Map.Base.Map CapDL.AST.Name CapDL.Model.ObjID
+       -> Data.Map.Base.Map
+            CapDL.Model.ObjID (GHC.Types.Word, GHC.Types.Word)
+       -> Data.Map.Base.Map
+            CapDL.Model.ObjID (Data.Set.Base.Set CapDL.Model.ObjID)
+       -> Data.Map.Base.Map GHC.Types.Word CapDL.AST.Name
+       -> (CapDL.AST.CapMapping
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 9,
+     Strictness: <L,U><S,U><L,U><L,U(U,U,U)><S,U><L,U><L,U><L,U><C(C(C(S))),1*C1(C1(C1(U)))>,
+     Inline: [0],
+     Unfolding: (\ (ww :: GHC.Types.Word)
+                   (ww1 :: CapDL.AST.Name)
+                   @ b
+                   (ww2 :: [GHC.Types.Char])
+                   (ww3 :: Text.Parsec.Pos.SourcePos)
+                   (ww4 :: Data.Map.Base.Map CapDL.AST.Name CapDL.Model.ObjID)
+                   (ww5 :: Data.Map.Base.Map
+                             CapDL.Model.ObjID (GHC.Types.Word, GHC.Types.Word))
+                   (ww6 :: Data.Map.Base.Map
+                             CapDL.Model.ObjID (Data.Set.Base.Set CapDL.Model.ObjID))
+                   (ww7 :: Data.Map.Base.Map GHC.Types.Word CapDL.AST.Name)
+                   (w :: CapDL.AST.CapMapping
+                         -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                         -> Text.Parsec.Error.ParseError
+                         -> Data.Functor.Identity.Identity b) ->
+                 CapDL.DumpParser.$wlookupRef
+                   ww1
+                   @ b
+                   ww2
+                   ww3
+                   ww4
+                   ww5
+                   ww6
+                   ww7
+                   (\ (x :: CapDL.Model.ObjID)[OneShot]
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                      (err :: Text.Parsec.Error.ParseError)[OneShot] ->
+                    w (CapDL.AST.IRQMapping
+                         (GHC.Base.Just @ GHC.Types.Word ww)
+                         (case x of wild { (,) id num ->
+                          case num of wild1 {
+                            GHC.Base.Nothing -> (id, GHC.Types.[] @ CapDL.AST.Range)
+                            GHC.Base.Just num1
+                            -> (id,
+                                GHC.Types.:
+                                  @ CapDL.AST.Range
+                                  (CapDL.AST.Only num1)
+                                  (GHC.Types.[] @ CapDL.AST.Range)) } }))
+                      s2
+                      (case s2 of wild { Text.Parsec.Prim.State ds3 ds4 ds5 ->
+                       case ds4 of ww10 { Text.Parsec.Pos.SourcePos ww11 ww12 ww13 ->
+                       case err of ww8 { Text.Parsec.Error.ParseError ww9 ww16 ->
+                       case ww9 of ww17 { Text.Parsec.Pos.SourcePos ww18 ww19 ww20 ->
+                       case Text.Parsec.Error.$wmergeError
+                              ww18
+                              ww19
+                              ww20
+                              ww16
+                              ww11
+                              ww12
+                              ww13
+                              (GHC.Types.[]
+                                 @ Text.Parsec.Error.Message) of ww14 { (#,#) ww15 ww21 ->
+                       Text.Parsec.Error.ParseError ww15 ww21 } } } } }))) -}
+58a6fd7be74501bb99318c492f0bfa36
+  $wmaybe_object ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> (GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> Data.Functor.Identity.Identity b
+  {- Arity: 4,
+     Strictness: <L,U(U,U(U,U,U),U)><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))>,
+     Inline: [0],
+     Unfolding: (\ @ b
+                   (w :: Text.Parsec.Prim.State
+                           [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w1 :: GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w2 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w3 :: GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 CapDL.DumpParser.maybe_object2
+                   @ b
+                   w
+                   w1
+                   w2
+                   w3
+                   (\ (err :: Text.Parsec.Error.ParseError) ->
+                    w3
+                      (GHC.Base.Nothing @ (CapDL.AST.Name, CapDL.AST.KO))
+                      w
+                      (case w of wild { Text.Parsec.Prim.State ds3 ds4 ds5 ->
+                       case ds4 of ww10 { Text.Parsec.Pos.SourcePos ww11 ww12 ww13 ->
+                       case err of ww { Text.Parsec.Error.ParseError ww1 ww2 ->
+                       case ww1 of ww3 { Text.Parsec.Pos.SourcePos ww4 ww5 ww6 ->
+                       case Text.Parsec.Error.$wmergeError
+                              ww4
+                              ww5
+                              ww6
+                              ww2
+                              ww11
+                              ww12
+                              ww13
+                              (GHC.Types.[]
+                                 @ Text.Parsec.Error.Message) of ww14 { (#,#) ww15 ww16 ->
+                       Text.Parsec.Error.ParseError ww15 ww16 } } } } }))) -}
+226b81f428331a1d5066e6f63bf56837
+  $wobject ::
+    CapDL.Model.KOType
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (CapDL.AST.KO
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (CapDL.AST.KO
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 5,
+     Strictness: <L,U><L,U(U,U(U,U,U),U)><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))>,
+     Inline: [0],
+     Unfolding: (\ (w :: CapDL.Model.KOType)
+                   @ b
+                   (w1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w2 :: CapDL.AST.KO
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w3 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w4 :: CapDL.AST.KO
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 CapDL.ParserUtils.$wobject_params
+                   @ b
+                   w1
+                   (\ (x :: [CapDL.AST.ObjParam])
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    w2
+                      (CapDL.AST.Obj
+                         w
+                         x
+                         (GHC.Types.[]
+                            @ (Data.Either.Either CapDL.AST.KODecl CapDL.AST.NameRef)))
+                      s2
+                      (case s2 of wild { Text.Parsec.Prim.State ds3 ds4 ds5 ->
+                       case ds4 of ww10 { Text.Parsec.Pos.SourcePos ww11 ww12 ww13 ->
+                       case err of ww { Text.Parsec.Error.ParseError ww1 ww2 ->
+                       case ww1 of ww3 { Text.Parsec.Pos.SourcePos ww4 ww5 ww6 ->
+                       case Text.Parsec.Error.$wmergeError
+                              ww4
+                              ww5
+                              ww6
+                              ww2
+                              ww11
+                              ww12
+                              ww13
+                              (GHC.Types.[]
+                                 @ Text.Parsec.Error.Message) of ww14 { (#,#) ww15 ww16 ->
+                       Text.Parsec.Error.ParseError ww15 ww16 } } } } }))
+                   w3
+                   (\ (x :: [CapDL.AST.ObjParam])
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    w4
+                      (CapDL.AST.Obj
+                         w
+                         x
+                         (GHC.Types.[]
+                            @ (Data.Either.Either CapDL.AST.KODecl CapDL.AST.NameRef)))
+                      s2
+                      (case s2 of wild { Text.Parsec.Prim.State ds3 ds4 ds5 ->
+                       case ds4 of ww10 { Text.Parsec.Pos.SourcePos ww11 ww12 ww13 ->
+                       case err of ww { Text.Parsec.Error.ParseError ww1 ww2 ->
+                       case ww1 of ww3 { Text.Parsec.Pos.SourcePos ww4 ww5 ww6 ->
+                       case Text.Parsec.Error.$wmergeError
+                              ww4
+                              ww5
+                              ww6
+                              ww2
+                              ww11
+                              ww12
+                              ww13
+                              (GHC.Types.[]
+                                 @ Text.Parsec.Error.Message) of ww14 { (#,#) ww15 ww16 ->
+                       Text.Parsec.Error.ParseError ww15 ww16 } } } } }))) -}
+a633210f9d00afd93aa6823017476360
+  $wpoly_go10 ::
+    GHC.Base.String
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> Data.Map.Base.Map CapDL.Model.ObjID a
+    -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U><L,U><S,1*U>,
+     Inline: [0] -}
+d5d788db9539ddcfbf8f5908e24edd0a
+  $wsizeOf ::
+    CapDL.Model.Arch
+    -> CapDL.Model.KOType -> [CapDL.AST.ObjParam] -> GHC.Types.Word
+  {- Arity: 3, Strictness: <L,1*U><S,U><L,1*U>, Inline: [0],
+     Unfolding: (\ (w :: CapDL.Model.Arch)
+                   (ww :: CapDL.Model.KOType)
+                   (ww1 :: [CapDL.AST.ObjParam]) ->
+                 let {
+                   fail :: GHC.Prim.Void# -> GHC.Types.Word
+                     {- Arity: 1, Strictness: <L,A> -}
+                   = \ (ds :: GHC.Prim.Void#)[OneShot] ->
+                     case w of wild {
+                       DEFAULT -> CapDL.DumpParser.consecutive8
+                       CapDL.Model.IA32
+                       -> case ww of wild1 {
+                            DEFAULT -> CapDL.DumpParser.consecutive8
+                            CapDL.Model.TCB_T -> CapDL.DumpParser.consecutive7
+                            CapDL.Model.PT_T -> CapDL.DumpParser.consecutive6
+                            CapDL.Model.PD_T -> CapDL.DumpParser.consecutive6 }
+                       CapDL.Model.ARM11
+                       -> case ww of wild1 {
+                            DEFAULT -> CapDL.DumpParser.consecutive8
+                            CapDL.Model.TCB_T -> CapDL.DumpParser.consecutive5
+                            CapDL.Model.PT_T -> CapDL.DumpParser.consecutive7
+                            CapDL.Model.PD_T -> CapDL.DumpParser.consecutive2 } }
+                 } in
+                 case ww of wild {
+                   DEFAULT -> fail GHC.Prim.void#
+                   CapDL.Model.Endpoint_T -> CapDL.DumpParser.consecutive1
+                   CapDL.Model.Notification_T -> CapDL.DumpParser.consecutive1
+                   CapDL.Model.CNode_T
+                   -> case ww1 of wild1 {
+                        [] -> fail GHC.Prim.void#
+                        : ds ds1
+                        -> case ds of wild2 {
+                             DEFAULT -> fail GHC.Prim.void#
+                             CapDL.AST.BitSize bSz
+                             -> case ds1 of wild3 {
+                                  []
+                                  -> case bSz of wild4 { GHC.Types.W# x ->
+                                     case x of wild5 {
+                                       DEFAULT
+                                       -> case CapDL.DumpParser.$wf 2## wild5 of ww2 { DEFAULT ->
+                                          GHC.Types.W# (GHC.Prim.timesWord# 16## ww2) }
+                                       0## -> CapDL.DumpParser.consecutive1 } }
+                                  : ipv ipv1 -> fail GHC.Prim.void# } } }
+                   CapDL.Model.Untyped_T
+                   -> case ww1 of wild1 {
+                        [] -> fail GHC.Prim.void#
+                        : ds ds1
+                        -> case ds of wild2 {
+                             DEFAULT -> fail GHC.Prim.void#
+                             CapDL.AST.BitSize bSz
+                             -> case ds1 of wild3 {
+                                  []
+                                  -> case bSz of wild4 { GHC.Types.W# x ->
+                                     case x of wild5 {
+                                       DEFAULT
+                                       -> case CapDL.DumpParser.$wf 2## wild5 of ww2 { DEFAULT ->
+                                          GHC.Types.W# ww2 }
+                                       0## -> CapDL.DumpParser.$s^1 } }
+                                  : ipv ipv1 -> fail GHC.Prim.void# } } }
+                   CapDL.Model.IrqSlot_T -> CapDL.DumpParser.$s^1
+                   CapDL.Model.ASIDPool_T -> CapDL.DumpParser.consecutive6
+                   CapDL.Model.Frame_T
+                   -> case ww1 of wild1 {
+                        [] -> fail GHC.Prim.void#
+                        : ds ds1
+                        -> case ds of wild2 {
+                             DEFAULT -> fail GHC.Prim.void#
+                             CapDL.AST.VMSize vmSz
+                             -> case ds1 of wild3 {
+                                  [] -> vmSz : ipv ipv1 -> fail GHC.Prim.void# } } }
+                   CapDL.Model.IODevice_T -> CapDL.DumpParser.$s^1
+                   CapDL.Model.ARMIODevice_T -> CapDL.DumpParser.$s^1
+                   CapDL.Model.IOPT_T -> CapDL.DumpParser.consecutive6 }) -}
+e331374d9eea722471e34ca9a7d99ef9
+  all_decls ::
+    CapDL.Model.Arch -> CapDL.ParserUtils.MapParser [CapDL.AST.Decl]
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ (arch :: CapDL.Model.Arch) ->
+                 let {
+                   m1 :: Text.Parsec.Prim.ParsecT
+                           [GHC.Types.Char]
+                           CapDL.ParserUtils.Maps
+                           Data.Functor.Identity.Identity
+                           [CapDL.AST.Decl]
+                   = CapDL.DumpParser.obj_decls arch
+                 } in
+                 (\ @ b1
+                    (s1 :: Text.Parsec.Prim.State
+                             [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                    (cok :: [CapDL.AST.Decl]
+                            -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                            -> Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                    (cerr :: Text.Parsec.Error.ParseError
+                             -> Data.Functor.Identity.Identity b1)
+                    (eok :: [CapDL.AST.Decl]
+                            -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                            -> Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                    (eerr :: Text.Parsec.Error.ParseError
+                             -> Data.Functor.Identity.Identity b1) ->
+                  m1
+                    `cast`
+                  (Text.Parsec.Prim.N:ParsecT[0]
+                       <[GHC.Types.Char]>_R
+                       <CapDL.ParserUtils.Maps>_R
+                       <Data.Functor.Identity.Identity>_R
+                       <[CapDL.AST.Decl]>_R)
+                    @ b1
+                    s1
+                    (\ (x :: [CapDL.AST.Decl])
+                       (s2 :: Text.Parsec.Prim.State
+                                [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                       (err :: Text.Parsec.Error.ParseError) ->
+                     CapDL.DumpParser.all_decls1
+                       x
+                       @ b1
+                       s2
+                       cok
+                       cerr
+                       (\ (x1 :: [CapDL.AST.Decl])
+                          (s3 :: Text.Parsec.Prim.State
+                                   [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                          (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                        cok x1 s3 (Text.Parsec.Error.mergeError err err'))
+                       (\ (err' :: Text.Parsec.Error.ParseError) ->
+                        cerr (Text.Parsec.Error.mergeError err err')))
+                    cerr
+                    (\ (x :: [CapDL.AST.Decl])
+                       (s2 :: Text.Parsec.Prim.State
+                                [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                       (err :: Text.Parsec.Error.ParseError) ->
+                     CapDL.DumpParser.all_decls1
+                       x
+                       @ b1
+                       s2
+                       cok
+                       cerr
+                       (\ (x1 :: [CapDL.AST.Decl])
+                          (s3 :: Text.Parsec.Prim.State
+                                   [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                          (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                        eok x1 s3 (Text.Parsec.Error.mergeError err err'))
+                       (\ (err' :: Text.Parsec.Error.ParseError) ->
+                        eerr (Text.Parsec.Error.mergeError err err')))
+                    eerr)
+                   `cast`
+                 (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                           <[GHC.Types.Char]>_R
+                           <CapDL.ParserUtils.Maps>_R
+                           <Data.Functor.Identity.Identity>_R
+                           <[CapDL.AST.Decl]>_R))) -}
+155ecdd961d7f7fc8a49a7a655d2bc6f
+  all_decls1 ::
+    [CapDL.AST.Decl]
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> ([CapDL.AST.Decl]
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> ([CapDL.AST.Decl]
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 6,
+     Strictness: <L,U><L,U(U,U(U,U,U),U(U,U,U,U))><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,C(U)> -}
+97efc344725480580bb5f6306dfcc1d1
+  capDLDumpModule :: CapDL.ParserUtils.MapParser CapDL.AST.Module
+  {- Arity: 5,
+     Strictness: <L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.capDLDumpModule1
+                  `cast`
+                (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                          <[GHC.Types.Char]>_R
+                          <CapDL.ParserUtils.Maps>_R
+                          <Data.Functor.Identity.Identity>_R
+                          <CapDL.AST.Module>_R)) -}
+4bde2078a426fe4e78a2499fd0fbe0f0
+  capDLDumpModule1 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> (CapDL.AST.Module
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (CapDL.AST.Module
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 5,
+     Strictness: <L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U>,
+     Unfolding: (\ @ b1
+                   (eta :: Text.Parsec.Prim.State
+                             [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (eta1 :: CapDL.AST.Module
+                            -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                            -> Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                   (eta2 :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                   (eta3 :: CapDL.AST.Module
+                            -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                            -> Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                   (eta4 :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1) ->
+                 case CapDL.ParserUtils.lexer of wild { Text.Parsec.Token.TokenParser ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ds12 ds13 ds14 ds15 ds16 ds17 ds18 ds19 ds20 ds21 ds22 ds23 ds24 ds25 ds26 ds27 ds28 ds29 ->
+                 ds16
+                   `cast`
+                 (Text.Parsec.Prim.N:ParsecT[0]
+                      <[GHC.Types.Char]>_R
+                      <CapDL.ParserUtils.Maps>_R
+                      <Data.Functor.Identity.Identity>_R
+                      <()>_R)
+                   @ b1
+                   eta
+                   (\ (x :: ())
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    CapDL.DumpParser.capDLDumpModule2
+                      @ b1
+                      s2
+                      eta1
+                      eta2
+                      (\ (x1 :: CapDL.AST.Module)
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                         (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                       eta1 x1 s3 (Text.Parsec.Error.mergeError err err'))
+                      (\ (err' :: Text.Parsec.Error.ParseError) ->
+                       eta2 (Text.Parsec.Error.mergeError err err')))
+                   eta2
+                   (\ (x :: ())
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    CapDL.DumpParser.capDLDumpModule2
+                      @ b1
+                      s2
+                      eta1
+                      eta2
+                      (\ (x1 :: CapDL.AST.Module)
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                         (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                       eta3 x1 s3 (Text.Parsec.Error.mergeError err err'))
+                      (\ (err' :: Text.Parsec.Error.ParseError) ->
+                       eta4 (Text.Parsec.Error.mergeError err err')))
+                   eta4 }) -}
+a9152590784b8a51060c53c8c4a86cd2
+  capDLDumpModule2 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> (CapDL.AST.Module
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (CapDL.AST.Module
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 5,
+     Strictness: <L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U>,
+     Unfolding: (\ @ b1
+                   (s1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (cok :: CapDL.AST.Module
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b1)
+                   (cerr :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                   (eok :: CapDL.AST.Module
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b1)
+                   (eerr :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1) ->
+                 CapDL.ParserUtils.parse_arch1
+                   @ b1
+                   s1
+                   (\ (x :: CapDL.Model.Arch)
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    CapDL.DumpParser.capDLDumpModule3
+                      x
+                      @ b1
+                      s2
+                      cok
+                      cerr
+                      (\ (x1 :: CapDL.AST.Module)
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                         (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                       cok x1 s3 (Text.Parsec.Error.mergeError err err'))
+                      (\ (err' :: Text.Parsec.Error.ParseError) ->
+                       cerr (Text.Parsec.Error.mergeError err err')))
+                   cerr
+                   (\ (x :: CapDL.Model.Arch)
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                      (err :: Text.Parsec.Error.ParseError)[OneShot] ->
+                    CapDL.DumpParser.capDLDumpModule3
+                      x
+                      @ b1
+                      s2
+                      cok
+                      cerr
+                      (\ (x1 :: CapDL.AST.Module)
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                         (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                       eok x1 s3 (Text.Parsec.Error.mergeError err err'))
+                      (\ (err' :: Text.Parsec.Error.ParseError) ->
+                       eerr (Text.Parsec.Error.mergeError err err')))
+                   eerr) -}
+4364f2013204350d65d1e182624c44de
+  capDLDumpModule3 ::
+    CapDL.Model.Arch
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (CapDL.AST.Module
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (CapDL.AST.Module
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 6,
+     Strictness: <L,U><L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U> -}
+8e3e98053d09d3d76ce3ebb1c320e079
+  cap_decl :: CapDL.ParserUtils.MapParser CapDL.AST.Decl
+  {- Arity: 5,
+     Strictness: <L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.cap_decl1
+                  `cast`
+                (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                          <[GHC.Types.Char]>_R
+                          <CapDL.ParserUtils.Maps>_R
+                          <Data.Functor.Identity.Identity>_R
+                          <CapDL.AST.Decl>_R)) -}
+fa1c5e61dcf5517cadf3f1d5529c8473
+  cap_decl1 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> (CapDL.AST.Decl
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (CapDL.AST.Decl
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 5,
+     Strictness: <L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U> -}
+6026e8ded84669b47aee64777c337fb1
+  cap_decls :: CapDL.ParserUtils.MapParser [CapDL.AST.Decl]
+  {- Arity: 5, Strictness: <L,U><L,U><L,U><L,C(C1(C1(U)))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.cap_decls1
+                  `cast`
+                (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                          <[GHC.Types.Char]>_R
+                          <CapDL.ParserUtils.Maps>_R
+                          <Data.Functor.Identity.Identity>_R
+                          <[CapDL.AST.Decl]>_R)) -}
+3f7135e15631b3c5d1e0430efacbc625
+  cap_decls1 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 5, Strictness: <L,U><L,U><L,U><L,C(C1(C1(U)))><L,U>,
+     Unfolding: (\ @ b1
+                   (eta :: Text.Parsec.Prim.State
+                             [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (eta1 :: [CapDL.AST.Decl]
+                            -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                            -> Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                   (eta2 :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                   (eta3 :: [CapDL.AST.Decl]
+                            -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                            -> Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                   (eta4 :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1) ->
+                 CapDL.DumpParser.cap_decls_m1
+                   `cast`
+                 (Text.Parsec.Prim.N:ParsecT[0]
+                      <[GHC.Types.Char]>_R
+                      <CapDL.ParserUtils.Maps>_R
+                      <Data.Functor.Identity.Identity>_R
+                      <()>_R)
+                   @ b1
+                   eta
+                   (\ (x :: ())
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    CapDL.DumpParser.cap_decls_k
+                      `cast`
+                    (Text.Parsec.Prim.N:ParsecT[0]
+                         <[GHC.Types.Char]>_R
+                         <CapDL.ParserUtils.Maps>_R
+                         <Data.Functor.Identity.Identity>_R
+                         <[CapDL.AST.Decl]>_R)
+                      @ b1
+                      s2
+                      eta1
+                      eta2
+                      (\ (x1 :: [CapDL.AST.Decl])
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                         (err' :: Text.Parsec.Error.ParseError) ->
+                       eta1 x1 s3 (Text.Parsec.Error.mergeError err err'))
+                      (\ (err' :: Text.Parsec.Error.ParseError) ->
+                       eta2 (Text.Parsec.Error.mergeError err err')))
+                   eta2
+                   (\ (x :: ())
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    CapDL.DumpParser.cap_decls_k
+                      `cast`
+                    (Text.Parsec.Prim.N:ParsecT[0]
+                         <[GHC.Types.Char]>_R
+                         <CapDL.ParserUtils.Maps>_R
+                         <Data.Functor.Identity.Identity>_R
+                         <[CapDL.AST.Decl]>_R)
+                      @ b1
+                      s2
+                      eta1
+                      eta2
+                      (\ (x1 :: [CapDL.AST.Decl])
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                         (err' :: Text.Parsec.Error.ParseError) ->
+                       eta3 x1 s3 (Text.Parsec.Error.mergeError err err'))
+                      (\ (err' :: Text.Parsec.Error.ParseError) ->
+                       eta4 (Text.Parsec.Error.mergeError err err')))
+                   eta4) -}
+6dc294791f03ac791234430a0e008836
+  cap_decls2 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> Data.Functor.Identity.Identity b
+  {- Arity: 5,
+     Unfolding: (\ @ b
+                   (w1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w2 :: [CapDL.AST.Decl]
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w3 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w4 :: [CapDL.AST.Decl]
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w5 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 Text.Parsec.Prim.$wmany
+                   @ [GHC.Types.Char]
+                   @ CapDL.ParserUtils.Maps
+                   @ Data.Functor.Identity.Identity
+                   @ CapDL.AST.Decl
+                   CapDL.DumpParser.cap_decls3
+                     `cast`
+                   (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                             <[GHC.Types.Char]>_R
+                             <CapDL.ParserUtils.Maps>_R
+                             <Data.Functor.Identity.Identity>_R
+                             <CapDL.AST.Decl>_R))
+                   @ b
+                   w1
+                   w2
+                   w3
+                   w4) -}
+553ecf2e05acffdc007d68f94f22038c
+  cap_decls3 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> (CapDL.AST.Decl
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (CapDL.AST.Decl
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> Data.Functor.Identity.Identity b
+  {- Arity: 5,
+     Strictness: <L,U><L,C(C1(C1(U)))><L,A><L,C(C1(C1(U)))><L,U>,
+     Unfolding: InlineRule (5, True, True)
+                (\ @ b
+                   (s1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (cok :: CapDL.AST.Decl
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b)
+                   (ds :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (eok :: CapDL.AST.Decl
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b)
+                   (eerr :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b) ->
+                 CapDL.DumpParser.cap_decl1 @ b s1 cok eerr eok eerr) -}
+ffd00595fcec80716978269c96312ad5
+  cap_decls4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "caps"#) -}
+f18d744f5ae67459d6f363199e84b1b3
+  cap_decls_k ::
+    Text.Parsec.Prim.ParsecT
+      [GHC.Types.Char]
+      CapDL.ParserUtils.Maps
+      Data.Functor.Identity.Identity
+      [CapDL.AST.Decl]
+  {- Unfolding: (case CapDL.ParserUtils.lexer of wild { Text.Parsec.Token.TokenParser ds ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ds12 ds13 ds14 ds15 ds16 ds17 ds18 ds19 ds20 ds21 ds22 ds23 ds24 ds25 ds26 ds27 ds28 ->
+                 ds17
+                   @ [CapDL.AST.Decl]
+                   CapDL.DumpParser.cap_decls2
+                     `cast`
+                   (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                             <[GHC.Types.Char]>_R
+                             <CapDL.ParserUtils.Maps>_R
+                             <Data.Functor.Identity.Identity>_R
+                             <[CapDL.AST.Decl]>_R)) }) -}
+bb1a5913108dec53fe881a23ec4d01ac
+  cap_decls_m1 ::
+    Text.Parsec.Prim.ParsecT
+      [GHC.Types.Char]
+      CapDL.ParserUtils.Maps
+      Data.Functor.Identity.Identity
+      ()
+  {- Unfolding: (case CapDL.ParserUtils.lexer of wild { Text.Parsec.Token.TokenParser ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ds12 ds13 ds14 ds15 ds16 ds17 ds18 ds19 ds20 ds21 ds22 ds23 ds24 ds25 ds26 ds27 ds28 ds29 ->
+                 ds2 CapDL.DumpParser.cap_decls4 }) -}
+8bcc517b5bfdcca109bffd8c26cb54b7
+  cap_mapping :: CapDL.ParserUtils.MapParser CapDL.AST.CapMapping
+  {- Arity: 5,
+     Strictness: <L,U(U,U(U,U,U),U)><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.cap_mapping1
+                  `cast`
+                (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                          <[GHC.Types.Char]>_R
+                          <CapDL.ParserUtils.Maps>_R
+                          <Data.Functor.Identity.Identity>_R
+                          <CapDL.AST.CapMapping>_R)) -}
+d66213f5c5523968a72b38536279dd70
+  cap_mapping1 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> (CapDL.AST.CapMapping
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (CapDL.AST.CapMapping
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 5,
+     Strictness: <L,U(U,U(U,U,U),U)><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,C(U)>,
+     Unfolding: (\ @ b1
+                   (s1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (cok :: CapDL.AST.CapMapping
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b1)
+                   (cerr :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                   (eok :: CapDL.AST.CapMapping
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b1)
+                   (eerr :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1) ->
+                 CapDL.ParserUtils.$wmaybe_slot
+                   @ b1
+                   s1
+                   (\ (x :: GHC.Base.Maybe GHC.Types.Word)
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                      (err :: Text.Parsec.Error.ParseError)[OneShot] ->
+                    CapDL.DumpParser.cap_mapping2
+                      x
+                      @ b1
+                      s2
+                      cok
+                      cerr
+                      (\ (x1 :: CapDL.AST.CapMapping)
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                         (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                       cok x1 s3 (Text.Parsec.Error.mergeError err err'))
+                      (\ (err' :: Text.Parsec.Error.ParseError) ->
+                       cerr (Text.Parsec.Error.mergeError err err')))
+                   cerr
+                   (\ (x :: GHC.Base.Maybe GHC.Types.Word)
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                      (err :: Text.Parsec.Error.ParseError)[OneShot] ->
+                    CapDL.DumpParser.cap_mapping2
+                      x
+                      @ b1
+                      s2
+                      cok
+                      cerr
+                      (\ (x1 :: CapDL.AST.CapMapping)
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                         (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                       eok x1 s3 (Text.Parsec.Error.mergeError err err'))
+                      (\ (err' :: Text.Parsec.Error.ParseError) ->
+                       eerr (Text.Parsec.Error.mergeError err err')))) -}
+db61434111bdfee671f5e36f2294683f
+  cap_mapping2 ::
+    GHC.Base.Maybe GHC.Types.Word
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (CapDL.AST.CapMapping
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (CapDL.AST.CapMapping
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 6,
+     Strictness: <L,U><L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U> -}
+368f23c843709e2138473aa41aa1bd54
+  consecutive ::
+    CapDL.Model.Arch
+    -> (CapDL.AST.Name, CapDL.AST.KO)
+    -> GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+    -> GHC.Types.Word
+    -> GHC.Types.Bool
+  {- Arity: 4,
+     Strictness: <L,1*U><L,1*U(U,1*U(U,U,1*U))><S,1*U><L,1*U(U)>,
+     Unfolding: (\ (ds :: CapDL.Model.Arch)
+                   (ds1 :: (CapDL.AST.Name, CapDL.AST.KO))
+                   (ds2 :: GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO))
+                   (ds3 :: GHC.Types.Word) ->
+                 case ds2 of wild {
+                   GHC.Base.Nothing -> GHC.Types.False
+                   GHC.Base.Just ipv
+                   -> case ds1 of wild1 { (,) name1 obj1 ->
+                      case ipv of wild2 { (,) name2 obj2 ->
+                      case CapDL.DumpParser.getAddr name1 of wild3 {
+                        GHC.Base.Nothing -> GHC.Types.False
+                        GHC.Base.Just addr1
+                        -> case CapDL.DumpParser.getAddr name2 of wild4 {
+                             GHC.Base.Nothing -> GHC.Types.False
+                             GHC.Base.Just addr2
+                             -> case obj1 of ww { CapDL.AST.Obj ww1 ww2 ww3 ->
+                                case obj2 of ww4 { CapDL.AST.Obj ww5 ww6 ww7 ->
+                                case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==#
+                                          (GHC.Prim.dataToTag# @ CapDL.Model.KOType ww1)
+                                          (GHC.Prim.dataToTag# @ CapDL.Model.KOType ww5)) of wild5 {
+                                  GHC.Types.False -> GHC.Types.False
+                                  GHC.Types.True
+                                  -> case GHC.Classes.$fEq[]_$c==
+                                            @ CapDL.AST.ObjParam
+                                            CapDL.AST.$fEqObjParam
+                                            ww2
+                                            ww6 of wild6 {
+                                       GHC.Types.False -> GHC.Types.False
+                                       GHC.Types.True
+                                       -> case GHC.Classes.$fEq[]_$c==
+                                                 @ (Data.Either.Either
+                                                      CapDL.AST.KODecl CapDL.AST.NameRef)
+                                                 CapDL.AST.$fEqKO_$s$fEqEither
+                                                 ww3
+                                                 ww7 of wild7 {
+                                            GHC.Types.False -> GHC.Types.False
+                                            GHC.Types.True
+                                            -> case addr1 of wild8 { GHC.Types.W# x# ->
+                                               case ds3 of wild9 { GHC.Types.W# x#1 ->
+                                               case CapDL.DumpParser.$wsizeOf
+                                                      ds
+                                                      ww1
+                                                      ww2 of wild10 { GHC.Types.W# y# ->
+                                               case addr2 of wild11 { GHC.Types.W# y ->
+                                               GHC.Prim.tagToEnum#
+                                                 @ GHC.Types.Bool
+                                                 (GHC.Prim.eqWord#
+                                                    (GHC.Prim.plusWord#
+                                                       x#
+                                                       (GHC.Prim.timesWord# x#1 y#))
+                                                    y) } } } } } } } } } } } } } }) -}
+866964f72e81da749ddb73e0eefb21b4
+  consecutive1 :: GHC.Types.Word
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.W# 16##) -}
+11c2fff18dba2d7ea7f6dc2a4d39c606
+  consecutive2 :: GHC.Types.Word
+  {- Unfolding: (case CapDL.DumpParser.$w$s^
+                        CapDL.DumpParser.consecutive4
+                        CapDL.DumpParser.consecutive3 of ww { DEFAULT ->
+                 GHC.Types.W# (GHC.Prim.timesWord# 16## ww) }) -}
+98ddf1210e1fbcd30b6622ec23bce5e7
+  consecutive3 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (10) -}
+09202d5f02a66f4e5e17b58bb644f2a3
+  consecutive4 :: GHC.Types.Word
+  {- HasNoCafRefs, Unfolding: (GHC.Types.W# 2##) -}
+d0e10785d52527c76616d5d86621a5e0
+  consecutive5 :: GHC.Types.Word
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.W# 512##) -}
+fe4e78f2de2a449bfef3e0a31ca68529
+  consecutive6 :: GHC.Types.Word
+  {- Unfolding: (case CapDL.DumpParser.$w$s^
+                        CapDL.DumpParser.consecutive4
+                        CapDL.DumpParser.consecutive3 of ww { DEFAULT ->
+                 GHC.Types.W# (GHC.Prim.timesWord# 4## ww) }) -}
+e31925f22e0f64ddc73e7e0c10d7ab4d
+  consecutive7 :: GHC.Types.Word
+  {- Unfolding: (case CapDL.DumpParser.$w$s^
+                        CapDL.DumpParser.consecutive4
+                        CapDL.DumpParser.consecutive3 of ww { DEFAULT ->
+                 GHC.Types.W# ww }) -}
+5be6ca7666d10de04dce1f0a791a9fb0
+  consecutive8 :: GHC.Types.Word
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.W# 0##) -}
+2d45e36509444db3e00db24e7a9530ca
+  considerUntypeds ::
+    CapDL.Model.Arch
+    -> CapDL.Model.ObjID
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> CapDL.AST.KO
+    -> CapDL.ParserUtils.MapParser ()
+  {- Arity: 9,
+     Strictness: <L,1*U><L,U(U,U)><S,1*U><L,1*U(U,1*U,A)><L,U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.considerUntypeds1
+                  `cast`
+                (<CapDL.Model.Arch>_R
+                 ->_R <CapDL.Model.ObjID>_R
+                 ->_R <GHC.Base.Maybe GHC.Types.Word>_R
+                 ->_R <CapDL.AST.KO>_R
+                 ->_R Sym (Text.Parsec.Prim.N:ParsecT[0]
+                               <[GHC.Types.Char]>_R
+                               <CapDL.ParserUtils.Maps>_R
+                               <Data.Functor.Identity.Identity>_R
+                               <()>_R)) -}
+66dfb1148e983c25c47a04d942ff7a00
+  considerUntypeds1 ::
+    CapDL.Model.Arch
+    -> CapDL.Model.ObjID
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> CapDL.AST.KO
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 9,
+     Strictness: <L,1*U><L,U(U,U)><S,1*U><L,1*U(U,1*U,A)><L,U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (9, True, True)
+                (\ (w :: CapDL.Model.Arch)
+                   (w1 :: CapDL.Model.ObjID)
+                   (w2 :: GHC.Base.Maybe GHC.Types.Word)
+                   (w3 :: CapDL.AST.KO)
+                   @ b
+                   (w4 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w5 :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w6 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w7 :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w8 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 CapDL.DumpParser.$wconsiderUntypeds w w1 w2 w3 @ b w4 w7) -}
+f14f4b2e834d6d38f6d665313f7ec7c0
+  cov_decl ::
+    (CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)
+    -> CapDL.AST.KODecl
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(1*U(U,1*U),1*U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: (CapDL.Model.ObjID,
+                           Data.Set.Base.Set CapDL.Model.ObjID)) ->
+                 case ds of wild { (,) refr covs ->
+                 CapDL.AST.KODecl
+                   (GHC.Types.:
+                      @ CapDL.AST.NameRef
+                      (CapDL.DumpParser.id_to_ref refr)
+                      (GHC.Types.[] @ CapDL.AST.NameRef))
+                   (CapDL.DumpParser.make_obj covs) }) -}
+83ba0168a7b386ea990479b78ee78098
+  cov_decls :: CapDL.ParserUtils.MapParser [CapDL.AST.Decl]
+  {- Arity: 5,
+     Strictness: <L,U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.cov_decls1
+                  `cast`
+                (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                          <[GHC.Types.Char]>_R
+                          <CapDL.ParserUtils.Maps>_R
+                          <Data.Functor.Identity.Identity>_R
+                          <[CapDL.AST.Decl]>_R)) -}
+a1017e60d6426e09bee8dd9a2ca823c2
+  cov_decls1 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 5,
+     Strictness: <L,U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, True)
+                (\ @ b1
+                   (w :: Text.Parsec.Prim.State
+                           [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w1 :: [CapDL.AST.Decl]
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1)
+                   (w2 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1)
+                   (w3 :: [CapDL.AST.Decl]
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1)
+                   (w4 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1) ->
+                 CapDL.DumpParser.$wcov_decls @ b1 w w3) -}
+0e07d6bfbb73772be00991f7eaa60bd7
+  cov_decls2 ::
+    (CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)
+    -> CapDL.AST.Decl
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,1*U(1*U(U,1*U),1*U)>m1,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: (CapDL.Model.ObjID,
+                          Data.Set.Base.Set CapDL.Model.ObjID)) ->
+                 CapDL.AST.ObjDecl (CapDL.DumpParser.cov_decl x)) -}
+e7b9fea0f09b2ec553e720f6dc901123
+  getAddr :: GHC.Base.String -> GHC.Base.Maybe GHC.Types.Word
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (string :: GHC.Base.String) ->
+                 case GHC.List.elem
+                        @ GHC.Types.Char
+                        GHC.Classes.$fEqChar
+                        CapDL.DumpParser.getAddr4
+                        string of wild {
+                   GHC.Types.False -> GHC.Base.Nothing @ GHC.Types.Word
+                   GHC.Types.True
+                   -> GHC.Base.Just
+                        @ GHC.Types.Word
+                        (case Text.ParserCombinators.ReadP.run
+                                @ GHC.Types.Word
+                                CapDL.DumpParser.getAddr3
+                                (GHC.List.$w!!
+                                   @ [GHC.Types.Char]
+                                   (CapDL.DumpParser.getAddr1 string)
+                                   1#) of wild1 {
+                           [] -> case GHC.List.badHead ret_ty GHC.Types.Word of {}
+                           : x ds1 -> case x of wild2 { (,) x1 ds2 -> x1 } }) }) -}
+37caf57ecc2368a1a0b81d34d38837d4
+  getAddr1 :: [GHC.Types.Char] -> [[GHC.Types.Char]]
+  {- Unfolding: (Data.List.Split.Internals.splitOn
+                   @ GHC.Types.Char
+                   GHC.Classes.$fEqChar
+                   CapDL.DumpParser.getAddr2) -}
+63f64e3790e06efe3c91e409171c62fb
+  getAddr2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "@0x"#) -}
+d23c641f55c7c5d3ef8852df6e672f00
+  getAddr3 :: Text.ParserCombinators.ReadP.P GHC.Types.Word
+  {- Unfolding: (case Text.Read.Lex.$wreadIntP'
+                        @ GHC.Types.Word
+                        GHC.Classes.$fEqWord
+                        GHC.Num.$fNumWord
+                        CapDL.DumpParser.consecutive1
+                        @ GHC.Types.Word
+                        (Text.ParserCombinators.ReadP.$fApplicativeP_$cpure
+                           @ GHC.Types.Word) of ww { Unit# ww1 ->
+                 Text.ParserCombinators.ReadP.Get @ GHC.Types.Word ww1 }) -}
+5c54bc6f66466694bb867c4f1812ee05
+  getAddr4 :: GHC.Types.Char
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.C# '@'#) -}
+766984dd26cf91e063210d8fa4d194fc
+  getCovs ::
+    CapDL.ParserUtils.MapParser
+      [(CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)]
+  {- Arity: 5,
+     Strictness: <L,U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.getCovs1
+                  `cast`
+                (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                          <[GHC.Types.Char]>_R
+                          <CapDL.ParserUtils.Maps>_R
+                          <Data.Functor.Identity.Identity>_R
+                          <[(CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)]>_R)) -}
+95f7f8c33ef797f9b48fed20f6ca9ac0
+  getCovs1 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> ([(CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> ([(CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 5,
+     Strictness: <L,U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, True)
+                (\ @ b1
+                   (w :: Text.Parsec.Prim.State
+                           [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w1 :: [(CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)]
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1)
+                   (w2 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1)
+                   (w3 :: [(CapDL.Model.ObjID, Data.Set.Base.Set CapDL.Model.ObjID)]
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1)
+                   (w4 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1) ->
+                 CapDL.DumpParser.$wgetCovs @ b1 w w3) -}
+e1274d86ef699bc15f35441a0f4989c0
+  getObjTyp :: GHC.Base.String -> GHC.Base.Maybe GHC.Base.String
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (string :: GHC.Base.String) ->
+                 case GHC.List.elem
+                        @ GHC.Types.Char
+                        GHC.Classes.$fEqChar
+                        CapDL.DumpParser.getAddr4
+                        string of wild {
+                   GHC.Types.False -> GHC.Base.Nothing @ GHC.Base.String
+                   GHC.Types.True
+                   -> GHC.Base.Just
+                        @ [GHC.Types.Char]
+                        (GHC.List.$w!!
+                           @ [GHC.Types.Char]
+                           (CapDL.DumpParser.getObjTyp1 string)
+                           0#) }) -}
+c3e8474ccdbc3b149b83f72563d16557
+  getObjTyp1 :: [GHC.Types.Char] -> [[GHC.Types.Char]]
+  {- Unfolding: (Data.List.Split.Internals.splitOn
+                   @ GHC.Types.Char
+                   GHC.Classes.$fEqChar
+                   CapDL.DumpParser.getObjTyp2) -}
+77747c73e3f9b5c0036f80b55ed41ee7
+  getObjTyp2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "@"#) -}
+3220290c5d0700943a9f753a08fb268a
+  getUntypSize :: GHC.Base.String -> GHC.Types.Int
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ (string :: GHC.Base.String) ->
+                 case Text.Read.readEither6
+                        @ GHC.Types.Int
+                        (Text.ParserCombinators.ReadP.run
+                           @ GHC.Types.Int
+                           (GHC.Read.$fReadInt3
+                              GHC.Read.$fReadInt_$sconvertInt
+                              Text.ParserCombinators.ReadPrec.minPrec
+                              @ GHC.Types.Int
+                              (Text.Read.readEither5 @ GHC.Types.Int))
+                           (GHC.List.$w!!
+                              @ [GHC.Types.Char]
+                              (CapDL.DumpParser.getObjTyp1 string)
+                              2#)) of wild {
+                   []
+                   -> GHC.Err.errorWithoutStackTrace
+                        @ 'GHC.Types.PtrRepLifted
+                        @ GHC.Types.Int
+                        Text.Read.readEither4
+                   : x ds
+                   -> case ds of wild1 {
+                        [] -> x
+                        : ipv ipv1
+                        -> GHC.Err.errorWithoutStackTrace
+                             @ 'GHC.Types.PtrRepLifted
+                             @ GHC.Types.Int
+                             Text.Read.readEither2 } }) -}
+1d63e2303c48736e0a87ead740155893
+  id_to_ref :: CapDL.Model.ObjID -> CapDL.AST.NameRef
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(U,1*U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)) ->
+                 case ds of wild { (,) name ds1 ->
+                 case ds1 of wild1 {
+                   GHC.Base.Nothing -> (name, GHC.Types.[] @ CapDL.AST.Range)
+                   GHC.Base.Just n
+                   -> (name,
+                       GHC.Types.:
+                         @ CapDL.AST.Range
+                         (CapDL.AST.Only n)
+                         (GHC.Types.[] @ CapDL.AST.Range)) } }) -}
+df227e1aee794de29b1dfb999532a674
+  included ::
+    GHC.Types.Word
+    -> (GHC.Types.Word, GHC.Types.Word) -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(S),1*U(U)><S(S(S)L),1*U(1*U(U),1*U(U))>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (n :: GHC.Types.Word)
+                   (ds :: (GHC.Types.Word, GHC.Types.Word)) ->
+                 case ds of wild { (,) st end ->
+                 case n of wild1 { GHC.Types.W# x ->
+                 case st of wild2 { GHC.Types.W# y ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.geWord# x y) of wild3 {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True
+                   -> case end of wild4 { GHC.Types.W# y1 ->
+                      GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.ltWord# x y1) } } } } }) -}
+ba4343c3128ddb5d141b53fbe2c656f1
+  insertAddrs ::
+    (GHC.Types.Word, GHC.Types.Word)
+    -> CapDL.Model.ObjID -> CapDL.ParserUtils.MapParser ()
+  {- Arity: 7,
+     Strictness: <L,U><L,1*U(U,U)><L,U(U,U(U,U,U),U(U,1*U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.insertAddrs1
+                  `cast`
+                (<(GHC.Types.Word, GHC.Types.Word)>_R
+                 ->_R <CapDL.Model.ObjID>_R
+                 ->_R Sym (Text.Parsec.Prim.N:ParsecT[0]
+                               <[GHC.Types.Char]>_R
+                               <CapDL.ParserUtils.Maps>_R
+                               <Data.Functor.Identity.Identity>_R
+                               <()>_R)) -}
+9921f8e9d3fcb1ddf43b17af6c3d598e
+  insertAddrs1 ::
+    (GHC.Types.Word, GHC.Types.Word)
+    -> CapDL.Model.ObjID
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 7,
+     Strictness: <L,U><L,1*U(U,U)><L,U(U,U(U,U,U),U(U,1*U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (7, True, True)
+                (\ (w :: (GHC.Types.Word, GHC.Types.Word))
+                   (w1 :: CapDL.Model.ObjID)
+                   @ b
+                   (w2 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w3 :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w4 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w5 :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w6 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 CapDL.DumpParser.$winsertAddrs w w1 @ b w2 w5) -}
+5586bdf4cb3bc028d28e73f07ab8cb64
+  insertCov ::
+    CapDL.Model.ObjID
+    -> CapDL.Model.ObjID -> CapDL.ParserUtils.MapParser ()
+  {- Arity: 7,
+     Strictness: <L,1*U(U,U)><L,U(U,U)><L,U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.insertCov1
+                  `cast`
+                (<CapDL.Model.ObjID>_R
+                 ->_R <CapDL.Model.ObjID>_R
+                 ->_R Sym (Text.Parsec.Prim.N:ParsecT[0]
+                               <[GHC.Types.Char]>_R
+                               <CapDL.ParserUtils.Maps>_R
+                               <Data.Functor.Identity.Identity>_R
+                               <()>_R)) -}
+a707adff72dab00e9d65220fa595b468
+  insertCov1 ::
+    CapDL.Model.ObjID
+    -> CapDL.Model.ObjID
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 7,
+     Strictness: <L,1*U(U,U)><L,U(U,U)><L,U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (7, True, True)
+                (\ (w :: CapDL.Model.ObjID)
+                   (w1 :: CapDL.Model.ObjID)
+                   @ b
+                   (w2 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w3 :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w4 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w5 :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w6 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 CapDL.DumpParser.$winsertCov w w1 @ b w2 w5) -}
+0da392eeff86ce18f65c7d1193c8fe7d
+  insertRef ::
+    CapDL.AST.Name
+    -> CapDL.Model.ObjID -> CapDL.ParserUtils.MapParser ()
+  {- Arity: 7,
+     Strictness: <L,1*U><L,U><L,U(U,U(U,U,U),U(1*U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.insertRef1
+                  `cast`
+                (<CapDL.AST.Name>_R
+                 ->_R <CapDL.Model.ObjID>_R
+                 ->_R Sym (Text.Parsec.Prim.N:ParsecT[0]
+                               <[GHC.Types.Char]>_R
+                               <CapDL.ParserUtils.Maps>_R
+                               <Data.Functor.Identity.Identity>_R
+                               <()>_R)) -}
+fd7d9b55cb34310ea3b263b06ef310b2
+  insertRef1 ::
+    CapDL.AST.Name
+    -> CapDL.Model.ObjID
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (()
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 7,
+     Strictness: <L,1*U><L,U><L,U(U,U(U,U,U),U(1*U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (7, True, True)
+                (\ (w :: CapDL.AST.Name)
+                   (w1 :: CapDL.Model.ObjID)
+                   @ b
+                   (w2 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w3 :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w4 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w5 :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w6 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 CapDL.DumpParser.$winsertRef w w1 @ b w2 w5) -}
+ed4d8c705a39ea6c7e71efdc31d78494
+  lookupAddr ::
+    GHC.Types.Word
+    -> CapDL.ParserUtils.MapParser (GHC.Base.Maybe CapDL.Model.ObjID)
+  {- Arity: 6,
+     Strictness: <L,U(U)><L,U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.lookupAddr1
+                  `cast`
+                (<GHC.Types.Word>_R
+                 ->_R Sym (Text.Parsec.Prim.N:ParsecT[0]
+                               <[GHC.Types.Char]>_R
+                               <CapDL.ParserUtils.Maps>_R
+                               <Data.Functor.Identity.Identity>_R
+                               <GHC.Base.Maybe CapDL.Model.ObjID>_R)) -}
+eaff58b8f6159fbdad8fec87b96b8674
+  lookupAddr1 ::
+    GHC.Types.Word
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (GHC.Base.Maybe CapDL.Model.ObjID
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (GHC.Base.Maybe CapDL.Model.ObjID
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 6,
+     Strictness: <L,U(U)><L,U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (6, True, True)
+                (\ (w :: GHC.Types.Word)
+                   @ b
+                   (w1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w2 :: GHC.Base.Maybe CapDL.Model.ObjID
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w3 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w4 :: GHC.Base.Maybe CapDL.Model.ObjID
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w5 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 CapDL.DumpParser.$wlookupAddr w @ b w1 w4) -}
+5f5cc3798d7c710b310a7b15d7d916d5
+  lookupRef ::
+    CapDL.AST.Name -> CapDL.ParserUtils.MapParser CapDL.Model.ObjID
+  {- Arity: 6,
+     Strictness: <S,U><S(LLS(SLLL)),U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.lookupRef1
+                  `cast`
+                (<CapDL.AST.Name>_R
+                 ->_R Sym (Text.Parsec.Prim.N:ParsecT[0]
+                               <[GHC.Types.Char]>_R
+                               <CapDL.ParserUtils.Maps>_R
+                               <Data.Functor.Identity.Identity>_R
+                               <CapDL.Model.ObjID>_R)) -}
+4f6cc010b7c25817dbfd93f5ca0612ee
+  lookupRef1 ::
+    CapDL.AST.Name
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (CapDL.Model.ObjID
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (CapDL.Model.ObjID
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 6,
+     Strictness: <S,U><S(LLS(SLLL)),U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (6, True, False)
+                (\ (w :: CapDL.AST.Name)
+                   @ b
+                   (w1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w2 :: CapDL.Model.ObjID
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w3 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w4 :: CapDL.Model.ObjID
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w5 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 case w1 of ww { Text.Parsec.Prim.State ww1 ww2 ww3 ->
+                 case ww3 of ww4 { CapDL.ParserUtils.Maps ww5 ww6 ww7 ww8 ->
+                 CapDL.DumpParser.$wlookupRef
+                   w
+                   @ b
+                   ww1
+                   ww2
+                   ww5
+                   ww6
+                   ww7
+                   ww8
+                   w4 } }) -}
+703309dfc014e7c9072bfda4b304a03a
+  make_irq_decl :: CapDL.ParserUtils.MapParser [CapDL.AST.Decl]
+  {- Arity: 5,
+     Strictness: <S(LSS(LLLS)),1*U(U,U(U,U,U),U(U,U,U,U))><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.make_irq_decl1
+                  `cast`
+                (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                          <[GHC.Types.Char]>_R
+                          <CapDL.ParserUtils.Maps>_R
+                          <Data.Functor.Identity.Identity>_R
+                          <[CapDL.AST.Decl]>_R)) -}
+d6e9a89c7d7e36f582c4e38c586c243e
+  make_irq_decl1 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> ([CapDL.AST.Decl]
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 5,
+     Strictness: <S(LSS(LLLS)),1*U(U,U(U,U,U),U(U,U,U,U))><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,C(U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, False)
+                (\ @ b1
+                   (w :: Text.Parsec.Prim.State
+                           [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w1 :: [CapDL.AST.Decl]
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1)
+                   (w2 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1)
+                   (w3 :: [CapDL.AST.Decl]
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1)
+                   (w4 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b1) ->
+                 case w of ww { Text.Parsec.Prim.State ww1 ww2 ww3 ->
+                 case ww2 of ww4 { Text.Parsec.Pos.SourcePos ww5 ww6 ww7 ->
+                 case ww3 of ww8 { CapDL.ParserUtils.Maps ww9 ww10 ww11 ww12 ->
+                 CapDL.DumpParser.$wmake_irq_decl
+                   @ b1
+                   ww1
+                   ww5
+                   ww6
+                   ww7
+                   ww9
+                   ww10
+                   ww11
+                   ww12
+                   w1
+                   w2
+                   w3
+                   w4 } } }) -}
+b0ec53007bf1173c846d833c5f3b966d
+  make_irq_mapping ::
+    (GHC.Types.Word, CapDL.AST.Name)
+    -> CapDL.ParserUtils.MapParser CapDL.AST.CapMapping
+  {- Arity: 6,
+     Strictness: <S(LS),1*U(U,U)><S(LLS(SLLL)),U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.make_irq_mapping1
+                  `cast`
+                (<(GHC.Types.Word, CapDL.AST.Name)>_R
+                 ->_R Sym (Text.Parsec.Prim.N:ParsecT[0]
+                               <[GHC.Types.Char]>_R
+                               <CapDL.ParserUtils.Maps>_R
+                               <Data.Functor.Identity.Identity>_R
+                               <CapDL.AST.CapMapping>_R)) -}
+13338840dd40ca329d2e89dec911c7a9
+  make_irq_mapping1 ::
+    (GHC.Types.Word, CapDL.AST.Name)
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (CapDL.AST.CapMapping
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (CapDL.AST.CapMapping
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 6,
+     Strictness: <S(LS),1*U(U,U)><S(LLS(SLLL)),U(U,U(U,U,U),U(U,U,U,U))><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (6, True, False)
+                (\ (w :: (GHC.Types.Word, CapDL.AST.Name))
+                   @ b
+                   (w1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w2 :: CapDL.AST.CapMapping
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w3 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w4 :: CapDL.AST.CapMapping
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w5 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case w1 of ww3 { Text.Parsec.Prim.State ww4 ww5 ww6 ->
+                 case ww6 of ww7 { CapDL.ParserUtils.Maps ww8 ww9 ww10 ww11 ->
+                 CapDL.DumpParser.$wmake_irq_mapping
+                   ww1
+                   ww2
+                   @ b
+                   ww4
+                   ww5
+                   ww8
+                   ww9
+                   ww10
+                   ww11
+                   w4 } } }) -}
+b25dd7f96a858cc286574e462b07c8fd
+  make_obj :: Data.Set.Base.Set CapDL.Model.ObjID -> CapDL.AST.KO
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,1*U>m, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: Data.Set.Base.Set CapDL.Model.ObjID) ->
+                 CapDL.AST.Obj
+                   CapDL.Model.Untyped_T
+                   (GHC.Types.[] @ CapDL.AST.ObjParam)
+                   (CapDL.DumpParser.make_obj_go5
+                      (GHC.Types.[]
+                         @ (Data.Either.Either CapDL.AST.KODecl CapDL.AST.NameRef))
+                      w)) -}
+7197f689a4e03ed8a5ed87886c28e0c2
+  make_obj_go5 ::
+    [Data.Either.Either CapDL.AST.KODecl CapDL.AST.NameRef]
+    -> Data.Set.Base.Set
+         (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)
+    -> [Data.Either.Either CapDL.AST.KODecl CapDL.AST.NameRef]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U> -}
+5ca5f16f5b73506694428b93469c9f5c
+  maybeInsertIRQ :: CapDL.AST.Name -> CapDL.ParserUtils.MapParser ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (obj :: CapDL.AST.Name) ->
+                 case GHC.List.elem
+                        @ GHC.Types.Char
+                        GHC.Classes.$fEqChar
+                        CapDL.DumpParser.getAddr4
+                        obj of wild {
+                   GHC.Types.False
+                   -> CapDL.DumpParser.maybeInsertIRQ2
+                        `cast`
+                      (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                                <[GHC.Types.Char]>_R
+                                <CapDL.ParserUtils.Maps>_R
+                                <Data.Functor.Identity.Identity>_R
+                                <()>_R))
+                   GHC.Types.True
+                   -> case GHC.Base.eqString
+                             (GHC.List.$w!!
+                                @ [GHC.Types.Char]
+                                (CapDL.DumpParser.getObjTyp1 obj)
+                                0#)
+                             CapDL.DumpParser.maybeInsertIRQ1 of wild1 {
+                        GHC.Types.False
+                        -> CapDL.DumpParser.maybeInsertIRQ2
+                             `cast`
+                           (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                                     <[GHC.Types.Char]>_R
+                                     <CapDL.ParserUtils.Maps>_R
+                                     <Data.Functor.Identity.Identity>_R
+                                     <()>_R))
+                        GHC.Types.True
+                        -> let {
+                             lvl25 :: GHC.Types.Word
+                             = case CapDL.DumpParser.getAddr obj of wild2 {
+                                 GHC.Base.Nothing -> Data.Maybe.fromJust1 @ GHC.Types.Word
+                                 GHC.Base.Just x -> x }
+                           } in
+                           (\ @ b1
+                              (s1 :: Text.Parsec.Prim.State
+                                       [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                              (cok :: ()
+                                      -> Text.Parsec.Prim.State
+                                           [GHC.Types.Char] CapDL.ParserUtils.Maps
+                                      -> Text.Parsec.Error.ParseError
+                                      -> Data.Functor.Identity.Identity b1)
+                              (cerr :: Text.Parsec.Error.ParseError
+                                       -> Data.Functor.Identity.Identity b1)
+                              (eok :: ()
+                                      -> Text.Parsec.Prim.State
+                                           [GHC.Types.Char] CapDL.ParserUtils.Maps
+                                      -> Text.Parsec.Error.ParseError
+                                      -> Data.Functor.Identity.Identity b1)
+                              (eerr :: Text.Parsec.Error.ParseError
+                                       -> Data.Functor.Identity.Identity b1) ->
+                            let {
+                              s' :: Text.Parsec.Prim.State
+                                      [GHC.Types.Char] CapDL.ParserUtils.Maps
+                              = case s1 of wild2 { Text.Parsec.Prim.State ds ds1 ds2 ->
+                                case ds2 of wild3 { CapDL.ParserUtils.Maps ds4 ds5 ds6 ds7 ->
+                                Text.Parsec.Prim.State
+                                  @ [GHC.Types.Char]
+                                  @ CapDL.ParserUtils.Maps
+                                  ds
+                                  ds1
+                                  (CapDL.ParserUtils.Maps
+                                     ds4
+                                     ds5
+                                     ds6
+                                     (CapDL.DumpParser.$sinsert_$sgo1
+                                        @ [GHC.Types.Char]
+                                        lvl25
+                                        obj
+                                        ds7)) } }
+                            } in
+                            eok
+                              GHC.Tuple.()
+                              s'
+                              (case s1 of wild2 { Text.Parsec.Prim.State ds ds1 ds2 ->
+                               case ds1 of ww3 { Text.Parsec.Pos.SourcePos ww4 ww5 ww6 ->
+                               let {
+                                 $w$j :: Text.Parsec.Pos.SourceName
+                                         -> GHC.Prim.Int#
+                                         -> GHC.Prim.Int#
+                                         -> [Text.Parsec.Error.Message]
+                                         -> (# Text.Parsec.Pos.SourcePos,
+                                               [Text.Parsec.Error.Message] #)
+                                   {- Arity: 4, Strictness: <L,U><S,U><S,U><S,U>, Inline: [0] -}
+                                 = \ (ww :: Text.Parsec.Pos.SourceName)[OneShot]
+                                     (ww1 :: GHC.Prim.Int#)[OneShot]
+                                     (ww2 :: GHC.Prim.Int#)[OneShot]
+                                     (w :: [Text.Parsec.Error.Message])[OneShot] ->
+                                   case s' of wild3 { Text.Parsec.Prim.State ds4 ds5 ds6 ->
+                                   case ds5 of ww9 { Text.Parsec.Pos.SourcePos ww10 ww11 ww12 ->
+                                   case GHC.Classes.$fOrd[]_$s$ccompare1 ww10 ww10 of wild4 {
+                                     DEFAULT
+                                     -> Text.Parsec.Error.$wmergeError
+                                          ww
+                                          ww1
+                                          ww2
+                                          w
+                                          ww10
+                                          ww11
+                                          ww12
+                                          (GHC.Types.[] @ Text.Parsec.Error.Message)
+                                     GHC.Types.EQ
+                                     -> Text.Parsec.Error.$wmergeError
+                                          ww
+                                          ww1
+                                          ww2
+                                          w
+                                          ww10
+                                          ww11
+                                          ww12
+                                          Text.Parsec.Error.mergeError1 } } }
+                               } in
+                               case GHC.Classes.$fOrd[]_$s$ccompare1 ww4 ww4 of wild3 {
+                                 DEFAULT
+                                 -> case $w$j
+                                           ww4
+                                           ww5
+                                           ww6
+                                           (GHC.Types.[]
+                                              @ Text.Parsec.Error.Message) of ww { (#,#) ww1 ww2 ->
+                                    Text.Parsec.Error.ParseError ww1 ww2 }
+                                 GHC.Types.EQ
+                                 -> case $w$j
+                                           ww4
+                                           ww5
+                                           ww6
+                                           Text.Parsec.Error.mergeError1 of ww { (#,#) ww1 ww2 ->
+                                    Text.Parsec.Error.ParseError ww1 ww2 } } } }))
+                             `cast`
+                           (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                                     <[GHC.Types.Char]>_R
+                                     <CapDL.ParserUtils.Maps>_R
+                                     <Data.Functor.Identity.Identity>_R
+                                     <()>_R)) } }) -}
+beed382f34e6824f61b8bf63787581f2
+  maybeInsertIRQ1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "irqhandler"#) -}
+b9a0cc5e82b60b1868fa572c7c7b896c
+  maybeInsertIRQ2 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> (()
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (()
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> Data.Functor.Identity.Identity b
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <L,U(U,U,U)><L,A><L,A><C(C(C(S))),1*C1(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (5, True, False)
+                (\ @ b
+                   (s1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (ds :: ()
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (ds1 :: Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b)
+                   (eok :: ()
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b)
+                   (ds2 :: Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b) ->
+                 eok
+                   GHC.Tuple.()
+                   s1
+                   (case s1 of wild { Text.Parsec.Prim.State ds3 ds4 ds5 ->
+                    Text.Parsec.Error.ParseError
+                      ds4
+                      (GHC.Types.[] @ Text.Parsec.Error.Message) })) -}
+f425c854b021362ee3c40df499aeb243
+  maybe_obj_decl ::
+    CapDL.Model.Arch
+    -> (CapDL.AST.Name, CapDL.AST.KO)
+    -> GHC.Types.Word
+    -> CapDL.ParserUtils.MapParser GHC.Types.Word
+  {- Arity: 8,
+     Strictness: <L,U><L,U(U,U(U,U,U))><L,U(U)><L,U(U,U(U,U,U),U)><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.maybe_obj_decl1
+                  `cast`
+                (<CapDL.Model.Arch>_R
+                 ->_R <(CapDL.AST.Name, CapDL.AST.KO)>_R
+                 ->_R <GHC.Types.Word>_R
+                 ->_R Sym (Text.Parsec.Prim.N:ParsecT[0]
+                               <[GHC.Types.Char]>_R
+                               <CapDL.ParserUtils.Maps>_R
+                               <Data.Functor.Identity.Identity>_R
+                               <GHC.Types.Word>_R)) -}
+0a89c29bfb790cfcfb84d6d401c4a89c
+  maybe_obj_decl1 ::
+    CapDL.Model.Arch
+    -> (CapDL.AST.Name, CapDL.AST.KO)
+    -> GHC.Types.Word
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (GHC.Types.Word
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (GHC.Types.Word
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 8,
+     Strictness: <L,U><L,U(U,U(U,U,U))><L,U(U)><L,U(U,U(U,U,U),U)><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,C(U)> -}
+dca3ea610faec4a4882dcecbf8054581
+  maybe_object ::
+    CapDL.ParserUtils.MapParser
+      (GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO))
+  {- Arity: 5,
+     Strictness: <L,U(U,U(U,U,U),U)><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,A>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.maybe_object1
+                  `cast`
+                (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                          <[GHC.Types.Char]>_R
+                          <CapDL.ParserUtils.Maps>_R
+                          <Data.Functor.Identity.Identity>_R
+                          <GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)>_R)) -}
+54b9a62501f4d003eeac2fffeb026ec6
+  maybe_object1 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> (GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b)
+    -> Data.Functor.Identity.Identity b
+  {- Arity: 5,
+     Strictness: <L,U(U,U(U,U,U),U)><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,A>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (5, True, True)
+                (\ @ b
+                   (w :: Text.Parsec.Prim.State
+                           [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (w1 :: GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w2 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w3 :: GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+                          -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                          -> Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b)
+                   (w4 :: Text.Parsec.Error.ParseError
+                          -> Data.Functor.Identity.Identity b) ->
+                 CapDL.DumpParser.$wmaybe_object @ b w w1 w2 w3) -}
+4d11218e82f9ada00dd97a77c9a1382d
+  maybe_object2 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> (GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 5,
+     Strictness: <L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U>,
+     Unfolding: (\ @ b1
+                   (s1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (cok :: GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b1)
+                   (cerr :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                   (eok :: GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b1)
+                   (eerr :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1) ->
+                 case CapDL.ParserUtils.lexer of wild { Text.Parsec.Token.TokenParser ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ds12 ds13 ds14 ds15 ds16 ds17 ds18 ds19 ds20 ds21 ds22 ds23 ds24 ds25 ds26 ds27 ds28 ds29 ->
+                 ds1
+                   `cast`
+                 (Text.Parsec.Prim.N:ParsecT[0]
+                      <[GHC.Types.Char]>_R
+                      <CapDL.ParserUtils.Maps>_R
+                      <Data.Functor.Identity.Identity>_R
+                      <CapDL.AST.Name>_R)
+                   @ b1
+                   s1
+                   (\ (x :: CapDL.AST.Name)
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    CapDL.DumpParser.maybe_object3
+                      x
+                      @ b1
+                      s2
+                      cok
+                      cerr
+                      (\ (x1 :: GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO))
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                         (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                       cok x1 s3 (Text.Parsec.Error.mergeError err err'))
+                      (\ (err' :: Text.Parsec.Error.ParseError) ->
+                       cerr (Text.Parsec.Error.mergeError err err')))
+                   cerr
+                   (\ (x :: CapDL.AST.Name)
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    CapDL.DumpParser.maybe_object3
+                      x
+                      @ b1
+                      s2
+                      cok
+                      cerr
+                      (\ (x1 :: GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO))
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                         (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                       eok x1 s3 (Text.Parsec.Error.mergeError err err'))
+                      (\ (err' :: Text.Parsec.Error.ParseError) ->
+                       eerr (Text.Parsec.Error.mergeError err err')))
+                   eerr }) -}
+0921eb3245767e72ec816ec9d4adf5da
+  maybe_object3 ::
+    CapDL.AST.Name
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (GHC.Base.Maybe (CapDL.AST.Name, CapDL.AST.KO)
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 6,
+     Strictness: <L,U><L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U> -}
+31be37460db6287135226e91e8bfcafc
+  obj_decl ::
+    CapDL.Model.Arch -> CapDL.ParserUtils.MapParser CapDL.AST.KODecl
+  {- Arity: 6,
+     Strictness: <L,U><L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.obj_decl1
+                  `cast`
+                (<CapDL.Model.Arch>_R
+                 ->_R Sym (Text.Parsec.Prim.N:ParsecT[0]
+                               <[GHC.Types.Char]>_R
+                               <CapDL.ParserUtils.Maps>_R
+                               <Data.Functor.Identity.Identity>_R
+                               <CapDL.AST.KODecl>_R)) -}
+2489b467973cd4570e04cbe0bead1487
+  obj_decl1 ::
+    CapDL.Model.Arch
+    -> forall b.
+       Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+       -> (CapDL.AST.KODecl
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (CapDL.AST.KODecl
+           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+           -> Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> (Text.Parsec.Error.ParseError
+           -> Data.Functor.Identity.Identity b)
+       -> Data.Functor.Identity.Identity b
+  {- Arity: 6,
+     Strictness: <L,U><L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,U> -}
+5cfb5dac7a279eb2249e083c138af10a
+  obj_decls ::
+    CapDL.Model.Arch -> CapDL.ParserUtils.MapParser [CapDL.AST.Decl]
+  {- Arity: 1, Strictness: <L,U> -}
+71b9fff53a92d93ec096fac4b534c2a8
+  object :: CapDL.ParserUtils.MapParser CapDL.AST.KO
+  {- Arity: 5,
+     Strictness: <L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.DumpParser.object1
+                  `cast`
+                (Sym (Text.Parsec.Prim.N:ParsecT[0]
+                          <[GHC.Types.Char]>_R
+                          <CapDL.ParserUtils.Maps>_R
+                          <Data.Functor.Identity.Identity>_R
+                          <CapDL.AST.KO>_R)) -}
+be815c87bb997682f7a5f7b70d8ee43e
+  object1 ::
+    Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+    -> (CapDL.AST.KO
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (CapDL.AST.KO
+        -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+        -> Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> (Text.Parsec.Error.ParseError
+        -> Data.Functor.Identity.Identity b1)
+    -> Data.Functor.Identity.Identity b1
+  {- Arity: 5,
+     Strictness: <L,U><L,C(C1(C1(U)))><L,U><L,C(C1(C1(U)))><L,C(U)>,
+     Unfolding: (\ @ b1
+                   (s1 :: Text.Parsec.Prim.State
+                            [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                   (cok :: CapDL.AST.KO
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b1)
+                   (cerr :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1)
+                   (eok :: CapDL.AST.KO
+                           -> Text.Parsec.Prim.State [GHC.Types.Char] CapDL.ParserUtils.Maps
+                           -> Text.Parsec.Error.ParseError
+                           -> Data.Functor.Identity.Identity b1)
+                   (eerr :: Text.Parsec.Error.ParseError
+                            -> Data.Functor.Identity.Identity b1) ->
+                 CapDL.ParserUtils.object_type1
+                   @ b1
+                   s1
+                   (\ (x :: CapDL.Model.KOType)
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    CapDL.DumpParser.$wobject
+                      x
+                      @ b1
+                      s2
+                      cok
+                      cerr
+                      (\ (x1 :: CapDL.AST.KO)
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                         (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                       cok x1 s3 (Text.Parsec.Error.mergeError err err')))
+                   cerr
+                   (\ (x :: CapDL.Model.KOType)
+                      (s2 :: Text.Parsec.Prim.State
+                               [GHC.Types.Char] CapDL.ParserUtils.Maps)
+                      (err :: Text.Parsec.Error.ParseError) ->
+                    CapDL.DumpParser.$wobject
+                      x
+                      @ b1
+                      s2
+                      cok
+                      cerr
+                      (\ (x1 :: CapDL.AST.KO)
+                         (s3 :: Text.Parsec.Prim.State
+                                  [GHC.Types.Char] CapDL.ParserUtils.Maps)[OneShot]
+                         (err' :: Text.Parsec.Error.ParseError)[OneShot] ->
+                       eok x1 s3 (Text.Parsec.Error.mergeError err err')))
+                   eerr) -}
+874157ab39278d69fd53f5309644361d
+  refToNameRef :: CapDL.Model.ObjID -> CapDL.AST.NameRef
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(U,1*U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)) ->
+                 case ds of wild { (,) id num ->
+                 case num of wild1 {
+                   GHC.Base.Nothing -> (id, GHC.Types.[] @ CapDL.AST.Range)
+                   GHC.Base.Just num1
+                   -> (id,
+                       GHC.Types.:
+                         @ CapDL.AST.Range
+                         (CapDL.AST.Only num1)
+                         (GHC.Types.[] @ CapDL.AST.Range)) } }) -}
+c2834551b5c5700470754a755edf4384
+  sizeOf :: CapDL.Model.Arch -> CapDL.AST.KO -> GHC.Types.Word
+  {- Arity: 2, Strictness: <L,1*U><S(SLL),1*U(U,1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CapDL.Model.Arch) (w1 :: CapDL.AST.KO) ->
+                 case w1 of ww { CapDL.AST.Obj ww1 ww2 ww3 ->
+                 CapDL.DumpParser.$wsizeOf w ww1 ww2 }) -}
+"SC:$w$sgo100" [0] forall @ a1
+                          (sc :: Data.Map.Base.Map
+                                   ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a1)
+                          (sc1 :: a1)
+                          (sc2 :: [GHC.Types.Char])
+  CapDL.DumpParser.$w$sgo10 @ a1
+                            sc2
+                            (GHC.Base.Nothing @ GHC.Types.Word)
+                            sc1
+                            sc
+  = CapDL.DumpParser.$sinsert_$s$w$sgo2 @ a1 sc sc1 sc2
+"SC:$w$sgo101" [0] forall @ a1
+                          (sc :: Data.Map.Base.Map
+                                   ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a1)
+                          (sc1 :: a1)
+                          (sc2 :: GHC.Types.Word)
+                          (sc3 :: [GHC.Types.Char])
+  CapDL.DumpParser.$w$sgo10 @ a1
+                            sc3
+                            (GHC.Base.Just @ GHC.Types.Word sc2)
+                            sc1
+                            sc
+  = CapDL.DumpParser.$sinsert_$s$w$sgo1 @ a1 sc sc1 sc2 sc3
+"SC:$w$sgo102" [0] forall @ a1
+                          (sc :: Data.Map.Base.Map
+                                   ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a1)
+                          (sc1 :: a1)
+                          (sc2 :: GHC.Prim.Word#)
+                          (sc3 :: [GHC.Types.Char])
+  CapDL.DumpParser.$w$sgo10 @ a1
+                            sc3
+                            (GHC.Base.Just @ GHC.Types.Word (GHC.Types.W# sc2))
+                            sc1
+                            sc
+  = CapDL.DumpParser.$sinsert_$s$w$sgo10 @ a1 sc sc1 sc2 sc3
+"SC:$wpoly_go100" [0] forall @ a
+                             (sc :: Data.Map.Base.Map
+                                      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a)
+                             (sc1 :: [GHC.Types.Char])
+  CapDL.DumpParser.$wpoly_go10 @ a
+                               sc1
+                               (GHC.Base.Nothing @ GHC.Types.Word)
+                               sc
+  = CapDL.DumpParser.$slookup_$s$wpoly_go2 @ a sc sc1
+"SC:$wpoly_go101" [0] forall @ a
+                             (sc :: Data.Map.Base.Map
+                                      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a)
+                             (sc1 :: GHC.Types.Word)
+                             (sc2 :: [GHC.Types.Char])
+  CapDL.DumpParser.$wpoly_go10 @ a
+                               sc2
+                               (GHC.Base.Just @ GHC.Types.Word sc1)
+                               sc
+  = CapDL.DumpParser.$slookup_$s$wpoly_go1 @ a sc sc1 sc2
+"SC:$wpoly_go102" [0] forall @ a
+                             (sc :: Data.Map.Base.Map
+                                      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a)
+                             (sc1 :: GHC.Prim.Word#)
+                             (sc2 :: [GHC.Types.Char])
+  CapDL.DumpParser.$wpoly_go10 @ a
+                               sc2
+                               (GHC.Base.Just @ GHC.Types.Word (GHC.Types.W# sc1))
+                               sc
+  = CapDL.DumpParser.$slookup_$s$wpoly_go10 @ a sc sc1 sc2
+"SPEC/CapDL.DumpParser $fStream[]mtok @ Identity _" [ALWAYS] forall @ tok
+                                                                    ($dMonad :: GHC.Base.Monad
+                                                                                  Data.Functor.Identity.Identity)
+  Text.Parsec.Prim.$fStream[]mtok @ Data.Functor.Identity.Identity
+                                  @ tok
+                                  $dMonad
+  = CapDL.DumpParser.$s$fStream[]mtok @ tok
+"SPEC/CapDL.DumpParser $fStream[]mtok_$cp1Stream @ Identity _" [ALWAYS] forall @ tok
+                                                                               ($dMonad :: GHC.Base.Monad
+                                                                                             Data.Functor.Identity.Identity)
+  Text.Parsec.Prim.$fStream[]mtok_$cp1Stream @ Data.Functor.Identity.Identity
+                                             @ tok
+                                             $dMonad
+  = CapDL.DumpParser.$s$fStream[]mtok_$s$fStream[]mtok_$cp1Stream
+      @ tok
+"SPEC/CapDL.DumpParser $fStream[]mtok_$cuncons @ Identity _" [ALWAYS] forall @ tok
+                                                                             ($dMonad :: GHC.Base.Monad
+                                                                                           Data.Functor.Identity.Identity)
+  Text.Parsec.Prim.$fStream[]mtok_$cuncons @ Data.Functor.Identity.Identity
+                                           @ tok
+                                           $dMonad
+  = CapDL.DumpParser.$s$fStream[]mtok_$s$fStream[]mtok_$cuncons @ tok
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

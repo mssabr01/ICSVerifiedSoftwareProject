@@ -1,0 +1,1713 @@
+
+==================== FINAL INTERFACE ====================
+2018-12-23 21:11:27.795451 UTC
+
+interface main@main:CapDL.PrintC 8002
+  interface hash: 31dce389385d5f63fb945aaca0a61104
+  ABI hash: c7369f5bc1646c0bf8a1fe6d603ae145
+  export-list hash: 0d695ce555fc151d216e55066943132b
+  orphan hash: 33fc1d8614589db568d9107015042082
+  flag hash: f30fb194eaf49f07c1c82498c49ed828
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  CapDL.PrintC.+++
+  CapDL.PrintC.extraFrameInfos
+  CapDL.PrintC.hex
+  CapDL.PrintC.lookupByValue
+  CapDL.PrintC.maxObjects
+  CapDL.PrintC.memberArch
+  CapDL.PrintC.memberIRQs
+  CapDL.PrintC.memberNum
+  CapDL.PrintC.memberObjects
+  CapDL.PrintC.memberSlots
+  CapDL.PrintC.printC
+  CapDL.PrintC.printInit
+  CapDL.PrintC.showCap
+  CapDL.PrintC.showFrameInfo
+  CapDL.PrintC.showFrameInfos
+  CapDL.PrintC.showObjID
+  CapDL.PrintC.showObject
+  CapDL.PrintC.showObjectFields
+  CapDL.PrintC.showObjects
+  CapDL.PrintC.showPCI
+  CapDL.PrintC.showRights
+  CapDL.PrintC.showSlots
+  CapDL.PrintC.∈
+module dependencies: CapDL.Model CapDL.PrintUtils
+package dependencies: MissingH-1.4.0.1@MissingH-1.4.0.1-4I5T4TbNA9RIo1FM0FgAP
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.1.0*
+                      base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      transformers-0.5.2.0@transformers-0.5.2.0
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+import  -/  MissingH-1.4.0.1@MissingH-1.4.0.1-4I5T4TbNA9RIo1FM0FgAP:Data.List.Utils d8dc0eb991895dd7f68592c4ace22c20
+import  -/  base-4.9.1.0:Control.Exception a76dd9666251322fe34dbcca3a0817bf
+import  -/  base-4.9.1.0:Data.Bits d707ac81dd0124c7a7fb3234df2c8548
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.Maybe d876c4ffe4b3c43755a781e8ad860d88
+import  -/  base-4.9.1.0:Data.OldList 27987919d8da2f92e3f472ca81f730f8
+import  -/  base-4.9.1.0:Data.Tuple 7dc4bbb45d2e69c991ffac438beeca11
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Float 33e2b9ffe427edd6a5c2fd6a3b26703c
+import  -/  base-4.9.1.0:GHC.List ab8c4e523e6c479c549d3bcd5fc4a439
+import  -/  base-4.9.1.0:GHC.Num 00bfaa7b2f9d6084913c0697a8a49ec8
+import  -/  base-4.9.1.0:GHC.Real 82e4e59051a13dba1da63e1e970a69e6
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Numeric bdcfa841811670500691657d058d32ea
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22:Data.List.Compat 418dd9bb7e30a0545524709bdb407f11
+import  -/  base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22:Prelude.Compat 26d0dbb9ddc9475bb1179736f86de98b
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map 20d4ffbee41965d03d6a989425473dc4
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base d432f6875983131473086af8cb290590
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set 3ed2324fd1e757464a8ac2b636a64e5a
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base 192db525847d66243089501d3ee84714
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  CapDL.Model 8e26b32fabef412aa2e46767667c26cb
+  exports: 194cc77771ecdac5cfada74519b29912
+  AARCH64 ff211425a2334cac250222f279c5cfee
+  ARM11 8f179bddb716d335769c19533d0eaf6b
+  ARMIODevice 8d08fd1166b8de2048c52e2b9ba46fc9
+  ARMIOSpaceCap 244266543b9bb53794fb556e30a4fa22
+  ASIDControlCap a3104e7f04f2308bce70b72a9539f64c
+  ASIDPool ba5104d1532a081bc49c891060909aeb
+  ASIDPoolCap 220dabb0361563f94fe2205d48394fdd
+  Arch 26cd7f1c4f2288b82107a65f43631900
+  CDT 55973b7d1a84f9de6a8a38ae41e41412
+  CNode 693211dc12ef4126b116f6e95fe7e75f
+  CNodeCap 590fd2c6f6ecf22b2eeebcb996881e19
+  Cap 2a21d35a68336a201f9362f96f90a464
+  CapMap 2b3c9fb77110f866f8b91e1409ce1aa7
+  CapName 7f6708f4412dcdf3921e3fc30ed248e0
+  CapRights fee87d5c49f4692c15b6de86f85fa1c8
+  CopyMap 30d06829776f11b94c33c433c23696ba
+  Endpoint c7cea90dd68aeb74658e3b6beaf32a8c
+  EndpointCap de93c9c099a382fb6d594d38dffc515f
+  Frame a1a72eb2098660223f462524f6d64cf1
+  FrameCap 358500e6ad48a24c1af7b4eeb9abeeaa
+  Grant fefd5406f57976eeb0a13a1bdf3ef3f6
+  IA32 4a47723a0b2e7b28dfcc254a49b5bf41
+  IOAPICIrq 9f24f8ed20ffbab428657aae84561aad
+  IODevice f669911d54b94953bc180cecc4b80eea
+  IOPorts 49268bae7609d49418f5b50e0677c646
+  IOPortsCap 377691fc07b5c1d255b3fc9dda6ec5ae
+  IOSpaceCap 6673a14c764d87aa3a2ba80ca2d617d4
+  IRQControlCap babd09b93c0c2ddc43877f1de09ef9b3
+  IRQHandlerCap 3f111314ce395ab293e006573af72663
+  IRQIOAPICHandlerCap 7de4cff137d170defd36aaf06926d5ae
+  IRQMSIHandlerCap 26b9b7fb929e0c2f4ebda5b275885208
+  IRQMap 49498d7e37e25c2f2cd49bbacdd33a00
+  Idents f96b2f5fbb7738b3c6c33245caa3a364
+  KernelObject 74facc4ab534e001bd4ca07a143628e7
+  MSIIrq 7807e4bd04f2b57c12200eeed8d32cd1
+  MasterReplyCap 8d2e215096b21052f109b41a538449e6
+  Model df1f00d4fc6384f8455b17f2f30da3ed
+  Model 589b7c47d95fa3c92cab05c02d9ec104
+  Notification 7bfb9587626e7f2e148fb306f316d71e
+  NotificationCap 063382f0af99af375a364faf442ece26
+  NullCap 8c7613d0a705ef268c687dd8eecdf246
+  ObjID 79624deef3a276329daf8841ec6c4e4b
+  ObjMap 4211baa280b570e4c761bd30aa346582
+  PD a3f7eeb64b66c2523cdbb5294fc559f8
+  PDCap a94a62f40927fc7b39a00d764e98d22d
+  PDPT c05bab1de4197b6570ed51849b26fbe2
+  PDPTCap da168249856e97a7ec7799fc57050a3d
+  PGD c636cf4902f9f85b500efdb960d51164
+  PGDCap 13b6ea7c08f70d272ef7dde0819f0eb7
+  PML4 9fb7f4f98ca95bc9722aa291c7cf87e8
+  PML4Cap 3c7b81cf4fe38138c153a3ebec74925a
+  PT 47267c52f19b6b6c3dc0112098310e54
+  PTCap 1264048166584f595250e46b1190742c
+  PUD 6b9a2fb014f7e9737d85cbf5fa5b2a67
+  PUDCap f060a900c8c1100c942bd75887e983cb
+  RTReply d0ea798641d6a73ce7571d1e08711c4c
+  RTReplyCap 0c5f43140b19aae3ce24409078489145
+  Read 9e5698983f64cbb8475dca62178a0405
+  ReplyCap a5ef6bb715de4ce692cfb4d00d75748a
+  SC 281c858ee2e9992504088a82b2e1efe8
+  SCCap 491f26c4528f4790d9f8d78bc359d796
+  SchedControlCap 800551c2b0416e5048788d34d608fac4
+  TCB 226edd638c439891141a4bdf9d407698
+  TCBCap 381122f5a4889633fde5616ee62a3ac6
+  Untyped 1ea9c340003fffbd6472826ee10b2a82
+  UntypedCap c2e82114d9b1d6f0e2c295de577bf108
+  VCPU a3f204f39160fa01138f5aaea2a49d4b
+  VCPUCap a5d4385f5f4a97cb20ff1809b8ec787c
+  Write 5791f86fbf42abf825faad5c69fae627
+  X86_64 b19353a0ea56d0c35dfea24d1a7b3de7
+  affin 3f9c2be3dbb14dbfe8109627b4f1aa9e
+  armiospace a677811cb40d2e0efec25c8567f9a828
+  budget 98d775ea841af47b35934e6e54333057
+  domainID cd76d2eb724e6dd66d514a3d54c6907e
+  elf 5c6451252761e04d82851e2280ccfcb6
+  ip 62e3605a2b1922144c47a36cb6c3117a
+  ipcBufferAddr de25318572d7805eb7739cf50a9e6c5a
+  max_prio bacc3de7e847b1ed3d1fc0c61314dcc6
+  pciDevice 169d49774d36d2a6ba2753ddfa6adc44
+  period 2de0b5e044890bc4affa29afc4f1eea8
+  prio 37d8427c642ee9b950c1299e507daaf3
+  scData f30f7cee92504f333b5865a55f4a8853
+  sp 0ce85df22a7a4f57c35edc0356cad4aa
+import  -/  CapDL.PrintUtils 5a6f8b80bd7ef15efea2dfbb9b67f401
+  exports: 5a3661c05b5b5710ddc0b38cce9f5849
+  sortObjects 005caf63d7f9664f9adfd40a7094ab24
+import  -/  pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint abe8aeb00d775221281f89090d9fbe2a
+import  -/  pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ 5fd6ee2fcb3f4a1e810ed36714963e44
+addDependentFile "/home/sel4-training/.stack/programs/x86_64-linux/ghc-8.0.2/lib/ghc-8.0.2/include/ghcversion.h"
+addDependentFile ".stack-work/dist/x86_64-linux/Cabal-1.24.2.0/build/autogen/cabal_macros.h"
+addDependentFile "/usr/include/stdc-predef.h"
+0bda0311fb03392328f1f8605cd28fb2
+  $s$fEq(,) ::
+    GHC.Classes.Eq ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+                  (GHC.Classes.$fEq(,)_$c==
+                     @ [GHC.Types.Char]
+                     @ (GHC.Base.Maybe GHC.Types.Word)
+                     CapDL.PrintC.$s$fEq(,)_$dEq
+                     CapDL.PrintC.$s$fEq(,)_$dEq1)
+                  (GHC.Classes.$fEq(,)_$c/=
+                     @ [GHC.Types.Char]
+                     @ (GHC.Base.Maybe GHC.Types.Word)
+                     CapDL.PrintC.$s$fEq(,)_$dEq
+                     CapDL.PrintC.$s$fEq(,)_$dEq1) -}
+92c54a6bfdc607db5cf504f2a1ec8b02
+  $s$fEq(,)1 ::
+    GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Base.Maybe GHC.Types.Word -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ds :: GHC.Base.Maybe GHC.Types.Word)
+                   (ds1 :: GHC.Base.Maybe GHC.Types.Word) ->
+                 case ds of wild {
+                   GHC.Base.Nothing
+                   -> case ds1 of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.True
+                        GHC.Base.Just ipv -> GHC.Types.False }
+                   GHC.Base.Just a1
+                   -> case ds1 of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.False
+                        GHC.Base.Just b1 -> GHC.Classes.eqWord a1 b1 } }) -}
+7f82c1de7aaca8565428a839a41de5bd
+  $s$fEq(,)_$dEq :: GHC.Classes.Eq [GHC.Types.Char]
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                GHC.Classes.$fEq[]_$s$fEq[]1 -}
+b8a6dc5bd9f521f93ce6d1b0dbada27d
+  $s$fEq(,)_$dEq1 :: GHC.Classes.Eq (GHC.Base.Maybe GHC.Types.Word)
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.PrintC.$s$fEq(,)_$s$fEqMaybe -}
+96a859d3e541b3877a45072b412e46ad
+  $s$fEq(,)_$dEq2 :: GHC.Classes.Eq GHC.Types.Word
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True) GHC.Classes.$fEqWord -}
+527f0549d14befe6cfd89d62660bcb7c
+  $s$fEq(,)_$s$fEqMaybe ::
+    GHC.Classes.Eq (GHC.Base.Maybe GHC.Types.Word)
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ (GHC.Base.Maybe GHC.Types.Word)
+                  CapDL.PrintC.$s$fEq(,)1
+                  (GHC.Base.$fEqMaybe_$c/=
+                     @ GHC.Types.Word
+                     CapDL.PrintC.$s$fEq(,)_$dEq2) -}
+a9189d63cd31c4b0a6ef91d1d5ee88f1
+  $s$fEq(,)_$s$fOrd(,)_$cp1Ord ::
+    GHC.Classes.Eq ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True) CapDL.PrintC.$s$fEq(,) -}
+9f57d2cb69eefd30d7513237f2af9ad4
+  $s$fOrd(,) ::
+    GHC.Classes.Ord ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+                  CapDL.PrintC.$s$fEq(,)_$s$fOrd(,)_$cp1Ord
+                  (GHC.Classes.$fOrd(,)_$ccompare
+                     @ [GHC.Types.Char]
+                     @ (GHC.Base.Maybe GHC.Types.Word)
+                     GHC.Classes.$fOrd[]_$s$fOrd[]1
+                     CapDL.PrintC.$s$fOrd(,)_$dOrd1)
+                  (GHC.Classes.$fOrd(,)_$c<
+                     @ [GHC.Types.Char]
+                     @ (GHC.Base.Maybe GHC.Types.Word)
+                     GHC.Classes.$fOrd[]_$s$fOrd[]1
+                     CapDL.PrintC.$s$fOrd(,)_$dOrd1)
+                  (GHC.Classes.$fOrd(,)_$c<=
+                     @ [GHC.Types.Char]
+                     @ (GHC.Base.Maybe GHC.Types.Word)
+                     GHC.Classes.$fOrd[]_$s$fOrd[]1
+                     CapDL.PrintC.$s$fOrd(,)_$dOrd1)
+                  (GHC.Classes.$fOrd(,)_$c>
+                     @ [GHC.Types.Char]
+                     @ (GHC.Base.Maybe GHC.Types.Word)
+                     GHC.Classes.$fOrd[]_$s$fOrd[]1
+                     CapDL.PrintC.$s$fOrd(,)_$dOrd1)
+                  (GHC.Classes.$fOrd(,)_$c>=
+                     @ [GHC.Types.Char]
+                     @ (GHC.Base.Maybe GHC.Types.Word)
+                     GHC.Classes.$fOrd[]_$s$fOrd[]1
+                     CapDL.PrintC.$s$fOrd(,)_$dOrd1)
+                  (GHC.Classes.$fOrd(,)_$cmax
+                     @ [GHC.Types.Char]
+                     @ (GHC.Base.Maybe GHC.Types.Word)
+                     GHC.Classes.$fOrd[]_$s$fOrd[]1
+                     CapDL.PrintC.$s$fOrd(,)_$dOrd1)
+                  (GHC.Classes.$fOrd(,)_$cmin
+                     @ [GHC.Types.Char]
+                     @ (GHC.Base.Maybe GHC.Types.Word)
+                     GHC.Classes.$fOrd[]_$s$fOrd[]1
+                     CapDL.PrintC.$s$fOrd(,)_$dOrd1) -}
+14f8ea5047b2f15f0522c7d2122cd11c
+  $s$fOrd(,)_$dOrd1 ::
+    GHC.Classes.Ord (GHC.Base.Maybe GHC.Types.Word)
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe -}
+7c20f403fbe777d16059683c114dc18a
+  $s$fOrd(,)_$s$fOrdMaybe ::
+    GHC.Classes.Ord (GHC.Base.Maybe GHC.Types.Word)
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ (GHC.Base.Maybe GHC.Types.Word)
+                  CapDL.PrintC.$s$fEq(,)_$dEq1
+                  CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$ccompare
+                  CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$c<
+                  CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$c<=
+                  CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$c>
+                  CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$c>=
+                  CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$cmax
+                  (GHC.Base.$fOrdMaybe_$cmin
+                     @ GHC.Types.Word
+                     GHC.Classes.$fOrdWord) -}
+d065f9e2c1796a0ccdcb707ce4b7ff86
+  $s$fOrd(,)_$s$fOrdMaybe_$c< ::
+    GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Base.Maybe GHC.Types.Word -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (a1 :: GHC.Base.Maybe GHC.Types.Word)
+                   (b :: GHC.Base.Maybe GHC.Types.Word) ->
+                 case a1 of wild {
+                   GHC.Base.Nothing
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.False
+                        GHC.Base.Just ipv -> GHC.Types.True }
+                   GHC.Base.Just a2
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.False
+                        GHC.Base.Just b1 -> GHC.Classes.ltWord a2 b1 } }) -}
+babab131fdbd6ac4844bed0e823ce7c3
+  $s$fOrd(,)_$s$fOrdMaybe_$c<= ::
+    GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Base.Maybe GHC.Types.Word -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (a1 :: GHC.Base.Maybe GHC.Types.Word)
+                   (b :: GHC.Base.Maybe GHC.Types.Word) ->
+                 case a1 of wild {
+                   GHC.Base.Nothing -> case b of wild1 { DEFAULT -> GHC.Types.True }
+                   GHC.Base.Just a2
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.False
+                        GHC.Base.Just b1 -> GHC.Classes.leWord a2 b1 } }) -}
+4dda1fb1d64d3987a4dcb02482e18a30
+  $s$fOrd(,)_$s$fOrdMaybe_$c> ::
+    GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Base.Maybe GHC.Types.Word -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (a1 :: GHC.Base.Maybe GHC.Types.Word)
+                   (b :: GHC.Base.Maybe GHC.Types.Word) ->
+                 case a1 of wild {
+                   GHC.Base.Nothing -> case b of wild1 { DEFAULT -> GHC.Types.False }
+                   GHC.Base.Just a2
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.True
+                        GHC.Base.Just b1 -> GHC.Classes.gtWord a2 b1 } }) -}
+0d0b3ae8c8e8f08628852d03e6f859ba
+  $s$fOrd(,)_$s$fOrdMaybe_$c>= ::
+    GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Base.Maybe GHC.Types.Word -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (a1 :: GHC.Base.Maybe GHC.Types.Word)
+                   (b :: GHC.Base.Maybe GHC.Types.Word) ->
+                 case a1 of wild {
+                   GHC.Base.Nothing
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.True
+                        GHC.Base.Just ipv -> GHC.Types.False }
+                   GHC.Base.Just a2
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.True
+                        GHC.Base.Just b1 -> GHC.Classes.geWord a2 b1 } }) -}
+e57e64101c67d18a2dbd48dc64665570
+  $s$fOrd(,)_$s$fOrdMaybe_$ccompare ::
+    GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Base.Maybe GHC.Types.Word -> GHC.Types.Ordering
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (a1 :: GHC.Base.Maybe GHC.Types.Word)
+                   (b :: GHC.Base.Maybe GHC.Types.Word) ->
+                 case a1 of wild {
+                   GHC.Base.Nothing
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.EQ
+                        GHC.Base.Just ipv -> GHC.Types.LT }
+                   GHC.Base.Just a2
+                   -> case b of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.GT
+                        GHC.Base.Just b1 -> GHC.Classes.compareWord a2 b1 } }) -}
+9c55d1fcc34ec580a05f3cfd3470e843
+  $s$fOrd(,)_$s$fOrdMaybe_$cmax ::
+    GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Base.Maybe GHC.Types.Word -> GHC.Base.Maybe GHC.Types.Word
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (x :: GHC.Base.Maybe GHC.Types.Word)
+                   (y :: GHC.Base.Maybe GHC.Types.Word) ->
+                 case x of wild {
+                   GHC.Base.Nothing -> y
+                   GHC.Base.Just a1
+                   -> case y of wild1 {
+                        GHC.Base.Nothing -> wild
+                        GHC.Base.Just b1
+                        -> case GHC.Classes.leWord a1 b1 of wild2 {
+                             GHC.Types.False -> wild GHC.Types.True -> wild1 } } }) -}
+b83fd7606fec8c201c31da8732aa56b4
+  $sfromList ::
+    [(CapDL.Model.ObjID, a)] -> Data.Map.Base.Map CapDL.Model.ObjID a
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ @ a (ds :: [(CapDL.Model.ObjID, a)]) ->
+                 case ds of wild {
+                   [] -> Data.Map.Base.Tip @ CapDL.Model.ObjID @ a
+                   : ds1 ds2
+                   -> case ds1 of wild1 { (,) kx x ->
+                      case ds2 of wild2 {
+                        []
+                        -> case kx of dt { (,) ipv ipv1 ->
+                           Data.Map.Base.Bin
+                             @ CapDL.Model.ObjID
+                             @ a
+                             1#
+                             dt
+                             x
+                             (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a)
+                             (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a) }
+                        : ipv ipv1
+                        -> case ipv of wild3 { (,) ky ds3 ->
+                           case kx of ww { (,) ww1 ww2 ->
+                           case ky of ww3 { (,) ww4 ww5 ->
+                           case GHC.Classes.$fOrd[]_$s$ccompare1 ww1 ww4 of wild4 {
+                             GHC.Types.LT
+                             -> CapDL.PrintC.$sfromList_$s$wpoly_go2
+                                  @ a
+                                  ww4
+                                  ww5
+                                  ds3
+                                  ipv1
+                                  (Data.Map.Base.Bin
+                                     @ CapDL.Model.ObjID
+                                     @ a
+                                     1#
+                                     ww
+                                     x
+                                     (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a)
+                                     (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a))
+                                  1#
+                             GHC.Types.EQ
+                             -> case ww2 of wild5 {
+                                  GHC.Base.Nothing
+                                  -> case ww5 of wild6 {
+                                       GHC.Base.Nothing
+                                       -> CapDL.PrintC.$sfromList_$spoly_go10
+                                            @ a
+                                            ww3
+                                            ds3
+                                            ipv1
+                                            (Data.Map.Base.Bin
+                                               @ CapDL.Model.ObjID
+                                               @ a
+                                               1#
+                                               ww
+                                               x
+                                               (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a)
+                                               (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a))
+                                       GHC.Base.Just ipv2
+                                       -> CapDL.PrintC.$sfromList_$s$wpoly_go1
+                                            @ a
+                                            ww4
+                                            ipv2
+                                            ds3
+                                            ipv1
+                                            (Data.Map.Base.Bin
+                                               @ CapDL.Model.ObjID
+                                               @ a
+                                               1#
+                                               ww
+                                               x
+                                               (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a)
+                                               (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a))
+                                            1# }
+                                  GHC.Base.Just a2
+                                  -> case ww5 of wild6 {
+                                       GHC.Base.Nothing
+                                       -> CapDL.PrintC.$sfromList_$spoly_go10
+                                            @ a
+                                            ww3
+                                            ds3
+                                            ipv1
+                                            (Data.Map.Base.Bin
+                                               @ CapDL.Model.ObjID
+                                               @ a
+                                               1#
+                                               ww
+                                               x
+                                               (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a)
+                                               (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a))
+                                       GHC.Base.Just b1
+                                       -> case a2 of wild7 { GHC.Types.W# x1 ->
+                                          case b1 of wild8 { GHC.Types.W# y ->
+                                          case GHC.Prim.tagToEnum#
+                                                 @ GHC.Types.Bool
+                                                 (GHC.Prim.geWord# x1 y) of wild9 {
+                                            GHC.Types.False
+                                            -> CapDL.PrintC.$sfromList_$s$wpoly_go10
+                                                 @ a
+                                                 ww4
+                                                 y
+                                                 ds3
+                                                 ipv1
+                                                 (Data.Map.Base.Bin
+                                                    @ CapDL.Model.ObjID
+                                                    @ a
+                                                    1#
+                                                    ww
+                                                    x
+                                                    (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a)
+                                                    (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a))
+                                                 1#
+                                            GHC.Types.True
+                                            -> CapDL.PrintC.$sfromList_$spoly_go10
+                                                 @ a
+                                                 ww3
+                                                 ds3
+                                                 ipv1
+                                                 (Data.Map.Base.Bin
+                                                    @ CapDL.Model.ObjID
+                                                    @ a
+                                                    1#
+                                                    ww
+                                                    x
+                                                    (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a)
+                                                    (Data.Map.Base.Tip
+                                                       @ CapDL.Model.ObjID
+                                                       @ a)) } } } } }
+                             GHC.Types.GT
+                             -> CapDL.PrintC.$sfromList_$spoly_go10
+                                  @ a
+                                  ww3
+                                  ds3
+                                  ipv1
+                                  (Data.Map.Base.Bin
+                                     @ CapDL.Model.ObjID
+                                     @ a
+                                     1#
+                                     ww
+                                     x
+                                     (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a)
+                                     (Data.Map.Base.Tip @ CapDL.Model.ObjID @ a)) } } } } } } }) -}
+ec92b30885af5f6c8b88292ee3c33ec5
+  $sfromList_$s$wpoly_go1 ::
+    [GHC.Types.Char]
+    -> GHC.Types.Word
+    -> a
+    -> [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word), a)]
+    -> Data.Map.Base.Map
+         ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> GHC.Prim.Int#
+    -> Data.Map.Base.Map CapDL.Model.ObjID a
+  {- Arity: 6, Strictness: <L,U><L,U><L,U><L,U><S,1*U><L,U> -}
+454c7cd499101645c7c18171c0e8a9ff
+  $sfromList_$s$wpoly_go10 ::
+    [GHC.Types.Char]
+    -> GHC.Prim.Word#
+    -> a
+    -> [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word), a)]
+    -> Data.Map.Base.Map
+         ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> GHC.Prim.Int#
+    -> Data.Map.Base.Map CapDL.Model.ObjID a
+  {- Arity: 6, Strictness: <L,U><L,U><L,U><L,U><S,1*U><L,U> -}
+7983e5d2567c407ce9353f79634cb7b0
+  $sfromList_$s$wpoly_go2 ::
+    [GHC.Types.Char]
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> a
+    -> [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word), a)]
+    -> Data.Map.Base.Map
+         ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> GHC.Prim.Int#
+    -> Data.Map.Base.Map CapDL.Model.ObjID a
+  {- Arity: 6, Strictness: <L,U><L,U><L,U><L,U><S,1*U><L,U> -}
+a44567d0e8a4f2e3465b6158051a8d06
+  $sfromList_$spoly_go10 ::
+    ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+    -> a
+    -> [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word), a)]
+    -> Data.Map.Base.Map
+         ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> Data.Map.Base.Map CapDL.Model.ObjID a
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><S,1*U> -}
+70bcd749f49c01add53340b582eee739
+  $sinsert_go10 ::
+    GHC.Classes.Ord k1 =>
+    k1 -> a1 -> Data.Map.Base.Map k1 a1 -> Data.Map.Base.Map k1 a1
+  {- Arity: 4,
+     Strictness: <L,U(A,C(C1(U)),A,A,A,A,A,A)><S,1*U><L,U><S,1*U> -}
+2ad8b4e5fe972c7a543cf1fadd0432e0
+  $slookup_$s$wpoly_go1 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> GHC.Types.Word -> [GHC.Types.Char] -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><L,U><L,U> -}
+0465124efebe1162821d983ba1ea66ad
+  $slookup_$s$wpoly_go10 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> GHC.Prim.Word# -> [GHC.Types.Char] -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><L,U><L,U> -}
+1e97bfbdcbee7a2c7ad78359258ec33c
+  $slookup_$s$wpoly_go2 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> [GHC.Types.Char] -> GHC.Base.Maybe a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+92cf4516b9b445826a78c9c2f21f468c
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   CapDL.PrintC.$trModule2
+                   CapDL.PrintC.$trModule1) -}
+7b398d75cfa67f0db1aa7bee273680fa
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "CapDL.PrintC"#) -}
+f2ab94129c9b3c11c810e3c31d5eaf4d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+d7895b242eb7efe1be9f00ce87ee1596
+  $wmemberIRQs ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> CapDL.Model.IRQMap -> GHC.Types.Word -> [GHC.Types.Char]
+  {- Arity: 3, Strictness: <L,U><L,U><L,1*U(U)>, Inline: [0],
+     Unfolding: (\ (w :: Data.Map.Base.Map
+                           CapDL.Model.ObjID GHC.Types.Int)
+                   (w1 :: CapDL.Model.IRQMap)
+                   (w2 :: GHC.Types.Word) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   CapDL.PrintC.memberIRQs1
+                   (GHC.CString.unpackAppendCString#
+                      "\n"#
+                      (case w2 of wild { GHC.Types.W# x# ->
+                       let {
+                         y :: GHC.Prim.Word# = GHC.Prim.minusWord# x# 1##
+                       } in
+                       letrec {
+                         go4 :: GHC.Prim.Word# -> [[GHC.Types.Char]]
+                           {- Arity: 1, Strictness: <L,U> -}
+                         = \ (x :: GHC.Prim.Word#) ->
+                           GHC.Types.:
+                             @ [GHC.Types.Char]
+                             (case CapDL.PrintC.$wpoly_go10
+                                     @ (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)
+                                     x
+                                     w1 of wild1 {
+                                GHC.Base.Nothing
+                                -> case GHC.Show.$wshowSignedInt
+                                          0#
+                                          -1#
+                                          (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                                   GHC.Types.: @ GHC.Types.Char ww5 ww6 }
+                                GHC.Base.Just i
+                                -> case i of ww { (,) ww1 ww2 ->
+                                   case CapDL.PrintC.$wpoly_go1 @ GHC.Types.Int ww1 ww2 w of wild2 {
+                                     GHC.Base.Nothing
+                                     -> case Data.Maybe.fromJust1 ret_ty [GHC.Types.Char] of {}
+                                     GHC.Base.Just x1
+                                     -> case x1 of ww3 { GHC.Types.I# ww4 ->
+                                        case GHC.Show.$wshowSignedInt
+                                               0#
+                                               ww4
+                                               (GHC.Types.[]
+                                                  @ GHC.Types.Char) of ww5 { (#,#) ww6 ww7 ->
+                                        GHC.Types.: @ GHC.Types.Char ww6 ww7 } } } } })
+                             (case GHC.Prim.tagToEnum#
+                                     @ GHC.Types.Bool
+                                     (GHC.Prim.eqWord# x y) of wild1 {
+                                GHC.Types.False -> go4 (GHC.Prim.plusWord# x 1##)
+                                GHC.Types.True -> GHC.Types.[] @ [GHC.Types.Char] })
+                       } in
+                       case go4 0## of wild1 {
+                         [] -> CapDL.PrintC.extraFrameInfos1
+                         : x xs
+                         -> GHC.Base.++
+                              @ GHC.Types.Char
+                              (Data.List.Utils.join1
+                                 @ GHC.Types.Char
+                                 (GHC.Types.:
+                                    @ [GHC.Types.Char]
+                                    x
+                                    (Data.OldList.prependToAll
+                                       @ [GHC.Types.Char]
+                                       CapDL.PrintC.extraFrameInfos3
+                                       xs)))
+                              CapDL.PrintC.extraFrameInfos1 } }))) -}
+5e8e675b2ceeff8c4fde327859dbc4e6
+  $wmemberObjects ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> [(CapDL.Model.ObjID, CapDL.Model.KernelObject GHC.Types.Word)]
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.CDT
+    -> CapDL.Model.ObjMap GHC.Types.Word
+    -> [GHC.Types.Char]
+  {- Arity: 5, Strictness: <L,U><L,1*U><L,U><L,U><L,U>, Inline: [0],
+     Unfolding: (\ (w :: Data.Map.Base.Map
+                           CapDL.Model.ObjID GHC.Types.Int)
+                   (w1 :: [(CapDL.Model.ObjID,
+                            CapDL.Model.KernelObject GHC.Types.Word)])
+                   (w2 :: CapDL.Model.IRQMap)
+                   (w3 :: CapDL.Model.CDT)
+                   (w4 :: CapDL.Model.ObjMap GHC.Types.Word) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   CapDL.PrintC.memberObjects1
+                   (GHC.CString.unpackAppendCString#
+                      "\n"#
+                      (GHC.Base.++
+                         @ GHC.Types.Char
+                         (CapDL.PrintC.memberObjects_$sshowObjects w4 w3 w2 w1 0# w)
+                         CapDL.PrintC.extraFrameInfos1))) -}
+c12a0045c21b5d7698a6334477240c2b
+  $wpoly_go1 ::
+    GHC.Base.String
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> Data.Map.Base.Map CapDL.Model.ObjID a
+    -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U><L,U><S,1*U>,
+     Inline: [0] -}
+6c685e58aebeb809bcdec4658004fbf6
+  $wpoly_go10 ::
+    GHC.Prim.Word#
+    -> Data.Map.Base.Map GHC.Types.Word a -> GHC.Base.Maybe a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>, Inline: [0] -}
+1c9c37695e8ee2bbe01912b871c5eb09
+  $wpoly_go2 ::
+    CapDL.Model.ObjID
+    -> GHC.Types.Word
+    -> Data.Map.Base.Map (CapDL.Model.ObjID, GHC.Types.Word) a
+    -> GHC.Types.Bool
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U(U,U)><L,U(U)><S,1*U>,
+     Inline: [0] -}
+d930418a1be372b7a650dec80d866c23
+  $wprintC ::
+    CapDL.Model.Arch
+    -> CapDL.Model.ObjMap GHC.Types.Word
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.CDT
+    -> GHC.Types.Word
+    -> (# Text.PrettyPrint.Annotated.HughesPJ.AnnotDetails (),
+          Text.PrettyPrint.Annotated.HughesPJ.Doc () #)
+  {- Arity: 5, Strictness: <L,U><L,U><L,U><L,U><L,1*U(U)>,
+     Inline: [0] -}
+1ebcf2ec0689ec17ed6bb119b4f68a97
+  $wshowFrameInfo ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> CapDL.Model.ObjID
+    -> CapDL.Model.KernelObject GHC.Types.Word
+    -> GHC.Base.Maybe GHC.Base.String
+  {- Arity: 3, Strictness: <L,1*U><L,U(U,U)><S,1*U>, Inline: [0],
+     Unfolding: (\ (w :: Data.Map.Base.Map
+                           CapDL.Model.ObjID GHC.Types.Int)
+                   (ww :: CapDL.Model.ObjID)
+                   (ww1 :: CapDL.Model.KernelObject GHC.Types.Word) ->
+                 case ww1 of wild {
+                   DEFAULT -> GHC.Base.Nothing @ GHC.Base.String
+                   CapDL.Model.Frame ds ds1 ds2
+                   -> case ds2 of wild1 {
+                        GHC.Base.Nothing -> GHC.Base.Nothing @ GHC.Base.String
+                        GHC.Base.Just ds3
+                        -> case ds3 of wild2 {
+                             [] -> GHC.Base.Nothing @ GHC.Base.String
+                             : info_type ds4
+                             -> case ds4 of wild3 {
+                                  [] -> GHC.Base.Nothing @ GHC.Base.String
+                                  : offset extra
+                                  -> GHC.Base.Just
+                                       @ [GHC.Types.Char]
+                                       (GHC.CString.unpackAppendCString#
+                                          "{\n\
+                                          \.frame = "#
+                                          (case ww of ww2 { (,) ww3 ww4 ->
+                                           GHC.Base.++
+                                             @ GHC.Types.Char
+                                             (CapDL.PrintC.$wshowObjID w ww3 ww4)
+                                             (GHC.CString.unpackAppendCString#
+                                                ",\n\
+                                                \.type = \""#
+                                                (GHC.Base.++
+                                                   @ GHC.Types.Char
+                                                   info_type
+                                                   (GHC.CString.unpackAppendCString#
+                                                      "\",\n\
+                                                      \.dest_offset = "#
+                                                      (GHC.Base.++
+                                                         @ GHC.Types.Char
+                                                         offset
+                                                         (GHC.CString.unpackAppendCString#
+                                                            ",\n\
+                                                            \.extra_information = \""#
+                                                            (case extra of wild4 {
+                                                               [] -> CapDL.PrintC.showFrameInfo2
+                                                               : x xs
+                                                               -> GHC.Base.++
+                                                                    @ GHC.Types.Char
+                                                                    (Data.List.Utils.join1
+                                                                       @ GHC.Types.Char
+                                                                       (GHC.Types.:
+                                                                          @ [GHC.Types.Char]
+                                                                          x
+                                                                          (Data.OldList.prependToAll
+                                                                             @ [GHC.Types.Char]
+                                                                             CapDL.PrintC.showFrameInfo1
+                                                                             xs)))
+                                                                    CapDL.PrintC.showFrameInfo2 })))))) })) } } } }) -}
+3c01c447feef67657f3dd8010482edfd
+  $wshowFrameInfos ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> [(CapDL.Model.ObjID, CapDL.Model.KernelObject GHC.Types.Word)]
+    -> (# GHC.Types.Int, GHC.Base.String #)
+  {- Arity: 2, Strictness: <L,U><L,1*U>, Inline: [0],
+     Unfolding: (\ (w :: Data.Map.Base.Map
+                           CapDL.Model.ObjID GHC.Types.Int)
+                   (w1 :: [(CapDL.Model.ObjID,
+                            CapDL.Model.KernelObject GHC.Types.Word)]) ->
+                 let {
+                   infos :: [GHC.Base.String]
+                   = Data.Maybe.mapMaybe
+                       @ (CapDL.Model.ObjID, CapDL.Model.KernelObject GHC.Types.Word)
+                       @ [GHC.Types.Char]
+                       (CapDL.PrintC.showFrameInfo w)
+                       w1
+                 } in
+                 (# case GHC.List.$wlenAcc
+                           @ [GHC.Types.Char]
+                           infos
+                           0# of ww2 { DEFAULT ->
+                    GHC.Types.I# ww2 },
+                    Data.List.Utils.join
+                      @ GHC.Types.Char
+                      CapDL.PrintC.extraFrameInfos3
+                      infos #)) -}
+2bca6b68f2f6cad7a5f1593a28932afd
+  $wshowObjID ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> GHC.Base.String
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> [GHC.Types.Char]
+  {- Arity: 3, Strictness: <S,1*U><L,U><L,U>, Inline: [0],
+     Unfolding: (\ (w :: Data.Map.Base.Map
+                           CapDL.Model.ObjID GHC.Types.Int)
+                   (ww :: GHC.Base.String)
+                   (ww1 :: GHC.Base.Maybe GHC.Types.Word) ->
+                 let {
+                   arg :: [GHC.Types.Char]
+                   = GHC.CString.unpackAppendCString#
+                       " /* "#
+                       (GHC.Base.++ @ GHC.Types.Char ww CapDL.PrintC.showFrameInfo4)
+                 } in
+                 case CapDL.PrintC.$wpoly_go1 @ GHC.Types.Int ww ww1 w of wild {
+                   GHC.Base.Nothing
+                   -> GHC.Base.++ @ GHC.Types.Char CapDL.PrintC.showFrameInfo3 arg
+                   GHC.Base.Just w1
+                   -> case w1 of ww2 { GHC.Types.I# ww3 ->
+                      case GHC.Show.$wshowSignedInt
+                             0#
+                             ww3
+                             (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                      GHC.Base.++
+                        @ GHC.Types.Char
+                        (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                        arg } } }) -}
+19e1acb88ab7f72644c83b15a1f922f2
+  $wshowPCI ::
+    GHC.Types.Word
+    -> GHC.Types.Word
+    -> GHC.Types.Word
+    -> GHC.Types.Word
+    -> GHC.Base.String
+  {- Arity: 4, Strictness: <L,1*U(U)><L,1*U(U)><L,1*U(U)><L,1*U(U)>,
+     Inline: [0],
+     Unfolding: (\ (w :: GHC.Types.Word)
+                   (ww :: GHC.Types.Word)
+                   (ww1 :: GHC.Types.Word)
+                   (ww2 :: GHC.Types.Word) ->
+                 GHC.CString.unpackAppendCString#
+                   "0x"#
+                   (Numeric.showIntAtBase
+                      @ GHC.Types.Word
+                      GHC.Real.$fIntegralWord
+                      GHC.Show.$fShowWord
+                      CapDL.PrintC.hex1
+                      GHC.Show.intToDigit
+                      (case w of wild { GHC.Types.W# x# ->
+                       case ww of wild1 { GHC.Types.W# x#1 ->
+                       case ww1 of wild2 { GHC.Types.W# x#2 ->
+                       case ww2 of wild3 { GHC.Types.W# y# ->
+                       GHC.Types.W#
+                         (GHC.Prim.or#
+                            (GHC.Prim.or#
+                               (GHC.Prim.or#
+                                  (GHC.Prim.uncheckedShiftL# x# 16#)
+                                  (GHC.Prim.uncheckedShiftL# x#1 8#))
+                               (GHC.Prim.uncheckedShiftL# x#2 3#))
+                            y#) } } } })
+                      (GHC.Types.[] @ GHC.Types.Char))) -}
+54cbfd2c35e26ec675d44a68d315efd1
+  (+++) :: GHC.Base.String -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (s1 :: GHC.Base.String) (s2 :: GHC.Base.String) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr @ GHC.Types.Char @ b c n s1)
+                   (GHC.CString.unpackAppendCString# "\n"# s2)) -}
+33f4bdd53990bc4e4b04a8dab7491b1b
+  extraFrameInfos ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> [(CapDL.Model.ObjID, CapDL.Model.KernelObject GHC.Types.Word)]
+    -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,U><L,1*U>,
+     Unfolding: (\ (obj_ids :: Data.Map.Base.Map
+                                 CapDL.Model.ObjID GHC.Types.Int)
+                   (objs :: [(CapDL.Model.ObjID,
+                              CapDL.Model.KernelObject GHC.Types.Word)]) ->
+                 GHC.CString.unpackAppendCString#
+                   ".num_frame_fill = "#
+                   (let {
+                      infos :: [GHC.Base.String]
+                      = Data.Maybe.mapMaybe
+                          @ (CapDL.Model.ObjID, CapDL.Model.KernelObject GHC.Types.Word)
+                          @ [GHC.Types.Char]
+                          (CapDL.PrintC.showFrameInfo obj_ids)
+                          objs
+                    } in
+                    case GHC.List.$wlenAcc
+                           @ [GHC.Types.Char]
+                           infos
+                           0# of ww2 { DEFAULT ->
+                    case GHC.Show.$wshowSignedInt
+                           0#
+                           ww2
+                           (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                    GHC.Base.++
+                      @ GHC.Types.Char
+                      (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                      (GHC.Base.++
+                         @ GHC.Types.Char
+                         CapDL.PrintC.extraFrameInfos5
+                         (GHC.CString.unpackAppendCString#
+                            "\n"#
+                            (case infos of wild {
+                               [] -> CapDL.PrintC.extraFrameInfos4
+                               : x xs
+                               -> GHC.Base.++
+                                    @ GHC.Types.Char
+                                    (Data.List.Utils.join1
+                                       @ GHC.Types.Char
+                                       (GHC.Types.:
+                                          @ [GHC.Types.Char]
+                                          x
+                                          (Data.OldList.prependToAll
+                                             @ [GHC.Types.Char]
+                                             CapDL.PrintC.extraFrameInfos3
+                                             xs)))
+                                    CapDL.PrintC.extraFrameInfos1 }))) } })) -}
+3221a47d678a9c72d4c50b9096f4b171
+  extraFrameInfos1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "\n"#
+                   CapDL.PrintC.extraFrameInfos2) -}
+96ee75f47ac180611294235ddee53b89
+  extraFrameInfos2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "},"#) -}
+66870f86ee6a836264df31d43cb1e14c
+  extraFrameInfos3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# ", "#) -}
+24e4b05aa1d39353e93367489a66fe06
+  extraFrameInfos4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   CapDL.PrintC.extraFrameInfos1) -}
+6e78f13ba1f18e646928e7a8628638a4
+  extraFrameInfos5 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString#
+                   ",\n\
+                   \.frame_fill = (CDL_FrameFill[]){"#) -}
+c8b4d6889256c13b4860048235ef79e6
+  hex :: GHC.Types.Word -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ (x :: GHC.Types.Word) ->
+                 GHC.CString.unpackAppendCString#
+                   "0x"#
+                   (Numeric.showIntAtBase
+                      @ GHC.Types.Word
+                      GHC.Real.$fIntegralWord
+                      GHC.Show.$fShowWord
+                      CapDL.PrintC.hex1
+                      GHC.Show.intToDigit
+                      x
+                      (GHC.Types.[] @ GHC.Types.Char))) -}
+78dac1fa72ba2b1e442b68a1e8bca057
+  hex1 :: GHC.Types.Word
+  {- HasNoCafRefs, Unfolding: (GHC.Types.W# 16##) -}
+591f5800e95f612d61ef7291de51edbc
+  lookupByValue ::
+    (a -> GHC.Types.Bool) -> Data.Map.Base.Map k a -> k
+  {- Arity: 2, Strictness: <L,C(U)><S,1*U>,
+     Unfolding: (\ @ a
+                   @ k
+                   (f :: a -> GHC.Types.Bool)
+                   (m :: Data.Map.Base.Map k a) ->
+                 CapDL.PrintC.lookupByValue1
+                   @ a
+                   @ k
+                   (GHC.List.badHead @ k)
+                   (Data.Map.Base.filterWithKey
+                      @ k
+                      @ a
+                      (\ (ds :: k) (x :: a)[OneShot] -> f x)
+                      m)) -}
+3550f1ea94bfc50c950756edbd548125
+  lookupByValue1 :: k -> Data.Map.Base.Map k a -> k
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U> -}
+3b6e3de3a5815c8cd5860146761d7b51
+  maxObjects :: GHC.Types.Int -> GHC.Base.String
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,1*U(U)>,
+     Unfolding: (\ (count :: GHC.Types.Int) ->
+                 GHC.CString.unpackAppendCString#
+                   "#define MAX_OBJECTS "#
+                   (case count of ww2 { GHC.Types.I# ww3 ->
+                    case GHC.Show.$wshowSignedInt
+                           0#
+                           ww3
+                           (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                    GHC.Types.: @ GHC.Types.Char ww5 ww6 } })) -}
+2cbb33bbfb510e8d18bf035749909c39
+  memberArch :: CapDL.Model.Arch -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ (arch :: CapDL.Model.Arch) ->
+                 GHC.CString.unpackAppendCString#
+                   "#if !defined(CONFIG_ARCH_"#
+                   (let {
+                      a :: [GHC.Types.Char]
+                      = case arch of wild {
+                          CapDL.Model.IA32 -> CapDL.PrintC.memberArch5
+                          CapDL.Model.ARM11 -> CapDL.PrintC.memberArch4
+                          CapDL.Model.X86_64 -> CapDL.PrintC.memberArch3
+                          CapDL.Model.AARCH64 -> CapDL.PrintC.memberArch2 }
+                    } in
+                    GHC.Base.++
+                      @ GHC.Types.Char
+                      a
+                      (GHC.CString.unpackAppendCString#
+                         ")\n\
+                         \#    error \"invalid target architecture; expecting "#
+                         (GHC.Base.++ @ GHC.Types.Char a CapDL.PrintC.memberArch1)))) -}
+6796fa1bea5c6bdb51995e7384d8de27
+  memberArch1 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "\"\n\
+                   \#endif"#) -}
+849f65d8daedbc907f0e98459bde70d9
+  memberArch2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "AARCH64"#) -}
+ec605c3cbedc4626ae3c708de03a792b
+  memberArch3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "X86_64"#) -}
+2ccd1ee87a31b6c6f43b6ffe4e521dce
+  memberArch4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "ARM"#) -}
+6dce3684d5eec4eef5210511394e885f
+  memberArch5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "IA32"#) -}
+ff274ebcb6906cbeab4c95dd8fd6b5f5
+  memberIRQs ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.Arch
+    -> GHC.Types.Word
+    -> GHC.Base.String
+  {- Arity: 4, Strictness: <L,U><L,U><L,A><L,1*U(U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, True)
+                (\ (w :: Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int)
+                   (w1 :: CapDL.Model.IRQMap)
+                   (w2 :: CapDL.Model.Arch)
+                   (w3 :: GHC.Types.Word) ->
+                 CapDL.PrintC.$wmemberIRQs w w1 w3) -}
+d683690481e581a4285f73cf7fa8e0d5
+  memberIRQs1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# ".irqs = {"#) -}
+124e058666753358dc613d4bfcac0770
+  memberNum :: GHC.Types.Int -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U)>,
+     Unfolding: (\ (n :: GHC.Types.Int) ->
+                 GHC.CString.unpackAppendCString#
+                   ".num = "#
+                   (case n of ww2 { GHC.Types.I# ww3 ->
+                    case GHC.Show.$wshowSignedInt
+                           0#
+                           ww3
+                           (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                    GHC.Base.++
+                      @ GHC.Types.Char
+                      (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                      CapDL.PrintC.memberNum1 } })) -}
+049919681d8605b40229db1133c202ff
+  memberNum1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# ","#) -}
+5d4d4ebe346bd8ffc597170288cf8af4
+  memberObjects ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> CapDL.Model.Arch
+    -> [(CapDL.Model.ObjID, CapDL.Model.KernelObject GHC.Types.Word)]
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.CDT
+    -> CapDL.Model.ObjMap GHC.Types.Word
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <L,U><L,A><L,1*U><L,U><L,U><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (6, True, True)
+                (\ (w :: Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int)
+                   (w1 :: CapDL.Model.Arch)
+                   (w2 :: [(CapDL.Model.ObjID,
+                            CapDL.Model.KernelObject GHC.Types.Word)])
+                   (w3 :: CapDL.Model.IRQMap)
+                   (w4 :: CapDL.Model.CDT)
+                   (w5 :: CapDL.Model.ObjMap GHC.Types.Word) ->
+                 CapDL.PrintC.$wmemberObjects w w2 w3 w4 w5) -}
+b43569730073ed906ed43986987da71d
+  memberObjects1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   ".objects = (CDL_Object[]) {"#) -}
+5c2d29eba6e5ef1735635ef8a61ab2f5
+  memberObjects_$sshowObjects ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+      (CapDL.Model.KernelObject GHC.Types.Word)
+    -> Data.Map.Base.Map
+         (([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word), GHC.Types.Word)
+         (([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word), GHC.Types.Word)
+    -> Data.Map.Base.Map
+         GHC.Types.Word ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+    -> [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word),
+         CapDL.Model.KernelObject GHC.Types.Word)]
+    -> GHC.Prim.Int#
+    -> Data.Map.Base.Map
+         ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) GHC.Types.Int
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <L,U><L,U><L,U><S,1*U><L,U><L,U> -}
+b5952e3d2fb3468e8158a6ead11d3ca0
+  memberSlots ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> CapDL.Model.ObjID
+    -> CapDL.Model.CapMap GHC.Types.Word
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.CDT
+    -> CapDL.Model.ObjMap GHC.Types.Word
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <L,U><L,U(U,U)><L,U><L,U><L,U><L,U>,
+     Unfolding: (\ (objs :: Data.Map.Base.Map
+                              CapDL.Model.ObjID GHC.Types.Int)
+                   (obj_id :: CapDL.Model.ObjID)
+                   (slots :: CapDL.Model.CapMap GHC.Types.Word)
+                   (irqNode :: CapDL.Model.IRQMap)
+                   (cdt :: CapDL.Model.CDT)
+                   (ms :: CapDL.Model.ObjMap GHC.Types.Word) ->
+                 GHC.CString.unpackAppendCString#
+                   ".slots.num = "#
+                   (let {
+                      n :: [GHC.Types.Char]
+                      = GHC.Base.++
+                          @ GHC.Types.Char
+                          CapDL.PrintC.memberSlots1
+                          (GHC.CString.unpackAppendCString#
+                             "\n"#
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                (CapDL.PrintC.showSlots
+                                   objs
+                                   obj_id
+                                   (Data.Map.Base.toAscList1
+                                      @ GHC.Types.Word
+                                      @ CapDL.Model.Cap
+                                      (GHC.Types.[] @ (GHC.Types.Word, CapDL.Model.Cap))
+                                      slots)
+                                   irqNode
+                                   cdt
+                                   ms)
+                                CapDL.PrintC.extraFrameInfos1))
+                    } in
+                    case slots of wild {
+                      Data.Map.Base.Bin dt ds1 ds2 ds3 ds4
+                      -> case GHC.Show.$wshowSignedInt
+                                0#
+                                dt
+                                (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                         GHC.Base.++
+                           @ GHC.Types.Char
+                           (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                           n }
+                      Data.Map.Base.Tip
+                      -> case GHC.Show.$wshowSignedInt
+                                0#
+                                0#
+                                (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                         GHC.Base.++
+                           @ GHC.Types.Char
+                           (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                           n } })) -}
+c5d3ff4c10a26f865cd9ac620dd86ca3
+  memberSlots1 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString#
+                   ",\n\
+                   \.slots.slot = (CDL_CapSlot[]) {"#) -}
+7dbe7f02547f1746ccb26b3fd8822e04
+  printC ::
+    CapDL.Model.Model GHC.Types.Word
+    -> CapDL.Model.Idents CapDL.Model.CapName
+    -> CapDL.Model.CopyMap
+    -> GHC.Types.Word
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 4, Strictness: <S,1*U(U,U,U,U,A)><L,A><L,A><L,1*U(U)>m3,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ (w :: CapDL.Model.Model GHC.Types.Word)
+                   (w1 :: CapDL.Model.Idents CapDL.Model.CapName)
+                   (w2 :: CapDL.Model.CopyMap)
+                   (w3 :: GHC.Types.Word) ->
+                 case w of ww { CapDL.Model.Model ww1 ww2 ww3 ww4 ww5 ->
+                 case CapDL.PrintC.$wprintC
+                        ww1
+                        ww2
+                        ww3
+                        ww4
+                        w3 of ww6 { (#,#) ww7 ww8 ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.TextBeside @ () ww7 ww8)
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }) -}
+0913d10ae1dd08cd02e812fd56f2f5c1
+  printInit :: [GHC.Types.Word] -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ (argv :: [GHC.Types.Word]) ->
+                 GHC.CString.unpackAppendCString#
+                   "{"#
+                   (case GHC.Base.map
+                           @ GHC.Types.Word
+                           @ [GHC.Types.Char]
+                           GHC.Show.$fShowWord_$cshow
+                           argv of wild {
+                      [] -> CapDL.PrintC.printInit1
+                      : x xs
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.List.Utils.join1
+                              @ GHC.Types.Char
+                              (GHC.Types.:
+                                 @ [GHC.Types.Char]
+                                 x
+                                 (Data.OldList.prependToAll
+                                    @ [GHC.Types.Char]
+                                    CapDL.PrintC.extraFrameInfos3
+                                    xs)))
+                           CapDL.PrintC.printInit1 })) -}
+f2ea86ecbd1980782fb6b6a5b3d5f717
+  printInit1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "}"#) -}
+35b2f4d54d299958e058773e290c5a94
+  showCap ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> CapDL.Model.Cap
+    -> CapDL.Model.IRQMap
+    -> GHC.Base.String
+    -> CapDL.Model.ObjMap GHC.Types.Word
+    -> GHC.Base.String
+  {- Arity: 5, Strictness: <L,U><S,1*U><L,1*U><L,1*U><L,U> -}
+46244d1a89d3c63f52819580956a420b
+  showFrameInfo ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> (CapDL.Model.ObjID, CapDL.Model.KernelObject GHC.Types.Word)
+    -> GHC.Base.Maybe GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U><S(LS),1*U(U(U,U),1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int)
+                   (w1 :: (CapDL.Model.ObjID,
+                           CapDL.Model.KernelObject GHC.Types.Word)) ->
+                 case w1 of ww { (,) ww1 ww2 ->
+                 CapDL.PrintC.$wshowFrameInfo w ww1 ww2 }) -}
+c3c87a3e6784329909cf5d832156223d
+  showFrameInfo1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " "#) -}
+e904968f4c6c6468e54c81ad0792d99e
+  showFrameInfo2 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "\"\n\
+                   \}"#) -}
+b5f817d2990b68ad4fa83a28f0caac67
+  showFrameInfo3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "INVALID_SLOT"#) -}
+6f8b00c88878481f37e4c97cd5fb8b14
+  showFrameInfo4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " */"#) -}
+f6c7c08ba6c063ec58cab300b7d291a7
+  showFrameInfos ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> [(CapDL.Model.ObjID, CapDL.Model.KernelObject GHC.Types.Word)]
+    -> (GHC.Types.Int, GHC.Base.String)
+  {- Arity: 2, Strictness: <L,U><L,1*U>m, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int)
+                   (w1 :: [(CapDL.Model.ObjID,
+                            CapDL.Model.KernelObject GHC.Types.Word)]) ->
+                 case CapDL.PrintC.$wshowFrameInfos w w1 of ww { (#,#) ww1 ww2 ->
+                 (ww1, ww2) }) -}
+9dcb2c8a5b4199e7590e8730dc70c5f9
+  showObjID ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> CapDL.Model.ObjID -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><S,U(U,U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int)
+                   (w1 :: CapDL.Model.ObjID) ->
+                 case w1 of ww { (,) ww1 ww2 ->
+                 CapDL.PrintC.$wshowObjID w ww1 ww2 }) -}
+b05e24f525e7da2a3b260732fe8b2352
+  showObject ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> (CapDL.Model.ObjID, CapDL.Model.KernelObject GHC.Types.Word)
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.CDT
+    -> CapDL.Model.ObjMap GHC.Types.Word
+    -> GHC.Base.String
+  {- Arity: 5, Strictness: <L,U><L,1*U(1*U(U,U),1*U)><L,U><L,U><L,U>,
+     Unfolding: (\ (objs :: Data.Map.Base.Map
+                              CapDL.Model.ObjID GHC.Types.Int)
+                   (obj :: (CapDL.Model.ObjID,
+                            CapDL.Model.KernelObject GHC.Types.Word))
+                   (irqNode :: CapDL.Model.IRQMap)
+                   (cdt :: CapDL.Model.CDT)
+                   (ms :: CapDL.Model.ObjMap GHC.Types.Word) ->
+                 GHC.CString.unpackAppendCString#
+                   "{\n\
+                   \#ifdef CONFIG_DEBUG_BUILD\n\
+                   \.name = \""#
+                   (case obj of wild { (,) x ds1 ->
+                    case x of wild1 { (,) x1 ds2 ->
+                    GHC.Base.++
+                      @ GHC.Types.Char
+                      x1
+                      (let {
+                         n :: [GHC.Types.Char]
+                         = GHC.Base.++
+                             @ GHC.Types.Char
+                             CapDL.PrintC.showObject2
+                             (GHC.CString.unpackAppendCString#
+                                "\n"#
+                                (GHC.Base.++
+                                   @ GHC.Types.Char
+                                   (CapDL.PrintC.showObjectFields objs wild1 ds1 irqNode cdt ms)
+                                   CapDL.PrintC.showObject1))
+                       } in
+                       case ds2 of wild2 {
+                         GHC.Base.Nothing -> n
+                         GHC.Base.Just index
+                         -> GHC.CString.unpackAppendCString#
+                              "["#
+                              (case index of wild3 { GHC.Types.W# w ->
+                               case GHC.Show.$wshowWord
+                                      w
+                                      (GHC.Types.[] @ GHC.Types.Char) of ww { (#,#) ww1 ww2 ->
+                               GHC.Base.++
+                                 @ GHC.Types.Char
+                                 (GHC.Types.: @ GHC.Types.Char ww1 ww2)
+                                 (GHC.CString.unpackAppendCString# "]"# n) } }) }) } })) -}
+3dc0e9f5aabcab7c5470d6f52bfaf7aa
+  showObject1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   "\n"#
+                   CapDL.PrintC.printInit1) -}
+53a0a8dea92d1254f8c9f91f18acb00c
+  showObject2 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "\",\n\
+                   \#endif"#) -}
+cc3bd35e2aa42a99ef332711cc3fae2b
+  showObjectFields ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> CapDL.Model.ObjID
+    -> CapDL.Model.KernelObject GHC.Types.Word
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.CDT
+    -> CapDL.Model.ObjMap GHC.Types.Word
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <L,U><L,U(U,U)><S,1*U><L,U><L,U><L,U> -}
+d75e6cbac474782659b14d27941a5852
+  showObjects ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> GHC.Types.Int
+    -> [(CapDL.Model.ObjID, CapDL.Model.KernelObject GHC.Types.Word)]
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.CDT
+    -> CapDL.Model.ObjMap GHC.Types.Word
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <L,U><L,1*U(U)><S,1*U><L,U><L,U><L,U>,
+     Unfolding: (\ (ds :: Data.Map.Base.Map
+                            CapDL.Model.ObjID GHC.Types.Int)
+                   (ds1 :: GHC.Types.Int)
+                   (ds2 :: [(CapDL.Model.ObjID,
+                             CapDL.Model.KernelObject GHC.Types.Word)])
+                   (ds3 :: CapDL.Model.IRQMap)
+                   (ds4 :: CapDL.Model.CDT)
+                   (ds5 :: CapDL.Model.ObjMap GHC.Types.Word) ->
+                 case ds2 of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : x xs
+                   -> GHC.CString.unpackAppendCString#
+                        "["#
+                        (case ds1 of ww2 { GHC.Types.I# ww3 ->
+                         case GHC.Show.$wshowSignedInt
+                                0#
+                                ww3
+                                (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                         GHC.Base.++
+                           @ GHC.Types.Char
+                           (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                           (GHC.CString.unpackAppendCString#
+                              "] = "#
+                              (GHC.Base.++
+                                 @ GHC.Types.Char
+                                 (CapDL.PrintC.showObject ds x ds3 ds4 ds5)
+                                 (GHC.Base.++
+                                    @ GHC.Types.Char
+                                    CapDL.PrintC.memberNum1
+                                    (GHC.CString.unpackAppendCString#
+                                       "\n"#
+                                       (CapDL.PrintC.memberObjects_$sshowObjects
+                                          ds5
+                                          ds4
+                                          ds3
+                                          xs
+                                          (GHC.Prim.+# ww3 1#)
+                                          ds))))) } }) }) -}
+a243c5bb5a2711854b1372cb4caa92c3
+  showPCI ::
+    GHC.Types.Word
+    -> (GHC.Types.Word, GHC.Types.Word, GHC.Types.Word)
+    -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U(U)><S,1*U(1*U(U),1*U(U),1*U(U))>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GHC.Types.Word)
+                   (w1 :: (GHC.Types.Word, GHC.Types.Word, GHC.Types.Word)) ->
+                 case w1 of ww { (,,) ww1 ww2 ww3 ->
+                 CapDL.PrintC.$wshowPCI w ww1 ww2 ww3 }) -}
+2ff99052d73e6ebaf884645e2dc26c6a
+  showRights :: CapDL.Model.CapRights -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ (rights :: CapDL.Model.CapRights) ->
+                 GHC.CString.unpackAppendCString#
+                   "("#
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      (Data.OldList.intercalate_$spoly_go
+                         @ GHC.Types.Char
+                         CapDL.PrintC.showRights9
+                         (let {
+                            n :: [[GHC.Types.Char]]
+                            = case CapDL.PrintC.∈_$sgo1 rights of wild {
+                                GHC.Types.False
+                                -> case CapDL.PrintC.∈_$sgo5 rights of wild1 {
+                                     GHC.Types.False -> GHC.Types.[] @ [GHC.Types.Char]
+                                     GHC.Types.True -> CapDL.PrintC.showRights7 }
+                                GHC.Types.True
+                                -> GHC.Base.++
+                                     @ [GHC.Types.Char]
+                                     CapDL.PrintC.showRights5
+                                     (case CapDL.PrintC.∈_$sgo5 rights of wild1 {
+                                        GHC.Types.False -> GHC.Types.[] @ [GHC.Types.Char]
+                                        GHC.Types.True -> CapDL.PrintC.showRights7 }) }
+                          } in
+                          case CapDL.PrintC.∈_$sgo2 rights of wild {
+                            GHC.Types.False
+                            -> Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 CapDL.PrintC.showRights4
+                                 n
+                            GHC.Types.True
+                            -> Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 CapDL.PrintC.showRights4
+                                 (GHC.Base.++ @ [GHC.Types.Char] CapDL.PrintC.showRights2 n) }))
+                      CapDL.PrintC.showRights1)) -}
+72f0041619f8c9cd762a384efd043276
+  showRights1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# ")"#) -}
+ef7b616bdd79a01bb0c3ec9072600ee8
+  showRights2 :: [[GHC.Types.Char]]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   CapDL.PrintC.showRights3
+                   (GHC.Types.[] @ [GHC.Types.Char])) -}
+ac03b5d8b27b28e8274c95c3ec070b33
+  showRights3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "CDL_CanRead"#) -}
+781a8d702608a015c6225ea507247df5
+  showRights4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "|"#) -}
+5f9c4420516f517833df5e9b2af02369
+  showRights5 :: [[GHC.Types.Char]]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   CapDL.PrintC.showRights6
+                   (GHC.Types.[] @ [GHC.Types.Char])) -}
+a1490a6ed9e568e8ff6e10d6b0edc39a
+  showRights6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "CDL_CanWrite"#) -}
+d1fae5d3f992472c3989d3136d49682c
+  showRights7 :: [[GHC.Types.Char]]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   CapDL.PrintC.showRights8
+                   (GHC.Types.[] @ [GHC.Types.Char])) -}
+f38ff1ce9bd643237c771b6b206ea334
+  showRights8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "CDL_CanGrant"#) -}
+94513c5a61ae67156cc026a0a3d9a54a
+  showRights9 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "0"#) -}
+9aa52b59662deab6652ddf123abb37bf
+  showSlots ::
+    Data.Map.Base.Map CapDL.Model.ObjID GHC.Types.Int
+    -> CapDL.Model.ObjID
+    -> [(GHC.Types.Word, CapDL.Model.Cap)]
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.CDT
+    -> CapDL.Model.ObjMap GHC.Types.Word
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <L,U><L,U(U,U)><S,1*U><L,U><L,U><L,U> -}
+a58fa497a342252dfd8a15f2b7a00dc8
+  (∈) ::
+    CapDL.Model.Rights
+    -> Data.Set.Base.Set CapDL.Model.Rights -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, True) CapDL.PrintC.∈_go5 -}
+8e752634601717a08115d3f08f525a6a
+  ∈_$sgo1 :: Data.Set.Base.Set CapDL.Model.Rights -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+7864ad30ea95921743f55db72572349d
+  ∈_$sgo2 :: Data.Set.Base.Set CapDL.Model.Rights -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+725304e10652713afc899ba5f24f5444
+  ∈_$sgo5 :: Data.Set.Base.Set CapDL.Model.Rights -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+da328d150d7eebb4c0676141ea898313
+  ∈_go5 ::
+    CapDL.Model.Rights
+    -> Data.Set.Base.Set CapDL.Model.Rights -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (arg :: CapDL.Model.Rights)
+                   (ds :: Data.Set.Base.Set CapDL.Model.Rights) ->
+                 case arg of arg1 { DEFAULT ->
+                 case ds of wild {
+                   Data.Set.Base.Bin dt y l r
+                   -> case arg1 of wild1 {
+                        CapDL.Model.Read
+                        -> case y of wild2 {
+                             CapDL.Model.Read -> GHC.Types.True
+                             CapDL.Model.Write -> CapDL.PrintC.∈_$sgo2 l
+                             CapDL.Model.Grant -> CapDL.PrintC.∈_$sgo2 l }
+                        CapDL.Model.Write
+                        -> case y of wild2 {
+                             CapDL.Model.Read -> CapDL.PrintC.∈_$sgo1 r
+                             CapDL.Model.Write -> GHC.Types.True
+                             CapDL.Model.Grant -> CapDL.PrintC.∈_$sgo1 l }
+                        CapDL.Model.Grant
+                        -> case y of wild2 {
+                             DEFAULT -> CapDL.PrintC.∈_$sgo5 r
+                             CapDL.Model.Grant -> GHC.Types.True } }
+                   Data.Set.Base.Tip -> GHC.Types.False } }) -}
+"SC:$wpoly_go100" [0] forall @ a
+                             (sc :: Data.Map.Base.Map
+                                      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a)
+                             (sc1 :: [GHC.Types.Char])
+  CapDL.PrintC.$wpoly_go1 @ a
+                          sc1
+                          (GHC.Base.Nothing @ GHC.Types.Word)
+                          sc
+  = CapDL.PrintC.$slookup_$s$wpoly_go2 @ a sc sc1
+"SC:$wpoly_go101" [0] forall @ a
+                             (sc :: Data.Map.Base.Map
+                                      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a)
+                             (sc1 :: GHC.Types.Word)
+                             (sc2 :: [GHC.Types.Char])
+  CapDL.PrintC.$wpoly_go1 @ a
+                          sc2
+                          (GHC.Base.Just @ GHC.Types.Word sc1)
+                          sc
+  = CapDL.PrintC.$slookup_$s$wpoly_go1 @ a sc sc1 sc2
+"SC:$wpoly_go102" [0] forall @ a
+                             (sc :: Data.Map.Base.Map
+                                      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a)
+                             (sc1 :: GHC.Prim.Word#)
+                             (sc2 :: [GHC.Types.Char])
+  CapDL.PrintC.$wpoly_go1 @ a
+                          sc2
+                          (GHC.Base.Just @ GHC.Types.Word (GHC.Types.W# sc1))
+                          sc
+  = CapDL.PrintC.$slookup_$s$wpoly_go10 @ a sc sc1 sc2
+"SC:go50" [ALWAYS] forall (sc :: Data.Set.Base.Set
+                                   CapDL.Model.Rights)
+  CapDL.PrintC.∈_go5 CapDL.Model.Read sc = CapDL.PrintC.∈_$sgo2 sc
+"SC:go51" [ALWAYS] forall (sc :: Data.Set.Base.Set
+                                   CapDL.Model.Rights)
+  CapDL.PrintC.∈_go5 CapDL.Model.Grant sc = CapDL.PrintC.∈_$sgo5 sc
+"SC:go52" [ALWAYS] forall (sc :: Data.Set.Base.Set
+                                   CapDL.Model.Rights)
+  CapDL.PrintC.∈_go5 CapDL.Model.Write sc = CapDL.PrintC.∈_$sgo1 sc
+"SC:showObjects0" [ALWAYS] forall (sc :: Data.Map.Base.Map
+                                           ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+                                           (CapDL.Model.KernelObject GHC.Types.Word))
+                                  (sc1 :: Data.Map.Base.Map
+                                            (([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word),
+                                             GHC.Types.Word)
+                                            (([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word),
+                                             GHC.Types.Word))
+                                  (sc2 :: Data.Map.Base.Map
+                                            GHC.Types.Word
+                                            ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word))
+                                  (sc3 :: [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word),
+                                            CapDL.Model.KernelObject GHC.Types.Word)])
+                                  (sc4 :: GHC.Prim.Int#)
+                                  (sc5 :: Data.Map.Base.Map
+                                            ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+                                            GHC.Types.Int)
+  CapDL.PrintC.showObjects sc5 (GHC.Types.I# sc4) sc3 sc2 sc1 sc
+  = CapDL.PrintC.memberObjects_$sshowObjects sc sc1 sc2 sc3 sc4 sc5
+"SPEC/CapDL.PrintC $fEq(,) @ [Char] @ (Maybe Word)" [ALWAYS] forall ($dEq1 :: GHC.Classes.Eq
+                                                                                (GHC.Base.Maybe
+                                                                                   GHC.Types.Word))
+                                                                    ($dEq :: GHC.Classes.Eq
+                                                                               [GHC.Types.Char])
+  GHC.Classes.$fEq(,) @ [GHC.Types.Char]
+                      @ (GHC.Base.Maybe GHC.Types.Word)
+                      $dEq
+                      $dEq1
+  = CapDL.PrintC.$s$fEq(,)
+"SPEC/CapDL.PrintC $fEqMaybe @ Word" [ALWAYS] forall ($dEq :: GHC.Classes.Eq
+                                                                GHC.Types.Word)
+  GHC.Base.$fEqMaybe @ GHC.Types.Word $dEq
+  = CapDL.PrintC.$s$fEq(,)_$s$fEqMaybe
+"SPEC/CapDL.PrintC $fOrd(,) @ [Char] @ (Maybe Word)" [ALWAYS] forall ($dOrd1 :: GHC.Classes.Ord
+                                                                                  (GHC.Base.Maybe
+                                                                                     GHC.Types.Word))
+                                                                     ($dOrd :: GHC.Classes.Ord
+                                                                                 [GHC.Types.Char])
+  GHC.Classes.$fOrd(,) @ [GHC.Types.Char]
+                       @ (GHC.Base.Maybe GHC.Types.Word)
+                       $dOrd
+                       $dOrd1
+  = CapDL.PrintC.$s$fOrd(,)
+"SPEC/CapDL.PrintC $fOrd(,)_$cp1Ord @ [Char] @ (Maybe Word)" [ALWAYS] forall ($dOrd1 :: GHC.Classes.Ord
+                                                                                          (GHC.Base.Maybe
+                                                                                             GHC.Types.Word))
+                                                                             ($dOrd :: GHC.Classes.Ord
+                                                                                         [GHC.Types.Char])
+  GHC.Classes.$fOrd(,)_$cp1Ord @ [GHC.Types.Char]
+                               @ (GHC.Base.Maybe GHC.Types.Word)
+                               $dOrd
+                               $dOrd1
+  = CapDL.PrintC.$s$fEq(,)_$s$fOrd(,)_$cp1Ord
+"SPEC/CapDL.PrintC $fOrdMaybe @ Word" [ALWAYS] forall ($dOrd :: GHC.Classes.Ord
+                                                                  GHC.Types.Word)
+  GHC.Base.$fOrdMaybe @ GHC.Types.Word $dOrd
+  = CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe
+"SPEC/CapDL.PrintC $fOrdMaybe_$c< @ Word" [ALWAYS] forall ($dOrd :: GHC.Classes.Ord
+                                                                      GHC.Types.Word)
+  GHC.Base.$fOrdMaybe_$c< @ GHC.Types.Word $dOrd
+  = CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$c<
+"SPEC/CapDL.PrintC $fOrdMaybe_$c<= @ Word" [ALWAYS] forall ($dOrd :: GHC.Classes.Ord
+                                                                       GHC.Types.Word)
+  GHC.Base.$fOrdMaybe_$c<= @ GHC.Types.Word $dOrd
+  = CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$c<=
+"SPEC/CapDL.PrintC $fOrdMaybe_$c> @ Word" [ALWAYS] forall ($dOrd :: GHC.Classes.Ord
+                                                                      GHC.Types.Word)
+  GHC.Base.$fOrdMaybe_$c> @ GHC.Types.Word $dOrd
+  = CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$c>
+"SPEC/CapDL.PrintC $fOrdMaybe_$c>= @ Word" [ALWAYS] forall ($dOrd :: GHC.Classes.Ord
+                                                                       GHC.Types.Word)
+  GHC.Base.$fOrdMaybe_$c>= @ GHC.Types.Word $dOrd
+  = CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$c>=
+"SPEC/CapDL.PrintC $fOrdMaybe_$ccompare @ Word" [ALWAYS] forall ($dOrd :: GHC.Classes.Ord
+                                                                            GHC.Types.Word)
+  GHC.Base.$fOrdMaybe_$ccompare @ GHC.Types.Word $dOrd
+  = CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$ccompare
+"SPEC/CapDL.PrintC $fOrdMaybe_$cmax @ Word" [ALWAYS] forall ($dOrd :: GHC.Classes.Ord
+                                                                        GHC.Types.Word)
+  GHC.Base.$fOrdMaybe_$cmax @ GHC.Types.Word $dOrd
+  = CapDL.PrintC.$s$fOrd(,)_$s$fOrdMaybe_$cmax
+"SPEC/CapDL.PrintC fromList @ ObjID _" [ALWAYS] forall @ a
+                                                       ($dOrd :: GHC.Classes.Ord CapDL.Model.ObjID)
+  Data.Map.Base.fromList @ (GHC.Base.String,
+                            GHC.Base.Maybe GHC.Types.Word)
+                         @ a
+                         $dOrd
+  = CapDL.PrintC.$sfromList @ a
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

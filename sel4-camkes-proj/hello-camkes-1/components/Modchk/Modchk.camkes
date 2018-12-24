@@ -1,0 +1,14 @@
+/* @TAG(DATA61_BSD) */
+
+import "../../interfaces/ModchkIface.idl4";
+import "../../interfaces/ModtxIface.idl4";
+import "../../interfaces/SigntxIface.idl4";
+
+component Modchk {
+    /* include definitions of typedefs for the dataports */
+    provides ModchkIface modchk_iface;
+
+    uses ModtxIface modtx_iface;
+    uses SigntxIface signtx_iface;
+
+}

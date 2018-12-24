@@ -1,0 +1,13 @@
+/* @TAG(DATA61_BSD) */
+
+import "../../interfaces/CryptoIface.idl4";
+import "../../interfaces/ModtxIface.idl4";
+import "../../interfaces/SigntxIface.idl4";
+
+component Crypto {
+    /* include definitions of typedefs for the dataports */
+    provides CryptoIface crypto_iface;
+    
+    uses ModtxIface modtx_iface;
+    uses SigntxIface signtx_iface;
+}

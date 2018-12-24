@@ -1,0 +1,7 @@
+/* Simple RPC interface */
+
+procedure ModchkIface {
+
+    void verify(in string text, in string source, in int id);
+};
+

@@ -1,0 +1,1 @@
+#define CONFIG_LIB_USB 1

@@ -1,0 +1,57 @@
+/* @TAG(DATA61_BSD) */
+
+/*
+ * CAmkES for signing device
+ */
+
+import <std_connector.camkes>;
+import "interfaces/ModtxIface.idl4";
+import "interfaces/SigntxIface.idl4";
+import "interfaces/CryptoIface.idl4";
+import "interfaces/ModchkIface.idl4";
+
+/* import component defintions */
+import "components/Modtx/Modtx.camkes";
+import "components/Crypto/Crypto.camkes";
+import "components/Modchk/Modchk.camkes";
+import "components/Signtx/Signtx.camkes";
+
+assembly {
+    composition {
+        /* component instances */
+        component Crypto crypto;
+        component Modchk modchk;
+        component Modtx modtx;
+        component Signtx signtx;
+
+        /* TASK 5: Event connections */
+        /* hint 1: connect each "emits" interface in a component to the "consumes" interface in the other
+         * hint 2: use seL4Notification as the connector
+         * hint 3: look at https://github.com/seL4/camkes-tool/blob/master/docs/index.md#an-example-of-events
+         */
+	 /* Things coming out of the modtx component */
+         connection seL4RPCCall conn1(from modtx.modchk_iface, to modchk.modchk_iface); 
+         connection seL4RPCCall conn2(from modtx.crypto_iface, to crypto.crypto_iface);
+	 /* Things coming out of the crypto component*/
+	 connection seL4RPCCall conn3(from crypto.modtx_iface, to modtx.modtx_iface);
+	 connection seL4RPCCall conn4(from crypto.signtx_iface, to signtx.signtx_iface);
+
+	 /* Things coming out of the signtx component */
+	 connection seL4RPCCall conn5(from signtx.crypto_iface, to crypto.crypto_iface);
+	 connection seL4RPCCall conn6(from signtx.modchk_iface, to modchk.modchk_iface);
+	 /* Things coming out of the modchk component */
+	 connection seL4RPCCall conn7(from modchk.modtx_iface, to modtx.modtx_iface);
+	 connection seL4RPCCall conn8(from modchk.signtx_iface, to signtx.signtx_iface);
+    }
+
+    configuration {
+        /* TASK 8: restrict access to dataports */
+        /* hint 1: use attributes <connection name>.to_access and <connection name>.from_access
+         * hint 2: appropriate values for the to_access and from_access attributes are: "R" or "W"
+         * hint 4: make the "Buf" dataport read only for the Echo component
+         * hint 3: make the "str_buf_t" dataport read only for the Client component
+         */
+       /* echo.d_access="R";
+        client.strport_access="R";*/
+    }
+}

@@ -1,0 +1,32 @@
+%rename cpp_options old_cpp_options
+
+*cpp_options:
+-nostdinc -isystem /home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/musllibc/build-temp/stage/include -isystem include%s %(old_cpp_options)
+
+*cc1:
+%(cc1_cpu) -nostdinc -isystem /home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/musllibc/build-temp/stage/include -isystem include%s
+
+*link_libgcc:
+-L/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/musllibc/build-temp/stage/lib -L .%s
+
+*libgcc:
+libgcc.a%s %:if-exists(libgcc_eh.a%s)
+
+*startfile:
+%{!shared: /home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/musllibc/build-temp/stage/lib/%{pie:S}crt1.o} /home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/musllibc/build-temp/stage/lib/crti.o %{shared|pie:crtbeginS.o%s;:crtbegin.o%s}
+
+*endfile:
+%{shared|pie:crtendS.o%s;:crtend.o%s} /home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/musllibc/build-temp/stage/lib/crtn.o
+
+*link:
+-dynamic-linker /lib/ld-musl-x86_64_sel4.so.1 -nostdlib %{shared:-shared} %{static:-static} %{rdynamic:-export-dynamic}
+
+*esp_link:
+
+
+*esp_options:
+
+
+*esp_cpp_options:
+
+

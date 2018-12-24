@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "${REALGCC:-gcc}" "$@" -specs "/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/musllibc/build-temp/stage/lib/musl-gcc.specs"

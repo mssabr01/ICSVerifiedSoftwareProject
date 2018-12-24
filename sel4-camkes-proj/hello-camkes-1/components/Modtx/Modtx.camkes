@@ -1,0 +1,17 @@
+/* @TAG(DATA61_BSD) */
+/* Modtx.camkes */
+
+import "../../interfaces/ModchkIface.idl4";
+import "../../interfaces/ModtxIface.idl4";
+import "../../interfaces/CryptoIface.idl4";
+
+component Modtx {
+
+    control;
+    /* include definitions of typedefs for the dataports */
+    provides ModtxIface modtx_iface;
+
+    uses ModchkIface modchk_iface;
+    uses CryptoIface crypto_iface;
+
+}

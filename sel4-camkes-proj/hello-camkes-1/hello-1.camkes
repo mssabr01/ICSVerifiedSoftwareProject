@@ -1,0 +1,39 @@
+/* @TAG(DATA61_BSD) */
+
+/*
+ * CAmkES tutorial part 1: components with RPC.
+ */
+
+import <std_connector.camkes>;
+
+import "interfaces/HelloSimple.idl4";
+
+/* A valid CAmkES assembly must have at least one component. As the starting point for
+ * this tutorial does not have any valid components we declare an empty one that does nothing
+ * just to construct a valid spec. Once you have added some components to the composition
+ * you can remove this if you want, although it will cause no harm being left in */
+component EmptyComponent {
+}
+
+component Client {
+    control;
+    uses HelloSimple hello;
+}
+
+component Echo {
+    provides HelloSimple hello;
+}
+
+
+assembly {
+    composition {
+         component EmptyComponent empty;
+         // TODO remove the empty component, and define an Echo and a Client component
+
+        /* hint 1: use seL4RPCCall as the connector (or you could use seL4RPC if you prefer)
+         * hint 2: look at
+         * https://github.com/seL4/camkes-tool/blob/master/docs/index.md#creating-an-application
+         */
+
+    }
+}

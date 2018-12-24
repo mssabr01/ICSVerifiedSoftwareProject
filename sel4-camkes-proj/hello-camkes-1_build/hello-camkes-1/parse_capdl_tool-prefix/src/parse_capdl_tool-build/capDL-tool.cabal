@@ -1,0 +1,50 @@
+--
+-- Copyright 2017, Data61
+-- Commonwealth Scientific and Industrial Research Organisation (CSIRO)
+-- ABN 41 687 119 230.
+--
+-- This software may be distributed and modified according to the terms of
+-- the BSD 2-Clause license. Note that NO WARRANTY is provided.
+-- See "LICENSE_BSD2.txt" for details.
+--
+-- @TAG(DATA61_BSD)
+--
+
+name:                capDL-tool
+version:             1.0.0.1
+synopsis:            A tool for processing seL4 capDL specifications.
+license:             BSD2
+license-file:        LICENSE_BSD2.txt
+author:              Gerwin Klein (Data61), Corey Lewis (Data61), Matthew Fernandez (Data61)
+maintainer:          corey.lewis@data61.csiro.au
+homepage:            https://github.com/seL4/capDL-tool/
+copyright:           Data61, CSIRO
+category:            Development
+build-type:          Custom
+extra-source-files:  README.md
+cabal-version:       >=1.18
+tested-with:         GHC == 7.8.4, GHC == 7.10.3, GHC == 8.0.1, GHC == 8.0.2
+
+executable parse-capDL
+  main-is:             Main.hs
+
+  other-extensions:    DeriveDataTypeable, FlexibleInstances,
+                       TypeSynonymInstances, CPP
+
+  build-depends:       base >= 4.9 && <4.10, parsec >=3.1 && <3.2,
+                       mtl >=2.2 && <2.3, containers >=0.5 && <0.6,
+                       split >=0.2 && <0.3, array >=0.5 && <0.6,
+                       MissingH >=1.4 && <1.5, pretty >=1.1 && <1.2,
+                       filepath >=1.4 && <1.5, base-compat >= 0.9 && <0.10
+
+  other-modules:       CapDL.AST, CapDL.DumpParser, CapDL.MakeModel,
+                       CapDL.Matrix, CapDL.Model, CapDL.Parser,
+                       CapDL.ParserUtils, CapDL.PrintC, CapDL.PrintDot,
+                       CapDL.PrintIsabelle, CapDL.PrintModel,
+                       CapDL.PrintUtils, CapDL.PrintXml, CapDL.STCC,
+                       CapDL.State
+
+  default-language:    Haskell2010
+
+  ghc-options:         -O2 -Werror -Wall -fno-warn-name-shadowing
+                       -fno-warn-missing-signatures -fno-warn-type-defaults

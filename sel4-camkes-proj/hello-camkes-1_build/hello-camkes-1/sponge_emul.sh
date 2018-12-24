@@ -1,0 +1,1 @@
+python -c 'import sys; data = sys.stdin.read(); f = open(sys.argv[1], "w"); f.write(data); f.close()' $@

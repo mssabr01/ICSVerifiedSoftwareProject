@@ -1,0 +1,13 @@
+# Target labels
+ parse_capdl_tool
+# Source files and their labels
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/CMakeFiles/parse_capdl_tool
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/CMakeFiles/parse_capdl_tool.rule
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/CMakeFiles/parse_capdl_tool-complete.rule
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-install.rule
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-mkdir.rule
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-download.rule
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-update.rule
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-patch.rule
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-configure.rule
+/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/hello-camkes-1/parse_capdl_tool-prefix/src/parse_capdl_tool-stamp/parse_capdl_tool-build.rule

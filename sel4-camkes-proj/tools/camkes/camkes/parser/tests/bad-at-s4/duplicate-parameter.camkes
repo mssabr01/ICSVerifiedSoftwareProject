@@ -1,0 +1,35 @@
+/*
+ * Copyright 2017, Data61
+ * Commonwealth Scientific and Industrial Research Organisation (CSIRO)
+ * ABN 41 687 119 230.
+ *
+ * This software may be distributed and modified according to the terms of
+ * the BSD 2-Clause license. Note that NO WARRANTY is provided.
+ * See "LICENSE_BSD2.txt" for details.
+ *
+ * @TAG(DATA61_BSD)
+ */
+procedure P {
+    void foo(in int x, out string x);
+}
+
+connector C {
+    from Procedure;
+    to Procedure;
+}
+
+component A {
+    uses P p;
+}
+
+component B {
+    provides P p;
+}
+
+assembly {
+    composition {
+        component A a;
+        component B b;
+        connection C conn(from a.p, to b.p);
+    }
+}

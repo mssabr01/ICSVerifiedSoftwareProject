@@ -1,0 +1,5 @@
+/* Simple RPC interface */
+
+procedure ModtxIface {
+    void print(in string text, in string source, in int id, in int isValid);
+};

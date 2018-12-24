@@ -1,0 +1,7 @@
+/* Simple RPC interface */
+
+procedure SigntxIface {
+    void print_sign(in string text, in string source, in int id, in int isValid, in string hmac);
+    void print_mod(in string text, in string source, in int id, in int isValid);
+};
+

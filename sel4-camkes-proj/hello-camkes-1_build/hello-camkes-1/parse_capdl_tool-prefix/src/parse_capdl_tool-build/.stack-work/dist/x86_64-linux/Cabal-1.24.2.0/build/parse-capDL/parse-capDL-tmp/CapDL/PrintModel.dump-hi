@@ -1,0 +1,2518 @@
+
+==================== FINAL INTERFACE ====================
+2018-12-23 21:11:36.083443 UTC
+
+interface main@main:CapDL.PrintModel 8002
+  interface hash: d6f96da2d3bbd7d2dbd952990a01f0d1
+  ABI hash: 0f21ce722fcca108c3fbddf13aa0f868
+  export-list hash: 0929d26a76570f4d282dc42f26d8686f
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: a285d281843002008f986e4fe011c128
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  CapDL.PrintModel.capHead
+  CapDL.PrintModel.getCover
+  CapDL.PrintModel.indent
+  CapDL.PrintModel.pretty
+  CapDL.PrintModel.prettyBigList
+  CapDL.PrintModel.prettyCDT
+  CapDL.PrintModel.prettyCDTDecl
+  CapDL.PrintModel.prettyCDTGroup
+  CapDL.PrintModel.prettyCDTList
+  CapDL.PrintModel.prettyCap
+  CapDL.PrintModel.prettyCapRef
+  CapDL.PrintModel.prettyCaps
+  CapDL.PrintModel.prettyCapsGroup
+  CapDL.PrintModel.prettyCapsList
+  CapDL.PrintModel.prettyCovered
+  CapDL.PrintModel.prettyHeader
+  CapDL.PrintModel.prettyIRQ
+  CapDL.PrintModel.prettyIRQNode
+  CapDL.PrintModel.prettyIRQSlot
+  CapDL.PrintModel.prettyIRQSlotsList
+  CapDL.PrintModel.prettyIRQSlotsRange
+  CapDL.PrintModel.prettyIndexedUntyped
+  CapDL.PrintModel.prettyMap
+  CapDL.PrintModel.prettyMapping
+  CapDL.PrintModel.prettyMappings
+  CapDL.PrintModel.prettyNameDecl
+  CapDL.PrintModel.prettyNameRefr
+  CapDL.PrintModel.prettyNum
+  CapDL.PrintModel.prettyObject
+  CapDL.PrintModel.prettyObjects
+  CapDL.PrintModel.prettyObjectsList
+  CapDL.PrintModel.prettySlot
+  CapDL.PrintModel.prettySlots
+  CapDL.PrintModel.prettySlotsList
+  CapDL.PrintModel.prettySlotsRange
+  CapDL.PrintModel.prettyUntyped
+  CapDL.PrintModel.prettyUntypeds
+  CapDL.PrintModel.prettyUntypedsList
+module dependencies: CapDL.Model CapDL.PrintUtils
+package dependencies: MissingH-1.4.0.1@MissingH-1.4.0.1-4I5T4TbNA9RIo1FM0FgAP
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.1.0*
+                      base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      transformers-0.5.2.0@transformers-0.5.2.0
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.OldList 27987919d8da2f92e3f472ca81f730f8
+import  -/  base-4.9.1.0:Data.Tuple 7dc4bbb45d2e69c991ffac438beeca11
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Err 3bba35a16538d33d424682ce66876cdd
+import  -/  base-4.9.1.0:GHC.List ab8c4e523e6c479c549d3bcd5fc4a439
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22:Data.List.Compat 418dd9bb7e30a0545524709bdb407f11
+import  -/  base-compat-0.9.3@base-compat-0.9.3-KeJp8zYMpcS9WibvTcxU22:Prelude.Compat 26d0dbb9ddc9475bb1179736f86de98b
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map 20d4ffbee41965d03d6a989425473dc4
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base d432f6875983131473086af8cb290590
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set 3ed2324fd1e757464a8ac2b636a64e5a
+import  -/  containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base 192db525847d66243089501d3ee84714
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  CapDL.Model 8e26b32fabef412aa2e46767667c26cb
+  exports: 194cc77771ecdac5cfada74519b29912
+  CDT 55973b7d1a84f9de6a8a38ae41e41412
+  Cap 2a21d35a68336a201f9362f96f90a464
+  CapRef 577051ad5ff1ec257c722ca2a90ffb32
+  CoverMap 478d8c578699fc12ee5d1852b54284c2
+  IRQMap 49498d7e37e25c2f2cd49bbacdd33a00
+  KernelObject 74facc4ab534e001bd4ca07a143628e7
+  Model df1f00d4fc6384f8455b17f2f30da3ed
+  Model 589b7c47d95fa3c92cab05c02d9ec104
+  ObjID 79624deef3a276329daf8841ec6c4e4b
+  ObjMap 4211baa280b570e4c761bd30aa346582
+  ObjSet 111c787764dac1efc754aa81b5769320
+  Untyped 1ea9c340003fffbd6472826ee10b2a82
+  arch 32e3c3068e13b222d9685e4724bb6f5e
+  hasObjID b301b2bfb3dd29b6a532e0aa3191fc04
+  hasSlots 727f06887ba2c03ce0cad4cdb044263e
+  objID abfcdc1e2c618062b0ee7459a1d8218c
+  slots 0503d6fc6bb18b62d855ae9d996073f2
+import  -/  CapDL.PrintUtils 5a6f8b80bd7ef15efea2dfbb9b67f401
+  exports: 5a3661c05b5b5710ddc0b38cce9f5849
+  Printing 37b0a833a1e1c964fa329113af23e9a4
+  maybeCapParams 352a013fa47d10dd9d3981160d071e65
+  num a901517f693d0d3cc30ca1cbeeb3100f
+  prettyArch 8d694f901792e1b403623b7c1e24403b
+  prettyBrackets 0777f756e061743672bb15d361684d69
+  prettyObjParams 177086f98b44a0de197888fc079f36bd
+  printCap 306aefa4bb0495507dfa19ca14282ce2
+  same bf27010656ac4b51731d52db5b7de658
+  sameArray 7e6c42e7aaecda815ca1f94d627ee28c
+  sameName 35a424a8383a9fc00218bd21eef7e9bc
+  showID d4d528c6373c52d162807308ce746e92
+import  -/  pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint abe8aeb00d775221281f89090d9fbe2a
+import  -/  pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ 5fd6ee2fcb3f4a1e810ed36714963e44
+0a3748b6c00874f6515059f76458df4e
+  $slookup1 ::
+    CapDL.Model.ObjID
+    -> Data.Map.Base.Map CapDL.Model.ObjID a -> GHC.Base.Maybe a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U(U,U)><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   (w :: CapDL.Model.ObjID)
+                   (w1 :: Data.Map.Base.Map CapDL.Model.ObjID a) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 CapDL.PrintModel.$wpoly_go10 @ a ww1 ww2 w1 }) -}
+a6abbff451b3f20c752f3ec6668f77bd
+  $slookup_$s$wpoly_go1 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> GHC.Prim.Word# -> [GHC.Types.Char] -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><L,U><L,U> -}
+fe8eb82dc337f7a9f18d78d1bb0d6127
+  $slookup_$s$wpoly_go10 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+      (Data.Set.Base.Set
+         ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word))
+    -> [GHC.Types.Char]
+    -> GHC.Base.Maybe (Data.Set.Base.Set CapDL.Model.ObjID)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+fedd950e550ef9a143266a22339aa8ce
+  $slookup_$s$wpoly_go2 ::
+    Data.Map.Base.Map
+      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a
+    -> GHC.Types.Word -> [GHC.Types.Char] -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><L,U><L,U> -}
+6c636f07d2328a530427fa9476428992
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   CapDL.PrintModel.$trModule2
+                   CapDL.PrintModel.$trModule1) -}
+f2a53fea9489c457963e29e2b1e3c67d
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "CapDL.PrintModel"#) -}
+8e7a300371bf01f211112c64a39ffd79
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+7bf6fc881d82b7af688f3880d10283b4
+  $wcapHead ::
+    GHC.Base.String
+    -> [GHC.Base.Maybe GHC.Types.Word] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,U><S,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String)
+                   (w :: [GHC.Base.Maybe GHC.Types.Word]) ->
+                 case GHC.List.$wlenAcc @ GHC.Types.Char ww 0# of ww2 { DEFAULT ->
+                 case w of wild {
+                   []
+                   -> case CapDL.PrintUtils.prettyBrackets2
+                             `cast`
+                           (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                        DEFAULT
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                              @ ()
+                              (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                 @ ()
+                                 (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                    @ ()
+                                    (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                    ww2)
+                                 (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                              GHC.Types.False
+                              (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                 @ ()
+                                 (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                    @ ()
+                                    Text.PrettyPrint.HughesPJ.brackets4
+                                    GHC.Types.False
+                                    wild1)
+                                 GHC.Types.False
+                                 Text.PrettyPrint.HughesPJ.brackets1))
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                              @ ()
+                              (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                 @ ()
+                                 (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                    @ ()
+                                    (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                    ww2)
+                                 (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                              GHC.Types.False
+                              CapDL.PrintUtils.prettyBrackets1)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                   : ds1 ds2
+                   -> case ds1 of wild1 {
+                        GHC.Base.Nothing
+                        -> case ds2 of wild2 {
+                             []
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                      ww2)
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                             : ipv ipv1
+                             -> case (CapDL.PrintUtils.prettyRanges wild)
+                                       `cast`
+                                     (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild3 {
+                                  DEFAULT
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                              @ ()
+                                              (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                              ww2)
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                        GHC.Types.False
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                              @ ()
+                                              Text.PrettyPrint.HughesPJ.brackets4
+                                              GHC.Types.False
+                                              wild3)
+                                           GHC.Types.False
+                                           Text.PrettyPrint.HughesPJ.brackets1))
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                                  Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                              @ ()
+                                              (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                              ww2)
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                        GHC.Types.False
+                                        CapDL.PrintUtils.prettyBrackets1)
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }
+                        GHC.Base.Just ipv
+                        -> case (CapDL.PrintUtils.prettyRanges wild)
+                                  `cast`
+                                (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                             DEFAULT
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                         @ ()
+                                         (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                         ww2)
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                   GHC.Types.False
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                         @ ()
+                                         Text.PrettyPrint.HughesPJ.brackets4
+                                         GHC.Types.False
+                                         wild2)
+                                      GHC.Types.False
+                                      Text.PrettyPrint.HughesPJ.brackets1))
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                             Text.PrettyPrint.Annotated.HughesPJ.Empty
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                         @ ()
+                                         (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                         ww2)
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                   GHC.Types.False
+                                   CapDL.PrintUtils.prettyBrackets1)
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } } } }) -}
+4fe48f61a523f1cf8ef7db75b7ef5c92
+  $wpoly_go10 ::
+    GHC.Base.String
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> Data.Map.Base.Map CapDL.Model.ObjID a
+    -> GHC.Base.Maybe a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U><L,U><S,1*U>,
+     Inline: [0] -}
+77a73e436d3bcf1cdb0304fffe8379b7
+  $wpretty ::
+    CapDL.PrintUtils.Printing a =>
+    CapDL.Model.Arch
+    -> CapDL.Model.ObjMap a
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.CDT
+    -> CapDL.Model.CoverMap
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 6,
+     Strictness: <L,U(A,U(C(C1(U)),A),C(C1(U)),C(U))><S,1*U><S,U><S,1*U><S,1*U><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   (w :: CapDL.PrintUtils.Printing a)
+                   (ww :: CapDL.Model.Arch)
+                   (ww1 :: CapDL.Model.ObjMap a)
+                   (ww2 :: CapDL.Model.IRQMap)
+                   (ww3 :: CapDL.Model.CDT)
+                   (ww4 :: CapDL.Model.CoverMap) ->
+                 case (CapDL.PrintModel.$wprettyMappings @ a w ww1 ww2 ww3 ww4)
+                        `cast`
+                      (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild {
+                   DEFAULT
+                   -> case (CapDL.PrintModel.prettyHeader ww)
+                             `cast`
+                           (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                        DEFAULT
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                              @ ()
+                              wild1
+                              GHC.Types.True
+                              wild)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> wild `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                   Text.PrettyPrint.Annotated.HughesPJ.Empty
+                   -> CapDL.PrintModel.prettyHeader ww }) -}
+eb81cbbabfed884ebc017686c12e7f87
+  $wprettyBigList ::
+    (a -> Text.PrettyPrint.HughesPJ.Doc)
+    -> [a]
+    -> (# Text.PrettyPrint.Annotated.HughesPJ.Doc (), GHC.Types.Bool,
+          Text.PrettyPrint.Annotated.HughesPJ.Doc () #)
+  {- Arity: 2, Strictness: <L,C(U)><S,1*U>, Inline: [0],
+     Unfolding: (\ @ a
+                   (w :: a -> Text.PrettyPrint.HughesPJ.Doc)
+                   (w1 :: [a]) ->
+                 letrec {
+                   go5 :: [a] -> [Text.PrettyPrint.Annotated.HughesPJ.Doc ()]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [a]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ (Text.PrettyPrint.Annotated.HughesPJ.Doc ())
+                       : y ys
+                       -> GHC.Types.:
+                            @ (Text.PrettyPrint.Annotated.HughesPJ.Doc ())
+                            (w y) `cast` (Text.PrettyPrint.HughesPJ.N:Doc[0])
+                            (go5 ys) }
+                 } in
+                 case Text.PrettyPrint.Annotated.HughesPJ.$wreduceVert
+                        @ ()
+                        (Text.PrettyPrint.Annotated.HughesPJ.vcat1
+                           @ ()
+                           (go5 w1)) of ww { (#,#) ww1 ww2 ->
+                 case Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                        @ ()
+                        2#
+                        (Text.PrettyPrint.Annotated.HughesPJ.reduceDoc @ () ww2) of wild {
+                   DEFAULT
+                   -> (# Text.PrettyPrint.Annotated.HughesPJ.Above
+                           @ ()
+                           Text.PrettyPrint.HughesPJ.brackets4
+                           GHC.Types.True
+                           wild,
+                         GHC.Types.True, Text.PrettyPrint.HughesPJ.brackets1 #)
+                   Text.PrettyPrint.Annotated.HughesPJ.Empty
+                   -> (# Text.PrettyPrint.HughesPJ.brackets4, GHC.Types.True,
+                         Text.PrettyPrint.HughesPJ.brackets1 #) } }) -}
+167ad98b9249b9c01cea0a2fbac35678
+  $wprettyCDTDecl ::
+    GHC.Base.String
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Prim.Word#
+    -> [CapDL.Model.CapRef]
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 4, Strictness: <S,1*U><S,1*U><S,U><S,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String)
+                   (ww1 :: GHC.Base.Maybe GHC.Types.Word)
+                   (ww2 :: GHC.Prim.Word#)
+                   (w :: [CapDL.Model.CapRef]) ->
+                 case CapDL.PrintModel.$wprettyCapRef
+                        ww
+                        ww1
+                        ww2 of ww3 { (#,,#) ww4 ww5 ww6 ->
+                 let {
+                   ds :: [Text.PrettyPrint.HughesPJ.Doc]
+                   = GHC.Base.map
+                       @ (CapDL.Model.ObjID, GHC.Types.Word)
+                       @ Text.PrettyPrint.HughesPJ.Doc
+                       CapDL.PrintModel.prettyCapRef
+                       w
+                 } in
+                 let {
+                   parent' :: Text.PrettyPrint.Annotated.HughesPJ.Doc ()
+                   = Text.PrettyPrint.Annotated.HughesPJ.Beside @ () ww4 ww5 ww6
+                 } in
+                 let {
+                   fail :: GHC.Prim.Void# -> Text.PrettyPrint.HughesPJ.Doc
+                     {- Arity: 1, Strictness: <L,A> -}
+                   = \ (ds1 :: GHC.Prim.Void#)[OneShot] ->
+                     let {
+                       p :: Text.PrettyPrint.Annotated.HughesPJ.Doc ()
+                       = Text.PrettyPrint.Annotated.HughesPJ.cat_$s$wsep1
+                           @ ()
+                           (case Text.PrettyPrint.Annotated.HughesPJ.$wreduceVert
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.vcat1
+                                      @ ()
+                                      (CapDL.PrintModel.prettyCDTDecl_go
+                                         ds)) of ww7 { (#,#) ww8 ww9 ->
+                            Text.PrettyPrint.Annotated.HughesPJ.$wmkNest
+                              @ ()
+                              2#
+                              (Text.PrettyPrint.Annotated.HughesPJ.reduceDoc @ () ww9) })
+                           (GHC.Types.[] @ (Text.PrettyPrint.Annotated.HughesPJ.Doc ()))
+                           0#
+                           (Text.PrettyPrint.Annotated.HughesPJ.reduceDoc_$sreduceDoc1
+                              @ ()
+                              parent'
+                              GHC.Types.True
+                              Text.PrettyPrint.HughesPJ.braces4)
+                           GHC.Types.True
+                     } in
+                     case CapDL.PrintModel.prettyHeader1
+                            `cast`
+                          (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild {
+                       DEFAULT
+                       -> case p of wild1 {
+                            DEFAULT
+                            -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                  @ ()
+                                  (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                     @ ()
+                                     wild1
+                                     GHC.Types.True
+                                     Text.PrettyPrint.HughesPJ.braces1)
+                                  GHC.Types.True
+                                  wild)
+                                 `cast`
+                               (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                            Text.PrettyPrint.Annotated.HughesPJ.Empty
+                            -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                  @ ()
+                                  Text.PrettyPrint.HughesPJ.braces1
+                                  GHC.Types.True
+                                  wild)
+                                 `cast`
+                               (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                       Text.PrettyPrint.Annotated.HughesPJ.Empty
+                       -> case p of wild1 {
+                            DEFAULT
+                            -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                  @ ()
+                                  wild1
+                                  GHC.Types.True
+                                  Text.PrettyPrint.HughesPJ.braces1)
+                                 `cast`
+                               (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                            Text.PrettyPrint.Annotated.HughesPJ.Empty
+                            -> Text.PrettyPrint.HughesPJ.braces1
+                                 `cast`
+                               (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }
+                 } in
+                 case ds of wild {
+                   [] -> fail GHC.Prim.void#
+                   : child ds1
+                   -> case ds1 of wild1 {
+                        []
+                        -> case CapDL.PrintModel.prettyHeader1
+                                  `cast`
+                                (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                             DEFAULT
+                             -> case child
+                                       `cast`
+                                     (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild3 {
+                                  DEFAULT
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                           @ ()
+                                           parent'
+                                           GHC.Types.True
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                              @ ()
+                                              (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                 @ ()
+                                                 Text.PrettyPrint.HughesPJ.braces4
+                                                 GHC.Types.False
+                                                 wild3)
+                                              GHC.Types.False
+                                              Text.PrettyPrint.HughesPJ.braces1))
+                                        GHC.Types.True
+                                        wild2)
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                                  Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                           @ ()
+                                           parent'
+                                           GHC.Types.True
+                                           CapDL.PrintModel.prettyCDTDecl1)
+                                        GHC.Types.True
+                                        wild2)
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                             Text.PrettyPrint.Annotated.HughesPJ.Empty
+                             -> case child
+                                       `cast`
+                                     (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild3 {
+                                  DEFAULT
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                        @ ()
+                                        parent'
+                                        GHC.Types.True
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                              @ ()
+                                              Text.PrettyPrint.HughesPJ.braces4
+                                              GHC.Types.False
+                                              wild3)
+                                           GHC.Types.False
+                                           Text.PrettyPrint.HughesPJ.braces1))
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                                  Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                        @ ()
+                                        parent'
+                                        GHC.Types.True
+                                        CapDL.PrintModel.prettyCDTDecl1)
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }
+                        : ipv ipv1 -> fail GHC.Prim.void# } } }) -}
+4e186c474cc9b9502c7847023eb0998c
+  $wprettyCapRef ::
+    GHC.Base.String
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Prim.Word#
+    -> (# Text.PrettyPrint.Annotated.HughesPJ.Doc (), GHC.Types.Bool,
+          Text.PrettyPrint.Annotated.HughesPJ.Doc () #)
+  {- Arity: 3, Strictness: <S,1*U><S,1*U><S,U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String)
+                   (ww1 :: GHC.Base.Maybe GHC.Types.Word)
+                   (ww2 :: GHC.Prim.Word#) ->
+                 case CapDL.PrintUtils.$w$cnum ww2 of ww3 { (#,#) ww4 ww5 ->
+                 let {
+                   s5 :: GHC.Base.String = CapDL.PrintUtils.$wshowID ww ww1
+                 } in
+                 case GHC.List.$wlenAcc @ GHC.Types.Char s5 0# of ww6 { DEFAULT ->
+                 (# Text.PrettyPrint.Annotated.HughesPJ.Beside
+                      @ ()
+                      Text.PrettyPrint.HughesPJ.lparen1
+                      GHC.Types.False
+                      (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                         @ ()
+                         (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                            @ ()
+                            (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                               @ ()
+                               (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                  @ ()
+                                  (Text.PrettyPrint.Annotated.HughesPJ.Str s5)
+                                  ww6)
+                               (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                            GHC.Types.False
+                            Text.PrettyPrint.HughesPJ.comma1)
+                         GHC.Types.True
+                         (Text.PrettyPrint.Annotated.HughesPJ.TextBeside @ () ww4 ww5)),
+                    GHC.Types.False, Text.PrettyPrint.HughesPJ.parens1 #) } }) -}
+824a8c89e568e941bc543e562502341a
+  $wprettyIRQ ::
+    GHC.Base.String
+    -> [GHC.Base.Maybe GHC.Types.Word] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><S,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String)
+                   (w :: [GHC.Base.Maybe GHC.Types.Word]) ->
+                 case GHC.List.$wlenAcc @ GHC.Types.Char ww 0# of ww2 { DEFAULT ->
+                 case w of wild {
+                   []
+                   -> case CapDL.PrintUtils.prettyBrackets2
+                             `cast`
+                           (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                        DEFAULT
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                              @ ()
+                              (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                 @ ()
+                                 (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                    @ ()
+                                    (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                    ww2)
+                                 (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                              GHC.Types.False
+                              (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                 @ ()
+                                 (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                    @ ()
+                                    Text.PrettyPrint.HughesPJ.brackets4
+                                    GHC.Types.False
+                                    wild1)
+                                 GHC.Types.False
+                                 Text.PrettyPrint.HughesPJ.brackets1))
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                              @ ()
+                              (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                 @ ()
+                                 (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                    @ ()
+                                    (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                    ww2)
+                                 (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                              GHC.Types.False
+                              CapDL.PrintUtils.prettyBrackets1)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                   : ds1 ds2
+                   -> case ds1 of wild1 {
+                        GHC.Base.Nothing
+                        -> case ds2 of wild2 {
+                             []
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                      ww2)
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                             : ipv ipv1
+                             -> case (CapDL.PrintUtils.prettyRanges wild)
+                                       `cast`
+                                     (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild3 {
+                                  DEFAULT
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                              @ ()
+                                              (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                              ww2)
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                        GHC.Types.False
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                              @ ()
+                                              Text.PrettyPrint.HughesPJ.brackets4
+                                              GHC.Types.False
+                                              wild3)
+                                           GHC.Types.False
+                                           Text.PrettyPrint.HughesPJ.brackets1))
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                                  Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                              @ ()
+                                              (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                              ww2)
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                        GHC.Types.False
+                                        CapDL.PrintUtils.prettyBrackets1)
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }
+                        GHC.Base.Just ipv
+                        -> case (CapDL.PrintUtils.prettyRanges wild)
+                                  `cast`
+                                (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                             DEFAULT
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                         @ ()
+                                         (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                         ww2)
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                   GHC.Types.False
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                         @ ()
+                                         Text.PrettyPrint.HughesPJ.brackets4
+                                         GHC.Types.False
+                                         wild2)
+                                      GHC.Types.False
+                                      Text.PrettyPrint.HughesPJ.brackets1))
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                             Text.PrettyPrint.Annotated.HughesPJ.Empty
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                         @ ()
+                                         (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                         ww2)
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                   GHC.Types.False
+                                   CapDL.PrintUtils.prettyBrackets1)
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } } } }) -}
+f18f10169e7640143909afe1bb85eec1
+  $wprettyIRQSlot ::
+    GHC.Prim.Word#
+    -> GHC.Base.String
+    -> [GHC.Base.Maybe GHC.Types.Word]
+    -> (# Text.PrettyPrint.Annotated.HughesPJ.Doc (), GHC.Types.Bool,
+          Text.PrettyPrint.Annotated.HughesPJ.Doc () #)
+  {- Arity: 3, Strictness: <S,U><S,1*U><S,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Prim.Word#)
+                   (ww1 :: GHC.Base.String)
+                   (w :: [GHC.Base.Maybe GHC.Types.Word]) ->
+                 case GHC.List.$wlenAcc @ GHC.Types.Char ww1 0# of ww2 { DEFAULT ->
+                 case w of wild {
+                   []
+                   -> case CapDL.PrintUtils.prettyBrackets2
+                             `cast`
+                           (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                        DEFAULT
+                        -> case CapDL.PrintUtils.$w$cnum ww of ww3 { (#,#) ww4 ww5 ->
+                           (# Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                @ ()
+                                (Text.PrettyPrint.Annotated.HughesPJ.TextBeside @ () ww4 ww5)
+                                GHC.Types.False
+                                Text.PrettyPrint.HughesPJ.colon1,
+                              GHC.Types.True,
+                              Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                @ ()
+                                (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Str ww1)
+                                      ww2)
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                GHC.Types.False
+                                (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      Text.PrettyPrint.HughesPJ.brackets4
+                                      GHC.Types.False
+                                      wild1)
+                                   GHC.Types.False
+                                   Text.PrettyPrint.HughesPJ.brackets1) #) }
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> case CapDL.PrintUtils.$w$cnum ww of ww3 { (#,#) ww4 ww5 ->
+                           (# Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                @ ()
+                                (Text.PrettyPrint.Annotated.HughesPJ.TextBeside @ () ww4 ww5)
+                                GHC.Types.False
+                                Text.PrettyPrint.HughesPJ.colon1,
+                              GHC.Types.True,
+                              Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                @ ()
+                                (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Str ww1)
+                                      ww2)
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                GHC.Types.False
+                                CapDL.PrintUtils.prettyBrackets1 #) } }
+                   : ds1 ds2
+                   -> case ds1 of wild1 {
+                        GHC.Base.Nothing
+                        -> case ds2 of wild2 {
+                             []
+                             -> case CapDL.PrintUtils.$w$cnum ww of ww3 { (#,#) ww4 ww5 ->
+                                (# Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                     @ ()
+                                     (Text.PrettyPrint.Annotated.HughesPJ.TextBeside @ () ww4 ww5)
+                                     GHC.Types.False
+                                     Text.PrettyPrint.HughesPJ.colon1,
+                                   GHC.Types.True,
+                                   Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                     @ ()
+                                     (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Str ww1)
+                                        ww2)
+                                     (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()) #) }
+                             : ipv ipv1
+                             -> case (CapDL.PrintUtils.prettyRanges wild)
+                                       `cast`
+                                     (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild3 {
+                                  DEFAULT
+                                  -> case CapDL.PrintUtils.$w$cnum ww of ww3 { (#,#) ww4 ww5 ->
+                                     (# Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                          @ ()
+                                          (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                             @ ()
+                                             ww4
+                                             ww5)
+                                          GHC.Types.False
+                                          Text.PrettyPrint.HughesPJ.colon1,
+                                        GHC.Types.True,
+                                        Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                          @ ()
+                                          (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                             @ ()
+                                             (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                                @ ()
+                                                (Text.PrettyPrint.Annotated.HughesPJ.Str ww1)
+                                                ww2)
+                                             (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                          GHC.Types.False
+                                          (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                             @ ()
+                                             (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                @ ()
+                                                Text.PrettyPrint.HughesPJ.brackets4
+                                                GHC.Types.False
+                                                wild3)
+                                             GHC.Types.False
+                                             Text.PrettyPrint.HughesPJ.brackets1) #) }
+                                  Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                  -> case CapDL.PrintUtils.$w$cnum ww of ww3 { (#,#) ww4 ww5 ->
+                                     (# Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                          @ ()
+                                          (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                             @ ()
+                                             ww4
+                                             ww5)
+                                          GHC.Types.False
+                                          Text.PrettyPrint.HughesPJ.colon1,
+                                        GHC.Types.True,
+                                        Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                          @ ()
+                                          (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                             @ ()
+                                             (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                                @ ()
+                                                (Text.PrettyPrint.Annotated.HughesPJ.Str ww1)
+                                                ww2)
+                                             (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                          GHC.Types.False
+                                          CapDL.PrintUtils.prettyBrackets1 #) } } }
+                        GHC.Base.Just ipv
+                        -> case (CapDL.PrintUtils.prettyRanges wild)
+                                  `cast`
+                                (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                             DEFAULT
+                             -> case CapDL.PrintUtils.$w$cnum ww of ww3 { (#,#) ww4 ww5 ->
+                                (# Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                     @ ()
+                                     (Text.PrettyPrint.Annotated.HughesPJ.TextBeside @ () ww4 ww5)
+                                     GHC.Types.False
+                                     Text.PrettyPrint.HughesPJ.colon1,
+                                   GHC.Types.True,
+                                   Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                     @ ()
+                                     (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Str ww1)
+                                           ww2)
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                     GHC.Types.False
+                                     (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                           @ ()
+                                           Text.PrettyPrint.HughesPJ.brackets4
+                                           GHC.Types.False
+                                           wild2)
+                                        GHC.Types.False
+                                        Text.PrettyPrint.HughesPJ.brackets1) #) }
+                             Text.PrettyPrint.Annotated.HughesPJ.Empty
+                             -> case CapDL.PrintUtils.$w$cnum ww of ww3 { (#,#) ww4 ww5 ->
+                                (# Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                     @ ()
+                                     (Text.PrettyPrint.Annotated.HughesPJ.TextBeside @ () ww4 ww5)
+                                     GHC.Types.False
+                                     Text.PrettyPrint.HughesPJ.colon1,
+                                   GHC.Types.True,
+                                   Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                     @ ()
+                                     (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Str ww1)
+                                           ww2)
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                     GHC.Types.False
+                                     CapDL.PrintUtils.prettyBrackets1 #) } } } } }) -}
+f7175e6e4c4494dd955b32eaa69f9f2e
+  $wprettyMapping ::
+    (GHC.Show.Show a, GHC.Show.Show b) =>
+    a -> b -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 4,
+     Strictness: <S(LC(S)L),1*U(A,1*C1(U),A)><S(LC(S)L),1*U(A,1*C1(U),A)><L,U><L,U>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   @ b
+                   (w :: GHC.Show.Show a)
+                   (w1 :: GHC.Show.Show b)
+                   (ww :: a)
+                   (ww1 :: b) ->
+                 let {
+                   s5 :: GHC.Base.String = GHC.Show.show @ b w1 ww1
+                 } in
+                 case GHC.List.$wlenAcc @ GHC.Types.Char s5 0# of ww2 { DEFAULT ->
+                 let {
+                   s6 :: GHC.Base.String = GHC.Show.show @ a w ww
+                 } in
+                 case GHC.List.$wlenAcc @ GHC.Types.Char s6 0# of ww3 { DEFAULT ->
+                 case CapDL.PrintModel.prettyMapping1
+                        `cast`
+                      (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild {
+                   DEFAULT
+                   -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                         @ ()
+                         (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                            @ ()
+                            (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                               @ ()
+                               (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                  @ ()
+                                  (Text.PrettyPrint.Annotated.HughesPJ.Str s6)
+                                  ww3)
+                               (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                            GHC.Types.False
+                            wild)
+                         GHC.Types.False
+                         (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                            @ ()
+                            (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                               @ ()
+                               (Text.PrettyPrint.Annotated.HughesPJ.Str s5)
+                               ww2)
+                            (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ())))
+                        `cast`
+                      (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                   Text.PrettyPrint.Annotated.HughesPJ.Empty
+                   -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                         @ ()
+                         (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                            @ ()
+                            (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                               @ ()
+                               (Text.PrettyPrint.Annotated.HughesPJ.Str s6)
+                               ww3)
+                            (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                         GHC.Types.False
+                         (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                            @ ()
+                            (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                               @ ()
+                               (Text.PrettyPrint.Annotated.HughesPJ.Str s5)
+                               ww2)
+                            (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ())))
+                        `cast`
+                      (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } } }) -}
+af2d63fa3e1b1f711533efcb130742cc
+  $wprettyMappings ::
+    CapDL.PrintUtils.Printing a =>
+    CapDL.Model.ObjMap a
+    -> CapDL.Model.IRQMap
+    -> CapDL.Model.CDT
+    -> CapDL.Model.CoverMap
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 5,
+     Strictness: <L,U(A,U(C(C1(U)),A),C(C1(U)),C(U))><S,U><S,1*U><S,1*U><L,U>,
+     Inline: [0] -}
+3fa0a36866f99a4aff9d6e3f7070df08
+  $wprettyNameDecl ::
+    GHC.Base.String
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Types.Int
+    -> (# Text.PrettyPrint.Annotated.HughesPJ.Doc (), GHC.Types.Bool,
+          Text.PrettyPrint.Annotated.HughesPJ.Doc () #)
+  {- Arity: 3, HasNoCafRefs, Strictness: <S,U><S,1*U><L,1*U(U)>,
+     Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String)
+                   (ww1 :: GHC.Base.Maybe GHC.Types.Word)
+                   (w :: GHC.Types.Int) ->
+                 case ww1 of wild {
+                   GHC.Base.Nothing
+                   -> case GHC.List.$wlenAcc
+                             @ GHC.Types.Char
+                             ww
+                             0# of ww2 { DEFAULT ->
+                      (# Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                           @ ()
+                           (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                              @ ()
+                              (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                              ww2)
+                           (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()),
+                         GHC.Types.True, Text.PrettyPrint.HughesPJ.equals1 #) }
+                   GHC.Base.Just ipv
+                   -> case w of ww2 { GHC.Types.I# ww3 ->
+                      case Text.PrettyPrint.HughesPJ.$wint ww3 of ww4 { (#,#) ww5 ww6 ->
+                      case GHC.List.$wlenAcc @ GHC.Types.Char ww 0# of ww7 { DEFAULT ->
+                      (# Text.PrettyPrint.Annotated.HughesPJ.Beside
+                           @ ()
+                           (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                              @ ()
+                              (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                 @ ()
+                                 (Text.PrettyPrint.Annotated.HughesPJ.Str ww)
+                                 ww7)
+                              (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                           GHC.Types.False
+                           (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                              @ ()
+                              (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                 @ ()
+                                 Text.PrettyPrint.HughesPJ.brackets4
+                                 GHC.Types.False
+                                 (Text.PrettyPrint.Annotated.HughesPJ.TextBeside @ () ww5 ww6))
+                              GHC.Types.False
+                              Text.PrettyPrint.HughesPJ.brackets1),
+                         GHC.Types.True, Text.PrettyPrint.HughesPJ.equals1 #) } } } }) -}
+351f0a61f323a1a5de70a821979fb856
+  $wprettySlot ::
+    CapDL.PrintUtils.Printing a =>
+    a
+    -> CapDL.Model.Cap
+    -> [GHC.Base.Maybe GHC.Types.Word]
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 4,
+     Strictness: <S(LLLC(S)),1*U(A,A,A,1*C1(U))><L,U><S,U><S,1*U>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   (w :: CapDL.PrintUtils.Printing a)
+                   (ww :: a)
+                   (ww1 :: CapDL.Model.Cap)
+                   (w1 :: [GHC.Base.Maybe GHC.Types.Word]) ->
+                 case (CapDL.PrintModel.prettyCap ww1 w1)
+                        `cast`
+                      (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild {
+                   DEFAULT
+                   -> case (CapDL.PrintUtils.num @ a w ww)
+                             `cast`
+                           (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                        DEFAULT
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                              @ ()
+                              (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                 @ ()
+                                 wild1
+                                 GHC.Types.False
+                                 Text.PrettyPrint.HughesPJ.colon1)
+                              GHC.Types.True
+                              wild)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                              @ ()
+                              Text.PrettyPrint.HughesPJ.colon1
+                              GHC.Types.True
+                              wild)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                   Text.PrettyPrint.Annotated.HughesPJ.Empty
+                   -> case (CapDL.PrintUtils.num @ a w ww)
+                             `cast`
+                           (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                        DEFAULT
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                              @ ()
+                              wild1
+                              GHC.Types.False
+                              Text.PrettyPrint.HughesPJ.colon1)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> Text.PrettyPrint.HughesPJ.colon1
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }) -}
+4b728ce9ea97b90e2480f335d34a3488
+  $wprettySlots ::
+    CapDL.PrintUtils.Printing a =>
+    CapDL.Model.ObjID
+    -> CapDL.Model.KernelObject a
+    -> [GHC.Base.Maybe GHC.Types.Word]
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 4,
+     Strictness: <L,U(A,A,C(C1(U)),C(U))><L,1*U(U,A)><S,1*U><L,1*U>,
+     Inline: [0] -}
+7a1b56d198d3abc78afd83597d1c42b2
+  $wprettyUntypedsList ::
+    CapDL.Model.CoverMap
+    -> [(CapDL.Model.ObjID, CapDL.Model.KernelObject a)]
+    -> (# Text.PrettyPrint.HughesPJ.Doc,
+          [Text.PrettyPrint.HughesPJ.Doc] #)
+  {- Arity: 2, Strictness: <L,U><S,1*U>, Inline: [0] -}
+8d8fb6f7933f19a9fa000f00a30e6b79
+  capHead ::
+    CapDL.Model.ObjID
+    -> [GHC.Base.Maybe GHC.Types.Word] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S(SL),1*U(U,A)><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CapDL.Model.ObjID)
+                   (w1 :: [GHC.Base.Maybe GHC.Types.Word]) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 CapDL.PrintModel.$wcapHead ww1 w1 }) -}
+029761e6da131bd18b1754d1c6e55cf2
+  getCover ::
+    CapDL.Model.ObjID -> CapDL.Model.CoverMap -> CapDL.Model.ObjSet
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U(U,U)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ut :: CapDL.Model.ObjID) (covers :: CapDL.Model.CoverMap) ->
+                 case CapDL.PrintModel.$slookup1
+                        @ (Data.Set.Base.Set CapDL.Model.ObjID)
+                        ut
+                        covers of wild {
+                   GHC.Base.Nothing -> Data.Set.Base.Tip @ CapDL.Model.ObjID
+                   GHC.Base.Just cover -> cover }) -}
+f773ba0026e23ae850fbc5ea3a88b3ac
+  indent :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 2#) -}
+2201261bba3f58246e7bb7febcd503a8
+  pretty ::
+    CapDL.PrintUtils.Printing a =>
+    CapDL.Model.Model a -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2,
+     Strictness: <L,U(A,U(C(C1(U)),A),C(C1(U)),C(U))><S(SSSSL),U(1*U,U,1*U,1*U,U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   (w :: CapDL.PrintUtils.Printing a)
+                   (w1 :: CapDL.Model.Model a) ->
+                 case w1 of ww { CapDL.Model.Model ww1 ww2 ww3 ww4 ww5 ->
+                 CapDL.PrintModel.$wpretty @ a w ww1 ww2 ww3 ww4 ww5 }) -}
+2c4e91c8db02a0252ebdcbd1785bb086
+  prettyBigList ::
+    (a -> Text.PrettyPrint.HughesPJ.Doc)
+    -> [a] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <L,C(U)><S,1*U>m8, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a (w :: a -> Text.PrettyPrint.HughesPJ.Doc) (w1 :: [a]) ->
+                 case CapDL.PrintModel.$wprettyBigList
+                        @ a
+                        w
+                        w1 of ww { (#,,#) ww1 ww2 ww3 ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.Above @ () ww1 ww2 ww3)
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+850d08197dbb306c3d84613ba81b693b
+  prettyCDT :: CapDL.Model.CDT -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (cdt :: CapDL.Model.CDT) ->
+                 case Text.PrettyPrint.Annotated.HughesPJ.$wreduceVert
+                        @ ()
+                        (Text.PrettyPrint.Annotated.HughesPJ.vcat1
+                           @ ()
+                           (CapDL.PrintModel.prettyCDT_go
+                              (CapDL.PrintModel.prettyCDTList
+                                 (Data.Map.Base.toAscList
+                                    @ (CapDL.Model.ObjID, GHC.Types.Word)
+                                    @ (CapDL.Model.ObjID, GHC.Types.Word)
+                                    cdt)))) of ww { (#,#) ww1 ww2 ->
+                 ww2 `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+b32baa550fc5527ded6eaa15bc5cb54a
+  prettyCDTDecl ::
+    CapDL.Model.CapRef
+    -> [CapDL.Model.CapRef] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2,
+     Strictness: <S(S(SS)S(S)),1*U(1*U(1*U,1*U),1*U(U))><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CapDL.Model.CapRef) (w1 :: [CapDL.Model.CapRef]) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case ww1 of ww3 { (,) ww4 ww5 ->
+                 case ww2 of ww6 { GHC.Types.W# ww7 ->
+                 CapDL.PrintModel.$wprettyCDTDecl ww4 ww5 ww7 w1 } } }) -}
+d21bbc6c4431c1131395151cd892349e
+  prettyCDTDecl1 :: Text.PrettyPrint.Annotated.HughesPJ.Doc ()
+  {- HasNoCafRefs,
+     Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                   @ ()
+                   Text.PrettyPrint.HughesPJ.braces4
+                   GHC.Types.False
+                   Text.PrettyPrint.HughesPJ.braces1) -}
+dab2ac31089089f58b2b500f7654f502
+  prettyCDTDecl_go ::
+    [Text.PrettyPrint.HughesPJ.Doc]
+    -> [Text.PrettyPrint.Annotated.HughesPJ.Doc ()]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+1b5ffa1c0ef99f9880104a9a73d7cc95
+  prettyCDTGroup ::
+    [(CapDL.Model.CapRef, CapDL.Model.CapRef)]
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (list :: [(CapDL.Model.CapRef,
+                              CapDL.Model.CapRef)]) ->
+                 case list of wild {
+                   []
+                   -> case GHC.List.badHead ret_ty Text.PrettyPrint.HughesPJ.Doc of {}
+                   : x ds1
+                   -> case x of wild1 { (,) ds2 y ->
+                      case y of ww { (,) ww1 ww2 ->
+                      case ww1 of ww3 { (,) ww4 ww5 ->
+                      case ww2 of ww6 { GHC.Types.W# ww7 ->
+                      CapDL.PrintModel.$wprettyCDTDecl
+                        ww4
+                        ww5
+                        ww7
+                        (GHC.Base.map
+                           @ (CapDL.Model.CapRef, CapDL.Model.CapRef)
+                           @ (CapDL.Model.ObjID, GHC.Types.Word)
+                           (Data.Tuple.fst @ CapDL.Model.CapRef @ CapDL.Model.CapRef)
+                           wild) } } } } }) -}
+24f01818eaace91e2b95a6dfcf4b4cce
+  prettyCDTList ::
+    [(CapDL.Model.CapRef, CapDL.Model.CapRef)]
+    -> [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 1, Strictness: <S,1*U> -}
+0f7b7e68e6e68e55991ad12bc0d4ec14
+  prettyCDT_go ::
+    [Text.PrettyPrint.HughesPJ.Doc]
+    -> [Text.PrettyPrint.Annotated.HughesPJ.Doc ()]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+819e152abb11169a2179682d98d4a006
+  prettyCap ::
+    CapDL.Model.Cap
+    -> [GHC.Base.Maybe GHC.Types.Word] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,U><S,1*U>,
+     Unfolding: (\ (cap :: CapDL.Model.Cap)
+                   (range :: [GHC.Base.Maybe GHC.Types.Word]) ->
+                 let {
+                   p :: Text.PrettyPrint.Annotated.HughesPJ.Doc ()
+                   = case range of wild {
+                       []
+                       -> case CapDL.PrintUtils.prettyBrackets2
+                                 `cast`
+                               (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                            DEFAULT
+                            -> case (CapDL.PrintUtils.printCap cap)
+                                      `cast`
+                                    (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                                 DEFAULT
+                                 -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      wild2
+                                      GHC.Types.False
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                         @ ()
+                                         (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                            @ ()
+                                            Text.PrettyPrint.HughesPJ.brackets4
+                                            GHC.Types.False
+                                            wild1)
+                                         GHC.Types.False
+                                         Text.PrettyPrint.HughesPJ.brackets1)
+                                 Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                 -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                         @ ()
+                                         Text.PrettyPrint.HughesPJ.brackets4
+                                         GHC.Types.False
+                                         wild1)
+                                      GHC.Types.False
+                                      Text.PrettyPrint.HughesPJ.brackets1 }
+                            Text.PrettyPrint.Annotated.HughesPJ.Empty
+                            -> case (CapDL.PrintUtils.printCap cap)
+                                      `cast`
+                                    (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                                 DEFAULT
+                                 -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      wild2
+                                      GHC.Types.False
+                                      CapDL.PrintUtils.prettyBrackets1
+                                 Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                 -> CapDL.PrintUtils.prettyBrackets1 } }
+                       : ds1 ds2
+                       -> case ds1 of wild1 {
+                            GHC.Base.Nothing
+                            -> case ds2 of wild2 {
+                                 []
+                                 -> (CapDL.PrintUtils.printCap cap)
+                                      `cast`
+                                    (Text.PrettyPrint.HughesPJ.N:Doc[0])
+                                 : ipv ipv1
+                                 -> case (CapDL.PrintUtils.prettyRanges wild)
+                                           `cast`
+                                         (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild3 {
+                                      DEFAULT
+                                      -> case (CapDL.PrintUtils.printCap cap)
+                                                `cast`
+                                              (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild4 {
+                                           DEFAULT
+                                           -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                @ ()
+                                                wild4
+                                                GHC.Types.False
+                                                (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                   @ ()
+                                                   (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                      @ ()
+                                                      Text.PrettyPrint.HughesPJ.brackets4
+                                                      GHC.Types.False
+                                                      wild3)
+                                                   GHC.Types.False
+                                                   Text.PrettyPrint.HughesPJ.brackets1)
+                                           Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                           -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                @ ()
+                                                (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                   @ ()
+                                                   Text.PrettyPrint.HughesPJ.brackets4
+                                                   GHC.Types.False
+                                                   wild3)
+                                                GHC.Types.False
+                                                Text.PrettyPrint.HughesPJ.brackets1 }
+                                      Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                      -> case (CapDL.PrintUtils.printCap cap)
+                                                `cast`
+                                              (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild4 {
+                                           DEFAULT
+                                           -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                @ ()
+                                                wild4
+                                                GHC.Types.False
+                                                CapDL.PrintUtils.prettyBrackets1
+                                           Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                           -> CapDL.PrintUtils.prettyBrackets1 } } }
+                            GHC.Base.Just ipv
+                            -> case (CapDL.PrintUtils.prettyRanges wild)
+                                      `cast`
+                                    (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                                 DEFAULT
+                                 -> case (CapDL.PrintUtils.printCap cap)
+                                           `cast`
+                                         (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild4 {
+                                      DEFAULT
+                                      -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                           @ ()
+                                           wild4
+                                           GHC.Types.False
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                              @ ()
+                                              (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                 @ ()
+                                                 Text.PrettyPrint.HughesPJ.brackets4
+                                                 GHC.Types.False
+                                                 wild2)
+                                              GHC.Types.False
+                                              Text.PrettyPrint.HughesPJ.brackets1)
+                                      Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                      -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                              @ ()
+                                              Text.PrettyPrint.HughesPJ.brackets4
+                                              GHC.Types.False
+                                              wild2)
+                                           GHC.Types.False
+                                           Text.PrettyPrint.HughesPJ.brackets1 }
+                                 Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                 -> case (CapDL.PrintUtils.printCap cap)
+                                           `cast`
+                                         (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild4 {
+                                      DEFAULT
+                                      -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                           @ ()
+                                           wild4
+                                           GHC.Types.False
+                                           CapDL.PrintUtils.prettyBrackets1
+                                      Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                      -> CapDL.PrintUtils.prettyBrackets1 } } } }
+                 } in
+                 case (CapDL.PrintUtils.maybeCapParams cap)
+                        `cast`
+                      (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild {
+                   DEFAULT
+                   -> case p of wild1 {
+                        DEFAULT
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                              @ ()
+                              wild1
+                              GHC.Types.True
+                              wild)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> wild `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                   Text.PrettyPrint.Annotated.HughesPJ.Empty
+                   -> p `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+b1c9a923ab4b2858f47752bb10da0201
+  prettyCapRef :: CapDL.Model.CapRef -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 1, Strictness: <S(S(SS)S(S)),1*U(1*U(1*U,1*U),1*U(U))>m7,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: CapDL.Model.CapRef) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case ww1 of ww3 { (,) ww4 ww5 ->
+                 case ww2 of ww6 { GHC.Types.W# ww7 ->
+                 case CapDL.PrintModel.$wprettyCapRef
+                        ww4
+                        ww5
+                        ww7 of ww8 { (#,,#) ww9 ww10 ww11 ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.Beside @ () ww9 ww10 ww11)
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } } } }) -}
+a6dfc48029b7d5787d8003529f26adfb
+  prettyCaps ::
+    CapDL.PrintUtils.Printing a =>
+    CapDL.Model.ObjMap a -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2,
+     Strictness: <L,U(A,U(C(C1(U)),A),C(C1(U)),C(U))><S,1*U>,
+     Unfolding: (\ @ a
+                   ($dPrinting :: CapDL.PrintUtils.Printing a)
+                   (ms :: CapDL.Model.ObjMap a) ->
+                 case Text.PrettyPrint.Annotated.HughesPJ.$wreduceVert
+                        @ ()
+                        (Text.PrettyPrint.Annotated.HughesPJ.vcat1
+                           @ ()
+                           (CapDL.PrintModel.prettyCaps_go
+                              (CapDL.PrintModel.prettyCapsList
+                                 @ a
+                                 $dPrinting
+                                 (Data.Map.Base.toAscList
+                                    @ (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)
+                                    @ (CapDL.Model.KernelObject a)
+                                    ms)))) of ww { (#,#) ww1 ww2 ->
+                 ww2 `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+f6e4f48a806576fcb6cf95b1d652ac1c
+  prettyCapsGroup ::
+    CapDL.PrintUtils.Printing a =>
+    [(CapDL.Model.ObjID, CapDL.Model.KernelObject a)]
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <L,U(A,A,C(C1(U)),C(U))><S,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   ($dPrinting :: CapDL.PrintUtils.Printing a)
+                   (list :: [(CapDL.Model.ObjID, CapDL.Model.KernelObject a)]) ->
+                 CapDL.PrintModel.prettySlots
+                   @ a
+                   $dPrinting
+                   (GHC.List.head
+                      @ (CapDL.Model.ObjID, CapDL.Model.KernelObject a)
+                      list)
+                   (GHC.Base.build
+                      @ (GHC.Base.Maybe GHC.Types.Word)
+                      (\ @ b1
+                         (c :: GHC.Base.Maybe GHC.Types.Word -> b1 -> b1)[OneShot]
+                         (n :: b1)[OneShot] ->
+                       GHC.Base.foldr
+                         @ ((GHC.Base.String, GHC.Base.Maybe GHC.Types.Word),
+                            CapDL.Model.KernelObject a)
+                         @ b1
+                         (GHC.Base.mapFB
+                            @ (GHC.Base.Maybe GHC.Types.Word)
+                            @ b1
+                            @ ((GHC.Base.String, GHC.Base.Maybe GHC.Types.Word),
+                               CapDL.Model.KernelObject a)
+                            c
+                            (CapDL.PrintModel.prettyCapsGroup1 @ a))
+                         n
+                         list))) -}
+86e2ceb1c6188ca334db3a59b20024f9
+  prettyCapsGroup1 ::
+    ((GHC.Base.String, GHC.Base.Maybe GHC.Types.Word),
+     CapDL.Model.KernelObject a)
+    -> GHC.Base.Maybe GHC.Types.Word
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(S(LS)L),1*U(1*U(A,1*U),A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a
+                   (x :: ((GHC.Base.String, GHC.Base.Maybe GHC.Types.Word),
+                          CapDL.Model.KernelObject a)) ->
+                 case x of wild { (,) x1 ds1 ->
+                 case x1 of wild1 { (,) ds2 y -> y } }) -}
+8efd564637d17a29a5c8faad8cef2fdc
+  prettyCapsList ::
+    CapDL.PrintUtils.Printing a =>
+    [(CapDL.Model.ObjID, CapDL.Model.KernelObject a)]
+    -> [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 2,
+     Strictness: <L,U(A,U(C(C1(U)),A),C(C1(U)),C(U))><S,1*U> -}
+bcf0c2d9988724fabfbd664b8c12834c
+  prettyCaps_go ::
+    [Text.PrettyPrint.HughesPJ.Doc]
+    -> [Text.PrettyPrint.Annotated.HughesPJ.Doc ()]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+e5756ed7ca642729d5ece94f1881365f
+  prettyCovered ::
+    [CapDL.Model.ObjID] -> [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 1, Strictness: <S,1*U> -}
+8928933a6b155cf2c4f4b4ac2b662293
+  prettyCovered_$sprettyCovered ::
+    ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+    -> [([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)]
+    -> [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 2, Strictness: <L,U><L,U> -}
+3551ed9ccd194d2f0f7f9e41e87f25d3
+  prettyHeader :: CapDL.Model.Arch -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (arch :: CapDL.Model.Arch) ->
+                 let {
+                   p :: Text.PrettyPrint.Annotated.HughesPJ.Doc ()
+                   = case arch of wild {
+                       CapDL.Model.IA32
+                       -> case CapDL.PrintUtils.prettyArch7
+                                 `cast`
+                               (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                            DEFAULT
+                            -> case CapDL.PrintModel.prettyHeader3
+                                      `cast`
+                                    (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                                 DEFAULT
+                                 -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      wild2
+                                      GHC.Types.True
+                                      wild1
+                                 Text.PrettyPrint.Annotated.HughesPJ.Empty -> wild1 }
+                            Text.PrettyPrint.Annotated.HughesPJ.Empty
+                            -> CapDL.PrintModel.prettyHeader3
+                                 `cast`
+                               (Text.PrettyPrint.HughesPJ.N:Doc[0]) }
+                       CapDL.Model.ARM11
+                       -> case CapDL.PrintUtils.prettyArch5
+                                 `cast`
+                               (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                            DEFAULT
+                            -> case CapDL.PrintModel.prettyHeader3
+                                      `cast`
+                                    (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                                 DEFAULT
+                                 -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      wild2
+                                      GHC.Types.True
+                                      wild1
+                                 Text.PrettyPrint.Annotated.HughesPJ.Empty -> wild1 }
+                            Text.PrettyPrint.Annotated.HughesPJ.Empty
+                            -> CapDL.PrintModel.prettyHeader3
+                                 `cast`
+                               (Text.PrettyPrint.HughesPJ.N:Doc[0]) }
+                       CapDL.Model.X86_64
+                       -> case CapDL.PrintUtils.prettyArch3
+                                 `cast`
+                               (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                            DEFAULT
+                            -> case CapDL.PrintModel.prettyHeader3
+                                      `cast`
+                                    (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                                 DEFAULT
+                                 -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      wild2
+                                      GHC.Types.True
+                                      wild1
+                                 Text.PrettyPrint.Annotated.HughesPJ.Empty -> wild1 }
+                            Text.PrettyPrint.Annotated.HughesPJ.Empty
+                            -> CapDL.PrintModel.prettyHeader3
+                                 `cast`
+                               (Text.PrettyPrint.HughesPJ.N:Doc[0]) }
+                       CapDL.Model.AARCH64
+                       -> case CapDL.PrintUtils.prettyArch1
+                                 `cast`
+                               (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                            DEFAULT
+                            -> case CapDL.PrintModel.prettyHeader3
+                                      `cast`
+                                    (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                                 DEFAULT
+                                 -> Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      wild2
+                                      GHC.Types.True
+                                      wild1
+                                 Text.PrettyPrint.Annotated.HughesPJ.Empty -> wild1 }
+                            Text.PrettyPrint.Annotated.HughesPJ.Empty
+                            -> CapDL.PrintModel.prettyHeader3
+                                 `cast`
+                               (Text.PrettyPrint.HughesPJ.N:Doc[0]) } }
+                 } in
+                 case CapDL.PrintModel.prettyHeader1
+                        `cast`
+                      (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild {
+                   DEFAULT
+                   -> case p of wild1 {
+                        DEFAULT
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                              @ ()
+                              wild1
+                              GHC.Types.True
+                              wild)
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> wild `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                   Text.PrettyPrint.Annotated.HughesPJ.Empty
+                   -> p `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+a0c88bb7df5f5c3c66a1b04dc7222ddb
+  prettyHeader1 :: Text.PrettyPrint.HughesPJ.Doc
+  {- Unfolding: (case GHC.List.$wlenAcc
+                        @ GHC.Types.Char
+                        (GHC.Types.[] @ GHC.Types.Char)
+                        0# of ww2 { DEFAULT ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                    @ ()
+                    (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                       @ ()
+                       CapDL.PrintModel.prettyHeader2
+                       ww2)
+                    (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+06fe54bdf3c737bb5d6e71f1fe09a4d1
+  prettyHeader2 :: Text.PrettyPrint.Annotated.HughesPJ.TextDetails
+  {- HasNoCafRefs,
+     Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.Str
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+49560546445af608e0ab15321b60b373
+  prettyHeader3 :: Text.PrettyPrint.HughesPJ.Doc
+  {- Unfolding: (case GHC.List.$wlenAcc
+                        @ GHC.Types.Char
+                        CapDL.PrintModel.prettyHeader_s
+                        0# of ww2 { DEFAULT ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                    @ ()
+                    (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                       @ ()
+                       CapDL.PrintModel.prettyHeader4
+                       ww2)
+                    (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+f582905b32fea7fda28eb49a46c3d376
+  prettyHeader4 :: Text.PrettyPrint.Annotated.HughesPJ.TextDetails
+  {- Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.Str
+                   CapDL.PrintModel.prettyHeader_s) -}
+419fd66b361d8d0c3994bcb39763bf42
+  prettyHeader_s :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# "arch"#) -}
+52aa549f4d5456bf6963a8c1bd38c1f4
+  prettyIRQ ::
+    CapDL.Model.ObjID
+    -> [GHC.Base.Maybe GHC.Types.Word] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S(SL),1*U(1*U,A)><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CapDL.Model.ObjID)
+                   (w1 :: [GHC.Base.Maybe GHC.Types.Word]) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 CapDL.PrintModel.$wprettyIRQ ww1 w1 }) -}
+51704377fcff82f0170cc35852eb7ab8
+  prettyIRQNode ::
+    CapDL.Model.IRQMap -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (irqNode :: CapDL.Model.IRQMap) ->
+                 case CapDL.PrintModel.prettyIRQSlotsList
+                        (Data.Map.Base.toAscList1
+                           @ GHC.Types.Word
+                           @ (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)
+                           (GHC.Types.[]
+                              @ (GHC.Types.Word,
+                                 (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)))
+                           irqNode) of wild {
+                   []
+                   -> (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ())
+                        `cast`
+                      (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                   : irq ds
+                   -> case ds of wild1 {
+                        []
+                        -> (Text.PrettyPrint.Annotated.HughesPJ.$+$
+                              @ ()
+                              irq `cast` (Text.PrettyPrint.HughesPJ.N:Doc[0])
+                              CapDL.PrintModel.prettyHeader1
+                                `cast`
+                              (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                             `cast`
+                           (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                        : ipv ipv1
+                        -> case Text.PrettyPrint.Annotated.HughesPJ.$wreduceVert
+                                  @ ()
+                                  (Text.PrettyPrint.Annotated.HughesPJ.vcat1
+                                     @ ()
+                                     (CapDL.PrintModel.prettyIRQNode_$sgo
+                                        irq
+                                        wild1)) of ww { (#,#) ww1 ww2 ->
+                           case CapDL.PrintModel.prettyHeader1
+                                  `cast`
+                                (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild2 {
+                             DEFAULT
+                             -> case ww2 of wild3 {
+                                  DEFAULT
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Above
+                                        @ ()
+                                        wild3
+                                        GHC.Types.True
+                                        wild2)
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                                  Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                  -> wild2 `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                             Text.PrettyPrint.Annotated.HughesPJ.Empty
+                             -> ww2
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } } } }) -}
+2e191eaddd637dacd632114f92fbcd45
+  prettyIRQNode_$sgo ::
+    Text.PrettyPrint.HughesPJ.Doc
+    -> [Text.PrettyPrint.HughesPJ.Doc]
+    -> [Text.PrettyPrint.Annotated.HughesPJ.Doc ()]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U> -}
+a6b666a27e8833cb24eff74840549bd1
+  prettyIRQSlot ::
+    (GHC.Types.Word, CapDL.Model.ObjID)
+    -> [GHC.Base.Maybe GHC.Types.Word] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2,
+     Strictness: <S(S(S)S(SL)),1*U(1*U(U),1*U(1*U,A))><S,1*U>m7,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: (GHC.Types.Word, CapDL.Model.ObjID))
+                   (w1 :: [GHC.Base.Maybe GHC.Types.Word]) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case ww1 of ww3 { GHC.Types.W# ww4 ->
+                 case ww2 of ww5 { (,) ww6 ww7 ->
+                 case CapDL.PrintModel.$wprettyIRQSlot
+                        ww4
+                        ww6
+                        w1 of ww8 { (#,,#) ww9 ww10 ww11 ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.Beside @ () ww9 ww10 ww11)
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } } } }) -}
+2f8d8437b1103703144131c5f9b1ed5d
+  prettyIRQSlotsList ::
+    [(GHC.Types.Word, CapDL.Model.ObjID)]
+    -> [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 1, Strictness: <S,1*U> -}
+e566fd7d53f65ee248995edfcb4489e8
+  prettyIRQSlotsList_$sprettyIRQSlotsList ::
+    (GHC.Types.Word, ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word))
+    -> [(GHC.Types.Word,
+         ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word))]
+    -> [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 2, Strictness: <L,U><L,U> -}
+59de1f98efb0ff847567763c35639496
+  prettyIRQSlotsRange ::
+    [(GHC.Types.Word, CapDL.Model.ObjID)]
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 1, Strictness: <S,1*U>m7,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: [(GHC.Types.Word, CapDL.Model.ObjID)]) ->
+                 case ds of wild {
+                   [] -> CapDL.PrintModel.prettyIRQSlotsRange2
+                   : x ds1
+                   -> CapDL.PrintModel.prettyIRQSlot
+                        x
+                        (GHC.Base.build
+                           @ (GHC.Base.Maybe GHC.Types.Word)
+                           (\ @ b1
+                              (c :: GHC.Base.Maybe GHC.Types.Word -> b1 -> b1)[OneShot]
+                              (n :: b1)[OneShot] ->
+                            GHC.Base.foldr
+                              @ (GHC.Types.Word,
+                                 (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word))
+                              @ b1
+                              (GHC.Base.mapFB
+                                 @ (GHC.Base.Maybe GHC.Types.Word)
+                                 @ b1
+                                 @ (GHC.Types.Word,
+                                    (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word))
+                                 c
+                                 CapDL.PrintModel.prettyIRQSlotsRange1)
+                              n
+                              wild)) }) -}
+2e812a14607f2c85a32f8db1a517bfde
+  prettyIRQSlotsRange1 ::
+    (GHC.Types.Word, (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word))
+    -> GHC.Base.Maybe GHC.Types.Word
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LS(LS)),1*U(A,1*U(A,1*U))>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: (GHC.Types.Word,
+                          (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word))) ->
+                 case x of wild { (,) ds1 y ->
+                 case y of wild1 { (,) ds2 y1 -> y1 } }) -}
+c31bd626777087fb5c9f826d09b90f4e
+  prettyIRQSlotsRange2 :: Text.PrettyPrint.HughesPJ.Doc
+  {- Strictness: x -}
+004c1ad557fc8c078f501ea27a2bad7c
+  prettyIndexedUntyped ::
+    CapDL.Model.CoverMap
+    -> [(CapDL.Model.ObjID, CapDL.Model.KernelObject a)]
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <L,U><S,1*U> -}
+18166e6bb9892cdd04cab9c30979bd21
+  prettyIndexedUntyped_$sprettyIndexedUntyped ::
+    [GHC.Types.Char]
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> GHC.Base.Maybe GHC.Types.Word
+    -> [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word),
+         CapDL.Model.KernelObject a)]
+    -> Data.Map.Base.Map
+         ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+         (Data.Set.Base.Set
+            ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word))
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 6, Strictness: <L,U><L,U><L,U><L,U><L,U><L,U> -}
+8fb36c83b15dc08e20d9f02ac40e1017
+  prettyMap ::
+    (GHC.Show.Show b, GHC.Show.Show a) =>
+    Data.Map.Base.Map a b -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 3, Strictness: <L,U(A,C(U),A)><L,U(A,C(U),A)><S,1*U>m8,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ b
+                   @ a
+                   ($dShow :: GHC.Show.Show b)
+                   ($dShow1 :: GHC.Show.Show a)
+                   (m :: Data.Map.Base.Map a b) ->
+                 CapDL.PrintModel.prettyBigList
+                   @ (a, b)
+                   (CapDL.PrintModel.prettyMapping @ a @ b $dShow1 $dShow)
+                   (GHC.Base.build
+                      @ (a, b)
+                      (\ @ b1 (c :: (a, b) -> b1 -> b1)[OneShot] (n :: b1)[OneShot] ->
+                       Data.Map.Base.foldrFB
+                         @ a
+                         @ b
+                         @ b1
+                         (\ (k1 :: a) (x :: b)[OneShot] (xs :: b1)[OneShot] -> c (k1, x) xs)
+                         n
+                         m))) -}
+29963f5331c4c7932afb16d7b2882163
+  prettyMapping ::
+    (GHC.Show.Show a, GHC.Show.Show b) =>
+    (a, b) -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 3,
+     Strictness: <S(LC(S)L),1*U(A,1*C1(U),A)><S(LC(S)L),1*U(A,1*C1(U),A)><S,1*U(U,U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   @ b
+                   (w :: GHC.Show.Show a)
+                   (w1 :: GHC.Show.Show b)
+                   (w2 :: (a, b)) ->
+                 case w2 of ww { (,) ww1 ww2 ->
+                 CapDL.PrintModel.$wprettyMapping @ a @ b w w1 ww1 ww2 }) -}
+9a76dce90344ec40ccd4247fe8af75e7
+  prettyMapping1 :: Text.PrettyPrint.HughesPJ.Doc
+  {- Unfolding: (case GHC.List.$wlenAcc
+                        @ GHC.Types.Char
+                        CapDL.PrintModel.prettyMapping_s
+                        0# of ww2 { DEFAULT ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                    @ ()
+                    (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                       @ ()
+                       CapDL.PrintModel.prettyMapping2
+                       ww2)
+                    (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+b632fbfa0a36094afbe938712f865d2b
+  prettyMapping2 :: Text.PrettyPrint.Annotated.HughesPJ.TextDetails
+  {- Unfolding: (Text.PrettyPrint.Annotated.HughesPJ.Str
+                   CapDL.PrintModel.prettyMapping_s) -}
+3f71a7adf51e676bc7467527f484650a
+  prettyMapping_s :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# " -> "#) -}
+427847c96cfe15fd97444394ea1f8b69
+  prettyMappings ::
+    CapDL.PrintUtils.Printing a =>
+    CapDL.Model.Model a -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2,
+     Strictness: <L,U(A,U(C(C1(U)),A),C(C1(U)),C(U))><S(LSSSL),1*U(A,U,1*U,1*U,U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   (w :: CapDL.PrintUtils.Printing a)
+                   (w1 :: CapDL.Model.Model a) ->
+                 case w1 of ww { CapDL.Model.Model ww1 ww2 ww3 ww4 ww5 ->
+                 CapDL.PrintModel.$wprettyMappings @ a w ww2 ww3 ww4 ww5 }) -}
+68e288aad011db90cc28f489ff241e41
+  prettyNameDecl ::
+    CapDL.Model.ObjID -> GHC.Types.Int -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SS),1*U(U,1*U)><L,1*U(U)>m7, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: CapDL.Model.ObjID) (w1 :: GHC.Types.Int) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case CapDL.PrintModel.$wprettyNameDecl
+                        ww1
+                        ww2
+                        w1 of ww3 { (#,,#) ww4 ww5 ww6 ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.Beside @ () ww4 ww5 ww6)
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }) -}
+43dcbb01c8527aa9d2b588a875826b73
+  prettyNameRefr ::
+    [CapDL.Model.ObjID] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (objs :: [CapDL.Model.ObjID]) ->
+                 case objs of wild {
+                   []
+                   -> case GHC.List.badHead ret_ty Text.PrettyPrint.HughesPJ.Doc of {}
+                   : x ds1
+                   -> case x of wild1 { (,) x1 ds2 ->
+                      case GHC.List.$wlenAcc @ GHC.Types.Char x1 0# of ww2 { DEFAULT ->
+                      case GHC.Base.map
+                             @ (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)
+                             @ (GHC.Base.Maybe GHC.Types.Word)
+                             (Data.Tuple.snd
+                                @ GHC.Base.String
+                                @ (GHC.Base.Maybe GHC.Types.Word))
+                             wild of wild2 {
+                        []
+                        -> case CapDL.PrintUtils.prettyBrackets2
+                                  `cast`
+                                (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild3 {
+                             DEFAULT
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                         @ ()
+                                         (Text.PrettyPrint.Annotated.HughesPJ.Str x1)
+                                         ww2)
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                   GHC.Types.False
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                         @ ()
+                                         Text.PrettyPrint.HughesPJ.brackets4
+                                         GHC.Types.False
+                                         wild3)
+                                      GHC.Types.False
+                                      Text.PrettyPrint.HughesPJ.brackets1))
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                             Text.PrettyPrint.Annotated.HughesPJ.Empty
+                             -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                         @ ()
+                                         (Text.PrettyPrint.Annotated.HughesPJ.Str x1)
+                                         ww2)
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                   GHC.Types.False
+                                   CapDL.PrintUtils.prettyBrackets1)
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                        : ds3 ds4
+                        -> case ds3 of wild3 {
+                             GHC.Base.Nothing
+                             -> case ds4 of wild4 {
+                                  []
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Str x1)
+                                           ww2)
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                                  : ipv ipv1
+                                  -> case (CapDL.PrintUtils.prettyRanges wild2)
+                                            `cast`
+                                          (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild5 {
+                                       DEFAULT
+                                       -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                             @ ()
+                                             (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                                @ ()
+                                                (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                                   @ ()
+                                                   (Text.PrettyPrint.Annotated.HughesPJ.Str x1)
+                                                   ww2)
+                                                (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                             GHC.Types.False
+                                             (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                @ ()
+                                                (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                                   @ ()
+                                                   Text.PrettyPrint.HughesPJ.brackets4
+                                                   GHC.Types.False
+                                                   wild5)
+                                                GHC.Types.False
+                                                Text.PrettyPrint.HughesPJ.brackets1))
+                                            `cast`
+                                          (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                                       Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                       -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                             @ ()
+                                             (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                                @ ()
+                                                (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                                   @ ()
+                                                   (Text.PrettyPrint.Annotated.HughesPJ.Str x1)
+                                                   ww2)
+                                                (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                             GHC.Types.False
+                                             CapDL.PrintUtils.prettyBrackets1)
+                                            `cast`
+                                          (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }
+                             GHC.Base.Just ipv
+                             -> case (CapDL.PrintUtils.prettyRanges wild2)
+                                       `cast`
+                                     (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild4 {
+                                  DEFAULT
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                              @ ()
+                                              (Text.PrettyPrint.Annotated.HughesPJ.Str x1)
+                                              ww2)
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                        GHC.Types.False
+                                        (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                              @ ()
+                                              Text.PrettyPrint.HughesPJ.brackets4
+                                              GHC.Types.False
+                                              wild4)
+                                           GHC.Types.False
+                                           Text.PrettyPrint.HughesPJ.brackets1))
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0]))
+                                  Text.PrettyPrint.Annotated.HughesPJ.Empty
+                                  -> (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                        @ ()
+                                        (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                           @ ()
+                                           (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                              @ ()
+                                              (Text.PrettyPrint.Annotated.HughesPJ.Str x1)
+                                              ww2)
+                                           (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                        GHC.Types.False
+                                        CapDL.PrintUtils.prettyBrackets1)
+                                       `cast`
+                                     (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } } } } } }) -}
+8ba18574bed57df81f704c0e6d8583b7
+  prettyNum :: GHC.Types.Int -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(S),1*U(U)>m7,
+     Unfolding: InlineRule (1, True, False)
+                (\ (num :: GHC.Types.Int) ->
+                 case num of ww { GHC.Types.I# ww1 ->
+                 case Text.PrettyPrint.HughesPJ.$wint ww1 of ww2 { (#,#) ww3 ww4 ->
+                 (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                    @ ()
+                    (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                       @ ()
+                       Text.PrettyPrint.HughesPJ.brackets4
+                       GHC.Types.False
+                       (Text.PrettyPrint.Annotated.HughesPJ.TextBeside @ () ww3 ww4))
+                    GHC.Types.False
+                    Text.PrettyPrint.HughesPJ.brackets1)
+                   `cast`
+                 (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }) -}
+d591e72f7553c9cbd661308eb7d00445
+  prettyObject ::
+    CapDL.Model.ObjID
+    -> GHC.Types.Int
+    -> CapDL.Model.KernelObject a
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 3, Strictness: <L,1*U(U,1*U)><L,1*U(U)><S,1*U>,
+     Unfolding: (\ @ a
+                   (ds :: CapDL.Model.ObjID)
+                   (ds1 :: GHC.Types.Int)
+                   (ds2 :: CapDL.Model.KernelObject a) ->
+                 case ds2 of wild {
+                   DEFAULT
+                   -> case (CapDL.PrintUtils.prettyObjParams @ a wild)
+                             `cast`
+                           (Text.PrettyPrint.HughesPJ.N:Doc[0]) of wild1 {
+                        DEFAULT
+                        -> case ds of wild2 { (,) n ds3 ->
+                           case ds3 of wild3 {
+                             GHC.Base.Nothing
+                             -> case GHC.List.$wlenAcc @ GHC.Types.Char n 0# of ww2 { DEFAULT ->
+                                (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                         @ ()
+                                         (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                            @ ()
+                                            (Text.PrettyPrint.Annotated.HughesPJ.Str n)
+                                            ww2)
+                                         (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                      GHC.Types.True
+                                      Text.PrettyPrint.HughesPJ.equals1)
+                                   GHC.Types.True
+                                   wild1)
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }
+                             GHC.Base.Just ipv
+                             -> case ds1 of ww { GHC.Types.I# ww1 ->
+                                case Text.PrettyPrint.HughesPJ.$wint ww1 of ww2 { (#,#) ww3 ww4 ->
+                                case GHC.List.$wlenAcc @ GHC.Types.Char n 0# of ww7 { DEFAULT ->
+                                (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                   @ ()
+                                   (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                      @ ()
+                                      (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                         @ ()
+                                         (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                            @ ()
+                                            (Text.PrettyPrint.Annotated.HughesPJ.NoAnnot
+                                               @ ()
+                                               (Text.PrettyPrint.Annotated.HughesPJ.Str n)
+                                               ww7)
+                                            (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ()))
+                                         GHC.Types.False
+                                         (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                            @ ()
+                                            (Text.PrettyPrint.Annotated.HughesPJ.Beside
+                                               @ ()
+                                               Text.PrettyPrint.HughesPJ.brackets4
+                                               GHC.Types.False
+                                               (Text.PrettyPrint.Annotated.HughesPJ.TextBeside
+                                                  @ ()
+                                                  ww3
+                                                  ww4))
+                                            GHC.Types.False
+                                            Text.PrettyPrint.HughesPJ.brackets1))
+                                      GHC.Types.True
+                                      Text.PrettyPrint.HughesPJ.equals1)
+                                   GHC.Types.True
+                                   wild1)
+                                  `cast`
+                                (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } } } } }
+                        Text.PrettyPrint.Annotated.HughesPJ.Empty
+                        -> CapDL.PrintModel.prettyNameDecl ds ds1 }
+                   CapDL.Model.Untyped ds3 ds4
+                   -> (Text.PrettyPrint.Annotated.HughesPJ.Empty @ ())
+                        `cast`
+                      (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+65cd0f2b7e364a01b06f0e84cff7247a
+  prettyObjects ::
+    CapDL.Model.ObjMap a -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ @ a (m :: CapDL.Model.ObjMap a) ->
+                 case Text.PrettyPrint.Annotated.HughesPJ.$wreduceVert
+                        @ ()
+                        (Text.PrettyPrint.Annotated.HughesPJ.vcat1
+                           @ ()
+                           (CapDL.PrintModel.prettyObjects_go
+                              (CapDL.PrintModel.prettyObjectsList
+                                 @ a
+                                 (Data.Map.Base.toAscList1
+                                    @ (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)
+                                    @ (CapDL.Model.KernelObject a)
+                                    (GHC.Types.[]
+                                       @ ((GHC.Base.String, GHC.Base.Maybe GHC.Types.Word),
+                                          CapDL.Model.KernelObject a))
+                                    m)))) of ww { (#,#) ww1 ww2 ->
+                 ww2 `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) }) -}
+0c224726d7bb6550fe247049b0408ee2
+  prettyObjectsList ::
+    [(CapDL.Model.ObjID, CapDL.Model.KernelObject a)]
+    -> [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 1, Strictness: <S,1*U> -}
+842bf14c02c153d11638b069d250db5d
+  prettyObjectsList_$sprettyObjectsList ::
+    ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+    -> CapDL.Model.KernelObject a
+    -> [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word),
+         CapDL.Model.KernelObject a)]
+    -> [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 3, Strictness: <L,U><L,U><L,U> -}
+5840926d7a3a3416758846329e9bab8c
+  prettyObjects_go ::
+    [Text.PrettyPrint.HughesPJ.Doc]
+    -> [Text.PrettyPrint.Annotated.HughesPJ.Doc ()]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+8b5f3f40187ad87992a46682b20f626c
+  prettySlot ::
+    CapDL.PrintUtils.Printing a =>
+    (a, CapDL.Model.Cap)
+    -> [GHC.Base.Maybe GHC.Types.Word] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 3,
+     Strictness: <S(LLLC(S)),1*U(A,A,A,1*C1(U))><S(LS),1*U(U,U)><S,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   (w :: CapDL.PrintUtils.Printing a)
+                   (w1 :: (a, CapDL.Model.Cap))
+                   (w2 :: [GHC.Base.Maybe GHC.Types.Word]) ->
+                 case w1 of ww { (,) ww1 ww2 ->
+                 CapDL.PrintModel.$wprettySlot @ a w ww1 ww2 w2 }) -}
+006353b0e478ec5553d31d94acbef03d
+  prettySlots ::
+    CapDL.PrintUtils.Printing a =>
+    (CapDL.Model.ObjID, CapDL.Model.KernelObject a)
+    -> [GHC.Base.Maybe GHC.Types.Word] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 3,
+     Strictness: <L,U(A,A,C(C1(U)),C(U))><S(LS),1*U(1*U(U,A),1*U)><L,1*U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   (w :: CapDL.PrintUtils.Printing a)
+                   (w1 :: (CapDL.Model.ObjID, CapDL.Model.KernelObject a))
+                   (w2 :: [GHC.Base.Maybe GHC.Types.Word]) ->
+                 case w1 of ww { (,) ww1 ww2 ->
+                 CapDL.PrintModel.$wprettySlots @ a w ww1 ww2 w2 }) -}
+2c9b96eca230c5de9b244232fdb8e092
+  prettySlotsList ::
+    CapDL.PrintUtils.Printing a =>
+    [(a, CapDL.Model.Cap)] -> [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 2, Strictness: <L,U(A,A,C(C1(U)),C(U))><S,1*U> -}
+bb4482504b92e62b0e80acf454cc5efc
+  prettySlotsList_$sprettySlotsList ::
+    a
+    -> CapDL.Model.Cap
+    -> [(a, CapDL.Model.Cap)]
+    -> CapDL.PrintUtils.Printing a => [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><L,U(A,A,C(C1(U)),C(U))> -}
+b1097578626b1479b061d9f35fda99ef
+  prettySlotsRange ::
+    CapDL.PrintUtils.Printing a =>
+    [(a, CapDL.Model.Cap)] -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S(LLLC(S)),1*U(A,A,A,1*C1(U))><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   ($dPrinting :: CapDL.PrintUtils.Printing a)
+                   (ds :: [(a, CapDL.Model.Cap)]) ->
+                 case ds of wild {
+                   [] -> CapDL.PrintModel.prettySlotsRange2
+                   : x ds1
+                   -> CapDL.PrintModel.prettySlot
+                        @ a
+                        $dPrinting
+                        x
+                        (GHC.Base.build
+                           @ (GHC.Base.Maybe GHC.Types.Word)
+                           (\ @ b1
+                              (c :: GHC.Base.Maybe GHC.Types.Word -> b1 -> b1)[OneShot]
+                              (n :: b1)[OneShot] ->
+                            GHC.Base.foldr
+                              @ (a, CapDL.Model.Cap)
+                              @ b1
+                              (GHC.Base.mapFB
+                                 @ (GHC.Base.Maybe GHC.Types.Word)
+                                 @ b1
+                                 @ (a, CapDL.Model.Cap)
+                                 c
+                                 (CapDL.PrintModel.prettySlotsRange1 @ a))
+                              n
+                              wild)) }) -}
+2fcdd04959b977b65956335432624ae2
+  prettySlotsRange1 ::
+    (a, CapDL.Model.Cap) -> GHC.Base.Maybe GHC.Types.Word
+  {- Arity: 1, Strictness: <S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (x :: (a, CapDL.Model.Cap)) ->
+                 case x of wild { (,) ds1 y ->
+                 case CapDL.Model.capObj y of wild1 { (,) ds2 y1 -> y1 } }) -}
+adc4b5e99cd6ee68a82e40e8f7b39b2c
+  prettySlotsRange2 :: Text.PrettyPrint.HughesPJ.Doc
+  {- Strictness: x -}
+c130aa641518cb99fb8b57a43e44bbec
+  prettyUntyped ::
+    CapDL.Model.CoverMap
+    -> [(CapDL.Model.ObjID, CapDL.Model.KernelObject a)]
+    -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <L,U><S,1*U> -}
+c1d3f50c3e091078cfcce72b544a2786
+  prettyUntypeds ::
+    CapDL.Model.ObjMap a
+    -> CapDL.Model.CoverMap -> Text.PrettyPrint.HughesPJ.Doc
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ @ a
+                   (m :: CapDL.Model.ObjMap a)
+                   (covers :: CapDL.Model.CoverMap) ->
+                 case CapDL.PrintModel.$wprettyUntypedsList
+                        @ a
+                        covers
+                        (Data.Map.Base.toAscList1
+                           @ (GHC.Base.String, GHC.Base.Maybe GHC.Types.Word)
+                           @ (CapDL.Model.KernelObject a)
+                           (GHC.Types.[]
+                              @ ((GHC.Base.String, GHC.Base.Maybe GHC.Types.Word),
+                                 CapDL.Model.KernelObject a))
+                           m) of ww { (#,#) ww1 ww2 ->
+                 case Text.PrettyPrint.Annotated.HughesPJ.$wreduceVert
+                        @ ()
+                        (Text.PrettyPrint.Annotated.HughesPJ.vcat1
+                           @ ()
+                           (CapDL.PrintModel.prettyUntypeds_$sgo
+                              ww1
+                              ww2)) of ww3 { (#,#) ww4 ww5 ->
+                 ww5 `cast` (Sym (Text.PrettyPrint.HughesPJ.N:Doc[0])) } }) -}
+d4c9f847b96b4788b167138c042cbd09
+  prettyUntypedsList ::
+    CapDL.Model.CoverMap
+    -> [(CapDL.Model.ObjID, CapDL.Model.KernelObject a)]
+    -> [Text.PrettyPrint.HughesPJ.Doc]
+  {- Arity: 2, Strictness: <L,U><S,1*U>m2, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   (w :: CapDL.Model.CoverMap)
+                   (w1 :: [(CapDL.Model.ObjID, CapDL.Model.KernelObject a)]) ->
+                 case CapDL.PrintModel.$wprettyUntypedsList
+                        @ a
+                        w
+                        w1 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.: @ Text.PrettyPrint.HughesPJ.Doc ww1 ww2 }) -}
+02107ebc063335025dfeade6b4b3a3be
+  prettyUntypeds_$s$wprettyUntypedsList ::
+    ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+    -> CapDL.Model.KernelObject a
+    -> [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word),
+         CapDL.Model.KernelObject a)]
+    -> Data.Map.Base.Map
+         ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+         (Data.Set.Base.Set
+            ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word))
+    -> (# Text.PrettyPrint.HughesPJ.Doc,
+          [Text.PrettyPrint.HughesPJ.Doc] #)
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><L,U> -}
+23e1c97b08b2f44891bfd9ed0cb5497f
+  prettyUntypeds_$sgo ::
+    Text.PrettyPrint.HughesPJ.Doc
+    -> [Text.PrettyPrint.HughesPJ.Doc]
+    -> [Text.PrettyPrint.Annotated.HughesPJ.Doc ()]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U> -}
+"SC:$wpoly_go100" [0] forall (sc :: Data.Map.Base.Map
+                                      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+                                      (Data.Set.Base.Set
+                                         ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)))
+                             (sc1 :: [GHC.Types.Char])
+  CapDL.PrintModel.$wpoly_go10 @ (Data.Set.Base.Set
+                                    CapDL.Model.ObjID)
+                               sc1
+                               (GHC.Base.Nothing @ GHC.Types.Word)
+                               sc
+  = CapDL.PrintModel.$slookup_$s$wpoly_go10 sc sc1
+"SC:$wpoly_go101" [0] forall @ a
+                             (sc :: Data.Map.Base.Map
+                                      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a)
+                             (sc1 :: GHC.Types.Word)
+                             (sc2 :: [GHC.Types.Char])
+  CapDL.PrintModel.$wpoly_go10 @ a
+                               sc2
+                               (GHC.Base.Just @ GHC.Types.Word sc1)
+                               sc
+  = CapDL.PrintModel.$slookup_$s$wpoly_go2 @ a sc sc1 sc2
+"SC:$wpoly_go102" [0] forall @ a
+                             (sc :: Data.Map.Base.Map
+                                      ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word) a)
+                             (sc1 :: GHC.Prim.Word#)
+                             (sc2 :: [GHC.Types.Char])
+  CapDL.PrintModel.$wpoly_go10 @ a
+                               sc2
+                               (GHC.Base.Just @ GHC.Types.Word (GHC.Types.W# sc1))
+                               sc
+  = CapDL.PrintModel.$slookup_$s$wpoly_go1 @ a sc sc1 sc2
+"SC:$wprettyUntypedsList0" [0] forall @ a
+                                      (sc :: ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word))
+                                      (sc1 :: CapDL.Model.KernelObject a)
+                                      (sc2 :: [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word),
+                                                CapDL.Model.KernelObject a)])
+                                      (sc3 :: Data.Map.Base.Map
+                                                ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)
+                                                (Data.Set.Base.Set
+                                                   ([GHC.Types.Char],
+                                                    GHC.Base.Maybe GHC.Types.Word)))
+  CapDL.PrintModel.$wprettyUntypedsList @ a
+                                        sc3
+                                        (GHC.Types.:
+                                           @ (CapDL.Model.ObjID, CapDL.Model.KernelObject a)
+                                           (sc, sc1)
+                                           sc2)
+  = CapDL.PrintModel.prettyUntypeds_$s$wprettyUntypedsList
+      @ a
+      sc
+      sc1
+      sc2
+      sc3
+"SC:prettyCovered0" [ALWAYS] forall (sc :: ([GHC.Types.Char],
+                                            GHC.Base.Maybe GHC.Types.Word))
+                                    (sc1 :: [([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)])
+  CapDL.PrintModel.prettyCovered (GHC.Types.:
+                                    @ CapDL.Model.ObjID
+                                    sc
+                                    sc1)
+  = CapDL.PrintModel.prettyCovered_$sprettyCovered sc sc1
+"SC:prettyIRQSlotsList0" [ALWAYS] forall (sc :: (GHC.Types.Word,
+                                                 ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word)))
+                                         (sc1 :: [(GHC.Types.Word,
+                                                   ([GHC.Types.Char],
+                                                    GHC.Base.Maybe GHC.Types.Word))])
+  CapDL.PrintModel.prettyIRQSlotsList (GHC.Types.:
+                                         @ (GHC.Types.Word, CapDL.Model.ObjID)
+                                         sc
+                                         sc1)
+  = CapDL.PrintModel.prettyIRQSlotsList_$sprettyIRQSlotsList sc sc1
+"SC:prettyIndexedUntyped0" [ALWAYS] forall @ a
+                                           (sc :: [GHC.Types.Char])
+                                           (sc1 :: GHC.Base.Maybe GHC.Types.Word)
+                                           (sc2 :: GHC.Base.Maybe GHC.Types.Word)
+                                           (sc3 :: GHC.Base.Maybe GHC.Types.Word)
+                                           (sc4 :: [(([GHC.Types.Char],
+                                                      GHC.Base.Maybe GHC.Types.Word),
+                                                     CapDL.Model.KernelObject a)])
+                                           (sc5 :: Data.Map.Base.Map
+                                                     ([GHC.Types.Char],
+                                                      GHC.Base.Maybe GHC.Types.Word)
+                                                     (Data.Set.Base.Set
+                                                        ([GHC.Types.Char],
+                                                         GHC.Base.Maybe GHC.Types.Word)))
+  CapDL.PrintModel.prettyIndexedUntyped @ a
+                                        sc5
+                                        (GHC.Types.:
+                                           @ (CapDL.Model.ObjID, CapDL.Model.KernelObject a)
+                                           ((sc, sc1), CapDL.Model.Untyped @ a sc2 sc3)
+                                           sc4)
+  = CapDL.PrintModel.prettyIndexedUntyped_$sprettyIndexedUntyped
+      @ a
+      sc
+      sc1
+      sc2
+      sc3
+      sc4
+      sc5
+"SC:prettyObjectsList0" [ALWAYS] forall @ a
+                                        (sc :: ([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word))
+                                        (sc1 :: CapDL.Model.KernelObject a)
+                                        (sc2 :: [(([GHC.Types.Char], GHC.Base.Maybe GHC.Types.Word),
+                                                  CapDL.Model.KernelObject a)])
+  CapDL.PrintModel.prettyObjectsList @ a
+                                     (GHC.Types.:
+                                        @ (CapDL.Model.ObjID, CapDL.Model.KernelObject a)
+                                        (sc, sc1)
+                                        sc2)
+  = CapDL.PrintModel.prettyObjectsList_$sprettyObjectsList
+      @ a
+      sc
+      sc1
+      sc2
+"SC:prettySlotsList0" [ALWAYS] forall @ a
+                                      (sc :: a)
+                                      (sc1 :: CapDL.Model.Cap)
+                                      (sc2 :: [(a, CapDL.Model.Cap)])
+                                      (sc3 :: CapDL.PrintUtils.Printing a)
+  CapDL.PrintModel.prettySlotsList @ a
+                                   sc3
+                                   (GHC.Types.: @ (a, CapDL.Model.Cap) (sc, sc1) sc2)
+  = CapDL.PrintModel.prettySlotsList_$sprettySlotsList
+      @ a
+      sc
+      sc1
+      sc2
+      sc3
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

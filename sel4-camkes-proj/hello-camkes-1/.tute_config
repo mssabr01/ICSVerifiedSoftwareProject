@@ -1,0 +1,1 @@
+set(TUTE_COMMAND "PYTHONPATH=${PYTHON_CAPDL_PATH};python;/home/sel4-training/sel4-tutorials-manifest/projects/sel4-tutorials/template.py;--tut-file;/home/sel4-training/sel4-tutorials-manifest/projects/sel4-tutorials/tutorials/hello-camkes-1/hello-camkes-1;--out-dir;${output_dir};--input-files;${input_files};--output-files;${output_files};--arch;x86_64;;;")

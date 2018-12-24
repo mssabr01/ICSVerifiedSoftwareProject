@@ -1,0 +1,54 @@
+/*
+ * Copyright 2017, Data61
+ * Commonwealth Scientific and Industrial Research Organisation (CSIRO)
+ * ABN 41 687 119 230.
+ *
+ * This software may be distributed and modified according to the terms of
+ * the GNU General Public License version 2. Note that NO WARRANTY is provided.
+ * See "LICENSE_GPLv2.txt" for details.
+ *
+ * @TAG(DATA61_GPL)
+ */
+
+import <Ethdriver.camkes>;
+
+component Ethdriver82574 {
+    include "EthType.h";
+    has mutex ethdriver;
+
+    provides Ethdriver client;
+
+    consumes IRQ irq;
+    dataport EthDriver82574MMIO_t EthDriver;
+
+    attribute int iospace_id;
+    /* format for bdf is "BUS:DEV.fun" where BUS and DEV are hex and FUN is decimal */
+    attribute string pci_bdf;
+}
+
+component Ethdriver82580 {
+    include "EthType.h";
+    has mutex ethdriver;
+
+    provides Ethdriver client;
+
+    consumes IRQ irq;
+    dataport EthDriver82580MMIO_t EthDriver;
+
+    attribute int iospace_id;
+    /* format for bdf is "BUS:DEV.fun" where BUS and DEV are hex and FUN is decimal */
+    attribute string pci_bdf;
+}
+
+/* Example hardware components that contain minimal necessary spec for different ethdrivers */
+component HWEthDriver82574 {
+    hardware;
+    emits IRQ irq;
+    dataport EthDriver82574MMIO_t mmio;
+};
+
+component HWEthDriver82580 {
+    hardware;
+    emits IRQ irq;
+    dataport EthDriver82580MMIO_t mmio;
+};

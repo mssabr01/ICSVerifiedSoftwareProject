@@ -1,0 +1,1 @@
+--srcdir=/home/sel4-training/sel4-tutorials-manifest/projects/musllibc --prefix=/home/sel4-training/sel4-tutorials-manifest/hello-camkes-1_build/projects/musllibc/build-temp/stage  --target=x86_64 --enable-warnings --disable-shared --enable-static
