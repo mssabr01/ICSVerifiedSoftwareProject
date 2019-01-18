@@ -10,8 +10,8 @@ LOCAL INSTANCE Hex
 LOCAL Range(T) == { T[x] : x \in DOMAIN T }
 MessagesToSerialPort == \*these are in ASCII but they are converted to decimal before being used below. See StrTupleToNumTuple in ASCII.tla
     << \*StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>),
-      StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>)(*
-      StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
+      StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
+      StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>)(*,
       StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>), \*this one starts a new modbus packet half way through the message
       StrTupleToNumTuple(<<"!","m","Q","I","N","B","F","u","O","v","x","M","B","E","A","D","g","D","B","Q","v","c","R","P","z","T","e","G","w","v","V","2","J","C","r","t","m","x","U","j","v","Y","S","Z","7","P","j","W","p","H","l","5","2","4","g","I","g","J","h","b","t","d","I","T","U",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
       <<>>,<<1>>,<<2>>,<<3>>,<<4>>,<<5>>,<<6>>,<<7>>,<<8>>,<<9>>,<<10>>,<<11>>,<<12>>,<<13>>, \* all possible values
@@ -32,11 +32,13 @@ MessagesToSerialPort == \*these are in ASCII but they are converted to decimal b
       <<234>>,<<235>>,<<236>>,<<237>>,<<238>>,<<239>>,<<240>>,<<241>>,<<242>>,<<243>>,<<244>>,<<245>>,<<246>>,<<247>>,<<248>>,<<249>>,
       <<250>>,<<251>>,<<252>>,<<253>>,<<254>>,<<255>>*)
      >>
-                       
+MessagesToUntrustNet == <<StrTupleToNumTuple(<<"!","m","Q","I","N","B","F","u","O","v","x","M","B","E","A","D","g","D","B","Q","v","c","R","P","z","T","e","G","w","v","V","2","J","C","r","t","m","x","U","j","v","Y","S","Z","7","P","j","W","p","H","l","5","2","4","g","I","g","J","h","b","t","d","I","T","U",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
+                        StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>)
+                        >>
 HMAC(str, pass) == <<"I","K","o","W","L","9","v","G","U","h","S","1","q","t","Z","f","4","5","h","r","9","W","4","1","Z","i","B","G","P","j","d","o","w","6","S","Y","2","A","0","+","q","E","d","a","+","s","i","i","B","H","G","C","4","r","/","S","5","g","J","W","P","/","s","T">> \*not concerned with the inner workings of SHA2
 FindPartnerMessage(msg, messages) == CHOOSE x \in messages : x.id = msg.id
 
-(* --algorithm auth_device
+(* --fair algorithm auth_device
 
 variables 
     
@@ -60,7 +62,7 @@ macro receive(channel, msg)
     end macro;
 
 \* Signing process.
-process sign = "sign"
+fair process sign = "sign"
 
 variables   msg = <<>>,
             generated_hmac = <<>>;
@@ -75,7 +77,7 @@ end process
 \*=========================================
 
 \*Check validitity of the underlying protocol. In this case Modbus
-process msgchk = "msgchk"
+fair process msgchk = "msgchk"
 
 variables   msg = <<>>
             
@@ -102,7 +104,7 @@ end process
 \*=========================================
 
 \*Check the validitity of the signature
-process verify = "verify"
+fair process verify = "verify"
 
 variables   msg = <<>>,
             bareMessage = <<>>,
@@ -128,10 +130,10 @@ end process
 \*=========================================
 
 \*Receive plaintext modbus from the trusted serial port
-process trustnet_in = "trustnet_in"
+fair process trustnet_in = "trustnet_in"
 
 variables   rxBuf = <<>>,
-            incomingMessages = MessagesToSerialPort,
+            incomingMessages = <<>>, \*MessagesToSerialPort,
             guid = <<0>>,
             msg = <<>>,
             msgid = <<>>,
@@ -192,11 +194,11 @@ end process;
 \*=========================================
 
 \*Receive signed messages from untrusted serial port
-process untrustnet_in = "untrustnet_in"
+fair process untrustnet_in = "untrustnet_in"
 
 variables   rxBuf = <<>>,
             guid = 0,
-            incomingMessages = <<>>, \*MessagesToSerialPort,
+            incomingMessages = MessagesToUntrustNet, \*MessagesToSerialPort,
             msg = <<>>,
             msgid = <<>>,
             rx = FALSE,
@@ -251,7 +253,7 @@ end process;
 \*=========================================
 
 \*process to send modbus out the trusted serial port
-process trustnet_out = "trustnet_out"
+fair process trustnet_out = "trustnet_out"
 
 variables   msg = <<>>,
             txBuf = <<>>,
@@ -279,7 +281,7 @@ end process;
 \*=========================================
 
 \*process to send modbus out the trusted serial port
-process untrustnet_out = "untrustnet_out"
+fair process untrustnet_out = "untrustnet_out"
 
 variables   msg = <<>>,
             txBuf = <<>>,
@@ -314,42 +316,42 @@ end process;
 
 end algorithm;*)
 \* BEGIN TRANSLATION
-\* Label uti1 of process trustnet_in at line 147 col 31 changed to uti1_
-\* Label uti2 of process trustnet_in at line 148 col 31 changed to uti2_
-\* Label uti3 of process trustnet_in at line 150 col 31 changed to uti3_
-\* Label uti4 of process trustnet_in at line 151 col 31 changed to uti4_
-\* Label start of process trustnet_in at line 153 col 25 changed to start_
-\* Label inc of process trustnet_in at line 161 col 25 changed to inc_
-\* Label receive of process trustnet_in at line 170 col 29 changed to receive_
-\* Label r0 of process trustnet_in at line 173 col 33 changed to r0_
-\* Label r1 of process trustnet_in at line 174 col 33 changed to r1_
-\* Label r2 of process trustnet_in at line 176 col 33 changed to r2_
-\* Label check of process trustnet_in at line 178 col 29 changed to check_
-\* Label check0 of process trustnet_in at line 179 col 41 changed to check0_
-\* Label check1 of process trustnet_in at line 180 col 41 changed to check1_
-\* Label check2 of process trustnet_in at line 51 col 9 changed to check2_
-\* Label check3 of process trustnet_in at line 51 col 9 changed to check3_
-\* Label check4 of process trustnet_in at line 183 col 41 changed to check4_
-\* Label transmit of process trustnet_out at line 51 col 9 changed to transmit_
-\* Label finished of process trustnet_out at line 274 col 19 changed to finished_
-\* Process variable msg of process sign at line 65 col 13 changed to msg_
-\* Process variable msg of process msgchk at line 80 col 13 changed to msg_m
-\* Process variable msg of process verify at line 107 col 13 changed to msg_v
-\* Process variable rxBuf of process trustnet_in at line 133 col 13 changed to rxBuf_
-\* Process variable incomingMessages of process trustnet_in at line 134 col 13 changed to incomingMessages_
-\* Process variable guid of process trustnet_in at line 135 col 13 changed to guid_
-\* Process variable msg of process trustnet_in at line 136 col 13 changed to msg_t
-\* Process variable msgid of process trustnet_in at line 137 col 13 changed to msgid_
-\* Process variable rx of process trustnet_in at line 138 col 13 changed to rx_
-\* Process variable rxReg of process trustnet_in at line 139 col 13 changed to rxReg_
-\* Process variable last2 of process trustnet_in at line 140 col 13 changed to last2_
-\* Process variable incByte of process trustnet_in at line 141 col 13 changed to incByte_
-\* Process variable msg of process untrustnet_in at line 200 col 13 changed to msg_u
-\* Process variable msg of process trustnet_out at line 256 col 13 changed to msg_tr
-\* Process variable txBuf of process trustnet_out at line 257 col 13 changed to txBuf_
-\* Process variable txReg of process trustnet_out at line 258 col 13 changed to txReg_
-\* Process variable adder of process trustnet_out at line 259 col 13 changed to adder_
-\* Process variable validMessages of process trustnet_out at line 260 col 13 changed to validMessages_
+\* Label uti1 of process trustnet_in at line 149 col 31 changed to uti1_
+\* Label uti2 of process trustnet_in at line 150 col 31 changed to uti2_
+\* Label uti3 of process trustnet_in at line 152 col 31 changed to uti3_
+\* Label uti4 of process trustnet_in at line 153 col 31 changed to uti4_
+\* Label start of process trustnet_in at line 155 col 25 changed to start_
+\* Label inc of process trustnet_in at line 163 col 25 changed to inc_
+\* Label receive of process trustnet_in at line 172 col 29 changed to receive_
+\* Label r0 of process trustnet_in at line 175 col 33 changed to r0_
+\* Label r1 of process trustnet_in at line 176 col 33 changed to r1_
+\* Label r2 of process trustnet_in at line 178 col 33 changed to r2_
+\* Label check of process trustnet_in at line 180 col 29 changed to check_
+\* Label check0 of process trustnet_in at line 181 col 41 changed to check0_
+\* Label check1 of process trustnet_in at line 182 col 41 changed to check1_
+\* Label check2 of process trustnet_in at line 53 col 9 changed to check2_
+\* Label check3 of process trustnet_in at line 53 col 9 changed to check3_
+\* Label check4 of process trustnet_in at line 185 col 41 changed to check4_
+\* Label transmit of process trustnet_out at line 53 col 9 changed to transmit_
+\* Label finished of process trustnet_out at line 276 col 19 changed to finished_
+\* Process variable msg of process sign at line 67 col 13 changed to msg_
+\* Process variable msg of process msgchk at line 82 col 13 changed to msg_m
+\* Process variable msg of process verify at line 109 col 13 changed to msg_v
+\* Process variable rxBuf of process trustnet_in at line 135 col 13 changed to rxBuf_
+\* Process variable incomingMessages of process trustnet_in at line 136 col 13 changed to incomingMessages_
+\* Process variable guid of process trustnet_in at line 137 col 13 changed to guid_
+\* Process variable msg of process trustnet_in at line 138 col 13 changed to msg_t
+\* Process variable msgid of process trustnet_in at line 139 col 13 changed to msgid_
+\* Process variable rx of process trustnet_in at line 140 col 13 changed to rx_
+\* Process variable rxReg of process trustnet_in at line 141 col 13 changed to rxReg_
+\* Process variable last2 of process trustnet_in at line 142 col 13 changed to last2_
+\* Process variable incByte of process trustnet_in at line 143 col 13 changed to incByte_
+\* Process variable msg of process untrustnet_in at line 202 col 13 changed to msg_u
+\* Process variable msg of process trustnet_out at line 258 col 13 changed to msg_tr
+\* Process variable txBuf of process trustnet_out at line 259 col 13 changed to txBuf_
+\* Process variable txReg of process trustnet_out at line 260 col 13 changed to txReg_
+\* Process variable adder of process trustnet_out at line 261 col 13 changed to adder_
+\* Process variable validMessages of process trustnet_out at line 262 col 13 changed to validMessages_
 VARIABLES chan, pc, msg_, generated_hmac, msg_m, msg_v, bareMessage, 
           retreivedHMAC, generatedHMAC, result, CompareHMAC, hmacsMatch, 
           rxBuf_, incomingMessages_, guid_, msg_t, msgid_, rx_, rxReg_, 
@@ -395,7 +397,7 @@ Init == (* Global variables *)
         (* Process untrustnet_in *)
         /\ rxBuf = <<>>
         /\ guid = 0
-        /\ incomingMessages = <<>>
+        /\ incomingMessages = MessagesToUntrustNet
         /\ msg_u = <<>>
         /\ msgid = <<>>
         /\ rx = FALSE
@@ -1185,7 +1187,15 @@ untrustnet_out == uto1 \/ finished \/ transmit \/ uto2
 Next == sign \/ msgchk \/ verify \/ trustnet_in \/ untrustnet_in
            \/ trustnet_out \/ untrustnet_out
 
-Spec == Init /\ [][Next]_vars
+Spec == /\ Init /\ [][Next]_vars
+        /\ WF_vars(Next)
+        /\ WF_vars(sign)
+        /\ WF_vars(msgchk)
+        /\ WF_vars(verify)
+        /\ WF_vars(trustnet_in)
+        /\ WF_vars(untrustnet_in)
+        /\ WF_vars(trustnet_out)
+        /\ WF_vars(untrustnet_out)
 
 \* END TRANSLATION
 
@@ -1200,14 +1210,18 @@ SAFETYCHECK ==
     /\ \A m \in validMessages_ : m.isValid = TRUE \*message parts waiting for their counterpart are valid
     /\ \A m \in Range(chan["finished_trustnet"]) : IsModbus(m) \*only properly formed modbus is sent to trustnet
     
-LIVELINESS ==
+LIVENESS ==
+   /\ <>(Len(incomingMessages_) = 0)
+   /\ <>(Len(incomingMessages) = 0)
+   /\ <>(Len(chan["finished_untrustnet"]) > 0)
+   /\ <>(Len(chan["finished_trustnet"]) > 0)
    \* counterpart will eventually come
-   /\ \A p \in validMessages_ : <>(msg_tr.id = p.id /\ msg_tr.source /= p.source ) 
+   \*/\ \A p \in validMessages_ : <>(msg_tr.id = p.id /\ msg_tr.source /= p.source ) 
    \*modbus check module:
    \*/\ \A p \in Range(chan["messagecheck"]), \E q \in Range(chan["untrustnet_out"]) : p.source = "trustnet_in" ~> : p.id = q.id
 
 =============================================================================
 \* Modification History
-\* Last modified Sun Oct 28 23:16:32 EDT 2018 by mssabr01
+\* Last modified Sun Dec 30 12:24:13 EST 2018 by mssabr01
 \* Last modified Wed Oct 17 11:32:47 EDT 2018 by userMehdi
 \* Created Tue Oct 02 17:14:28 EDT 2018 by mssabr01

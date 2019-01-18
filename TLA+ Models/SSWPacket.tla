@@ -1,6 +1,6 @@
 ----------------------------- MODULE SSWPacket -----------------------------
 
-\*The definition of a SCADA Secure Wrap message
+\*The definition of an enapsulated message
 LOCAL INSTANCE Integers 
 LOCAL INSTANCE Hex 
     WITH natValue <- 0, hexValue <- <<0>> 
@@ -25,7 +25,7 @@ LOCAL IsStart(str) == str = "!" \*start with something that isn't hex so we can 
 \*HMAC fields =========================================================
 GetHMAC(str) == SubSeq(str,2,65)
 
-LOCAL IsHMAC(str) == 
+IsHMAC(str) == 
     /\ Len(str) = 64 \*these bytes can be anything so we are just checking length?
     /\ IsHex(str)    \*no - bytes are only hex: 00-0F
     
@@ -48,7 +48,7 @@ LOCAL IsLengthCorrect(str, length) == TRUE
                                           "E","B","B","A","E","B","B","A">>))
 *)
 \*Data ===================================================================
-GetMessage(str) == SubSeq(str,MINSSWSIZE-1,Len(str))
+GetMessage(str) == SubSeq(str,66,Len(str))
 
 \*The Whole Thing ========================================================
 
@@ -74,5 +74,6 @@ isSSW == <<"!","0","A","0","B","0","D","0","9","0","2","0","8","0","7","0","5","
 
 =============================================================================
 \* Modification History
+\* Last modified Sun Oct 28 13:35:46 EDT 2018 by mssabr01
 \* Last modified Mon May 14 11:23:11 EDT 2018 by SabraouM
 \* Created Sun May 06 09:06:45 EDT 2018 by SabraouM
