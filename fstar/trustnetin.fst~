@@ -1,0 +1,9 @@
+module Trustnetin
+
+open FStar.Char
+open FStar.Seq
+
+let MAXMODBUSSIZE = 515
+
+(*str length 3, starts with :, ends with \r\n"*)
+val IsComplete: (s:string{length s > 3 && length s < MAXMODBUSSIZE) -> (b:bool)
