@@ -21,11 +21,13 @@
 <intAttribute key="modelBehaviorSpecType" value="1"/>
 <stringAttribute key="modelBehaviorVars" value="rx_, guid, msgid, txBuf, generated_hmac, adder, validMessages, msg_tr, msg, incMessage, txReg_, rxBuf_, msg_m, msg_t, msg_u, msg_v, incByte_, validMessages_, pc, retreivedHMAC, rxReg, incomingMessages_, adder_, rxBuf, bareMessage, guid_, last2, msg_, generatedHMAC, rx, hmacsMatch, chan, incomingMessages, rxReg_, txBuf_, result, msgid_, incByte, txReg, CompareHMAC, last2_"/>
 <stringAttribute key="modelComments" value=""/>
-<booleanAttribute key="modelCorrectnessCheckDeadlock" value="true"/>
+<booleanAttribute key="modelCorrectnessCheckDeadlock" value="false"/>
 <listAttribute key="modelCorrectnessInvariants">
 <listEntry value="1SAFETYCHECK"/>
 </listAttribute>
-<listAttribute key="modelCorrectnessProperties"/>
+<listAttribute key="modelCorrectnessProperties">
+<listEntry value="1LIVENESS"/>
+</listAttribute>
 <stringAttribute key="modelExpressionEval" value=""/>
 <stringAttribute key="modelParameterActionConstraint" value=""/>
 <listAttribute key="modelParameterConstants"/>
@@ -33,14 +35,16 @@
 <listAttribute key="modelParameterDefinitions"/>
 <stringAttribute key="modelParameterModelValues" value="{}"/>
 <stringAttribute key="modelParameterNewDefinitions" value=""/>
-<intAttribute key="numberOfWorkers" value="10"/>
+<intAttribute key="numberOfWorkers" value="12"/>
 <booleanAttribute key="recover" value="false"/>
 <stringAttribute key="result.mail.address" value=""/>
 <intAttribute key="simuAril" value="-1"/>
 <intAttribute key="simuDepth" value="100"/>
 <intAttribute key="simuSeed" value="-1"/>
 <stringAttribute key="specName" value="auth_device"/>
-<listAttribute key="traceExploreExpressions"/>
+<listAttribute key="traceExploreExpressions">
+<listEntry value="1SAFETYCHECK"/>
+</listAttribute>
 <stringAttribute key="view" value=""/>
 <booleanAttribute key="visualizeStateGraph" value="false"/>
 </launchConfiguration>
