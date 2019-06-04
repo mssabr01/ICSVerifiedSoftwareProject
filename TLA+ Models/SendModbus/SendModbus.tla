@@ -34,35 +34,36 @@ MessagesFromCryptoCell == \*these are in ASCII but they are converted to decimal
 
 LOCAL Range(T) == { T[x] : x \in DOMAIN T }
 
-(*--fair algorithm Transmit
-variables   tx = FALSE,
-            messageToSend \in MessagesFromCryptoCell,
-            txBuf = <<>>,
-            txReg = <<>>
-begin
+(*--fair algorithm trustnet_out
+\*process to send modbus out the trusted serial port
 
-checkBuf:   txBuf := messageToSend;
-            if IsModbus(NumTupleToStrTuple(txBuf))
-            then tx := TRUE;
-            end if;
-idle: if tx = TRUE 
-      then goto transmit;
-      else goto finished;
-      end if;
-transmit:   if Len(txBuf) > 1
-            then
-                \*empty the buffer into the register
-                a: txReg := <<Head(txBuf)>>;
-                b: txBuf := Tail(txBuf);
-                goto transmit;
+variables   msg = <<>>,
+            txBuf = <<>>,
+            txReg = <<>>,
+            tmpMsg = <<>>,
+            adder = 0,
+            validMessages = {}
+            
+begin
+    to1: while TRUE do
+        receive("trustnet_out", msg);
+            if \E x \in validMessages : x.id = msg.id then
+                tmpMsg := CHOOSE x \in validMessages : x.id = msg.id;
+                \*if one exists then both portions of the message were verified and the message can be sent
+                if msg.isValid /\ tmpMsg.isValid then \*if the message is valid then look for another message in the validMessages set with the same id.
+                    txBuf := msg.text;
+                    transmit: send("finished_trustnet", NumTupleToStrTuple(txBuf)); \*converting back to characters for easier troubleshooting
+                    to2: validMessages := validMessages \ {tmpMsg}; \*remove sent message from set
+                else
+                    validMessages := validMessages \ {tmpMsg}; \*remove sent message from set
+                end if;
             else
-                txReg := <<txBuf[1]>>;
+                validMessages := validMessages \union {msg}; \*if a message with the same id is not found then add this message to that set
             end if;
-            
-            
-finished: tx := FALSE;
-          txReg:= <<>>;
-          txBuf := <<>>;
+        finished: txReg := <<>>;
+        txBuf := <<>>;
+    end while;
+    
 end algorithm
 *)
 \* BEGIN TRANSLATION
@@ -145,5 +146,6 @@ SAFETYCHECK ==
     /\ txReg = <<>> \/ NumToChar(txReg[1]) \in ModbusChar
 =============================================================================
 \* Modification History
+\* Last modified Sat Jun 01 14:40:15 EDT 2019 by mssabr01
 \* Last modified Mon May 14 13:43:42 EDT 2018 by SabraouM
 \* Created Fri May 04 22:08:30 EDT 2018 by SabraouM

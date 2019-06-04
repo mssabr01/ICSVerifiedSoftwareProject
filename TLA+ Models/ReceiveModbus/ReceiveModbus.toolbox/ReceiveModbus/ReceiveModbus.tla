@@ -4,12 +4,14 @@ EXTENDS Sequences,
         Naturals,
         Modbus,
         TLC,
-        ASCII
+        ASCII,
+        FiniteSets
         
 LOCAL INSTANCE Hex
     WITH natValue <- 0, hexValue <- <<0>> 
 
 LOCAL Range(T) == { T[x] : x \in DOMAIN T }
+
 
 MessagesToSerialPort == \*these are in ASCII but they are converted to decimal before being used below. See StrTupleToNumTuple in ASCII.tla
     { StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>),
@@ -35,133 +37,234 @@ MessagesToSerialPort == \*these are in ASCII but they are converted to decimal b
       <<250>>,<<251>>,<<252>>,<<253>>,<<254>>,<<255>>
       }
 
+
+
 (*--fair algorithm ReceiveModbus
+\* IPC calls
+\*macro send(dest, msg) begin
+\*        sentBuffer := sentBuffer \o msg;
+\*end macro;
+
 variables   rxBuf = <<>>,
-            rx = FALSE,
             rxReg = <<>>,
-            incMessage \in MessagesToSerialPort,
+            incomingMessages \in MessagesToSerialPort,
             incByte = <<>>,
-            applicationBuffer = <<>> \*this is what is passed to the application. Only valid modbus here plz
+            msg = <<>>,
+            msgid = <<>>,
+            guid = <<0>>,
+            last2 = <<0,0>>,
+            modchkBuffer = <<>>, \*this is what is passed to crypto. Only valid modbus here plz
+            signBuffer = <<>>  \*this is what is passed to modchk. Only valid modbus here plz
+
+    
 begin
 
-\* wait for something to appear in the buffer
-idle:   if incMessage = <<>>
-            then incByte := <<>>;
-            else
-                incByte :=  <<Head(incMessage)>>;
-                incMessage := Tail(incMessage);
-        end if;
+trustnet_in1:   while Len(incomingMessages) > 0 do
+                    if Len(incomingMessages) > 1 then
+                        ti1: msg := Head(incomingMessages);                \*pop off message from 
+                        ti2: incomingMessages := Tail(incomingMessages);   \*list of test messages
+                    else
+                        ti3: msg := incomingMessages;
+                        ti4: incomingMessages := <<>>;
+                    end if;
+                start:  while Len(msg) > 0 do                 \*while there are bytes left in the message
 
-inc:    if incByte = <<>>
-        then goto alldone;
-        else
-                rxReg := incByte;    
-        end if;
-
-start:  if Len(rxBuf) < MAXMODBUSSIZE
-        then goto receive;
-        else goto alldone;
-        end if;
+                inc:    if Len(msg) > 1 then                    \*pop off head of message
+                            incByte :=  <<Head(msg)>>;
+                            msg := Tail(msg);
+                        else
+                            incByte := <<msg[1]>>;
+                            msg := <<>>;
+                        end if;
+                        
+                        rxReg := incByte;    
+                        
+                        receive:    \* a ":" character indicates the start of a new message
+                        if rxReg = StrTupleToNumTuple(<<":">>)
+                                then rxBuf := <<>>;
+                        end if;
+                         
+                        \*if the buffer is full then there is NO WAY it could be valid modbus
+                        if Len(rxBuf) = MAXMODBUSSIZE then
+             buffull:       rxBuf := <<>>;
+                            rxReg := <<>>;
+                            incByte := <<>>;
+                            last2 := <<0,0>>;
+                            goto start;
+                        end if;
     
-receive:    \* a ":" character indicates the start of a new message
-            if rxReg = StrTupleToNumTuple(<<":">>)
-                then rxBuf := <<>>;
-            end if;
-            r1: rxBuf := rxBuf \o rxReg; \* put the contents of the register into the buffer
-            \*empty the register
-            r2: rxReg := <<>>;
-
-check:     \*if we have a full modbus packet then signal
-            if IsModbus(NumTupleToStrTuple(rxBuf)) \*convert back to ASCII before checking for modbus
-            then 
-                rx := TRUE; 
-                applicationBuffer := rxBuf;
-                goto alldone;
-            else goto idle;
-            end if;
-            
-alldone:    rxBuf := <<>>;
-            rxReg := <<>>;
-            incByte := <<>>;
-            incMessage := <<>>;
-
+                        r0: last2 := Tail(last2 \o rxReg); \*update last2
+                        r1: rxBuf := rxBuf \o rxReg; \* put the contents of the register into the buffer
+                        
+                        \*empty the register
+                        r2: rxReg := <<>>;
+                        
+            check:     \*if we get the end of the modbus "\r\n" then ship it
+                        if NumTupleToStrTuple(last2) = <<"\r","\n">> then \*convert back to ASCII before checking for end of packet
+                            check0: msgid := <<guid[1]>> \o <<"t","n","i">>;
+                            check1: guid[1] := guid[1] + 1;
+                            check2: modchkBuffer := Append(modchkBuffer, [id|->msgid, text|->rxBuf, source|->"trustnet_in"]);
+                            signBuffer := Append(signBuffer, [id|->msgid, text|->rxBuf]);
+                            \*check2: send("messagecheck", [id|->msgid, text|->rxBuf, source|->"trustnet_in"]);
+                            \*check3: send("sign", [id|->msgid, text|->rxBuf]);
+                            
+                            check4: rxBuf := <<>>;
+                            rxReg := <<>>;
+                            incByte := <<>>;
+                            last2 := <<0,0>>;
+                        end if;
+                end while;
+            end while;
 end algorithm
 *)
 
 \* BEGIN TRANSLATION
-VARIABLES rxBuf, rx, rxReg, incMessage, incByte, applicationBuffer, pc
+VARIABLES rxBuf, rxReg, incomingMessages, incByte, msg, msgid, guid, last2, 
+          modchkBuffer, signBuffer, pc
 
-vars == << rxBuf, rx, rxReg, incMessage, incByte, applicationBuffer, pc >>
+vars == << rxBuf, rxReg, incomingMessages, incByte, msg, msgid, guid, last2, 
+           modchkBuffer, signBuffer, pc >>
 
 Init == (* Global variables *)
         /\ rxBuf = <<>>
-        /\ rx = FALSE
         /\ rxReg = <<>>
-        /\ incMessage \in MessagesToSerialPort
+        /\ incomingMessages \in MessagesToSerialPort
         /\ incByte = <<>>
-        /\ applicationBuffer = <<>>
-        /\ pc = "idle"
+        /\ msg = <<>>
+        /\ msgid = <<>>
+        /\ guid = <<0>>
+        /\ last2 = <<0,0>>
+        /\ modchkBuffer = <<>>
+        /\ signBuffer = <<>>
+        /\ pc = "trustnet_in1"
 
-idle == /\ pc = "idle"
-        /\ IF incMessage = <<>>
-              THEN /\ incByte' = <<>>
-                   /\ UNCHANGED incMessage
-              ELSE /\ incByte' = <<Head(incMessage)>>
-                   /\ incMessage' = Tail(incMessage)
-        /\ pc' = "inc"
-        /\ UNCHANGED << rxBuf, rx, rxReg, applicationBuffer >>
-
-inc == /\ pc = "inc"
-       /\ IF incByte = <<>>
-             THEN /\ pc' = "alldone"
-                  /\ rxReg' = rxReg
-             ELSE /\ rxReg' = incByte
-                  /\ pc' = "start"
-       /\ UNCHANGED << rxBuf, rx, incMessage, incByte, applicationBuffer >>
+trustnet_in1 == /\ pc = "trustnet_in1"
+                /\ IF Len(incomingMessages) > 0
+                      THEN /\ IF Len(incomingMessages) > 1
+                                 THEN /\ pc' = "ti1"
+                                 ELSE /\ pc' = "ti3"
+                      ELSE /\ pc' = "Done"
+                /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, 
+                                msgid, guid, last2, modchkBuffer, signBuffer >>
 
 start == /\ pc = "start"
-         /\ IF Len(rxBuf) < MAXMODBUSSIZE
-               THEN /\ pc' = "receive"
-               ELSE /\ pc' = "alldone"
-         /\ UNCHANGED << rxBuf, rx, rxReg, incMessage, incByte, 
-                         applicationBuffer >>
+         /\ IF Len(msg) > 0
+               THEN /\ pc' = "inc"
+               ELSE /\ pc' = "trustnet_in1"
+         /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, msgid, 
+                         guid, last2, modchkBuffer, signBuffer >>
+
+inc == /\ pc = "inc"
+       /\ IF Len(msg) > 1
+             THEN /\ incByte' = <<Head(msg)>>
+                  /\ msg' = Tail(msg)
+             ELSE /\ incByte' = <<msg[1]>>
+                  /\ msg' = <<>>
+       /\ rxReg' = incByte'
+       /\ pc' = "receive"
+       /\ UNCHANGED << rxBuf, incomingMessages, msgid, guid, last2, 
+                       modchkBuffer, signBuffer >>
 
 receive == /\ pc = "receive"
            /\ IF rxReg = StrTupleToNumTuple(<<":">>)
                  THEN /\ rxBuf' = <<>>
                  ELSE /\ TRUE
                       /\ rxBuf' = rxBuf
-           /\ pc' = "r1"
-           /\ UNCHANGED << rx, rxReg, incMessage, incByte, applicationBuffer >>
+           /\ IF Len(rxBuf') = MAXMODBUSSIZE
+                 THEN /\ pc' = "buffull"
+                 ELSE /\ pc' = "r0"
+           /\ UNCHANGED << rxReg, incomingMessages, incByte, msg, msgid, guid, 
+                           last2, modchkBuffer, signBuffer >>
+
+buffull == /\ pc = "buffull"
+           /\ rxBuf' = <<>>
+           /\ rxReg' = <<>>
+           /\ incByte' = <<>>
+           /\ last2' = <<0,0>>
+           /\ pc' = "start"
+           /\ UNCHANGED << incomingMessages, msg, msgid, guid, modchkBuffer, 
+                           signBuffer >>
+
+r0 == /\ pc = "r0"
+      /\ last2' = Tail(last2 \o rxReg)
+      /\ pc' = "r1"
+      /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, msgid, 
+                      guid, modchkBuffer, signBuffer >>
 
 r1 == /\ pc = "r1"
       /\ rxBuf' = rxBuf \o rxReg
       /\ pc' = "r2"
-      /\ UNCHANGED << rx, rxReg, incMessage, incByte, applicationBuffer >>
+      /\ UNCHANGED << rxReg, incomingMessages, incByte, msg, msgid, guid, 
+                      last2, modchkBuffer, signBuffer >>
 
 r2 == /\ pc = "r2"
       /\ rxReg' = <<>>
       /\ pc' = "check"
-      /\ UNCHANGED << rxBuf, rx, incMessage, incByte, applicationBuffer >>
+      /\ UNCHANGED << rxBuf, incomingMessages, incByte, msg, msgid, guid, 
+                      last2, modchkBuffer, signBuffer >>
 
 check == /\ pc = "check"
-         /\ IF IsModbus(NumTupleToStrTuple(rxBuf))
-               THEN /\ rx' = TRUE
-                    /\ applicationBuffer' = rxBuf
-                    /\ pc' = "alldone"
-               ELSE /\ pc' = "idle"
-                    /\ UNCHANGED << rx, applicationBuffer >>
-         /\ UNCHANGED << rxBuf, rxReg, incMessage, incByte >>
+         /\ IF NumTupleToStrTuple(last2) = <<"\r","\n">>
+               THEN /\ pc' = "check0"
+               ELSE /\ pc' = "start"
+         /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, msgid, 
+                         guid, last2, modchkBuffer, signBuffer >>
 
-alldone == /\ pc = "alldone"
-           /\ rxBuf' = <<>>
-           /\ rxReg' = <<>>
-           /\ incByte' = <<>>
-           /\ incMessage' = <<>>
-           /\ pc' = "Done"
-           /\ UNCHANGED << rx, applicationBuffer >>
+check0 == /\ pc = "check0"
+          /\ msgid' = <<guid[1]>> \o <<"t","n","i">>
+          /\ pc' = "check1"
+          /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, guid, 
+                          last2, modchkBuffer, signBuffer >>
 
-Next == idle \/ inc \/ start \/ receive \/ r1 \/ r2 \/ check \/ alldone
+check1 == /\ pc = "check1"
+          /\ guid' = [guid EXCEPT ![1] = guid[1] + 1]
+          /\ pc' = "check2"
+          /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, msgid, 
+                          last2, modchkBuffer, signBuffer >>
+
+check2 == /\ pc = "check2"
+          /\ modchkBuffer' = Append(modchkBuffer, [id|->msgid, text|->rxBuf, source|->"trustnet_in"])
+          /\ signBuffer' = Append(signBuffer, [id|->msgid, text|->rxBuf])
+          /\ pc' = "check4"
+          /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, msgid, 
+                          guid, last2 >>
+
+check4 == /\ pc = "check4"
+          /\ rxBuf' = <<>>
+          /\ rxReg' = <<>>
+          /\ incByte' = <<>>
+          /\ last2' = <<0,0>>
+          /\ pc' = "start"
+          /\ UNCHANGED << incomingMessages, msg, msgid, guid, modchkBuffer, 
+                          signBuffer >>
+
+ti1 == /\ pc = "ti1"
+       /\ msg' = Head(incomingMessages)
+       /\ pc' = "ti2"
+       /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msgid, guid, 
+                       last2, modchkBuffer, signBuffer >>
+
+ti2 == /\ pc = "ti2"
+       /\ incomingMessages' = Tail(incomingMessages)
+       /\ pc' = "start"
+       /\ UNCHANGED << rxBuf, rxReg, incByte, msg, msgid, guid, last2, 
+                       modchkBuffer, signBuffer >>
+
+ti3 == /\ pc = "ti3"
+       /\ msg' = incomingMessages
+       /\ pc' = "ti4"
+       /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msgid, guid, 
+                       last2, modchkBuffer, signBuffer >>
+
+ti4 == /\ pc = "ti4"
+       /\ incomingMessages' = <<>>
+       /\ pc' = "start"
+       /\ UNCHANGED << rxBuf, rxReg, incByte, msg, msgid, guid, last2, 
+                       modchkBuffer, signBuffer >>
+
+Next == trustnet_in1 \/ start \/ inc \/ receive \/ buffull \/ r0 \/ r1
+           \/ r2 \/ check \/ check0 \/ check1 \/ check2 \/ check4 \/ ti1 \/ ti2
+           \/ ti3 \/ ti4
            \/ (* Disjunct to prevent deadlock on termination *)
               (pc = "Done" /\ UNCHANGED vars)
 
@@ -172,24 +275,38 @@ Termination == <>(pc = "Done")
 
 \* END TRANSLATION
 
-SAFETYCHECK ==
-    \*receive buffer never overflows
-    /\ Len(rxBuf) <= MAXMODBUSSIZE 
-    \*application buffer never overflows
-    /\ Len(applicationBuffer) <= MAXMODBUSSIZE 
-    \*only valid modbus makes it to the app buffer
-    /\ IsModbus(NumTupleToStrTuple(applicationBuffer)) \/ applicationBuffer = <<>> 
-    \*flag is raised if and only if there is valid modbus in app buffer
-    /\ rx = TRUE <=> IsModbus(NumTupleToStrTuple(applicationBuffer))
 
+\*receive buffer never overflows
+SAF1 == Len(rxBuf) <= MAXMODBUSSIZE 
+\*sending buffer never overflows
+SAF2 == 
+    /\ \A x \in Range(signBuffer) : Len(x.text) < MAXMODBUSSIZE
+    /\ \A x \in Range(modchkBuffer) : Len(x.text) < MAXMODBUSSIZE
+\*last2 buffer always less than 3
+SAF3 == Len(last2) < 3
+\*only well-formed modbus gets forwarded
+SAF4 == 
+    /\ \A x \in Range(signBuffer) : IsWellformedModbus(NumTupleToStrTuple(x.text))
+    /\ \A x \in Range(modchkBuffer) : IsWellformedModbus(NumTupleToStrTuple(x.text))
+\*each message that is forwarded has a unique message id
+SAF5 == 
+    /\ \A x \in Range(signBuffer) : Cardinality({y \in Range(signBuffer) : x.id = y.id}) = 1
+    /\ \A x \in Range(modchkBuffer) : Cardinality({y \in Range(modchkBuffer) : x.id = y.id}) = 1
+\*well-formed messages get sent to both inner components
+SAF6 == 
+    /\ \A x \in Range(signBuffer) : \E y \in Range(modchkBuffer) : x.id = y.id
+    /\ \A x \in Range(modchkBuffer) : \E y \in Range(signBuffer) : x.id = y.id
+    
 LIVELINESS ==
-    \* if the message is modbus then it gets to the app buffer
-    /\ IsModbus(NumTupleToStrTuple(incMessage)) ~> IsModbus(NumTupleToStrTuple(applicationBuffer)) 
-    \* if valid modbus comes through then it gets flagged for the application to consume
-    \*/\ IsModbus(NumTupleToStrTuple(incMessage)) ~> rx = TRUE 
-
+    \* if the message is well-formed then it gets sent
+    /\ IsWellformedModbus(NumTupleToStrTuple(msg)) ~> \E x \in Range(signBuffer) : x.text = msg \*this needs to be reworked
+    \* all messages are processed
+    /\ <>[](incomingMessages = <<>>)
+    \*last2 buffer gets reset after each well-formed message
+    /\ NumTupleToStrTuple(last2) = <<"\r","\n">> ~> last2 = <<0,0>>
 
 =============================================================================
 \* Modification History
+\* Last modified Mon Jun 03 16:33:18 EDT 2019 by mssabr01
 \* Last modified Mon May 14 12:52:02 EDT 2018 by SabraouM
 \* Created Sat May 05 11:36:54 EDT 2018 by SabraouM

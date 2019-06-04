@@ -1,0 +1,65 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.13 of 18 July 2018
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with seed -8779980821156559950 with 2 workers on 12 cores with 16520MB heap and 33028MB offheap memory (Linux 4.15.0-50-generic amd64, Oracle Corporation 9-internal x86_64).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ReceiveModbus/ReceiveModbus.toolbox/ReceiveModbus/MC.tla
+Parsing file /home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ReceiveModbus/ReceiveModbus.toolbox/ReceiveModbus/ReceiveModbus.tla
+Parsing file /usr/share/tlaplus/plugins/org.lamport.tlatools_1.0.0.201807180447/tla2sany/StandardModules/TLC.tla
+Parsing file /usr/share/tlaplus/plugins/org.lamport.tlatools_1.0.0.201807180447/tla2sany/StandardModules/Sequences.tla
+Parsing file /usr/share/tlaplus/plugins/org.lamport.tlatools_1.0.0.201807180447/tla2sany/StandardModules/Naturals.tla
+Parsing file /home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ReceiveModbus/ReceiveModbus.toolbox/ReceiveModbus/Modbus.tla
+Parsing file /home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ReceiveModbus/ReceiveModbus.toolbox/ReceiveModbus/ASCII.tla
+Parsing file /home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ReceiveModbus/ReceiveModbus.toolbox/ReceiveModbus/Hex.tla
+Parsing file /usr/share/tlaplus/plugins/org.lamport.tlatools_1.0.0.201807180447/tla2sany/StandardModules/Integers.tla
+Parsing file /home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ReceiveModbus/ReceiveModbus.toolbox/ReceiveModbus/LRC.tla
+Parsing file /usr/share/tlaplus/plugins/org.lamport.tlatools_1.0.0.201807180447/tla2sany/StandardModules/FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module Integers
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Hex
+Semantic processing of module LRC
+Semantic processing of module Modbus
+Semantic processing of module ASCII
+Semantic processing of module ReceiveModbus
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2019-06-03 15:16:59)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 4 branches.
+@!@!@ENDMSG 2212 @!@!@
+<<"ASCIIToString", TRUE>>  TRUE
+<<"Range", {"[", ".", "'", "^", "/", "*", "-", "+", "=", "~", "#", "<", ">", "\\", "|", "&", "$", "%", "@", ",", "0", "(", "T", ")", "{", "x", "]", ":", "}", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!", "y", "v", "n", "i", "d", "e", "f", "g", "S", "w", "s", "_", "p", "j", "a", "b", "t", "m", "F", "A", "B", "C", "D", "E", "J", "G", "P", "W", "I", "R", " ", "\"", ";", "?", "H", "K", "L", "M", "N", "O", "Q", "U", "V", "X", "Y", "Z", "c", "h", "k", "l", "o", "q", "r", "u", "z"}>>  TRUE
+<<"StrArrayToNumArray", TRUE>>  TRUE
+<<"Sanity Check", TRUE>>  TRUE
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2107:1 @!@!@
+Invariant inv_15595894181207000 is violated by the initial state:
+/\ guid = <<0>>
+/\ msgid = <<>>
+/\ msg = <<>>
+/\ pc = "trustnet_in1"
+/\ rxReg = <<>>
+/\ sentBuffer = <<>>
+/\ rxBuf = <<>>
+/\ last2 = <<0, 0>>
+/\ rx = FALSE
+/\ incomingMessages = <<>>
+/\ incByte = <<>>
+
+@!@!@ENDMSG 2107 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 23404ms at (2019-06-03 15:17:21)
+@!@!@ENDMSG 2186 @!@!@

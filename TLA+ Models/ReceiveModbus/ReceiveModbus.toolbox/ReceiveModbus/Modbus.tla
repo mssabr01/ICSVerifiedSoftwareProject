@@ -81,7 +81,14 @@ IsModbus(message) ==
     /\ IsEnd(GetEnd(message))
 
 ModbusChar == {":", "\r", "\n", ""} \union HexChar
-    
+
+\*helper functions
+
+IsWellformedModbus(message) ==
+    /\ Len(message) \in MINMODBUSSIZE..MAXMODBUSSIZE
+    /\ IsStart(Head(message))
+    /\ IsEnd(GetEnd(message))
+
 LOCAL notmod == <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>
 LOCAL ismod == <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>
 (*ASSUME
@@ -97,5 +104,6 @@ LOCAL ismod == <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r
 *)
 =============================================================================
 \* Modification History
+\* Last modified Mon Jun 03 14:53:10 EDT 2019 by mssabr01
 \* Last modified Sun May 13 16:35:04 EDT 2018 by SabraouM
 \* Created Thu Jan 18 14:33:25 EST 2018 by SabraouM

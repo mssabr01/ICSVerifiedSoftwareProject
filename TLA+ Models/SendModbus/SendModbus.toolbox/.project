@@ -23,22 +23,22 @@
 		<link>
 			<name>ASCII.tla</name>
 			<type>1</type>
-			<location>C:/Users/SabraouM/Google Drive/CECS/Proposal/TLA+/ASCII/ASCII.tla</location>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/SendModbus/ASCII.tla</location>
 		</link>
 		<link>
 			<name>Hex.tla</name>
 			<type>1</type>
-			<location>C:/Users/SabraouM/Google Drive/CECS/Proposal/TLA+/Modbus/Hex.tla</location>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/SendModbus/Hex.tla</location>
 		</link>
 		<link>
 			<name>LRC.tla</name>
 			<type>1</type>
-			<location>C:/Users/SabraouM/Google Drive/CECS/Proposal/TLA+/Modbus/LRC.tla</location>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/SendModbus/LRC.tla</location>
 		</link>
 		<link>
 			<name>Modbus.tla</name>
 			<type>1</type>
-			<location>C:/Users/SabraouM/Google Drive/CECS/Proposal/TLA+/Modbus/Modbus.tla</location>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/SendModbus/Modbus.tla</location>
 		</link>
 		<link>
 			<name>SendModbus.tla</name>

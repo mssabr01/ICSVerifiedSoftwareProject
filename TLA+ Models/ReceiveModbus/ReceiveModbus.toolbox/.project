@@ -21,6 +21,26 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>ASCII.tla</name>
+			<type>1</type>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ReceiveModbus/ASCII.tla</location>
+		</link>
+		<link>
+			<name>Hex.tla</name>
+			<type>1</type>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ReceiveModbus/Hex.tla</location>
+		</link>
+		<link>
+			<name>LRC.tla</name>
+			<type>1</type>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ReceiveModbus/LRC.tla</location>
+		</link>
+		<link>
+			<name>Modbus.tla</name>
+			<type>1</type>
+			<location>/home/mssabr01/ICSVerifiedSoftwareProject/TLA+ Models/ReceiveModbus/Modbus.tla</location>
+		</link>
+		<link>
 			<name>ReceiveModbus.tla</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/ReceiveModbus.tla</locationURI>
