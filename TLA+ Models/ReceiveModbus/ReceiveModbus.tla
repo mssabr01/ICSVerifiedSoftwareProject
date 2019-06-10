@@ -15,7 +15,7 @@ LOCAL Range(T) == { T[x] : x \in DOMAIN T }
 
 MessagesToSerialPort == \*these are in ASCII but they are converted to decimal before being used below. See StrTupleToNumTuple in ASCII.tla
     { StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>),
-        StrTupleToNumTuple(<<":","\r","\n">>),
+      StrTupleToNumTuple(<<":","\r","\n">>),
       StrTupleToNumTuple(<<"J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W","\r","\n">>),
       StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
       StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","G","L","F">>),
@@ -93,7 +93,7 @@ trustnet_in1:   while Len(incomingMessages) > 0 do
                         
                         \*only put character in buffer is there is already a ":" in it.
                         \*buffer can only start with ":" so if its empty then just discard character
-            buffProp:   if Len(rxBuf) > 0 then
+            buffProp:   if Len(rxBuf) > 0 /\ ~(rxReg =StrTupleToNumTuple(<<":">>)) then
                             r0: last2 := Tail(last2 \o rxReg); \*update last2
                             r1: rxBuf := rxBuf \o rxReg; \* put the contents of the register into the buffer
                         end if;
@@ -199,7 +199,7 @@ buffull == /\ pc = "buffull"
                            signBuffer >>
 
 buffProp == /\ pc = "buffProp"
-            /\ IF Len(rxBuf) > 0
+            /\ IF Len(rxBuf) > 0 /\ ~(rxReg =StrTupleToNumTuple(<<":">>))
                   THEN /\ pc' = "r0"
                   ELSE /\ pc' = "r2"
             /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, 
@@ -225,21 +225,18 @@ r2 == /\ pc = "r2"
 
 check == /\ pc = "check"
          /\ IF NumTupleToStrTuple(last2) = <<"\r","\n">>
-               THEN /\ IF (Len(rxBuf)) >= MINMODBUSSIZE
-                          THEN /\ pc' = "check0"
-                          ELSE /\ pc' = "check4"
+               THEN /\ pc' = "poop"
                ELSE /\ pc' = "start"
          /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, msgid, 
                          guid, last2, modchkBuffer, signBuffer >>
 
-check4 == /\ pc = "check4"
-          /\ rxBuf' = <<>>
-          /\ rxReg' = <<>>
-          /\ incByte' = <<>>
-          /\ last2' = <<0,0>>
-          /\ pc' = "start"
-          /\ UNCHANGED << incomingMessages, msg, msgid, guid, modchkBuffer, 
-                          signBuffer >>
+poop == /\ pc = "poop"
+        /\ last2' = last2 \o last2
+        /\ IF (Len(rxBuf)) >= MINMODBUSSIZE
+              THEN /\ pc' = "check0"
+              ELSE /\ pc' = "check4"
+        /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, msgid, 
+                        guid, modchkBuffer, signBuffer >>
 
 check0 == /\ pc = "check0"
           /\ msgid' = <<guid[1]>> \o <<"t","n","i">>
@@ -260,9 +257,18 @@ check2 == /\ pc = "check2"
           /\ UNCHANGED << rxBuf, rxReg, incomingMessages, incByte, msg, msgid, 
                           guid, last2 >>
 
+check4 == /\ pc = "check4"
+          /\ rxBuf' = <<>>
+          /\ rxReg' = <<>>
+          /\ incByte' = <<>>
+          /\ last2' = <<0,0>>
+          /\ pc' = "start"
+          /\ UNCHANGED << incomingMessages, msg, msgid, guid, modchkBuffer, 
+                          signBuffer >>
+
 Next == trustnet_in1 \/ ti1 \/ ti2 \/ start \/ inc \/ receive \/ buffull
-           \/ buffProp \/ r0 \/ r1 \/ r2 \/ check \/ check4 \/ check0 \/ check1
-           \/ check2
+           \/ buffProp \/ r0 \/ r1 \/ r2 \/ check \/ poop \/ check0 \/ check1
+           \/ check2 \/ check4
            \/ (* Disjunct to prevent deadlock on termination *)
               (pc = "Done" /\ UNCHANGED vars)
 
@@ -307,6 +313,6 @@ LV3 == NumTupleToStrTuple(last2) = <<"\r","\n">> ~> last2 = <<0,0>>
 
 =============================================================================
 \* Modification History
-\* Last modified Mon Jun 03 22:20:42 EDT 2019 by mssabr01
+\* Last modified Sun Jun 09 18:02:03 EDT 2019 by mssabr01
 \* Last modified Mon May 14 12:52:02 EDT 2018 by SabraouM
 \* Created Sat May 05 11:36:54 EDT 2018 by SabraouM
