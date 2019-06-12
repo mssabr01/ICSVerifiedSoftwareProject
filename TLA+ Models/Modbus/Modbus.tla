@@ -17,6 +17,9 @@ LOCAL INSTANCE TLC
     LRC:        two hex char Longitudinal Redundancy Check (LRC)
     End:        "\r\n"
  *)
+LOCAL PrintVal(id, exp)  ==  Print(<<id, exp>>, TRUE)
+LOCAL notmod == <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>
+LOCAL ismod == <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>
 
 MAXMODBUSSIZE == 515 \*max modbus packet size
 MINMODBUSSIZE == 9
@@ -34,15 +37,22 @@ LOCAL IsAddr(str) ==
     
 \*ASSUME Print(IsAddr(<<"E","0">>),TRUE)
 
-\*Function fields ========================================================
+\*Function fields ========================================================s
 LOCAL GetFunct(str) == SubSeq(str,4,5)
+LOCAL GetSubFunct(str) == SubSeq(str,6,7)
+LOCAL IsSubFunct(code,subcode) == CASE code = <<"0","8">> ->    /\ StringToHex(Head(code)) \in 0..2
+                                                                /\ StringToHex(Head(Tail(code))) \in 0..8
+                                    [] OTHER -> /\ StringToHex(Head(code)) = 1
+                                                /\ StringToHex(Head(Tail(code))) \in 3..4
 
-LOCAL IsFunctionCode(str) == 
-    /\ Len(str) = 2
-    /\ Head(str) \in HexChar
-    /\ Head(Tail(str)) \in HexChar
+LOCAL IsFunctionCode(str) ==    LET code == GetFunct(str)
+                                IN  CASE code = <<"0","8">> -> IsSubFunct(code, GetSubFunct(str))
+                                      [] code = <<"4","3">> -> IsSubFunct(code, GetSubFunct(str))
+                                      [] OTHER ->   /\ Len(code) = 2
+                                                    /\ Head(code) \in HexChar
+                                                    /\ Head(Tail(code)) \in HexChar
 
-\*ASSUME Print(IsFunctionCode(<<"E","0">>),TRUE)
+ASSUME PrintVal(<<"function code:", IsFunctionCode(ismod)>>,TRUE)
 
 \*Data ===================================================================
 LOCAL GetData(str) == SubSeq(str,6,Len(str)-4)
@@ -75,7 +85,7 @@ IsModbus(message) ==
     /\ Len(message) \in MINMODBUSSIZE..MAXMODBUSSIZE
     /\ IsStart(Head(message))
     /\ IsAddr(GetAddr(message))
-    /\ IsFunctionCode(GetFunct(message))
+    /\ IsFunctionCode(message)
     /\ IsData(GetData(message))
     /\ IsLRC(GetLRC(message))
     /\ IsEnd(GetEnd(message))
@@ -89,9 +99,7 @@ IsWellformedModbus(message) ==
     /\ IsStart(Head(message))
     /\ IsEnd(GetEnd(message))
 
-LOCAL notmod == <<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>
-LOCAL ismod == <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>
-(*ASSUME
+ASSUME
   \*
   /\ Print(GetAddr(ismod),TRUE)
   /\ Print(GetFunct(ismod),TRUE)
@@ -101,9 +109,9 @@ LOCAL ismod == <<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r
   /\ Print(IsModbus(notmod), TRUE)
   /\ Print(IsModbus(ismod), TRUE)
   \*/\ Print(IsModbus(<<"e","j","g","p","9","4","3","2","j","3","9","j","g","w","i","r","w">>), TRUE)
-*)
+
 =============================================================================
 \* Modification History
-\* Last modified Mon Jun 03 14:53:10 EDT 2019 by mssabr01
+\* Last modified Tue Jun 11 20:35:57 EDT 2019 by mssabr01
 \* Last modified Sun May 13 16:35:04 EDT 2018 by SabraouM
 \* Created Thu Jan 18 14:33:25 EST 2018 by SabraouM
