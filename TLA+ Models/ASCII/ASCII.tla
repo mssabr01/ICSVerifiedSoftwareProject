@@ -62,15 +62,16 @@ SanityCheck == usableASCII = NumTupleToStrTuple(StrTupleToNumTuple(usableASCII))
 
 \*Tests
 
-ASSUME PrintVal("ASCIIToString", SeqToString(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>) 
+(*ASSUME PrintVal("ASCIIToString", SeqToString(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>) 
                                          = ":1103006B00037E\r\n")
 ASSUME PrintVal("Range", Range(usableASCII))
 ASSUME PrintVal("StrArrayToNumArray", StrTupleToNumTuple(ismod) = <<58, 49, 49, 48, 51, 48, 48, 54, 66, 48, 48, 48, 51, 55, 69, 13, 10>>)
 
 ASSUME PrintVal("Sanity Check", SanityCheck)
-
+*)
 
 =============================================================================
 \* Modification History
+\* Last modified Wed Jun 12 13:21:22 EDT 2019 by mehdi
 \* Last modified Mon May 14 12:45:14 EDT 2018 by SabraouM
 \* Created Thu May 10 13:34:02 EDT 2018 by SabraouM

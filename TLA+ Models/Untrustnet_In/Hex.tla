@@ -51,6 +51,12 @@ FormatByteString(hex) ==
     THEN "0" \o hex
     ELSE hex
 
+RECURSIVE ASCIIHexToDecimal(_)
+ASCIIHexToDecimal(str) ==
+    IF str = <<>>
+    THEN <<>>
+    ELSE <<StringToHex(str[1])*16 + StringToHex(str[2])>> \o ASCIIHexToDecimal(Tail(Tail(str)))
+
 RECURSIVE HexToString(_)
 HexToString(hex) ==
     IF hex = <<>>
@@ -104,5 +110,6 @@ LOCAL Next ==
 
 =============================================================================
 \* Modification History
+\* Last modified Wed Jun 12 13:30:13 EDT 2019 by mehdi
 \* Last modified Mon May 07 19:32:58 EDT 2018 by SabraouM
 \* Created Wed May 02 15:28:50 EDT 2018 by SabraouM

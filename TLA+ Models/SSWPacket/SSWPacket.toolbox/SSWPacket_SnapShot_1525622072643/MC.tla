@@ -1,6 +1,0 @@
----- MODULE MC ----
-EXTENDS SSWPacket, TLC
-
-=============================================================================
-\* Modification History
-\* Created Sun May 06 11:54:27 EDT 2018 by SabraouM
