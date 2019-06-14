@@ -42,18 +42,18 @@ modbus1:    msg := incomingMessages;
                 \*receive("messagecheck", msg);
             if IsModbus(NumTupleToStrTuple(msg.text)) then
                 if msg.source = "trustnet_in" then 
-                    mod1: untrustBuf := Append(untrustBuf, [id|->msg.id, isValid|->TRUE,source|->"msgchk", text|->msg.text]);
+                    mod1: untrustBuf := Append(untrustBuf, [id|->msg.id, isValid|->TRUE,source|->"modchk", text|->msg.text]);
                     \*mod1: send("untrustnet_out", [id|->msg.id, isValid|->TRUE,source|->"msgchk", text|->msg.text]);
                 elsif (msg.source = "untrustnet_in") then
-                    mod2: trustBuf := Append(trustBuf, [id|->msg.id, isValid|->TRUE, source|->"msgchk", text|->msg.text]); 
+                    mod2: trustBuf := Append(trustBuf, [id|->msg.id, isValid|->TRUE, source|->"modchk", text|->msg.text]); 
                     \*mod2: send("trustnet_out", [id|->msg.id, isValid|->TRUE, source|->"msgchk", text|->msg.text]);
                 end if;
             else
                 if msg.source = "trustnet_in" then
-                    mod3: untrustBuf := Append(trustBuf, [id|->msg.id, isValid|->FALSE, source|->"msgchk", text|->msg.text]);
+                    mod3: untrustBuf := Append(trustBuf, [id|->msg.id, isValid|->FALSE, source|->"modchk", text|->msg.text]);
                     \*mod3: send("untrustnet_out", [id|->msg.id, isValid|->FALSE, source|->"msgchk", text|->msg.text]);
                 elsif msg.source = "untrustnet_in" then
-                    mod4: trustBuf := Append(trustBuf, [id|->msg.id, isValid|->FALSE, source|->"msgchk", text|->msg.text]);
+                    mod4: trustBuf := Append(trustBuf, [id|->msg.id, isValid|->FALSE, source|->"modchk", text|->msg.text]);
                     \*mod4: send("trustnet_out", [id|->msg.id, isValid|->FALSE, source|->"msgchk", text|->msg.text]);
                 end if;
             end if;
@@ -103,25 +103,25 @@ m2 == /\ pc = "m2"
       /\ UNCHANGED << rxBuf, rxReg, msg, untrustBuf, trustBuf >>
 
 mod1 == /\ pc = "mod1"
-        /\ untrustBuf' = Append(untrustBuf, [id|->msg.id, isValid|->TRUE,source|->"msgchk", text|->msg.text])
+        /\ untrustBuf' = Append(untrustBuf, [id|->msg.id, isValid|->TRUE,source|->"modchk", text|->msg.text])
         /\ pc' = "pr"
         /\ UNCHANGED << rxBuf, rxReg, incomingMessages, msg, receivedMessages, 
                         trustBuf >>
 
 mod2 == /\ pc = "mod2"
-        /\ trustBuf' = Append(trustBuf, [id|->msg.id, isValid|->TRUE, source|->"msgchk", text|->msg.text])
+        /\ trustBuf' = Append(trustBuf, [id|->msg.id, isValid|->TRUE, source|->"modchk", text|->msg.text])
         /\ pc' = "pr"
         /\ UNCHANGED << rxBuf, rxReg, incomingMessages, msg, receivedMessages, 
                         untrustBuf >>
 
 mod3 == /\ pc = "mod3"
-        /\ untrustBuf' = Append(trustBuf, [id|->msg.id, isValid|->FALSE, source|->"msgchk", text|->msg.text])
+        /\ untrustBuf' = Append(trustBuf, [id|->msg.id, isValid|->FALSE, source|->"modchk", text|->msg.text])
         /\ pc' = "pr"
         /\ UNCHANGED << rxBuf, rxReg, incomingMessages, msg, receivedMessages, 
                         trustBuf >>
 
 mod4 == /\ pc = "mod4"
-        /\ trustBuf' = Append(trustBuf, [id|->msg.id, isValid|->FALSE, source|->"msgchk", text|->msg.text])
+        /\ trustBuf' = Append(trustBuf, [id|->msg.id, isValid|->FALSE, source|->"modchk", text|->msg.text])
         /\ pc' = "pr"
         /\ UNCHANGED << rxBuf, rxReg, incomingMessages, msg, receivedMessages, 
                         untrustBuf >>
@@ -167,5 +167,5 @@ LIVE3 == <>[](incomingMessages = <<>>)
 
 =============================================================================
 \* Modification History
-\* Last modified Thu Jun 13 16:53:42 EDT 2019 by mehdi
+\* Last modified Thu Jun 13 20:39:01 EDT 2019 by mehdi
 \* Created Wed Jun 12 11:10:03 EDT 2019 by mehdi
