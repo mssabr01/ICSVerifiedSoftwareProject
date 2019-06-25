@@ -19,7 +19,7 @@ MessagesFromInnerCells == \*these are in ASCII but they are converted to decimal
         [text |-> StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>), 
                         id |-> <<"u","t","i","0">>,
                         source |-> "modchk", 
-                        isValid |-> TRUE ],
+                        isValid |-> FALSE ],
                         
         [text |-> StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>), 
                         id |-> <<"u","t","i","1">>,
@@ -29,7 +29,7 @@ MessagesFromInnerCells == \*these are in ASCII but they are converted to decimal
                         id |-> <<"u","t","i","1">>,
                         source |-> "modchk",
                         isValid |-> TRUE ],
-                        
+             (*           
         [text |-> StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","G","L","F">>), 
                         id |-> <<"u","t","i","2">>,
                         source |-> "verify", 
@@ -38,7 +38,7 @@ MessagesFromInnerCells == \*these are in ASCII but they are converted to decimal
                         id |-> <<"u","t","i","2">>,
                         source |-> "modchk",  
                         isValid |-> TRUE ],
-                        
+               *)         
         [text |-> StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>), \*this one starts a new modbus packet half way through the message 
                         id |-> <<"u","t","i","3">>,
                         source |-> "verify", 
@@ -181,21 +181,27 @@ LIVELINESS ==
 SAFE1 == /\ \A x \in Range(serialport) : \E y \in Range(metaserialport) : y.text = x
          /\ \A y \in Range(metaserialport) : \E x \in Range(serialport) : x = y.text
 \*Only prints if both inner components say its valid
-SAFE2 == \A x \in metaserialport : /\ (\E y \in Range(MessagesFromInnerCells) : x.id = y.id /\ y.isValid /\ y.source = "modchk")
+SAFE2 == \A x \in Range(metaserialport) : /\ (\E y \in Range(MessagesFromInnerCells) : x.id = y.id /\ y.isValid /\ y.source = "modchk")
                                    /\ (\E y \in Range(MessagesFromInnerCells) : x.id = y.id /\ y.isValid /\ y.source = "verify")
 \*sending buffer never overflows
-SAFE3 == IsWellformedModbus(txBuf)
+\*SAFE3 == ~(txBuf = <<>>) => IsWellformedModbus(NumTupleToStrTuple(txBuf))
+SAFE3 == Len(txBuf) < MAXMODBUSSIZE 
 \*only valid Modbus gets printed (this module assumes valid Modbus is received from both inner components
-SAFE4 == \A x \in Range(serialport): IsModbus(x)
+SAFE4 == \A x \in Range(serialport): \E y \in Range(MessagesFromInnerCells) : x = y.text
 
 \* each message received is eventually sent or discarded is NOT a property of this module
 \*Each message that gets its companion message is sent or discarded
-LIVE1 == C
-
+LIVE1 == \A x \in Range(MessagesFromInnerCells) : x \in validMessages /\ x.id = msg.id ~> x \notin validMessages
+        
+\*valid messages are eventually sent
+LIVE2 == \A x \in Range(MessagesFromInnerCells) : msg = x /\ x.isValid /\ (\E y \in validMessages : y.id = x.id /\ y.isValid /\ y.source /= x.source)
+            ~> \E z \in Range(metaserialport) : z.id = x.id
+\*all messages are eventually processed
+LIVE3 == \A x \in Range(MessagesFromInnerCells) : TRUE => <>(\E y \in validMessages : y.id = x.id)
 
 =============================================================================
 \* Modification History
+\* Last modified Tue Jun 25 14:56:16 EDT 2019 by mssabr01
 \* Last modified Fri Jun 14 09:43:37 EDT 2019 by mehdi
-\* Last modified Sat Jun 01 14:40:15 EDT 2019 by mssabr01
 \* Last modified Mon May 14 13:43:42 EDT 2018 by SabraouM
 \* Created Fri May 04 22:08:30 EDT 2018 by SabraouM
