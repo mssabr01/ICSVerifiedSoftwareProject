@@ -7,115 +7,179 @@ EXTENDS Sequences,
         ASCII
         
 LOCAL INSTANCE Hex
-    WITH natValue <- 0, hexValue <- <<0>> 
-MessagesToSerialPort == 
-    {StrTupleToNumTuple(isSSW),
-     StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>),
-     StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>),
-     StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","F">>),
-     <<>>,<<1>>,<<2>>,<<3>>,<<4>>,<<5>>,<<6>>,<<7>>,<<8>>,<<9>>,<<10>>,<<11>>,<<12>>,<<13>>, \* all possible values
-      <<14>>,<<15>>,<<16>>,<<17>>,<<18>>,<<19>>,<<20>>,<<21>>,<<22>>,<<23>>,<<24>>,<<25>>,   \*that could come across the serial line
-      <<26>>,<<27>>,<<28>>,<<29>>,<<30>>,<<31>>,<<32>>,<<33>>,<<34>>,<<35>>,<<36>>,<<37>>,<<38>>,<<39>>,<<40>>,<<41>>,
-      <<42>>,<<43>>,<<44>>,<<45>>,<<46>>,<<47>>,<<48>>,<<49>>,<<50>>,<<51>>,<<52>>,<<53>>,<<54>>,<<55>>,<<56>>,<<57>>,
-      <<58>>,<<59>>,<<60>>,<<61>>,<<62>>,<<63>>,<<64>>,<<65>>,<<66>>,<<67>>,<<68>>,<<69>>,<<70>>,<<71>>,<<72>>,<<73>>,
-      <<74>>,<<75>>,<<76>>,<<77>>,<<78>>,<<79>>,<<80>>,<<81>>,<<82>>,<<83>>,<<84>>,<<85>>,<<86>>,<<87>>,<<88>>,<<89>>,
-      <<90>>,<<91>>,<<92>>,<<93>>,<<94>>,<<95>>,<<96>>,<<97>>,<<98>>,<<99>>,<<100>>,<<101>>,<<102>>,<<103>>,<<104>>,<<105>>,
-      <<106>>,<<107>>,<<108>>,<<109>>,<<110>>,<<111>>,<<112>>,<<113>>,<<114>>,<<115>>,<<116>>,<<117>>,<<118>>,<<119>>,<<120>>,<<121>>,
-      <<122>>,<<123>>,<<124>>,<<125>>,<<126>>,<<127>>,<<128>>,<<129>>,<<130>>,<<131>>,<<132>>,<<133>>,<<134>>,<<135>>,<<136>>,<<137>>,
-      <<138>>,<<139>>,<<140>>,<<141>>,<<142>>,<<143>>,<<144>>,<<145>>,<<146>>,<<147>>,<<148>>,<<149>>,<<150>>,<<151>>,<<152>>,<<153>>,
-      <<154>>,<<155>>,<<156>>,<<157>>,<<158>>,<<159>>,<<160>>,<<161>>,<<162>>,<<163>>,<<164>>,<<165>>,<<166>>,<<167>>,<<168>>,<<169>>,
-      <<170>>,<<171>>,<<172>>,<<173>>,<<174>>,<<175>>,<<176>>,<<177>>,<<178>>,<<179>>,<<180>>,<<181>>,<<182>>,<<183>>,<<184>>,<<185>>,
-      <<186>>,<<187>>,<<188>>,<<189>>,<<190>>,<<191>>,<<192>>,<<193>>,<<194>>,<<195>>,<<196>>,<<197>>,<<198>>,<<199>>,<<200>>,<<201>>,
-      <<202>>,<<203>>,<<204>>,<<205>>,<<206>>,<<207>>,<<208>>,<<209>>,<<210>>,<<211>>,<<212>>,<<213>>,<<214>>,<<215>>,<<216>>,<<217>>,
-      <<218>>,<<219>>,<<220>>,<<221>>,<<222>>,<<223>>,<<224>>,<<225>>,<<226>>,<<227>>,<<228>>,<<229>>,<<230>>,<<231>>,<<232>>,<<233>>,
-      <<234>>,<<235>>,<<236>>,<<237>>,<<238>>,<<239>>,<<240>>,<<241>>,<<242>>,<<243>>,<<244>>,<<245>>,<<246>>,<<247>>,<<248>>,<<249>>,
-      <<250>>,<<251>>,<<252>>,<<253>>,<<254>>,<<255>>}
+    WITH natValue <- 0, hexValue <- <<0>>
+LOCAL PrintVal(id, exp)  ==  Print(<<id, exp>>, TRUE)
+\*HMAC == <<"I","K","o","W","L","9","v","G","U","h","S","1","q","t","Z","f","4","5","h","r","9","W","4","1","Z","i","B","G","P","j","d","o","w","6","S","Y","2","A","0","+","q","E","d","a","+","s","i","i","B","H","G","C","4","r","/","S","5","g","J","W","P","/","s","T">> \*not concerned with the inner workings of SHA2 
+HMAC == <<"l","o","l">>
+MessagesFromInnerCells == \*these are in ASCII but they are converted to decimal before being used below. See StrTupleToNumTuple in ASCII.tla
+    << (* [text |-> StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>), 
+                        id |-> <<"u","t","i","0">>,
+                        source |-> "sign",
+                        hmac |-> HMAC,
+                        isValid |-> TRUE ],
+        [text |-> StrTupleToNumTuple(<<":","J","G","P","9","4","3","2","J","3","9","J","G","W","I","R","W">>), 
+                        id |-> <<"u","t","i","0">>,
+                        source |-> "modchk", 
+                        isValid |-> FALSE ],
+        
+        [text |-> StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>), 
+                        id |-> <<"u","t","i","1">>,
+                        source |-> "modchk",
+                        isValid |-> TRUE ],              
+        [text |-> StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>), 
+                        id |-> <<"u","t","i","1">>,
+                        source |-> "sign",
+                        hmac |-> HMAC,
+                        isValid |-> TRUE ],
+                        
+             (*           
+        [text |-> StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","G","L","F">>), 
+                        id |-> <<"u","t","i","2">>,
+                        source |-> "sign", 
+                        hmac |-> HMAC,
+                        isValid |-> TRUE ],
+        [text |-> StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","1","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","R","L","1","0","3","0","0","6","B","0","0","0","3","7","E","C","G","L","F">>), 
+                        id |-> <<"u","t","i","2">>,
+                        source |-> "modchk",  
+                        isValid |-> TRUE ],
+               *)         
+        [text |-> StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>), \*this one starts a new modbus packet half way through the message 
+                        id |-> <<"u","t","i","3">>,
+                        source |-> "sign", 
+                        hmac |-> HMAC,
+                        isValid |-> TRUE ],
+        [text |-> StrTupleToNumTuple(<<":","1","1","0","3","0","0","6","B","0","0","0",":","1","1","0","3","0","0","6","B","0","0","0","3","7","E","\r","\n">>), \*this one starts a new modbus packet half way through the message 
+                        id |-> <<"u","t","i","3">>,
+                        source |-> "modchk",  
+                        isValid |-> TRUE ]
+      *)>>
+
 LOCAL Range(T) == { T[x] : x \in DOMAIN T }
 
-(*--fair algorithm Transmit
-variables   tx = FALSE,
-            messageToSend \in MessagesToSerialPort,
-            txBuf = <<>>,
-            txReg = <<>>
-begin
+(*--fair algorithm trustnet_out
+\*process to send modbus out the trusted serial port
 
-checkBuf:   txBuf := messageToSend;
-            if IsSSW(NumTupleToStrTuple(txBuf))
-            then tx := TRUE;
-            end if;
-idle: if tx = TRUE 
-      then goto transmit;
-      else goto finished;
-      end if;
-transmit:   if Len(txBuf) > 1
-            then
-                \*empty the buffer into the register
-                a: txReg := <<Head(txBuf)>>;
-                b: txBuf := Tail(txBuf);
-                goto transmit;
+variables   msg = <<>>,
+            incomingMessages = MessagesFromInnerCells,
+            txBuf = <<>>,
+            txReg = <<>>,
+            tmpMsg = <<>>,
+            adder = 0,
+            serialport = <<>>,
+            metaserialport = <<>>, \*to have ID numbers for property checks. This should be the same as serial port but the whole object rather than raw modbus
+            validMessages = {}
+            
+begin
+    to1: while Len(incomingMessages) > 0 do
+        if Len(incomingMessages) = 1 then
+            msg := incomingMessages[1];
+            incomingMessages := <<>>;
+        else
+            msg := Head(incomingMessages);
+            incomingMessages := Tail(incomingMessages);
+        end if;
+        \*receive("trustnet_out", msg);
+            if \E x \in validMessages : x.id = msg.id then
+                tmpMsg := CHOOSE x \in validMessages : x.id = msg.id;
+                \*if one exists then both portions of the message were verified and the message can be sent
+                if msg.isValid /\ tmpMsg.isValid then \*if the message is valid then look for another message in the validMessages set with the same id.
+                    
+                    if msg.source = "sign" then
+                        txBuf := StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple(msg.hmac) \o msg.text;
+                    else
+                        txBuf := StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple(tmpMsg.hmac) \o msg.text;
+                    end if;
+                    
+                    serialport := Append(serialport, txBuf);
+                    metaserialport := Append(metaserialport,msg);
+                    
+                    \*transmit: send("finished_untrustnet", NumTupleToStrTuple(txBuf)); \*converting back to characters for easier troubleshooting
+                    to2: validMessages := validMessages \ {tmpMsg}; \*remove sent message from set
+                    
+                    (*txBuf := msg.text;
+                    serialport := Append(serialport, txBuf);
+                    metaserialport := Append(metaserialport,msg);
+                    \*transmit: send("finished_trustnet", NumTupleToStrTuple(txBuf)); \*converting back to characters for easier troubleshooting
+                    to2: validMessages := validMessages \ {tmpMsg}; \*remove sent message from set
+                    *)
+                else
+                    validMessages := validMessages \ {tmpMsg}; \*remove sent message from set
+                end if;
             else
-                txReg := <<txBuf[1]>>;
+                validMessages := validMessages \union {msg}; \*if a message with the same id is not found then add this message to that set
             end if;
-            
-            
-finished: tx := FALSE;
-          txReg:= <<>>;
-          txBuf := <<>>;
+        finished: txReg := <<>>;
+        txBuf := <<>>;
+    end while;
+    print "hmac: ";
+    print StrTupleToNumTuple(<<"I","K","o","W","L","9","v","G","U","h","S","1","q","t","Z","f","4","5","h","r","9","W","4","1","Z","i","B","G","P","j","d","o","w","6","S","Y","2","A","0","+","q","E","d","a","+","s","i","i","B","H","G","C","4","r","/","S","5","g","J","W","P","/","s","T">>);
 end algorithm
 *)
 \* BEGIN TRANSLATION
-VARIABLES tx, messageToSend, txBuf, txReg, pc
+VARIABLES msg, incomingMessages, txBuf, txReg, tmpMsg, adder, serialport, 
+          metaserialport, validMessages, pc
 
-vars == << tx, messageToSend, txBuf, txReg, pc >>
+vars == << msg, incomingMessages, txBuf, txReg, tmpMsg, adder, serialport, 
+           metaserialport, validMessages, pc >>
 
 Init == (* Global variables *)
-        /\ tx = FALSE
-        /\ messageToSend \in MessagesToSerialPort
+        /\ msg = <<>>
+        /\ incomingMessages = MessagesFromInnerCells
         /\ txBuf = <<>>
         /\ txReg = <<>>
-        /\ pc = "checkBuf"
+        /\ tmpMsg = <<>>
+        /\ adder = 0
+        /\ serialport = <<>>
+        /\ metaserialport = <<>>
+        /\ validMessages = {}
+        /\ pc = "to1"
 
-checkBuf == /\ pc = "checkBuf"
-            /\ txBuf' = messageToSend
-            /\ IF IsSSW(NumTupleToStrTuple(txBuf'))
-                  THEN /\ tx' = TRUE
-                  ELSE /\ TRUE
-                       /\ tx' = tx
-            /\ pc' = "idle"
-            /\ UNCHANGED << messageToSend, txReg >>
-
-idle == /\ pc = "idle"
-        /\ IF tx = TRUE
-              THEN /\ pc' = "transmit"
-              ELSE /\ pc' = "finished"
-        /\ UNCHANGED << tx, messageToSend, txBuf, txReg >>
-
-transmit == /\ pc = "transmit"
-            /\ IF Len(txBuf) > 1
-                  THEN /\ pc' = "a"
-                       /\ txReg' = txReg
-                  ELSE /\ txReg' = <<txBuf[1]>>
-                       /\ pc' = "finished"
-            /\ UNCHANGED << tx, messageToSend, txBuf >>
-
-a == /\ pc = "a"
-     /\ txReg' = <<Head(txBuf)>>
-     /\ pc' = "b"
-     /\ UNCHANGED << tx, messageToSend, txBuf >>
-
-b == /\ pc = "b"
-     /\ txBuf' = Tail(txBuf)
-     /\ pc' = "transmit"
-     /\ UNCHANGED << tx, messageToSend, txReg >>
+to1 == /\ pc = "to1"
+       /\ IF Len(incomingMessages) > 0
+             THEN /\ IF Len(incomingMessages) = 1
+                        THEN /\ msg' = incomingMessages[1]
+                             /\ incomingMessages' = <<>>
+                        ELSE /\ msg' = Head(incomingMessages)
+                             /\ incomingMessages' = Tail(incomingMessages)
+                  /\ IF \E x \in validMessages : x.id = msg'.id
+                        THEN /\ tmpMsg' = (CHOOSE x \in validMessages : x.id = msg'.id)
+                             /\ IF msg'.isValid /\ tmpMsg'.isValid
+                                   THEN /\ IF msg'.source = "sign"
+                                              THEN /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple(msg'.hmac) \o msg'.text
+                                              ELSE /\ txBuf' = StrTupleToNumTuple(<<"!">>) \o StrTupleToNumTuple(tmpMsg'.hmac) \o msg'.text
+                                        /\ serialport' = Append(serialport, txBuf')
+                                        /\ metaserialport' = Append(metaserialport,msg')
+                                        /\ pc' = "to2"
+                                        /\ UNCHANGED validMessages
+                                   ELSE /\ validMessages' = validMessages \ {tmpMsg'}
+                                        /\ pc' = "finished"
+                                        /\ UNCHANGED << txBuf, serialport, 
+                                                        metaserialport >>
+                        ELSE /\ validMessages' = (validMessages \union {msg'})
+                             /\ pc' = "finished"
+                             /\ UNCHANGED << txBuf, tmpMsg, serialport, 
+                                             metaserialport >>
+             ELSE /\ PrintT("hmac: ")
+                  /\ PrintT(StrTupleToNumTuple(<<"I","K","o","W","L","9","v","G","U","h","S","1","q","t","Z","f","4","5","h","r","9","W","4","1","Z","i","B","G","P","j","d","o","w","6","S","Y","2","A","0","+","q","E","d","a","+","s","i","i","B","H","G","C","4","r","/","S","5","g","J","W","P","/","s","T">>))
+                  /\ pc' = "Done"
+                  /\ UNCHANGED << msg, incomingMessages, txBuf, tmpMsg, 
+                                  serialport, metaserialport, validMessages >>
+       /\ UNCHANGED << txReg, adder >>
 
 finished == /\ pc = "finished"
-            /\ tx' = FALSE
             /\ txReg' = <<>>
             /\ txBuf' = <<>>
-            /\ pc' = "Done"
-            /\ UNCHANGED messageToSend
+            /\ pc' = "to1"
+            /\ UNCHANGED << msg, incomingMessages, tmpMsg, adder, serialport, 
+                            metaserialport, validMessages >>
 
-Next == checkBuf \/ idle \/ transmit \/ a \/ b \/ finished
+to2 == /\ pc = "to2"
+       /\ validMessages' = validMessages \ {tmpMsg}
+       /\ pc' = "finished"
+       /\ UNCHANGED << msg, incomingMessages, txBuf, txReg, tmpMsg, adder, 
+                       serialport, metaserialport >>
+
+Next == to1 \/ finished \/ to2
            \/ (* Disjunct to prevent deadlock on termination *)
               (pc = "Done" /\ UNCHANGED vars)
 
@@ -125,21 +189,10 @@ Spec == /\ Init /\ [][Next]_vars
 Termination == <>(pc = "Done")
 
 \* END TRANSLATION
-LIVELINESS ==
-\* check that if valid SSW is in the buffer it gets sent
-    /\ tx = TRUE /\ IsSSW(NumTupleToStrTuple(txBuf)) ~> Len(txBuf) = 1
-\*If there is something to send then it is alway sent
-    /\ tx = TRUE /\ IsSSW(NumTupleToStrTuple(txBuf)) ~> (txReg /= <<>>)
-\*If there is something to send, the flag is eventually reset
-    /\ (tx = TRUE) ~> (tx = FALSE)
 
-SAFETYCHECK ==
-\*Only valid SSW triggers the sending
-    /\ Len(txReg) > 0 => IsSSW(NumTupleToStrTuple(messageToSend))
-\*only one thing in the transmission register
-    /\ Len(txReg) <= 1
 =============================================================================
 \* Modification History
+\* Last modified Tue Jun 25 16:04:18 EDT 2019 by mssabr01
 \* Last modified Thu Jun 13 18:17:32 EDT 2019 by mehdi
 \* Last modified Mon May 14 12:54:26 EDT 2018 by SabraouM
 \* Created Fri May 04 22:08:30 EDT 2018 by SabraouM
