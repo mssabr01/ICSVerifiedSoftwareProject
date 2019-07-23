@@ -25,7 +25,7 @@ LOCAL IsStart(str) == Head(str) = STARTCHAR \*start with something that isn't he
 \*ASSUME PrintVal("Is this a start?", IsStart("!"))
 
 \*HMAC fields =========================================================
-LOCAL GetHMAC(str) == SubSeq(str,2,65)
+GetHMAC(str) == SubSeq(str,2,65)
 
 LOCAL IsHMAC(str) == 
     /\ Len(str) = 64 \*these bytes can be anything so we are just checking length?
@@ -69,6 +69,6 @@ TYPEOK ==
 
 =============================================================================
 \* Modification History
-\* Last modified Wed Jun 05 15:29:59 EDT 2019 by mssabr01
+\* Last modified Mon Jul 15 11:32:11 EDT 2019 by mssabr01
 \* Last modified Mon May 14 11:23:11 EDT 2018 by SabraouM
 \* Created Sun May 06 09:06:45 EDT 2018 by SabraouM
