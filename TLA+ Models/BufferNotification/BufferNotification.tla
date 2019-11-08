@@ -8,7 +8,7 @@ ASSUME numBuff > 0
 (* --fair algorithm BufferNotification
 
 variables 
-    buffers = [buffer \in 1..numBuff |-> <<>>],
+    buffers = [buffer \in 1..numBuff |-> "lol hello"],
     
     
 \* IPC calls
@@ -35,11 +35,13 @@ variables   selectedBuffer;
 begin
 consume1:   while TRUE do
                 \*select a single buffer in buffers that is not empty
-                selectedBuffer := {n \in 1..numBuff : Len(buffers[n]) > 0};
+                selectedBuffer := CHOOSE n \in 1..numBuff : TRUE;
                 print selectedBuffer;
+                print buffers[selectedBuffer];
                 \*consume buffer
                 buffers[selectedBuffer] := <<>>;
                 \*signal notification object for said buffer
+                
             end while;
 end process
 \*=========================================
@@ -53,7 +55,7 @@ begin
 produce1:    while TRUE do
             \*get notification somehow
             \*fill buffer with some shit
-                skip;
+            buffers[self] := "lol I'm full xD";
             end while;
                 
 end process
@@ -68,19 +70,20 @@ vars == << buffers, selectedBuffer, msg >>
 ProcSet == {"consumer"} \cup (1..numBuff)
 
 Init == (* Global variables *)
-        /\ buffers = [buffer \in 1..numBuff |-> <<>>]
+        /\ buffers = [buffer \in 1..numBuff |-> "lol hello"]
         (* Process consumer *)
         /\ selectedBuffer = defaultInitValue
         (* Process producer *)
         /\ msg = [self \in 1..numBuff |-> <<>>]
 
-consumer == /\ selectedBuffer' = {n \in 1..numBuff : Len(buffers[n]) > 0}
+consumer == /\ selectedBuffer' = (CHOOSE n \in 1..numBuff : TRUE)
             /\ PrintT(selectedBuffer')
+            /\ PrintT(buffers[selectedBuffer'])
             /\ buffers' = [buffers EXCEPT ![selectedBuffer'] = <<>>]
             /\ msg' = msg
 
-producer(self) == /\ TRUE
-                  /\ UNCHANGED << buffers, selectedBuffer, msg >>
+producer(self) == /\ buffers' = [buffers EXCEPT ![self] = "lol I'm full xD"]
+                  /\ UNCHANGED << selectedBuffer, msg >>
 
 Next == consumer
            \/ (\E self \in 1..numBuff: producer(self))
@@ -119,5 +122,5 @@ LIVENESS ==
 
 =============================================================================
 \* Modification History
-\* Last modified Wed Oct 23 21:46:14 EDT 2019 by msabraoui
+\* Last modified Thu Nov 07 21:21:54 EST 2019 by msabraoui
 \* Created Wed Oct 23 20:41:48 EDT 2019 by msabraoui
