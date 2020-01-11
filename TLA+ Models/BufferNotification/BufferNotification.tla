@@ -9,7 +9,7 @@ ASSUME numBuff > 0
 
 variables 
     buffers = [buffer \in 1..numBuff |-> "lol hello"],
-    
+    note_objects = [note \in 1..numBuff |-> 0],
     
 \* IPC calls
 macro send(dest, msg) 
@@ -18,6 +18,9 @@ macro send(dest, msg)
         \*chan[dest] := Append(chan[dest], msg);
     end macro;
 
+\*convert this to 'notify
+\*it sets a notification object to '1'
+\*have some other way that processes can register to listen to notification objects
 macro receive(channel, msg) 
     begin
     (*
@@ -55,6 +58,7 @@ begin
 produce1:    while TRUE do
             \*get notification somehow
             \*fill buffer with some shit
+            print self;
             buffers[self] := "lol I'm full xD";
             end while;
                 
@@ -63,14 +67,15 @@ end process
 end algorithm;*)
 \* BEGIN TRANSLATION
 CONSTANT defaultInitValue
-VARIABLES buffers, selectedBuffer, msg
+VARIABLES buffers, note_objects, selectedBuffer, msg
 
-vars == << buffers, selectedBuffer, msg >>
+vars == << buffers, note_objects, selectedBuffer, msg >>
 
 ProcSet == {"consumer"} \cup (1..numBuff)
 
 Init == (* Global variables *)
         /\ buffers = [buffer \in 1..numBuff |-> "lol hello"]
+        /\ note_objects = [note \in 1..numBuff |-> 0]
         (* Process consumer *)
         /\ selectedBuffer = defaultInitValue
         (* Process producer *)
@@ -80,10 +85,11 @@ consumer == /\ selectedBuffer' = (CHOOSE n \in 1..numBuff : TRUE)
             /\ PrintT(selectedBuffer')
             /\ PrintT(buffers[selectedBuffer'])
             /\ buffers' = [buffers EXCEPT ![selectedBuffer'] = <<>>]
-            /\ msg' = msg
+            /\ UNCHANGED << note_objects, msg >>
 
-producer(self) == /\ buffers' = [buffers EXCEPT ![self] = "lol I'm full xD"]
-                  /\ UNCHANGED << selectedBuffer, msg >>
+producer(self) == /\ PrintT(self)
+                  /\ buffers' = [buffers EXCEPT ![self] = "lol I'm full xD"]
+                  /\ UNCHANGED << note_objects, selectedBuffer, msg >>
 
 Next == consumer
            \/ (\E self \in 1..numBuff: producer(self))
@@ -122,5 +128,5 @@ LIVENESS ==
 
 =============================================================================
 \* Modification History
-\* Last modified Thu Nov 07 21:21:54 EST 2019 by msabraoui
+\* Last modified Mon Nov 11 13:58:19 EST 2019 by msabraoui
 \* Created Wed Oct 23 20:41:48 EDT 2019 by msabraoui
