@@ -42,8 +42,7 @@ FindPartnerMessage(msg, messages) == CHOOSE x \in messages : x.id = msg.id
 
 variables 
     
-    chan = [trustnet_out |-> <<>>, sign |-> <<>>, verify |-> <<>>, messagecheck |-> <<>>, 
-            untrustnet_in |-> <<>>, untrustnet_out |-> <<>>, finished_untrustnet |-> <<>>, finished_trustnet |-> <<>>],
+    chan = [sign |-> <<>>]
     
     
 \* IPC calls
